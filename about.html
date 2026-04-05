@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Grant | The Hockey Lab</title>
+  <meta name="description" content="Grant Truesdell is a lifelong goalie, Juno Award-winning musician, and founder of The Hockey Lab — a structured development system built in Coquitlam, BC.">
+  <link rel="stylesheet" href="css/site.css">
+  <style>
+    .about-hero {
+      padding: 100px var(--pad-x) 0;
+      background: linear-gradient(165deg, #131313 0%, #080808 100%);
+      border-bottom: 1px solid var(--white-08);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::before {
+      content: 'GRANT';
+      position: absolute;
+      right: -40px; bottom: -40px;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 260px;
+      color: rgba(255,215,0,0.025);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .ah-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: end; padding-bottom: 80px; }
+    .ah-h {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(52px, 8vw, 88px);
+      text-transform: uppercase;
+      letter-spacing: -4px;
+      line-height: .88;
+      margin: 16px 0 24px;
+    }
+    .ah-h span { color: var(--gold); }
+    .ah-sub { font-size: 16px; color: var(--white-60); line-height: 1.8; }
+    .photo-frame {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(145deg, var(--dark-3), var(--dark-2));
+      border: 1px solid var(--white-08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .photo-frame::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(8,8,8,0.7) 0%, transparent 50%);
+      z-index: 1;
+    }
+    .photo-caption {
+      position: absolute;
+      bottom: 24px; left: 24px; right: 24px;
+      z-index: 2;
+    }
+    .pc-name {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pc-role {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .creds-strip { display: flex; gap: 0; border-top: 1px solid var(--white-08); }
+    .cred {
+      flex: 1;
+      padding: 24px 28px;
+      border-right: 1px solid var(--white-08);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: background 0.2s;
+    }
+    .cred:last-child { border-right: none; }
+    .cred:hover { background: rgba(255,215,0,0.03); }
+    .cred-val {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+    .cred-lbl {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      line-height: 1.4;
+    }
+    .story-section { display: grid; grid-template-columns: 200px 1fr; gap: 0; align-items: start; }
+    .story-nav {
+      position: sticky;
+      top: 80px;
+      padding: 32px 0;
+      border-right: 1px solid var(--white-08);
+      height: fit-content;
+    }
+    .snav-item {
+      display: block;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      text-decoration: none;
+      padding: 12px 24px;
+      border-left: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .snav-item:hover, .snav-item.active { color: var(--gold); border-left-color: var(--gold); }
+    .story-content { padding: 64px 72px; }
+    .story-block {
+      margin-bottom: 64px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid var(--white-08);
+    }
+    .story-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .sb-eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .sb-h {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: -1.5px;
+      line-height: .95;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+    .sb-h span { color: var(--gold); }
+    .sb-body { font-size: 15px; color: var(--white-60); line-height: 1.9; }
+    .sb-body p { margin-bottom: 18px; }
+    .sb-body p:last-child { margin-bottom: 0; }
+    .sb-body strong { color: #fff; font-weight: 500; }
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px;
+      margin: 32px 0;
+      background: var(--dark-3);
+    }
+    .pq-text {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .pq-text span { color: var(--gold); }
+    .values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 32px; }
+    .val {
+      background: var(--dark-3);
+      padding: 24px;
+      border: 1px solid var(--white-08);
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .val:hover { border-color: var(--gold-border); background: #1c1c1c; transform: translateY(-2px); }
+    .val-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: -0.3px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .val-text { font-size: 13px; color: var(--white-60); line-height: 1.65; }
+    .cta-final {
+      background: var(--dark-2);
+      border-top: 1px solid var(--white-08);
+      padding: 80px var(--pad-x);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .cf-h {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 5vw, 52px);
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: .9;
+      margin: 16px 0 20px;
+    }
+    .cf-h span { color: var(--gold); }
+    .cf-text { font-size: 15px; color: var(--white-60); line-height: 1.8; margin-bottom: 32px; }
+    .cf-right { display: flex; flex-direction: column; gap: 12px; }
+    .cf-card {
+      border: 1px solid var(--white-08);
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .cf-card:hover { border-color: var(--gold-border); background: var(--dark-3); transform: translateX(4px); }
+    .cf-icon {
+      width: 44px; height: 44px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      color: var(--gold);
+    }
+    .cf-info-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: -0.3px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .cf-info-desc { font-size: 13px; color: var(--white-35); }
+    @media (max-width: 768px) {
+      .ah-grid { grid-template-columns: 1fr; gap: 40px; }
+      .creds-strip { flex-wrap: wrap; }
+      .cred { min-width: 50%; border-bottom: 1px solid var(--white-08); }
+      .story-section { grid-template-columns: 1fr; }
+      .story-nav { display: none; }
+      .story-content { padding: 40px var(--pad-x); }
+      .values-grid { grid-template-columns: 1fr; }
+      .cta-final { grid-template-columns: 1fr; gap: 40px; }
+    }
+  </style>
+</head>
+<body class="page-top">
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<div class="about-hero">
+  <div class="ah-grid">
+    <div class="ah-left">
+      <div class="t-eyebrow anim-1">Founder and Head Coach</div>
+      <h1 class="ah-h anim-2">GRANT<br><span>TRUESDELL</span></h1>
+      <p class="ah-sub anim-3">Lifelong goalie. Juno Award-winning musician. Performance mentor. Founder of The Hockey Lab. Every part of that sentence connects — and shapes how Grant coaches athletes.</p>
+    </div>
+    <div class="ah-right anim-4">
+      <div class="photo-frame" style="background:none;">
+        <img src="images/grant-backyard.jpg" alt="Grant Truesdell on his backyard rink — where The Hockey Lab began" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+        <div class="photo-caption">
+          <div class="pc-name">Grant Truesdell</div>
+          <div class="pc-role">Where it started &nbsp;·&nbsp; Backyard rink, Coquitlam BC</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="creds-strip">
+    <div class="cred"><div class="cred-val">30+</div><div class="cred-lbl">Years Playing<br>and Coaching</div></div>
+    <div class="cred"><div class="cred-val">Juno</div><div class="cred-lbl">Award<br>Winner</div></div>
+    <div class="cred"><div class="cred-val" style="font-size:22px;letter-spacing:-0.5px;">NCCP</div><div class="cred-lbl">Hockey Canada<br>Certification Stream</div></div>
+    <div class="cred"><div class="cred-val">4</div><div class="cred-lbl">Development<br>Pillars Built</div></div>
+    <div class="cred"><div class="cred-val">1</div><div class="cred-lbl">Focus:<br>The Long Game</div></div>
+  </div>
+</div>
+
+<!-- STORY -->
+<div class="story-section border-top">
+  <nav class="story-nav" id="story-nav">
+    <a href="#the-goalie" class="snav-item active">The Goalie</a>
+    <a href="#the-musician" class="snav-item">The Musician</a>
+    <a href="#the-lab" class="snav-item">The Lab</a>
+    <a href="#the-philosophy" class="snav-item">The Philosophy</a>
+    <a href="#the-values" class="snav-item">What He Values</a>
+  </nav>
+  <div class="story-content">
+
+    <div id="the-goalie" class="story-block reveal">
+      <div class="sb-eyebrow">Chapter 1</div>
+      <h2 class="sb-h">THE <span>GOALIE</span></h2>
+      <div class="sb-body">
+        <p>Grant has been playing hockey since he was old enough to put on pads. The goalie position found him early and never let go — and for good reason. There is something about standing in net that teaches you things no other position in any sport quite replicates.</p>
+        <p><strong>You are the last line of defense. Every mistake is visible. Every save or goal is decided in a fraction of a second.</strong> You learn composure or you break down. You learn to reset or the next goal becomes inevitable.</p>
+        <p>Over 30 years of playing the position at a competitive level, Grant developed a deep understanding of what it actually takes to perform under pressure — not just in theory, but in the moments when it costs something real.</p>
+        <p>That experience is the foundation of everything taught at The Hockey Lab. Not coaching credentials. Not YouTube. Three decades of being in the net, feeling the weight of the moment, and learning how to perform through it.</p>
+      </div>
+      <div class="pull-quote">
+        <div class="pq-text">Every goalie learns composure eventually. <span>The ones who learn it early</span> have a massive advantage over everyone else.</div>
+      </div>
+    </div>
+
+    <div id="the-musician" class="story-block reveal">
+      <div class="sb-eyebrow">Chapter 2</div>
+      <h2 class="sb-h">THE <span>MUSICIAN</span></h2>
+      <div class="sb-body">
+        <p>Most hockey coaches do not have a Juno Award. Grant does. As an internationally touring musician performing at the highest levels of the Canadian music industry, Grant lived in a world where the margin for error is just as unforgiving as sport — but the pressure looks different.</p>
+        <p><strong>You perform in front of thousands of people. One bad night is not just a loss — it is a career moment.</strong> Preparation, mindset, and execution under pressure are not optional. They are the entire job.</p>
+        <p>What Grant discovered across both hockey and music is that the mental skills required to perform at a high level are identical. Composure. Reset ability. Confidence under pressure. Pre-performance routines. The ability to be fully present when the stakes are highest.</p>
+        <p>The Mental Edge system at The Hockey Lab was born directly from this insight. It is not a generic mindset program adapted for hockey — it is a performance framework built from real experience in two high-pressure disciplines over decades.</p>
+      </div>
+      <div class="pull-quote">
+        <div class="pq-text">Playing in front of thousands of people teaches you the same things a playoff game does. <span>Preparation is everything. Mindset is the multiplier.</span></div>
+      </div>
+    </div>
+
+    <div id="the-lab" class="story-block reveal">
+      <div class="sb-eyebrow">Chapter 3</div>
+      <h2 class="sb-h">THE <span>LAB</span></h2>
+      <div class="sb-body">
+        <p>The Hockey Lab started as a backyard experiment. Grant had been coaching hockey — primarily goalies — and kept running into the same problem. Athletes who had real talent but no structured development environment outside of team practice. No one connecting the physical, technical, and mental sides of their game into a single coherent system.</p>
+        <p><strong>So he built one.</strong> Starting small, working with individual athletes, refining what worked and cutting what did not. The 4-pillar framework emerged from that process — not from a textbook, but from years of watching what actually produces development.</p>
+        <p>The Hockey Lab is now an established development program in Coquitlam — and is launching at a new purpose-built facility in June 2026. A structured environment where athletes from ages 5 through elite junior can develop with intention, consistency, and a real plan.</p>
+        <p>Grant has been accepted into Hockey Canada's NCCP Goaltending Program, and remains directly involved in the coaching and program design. He is not the face of a brand he has stepped back from. He is in the building, working with athletes, every week.</p>
+      </div>
+    </div>
+
+    <div id="the-philosophy" class="story-block reveal">
+      <div class="sb-eyebrow">Chapter 4</div>
+      <h2 class="sb-h">THE <span>PHILOSOPHY</span></h2>
+      <div class="sb-body">
+        <p>Grant's coaching philosophy is built on a simple premise: <strong>development is earned through clarity, consistency, and character — not volume.</strong></p>
+        <p>The youth hockey world is full of ice time, instruction, and opportunity. What is consistently missing is an environment where athletes are mentored, not just trained. Where the long-term health of their development matters more than short-term results. Where families receive honest feedback instead of empty reassurance.</p>
+        <p>Grant works closely with athletes and their families to provide clear development plans, direct feedback, and consistent support over time. He is not interested in managing a roster of clients. He is interested in having a real impact on the athletes he works with.</p>
+        <p>The Hockey Lab is deliberately kept small for this reason. The compete sessions are capped at six athletes. The private sessions are truly private. The results speak for themselves — and they are built on trust, not on marketing.</p>
+      </div>
+    </div>
+
+    <div id="the-values" class="story-block reveal">
+      <div class="sb-eyebrow">Chapter 5</div>
+      <h2 class="sb-h">WHAT HE <span>VALUES</span></h2>
+      <div class="sb-body">
+        <p>These are not posted on a wall. They show up in how every session is run, how every conversation with a family is handled, and how every difficult moment with an athlete is navigated.</p>
+      </div>
+      <div class="values-grid">
+        <div class="val"><div class="val-title">Honesty over comfort</div><div class="val-text">Athletes get honest feedback. Parents get honest assessments. Development does not happen in an environment where hard truths are avoided.</div></div>
+        <div class="val"><div class="val-title">The long game</div><div class="val-text">Every decision in the program is made with the athlete's long-term development in mind — not the next game, and not the next season registration.</div></div>
+        <div class="val"><div class="val-title">Respect for the ecosystem</div><div class="val-text">The Hockey Lab is not in competition with team hockey. It is a complement. Grant communicates with coaches and associations, not around them.</div></div>
+        <div class="val"><div class="val-title">Character first</div><div class="val-text">The best athletes Grant has coached are the ones who showed up consistently, took feedback well, and competed with integrity. That is what he looks for and what he builds.</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="cta-final">
+  <div class="cf-left reveal-left">
+    <div class="t-eyebrow">Work With Grant</div>
+    <h2 class="cf-h">READY TO<br>BUILD <span>SOMETHING</span>?</h2>
+    <p class="cf-text">Every athlete who trains at The Hockey Lab starts with one conversation or one session. Pick what feels right for where you are right now.</p>
+    <a href="mailto:grant@thehockeylabofficial.com" class="btn btn-outline">Email Grant Directly</a>
+  </div>
+  <div class="cf-right reveal-right">
+    <a href="waitlist.html" class="cf-card">
+      <div class="cf-icon">1</div>
+      <div><div class="cf-info-title">Join the Waitlist</div><div class="cf-info-desc">Be first in line when we open at our new facility. No commitment required.</div></div>
+    </a>
+    <a href="mailto:grant@thehockeylabofficial.com?subject=Development Consultation" class="cf-card">
+      <div class="cf-icon">2</div>
+      <div><div class="cf-info-title">Development Consultation Call</div><div class="cf-info-desc">15 minutes with Grant to talk through your athlete's goals and find the right fit.</div></div>
+    </a>
+    <a href="mental-edge.html" class="cf-card">
+      <div class="cf-icon">3</div>
+      <div><div class="cf-info-title">Mental Edge Program</div><div class="cf-info-desc">6-week mindset coaching for athletes who have the skill but struggle under pressure.</div></div>
+    </a>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<div id="mobile-cta-placeholder"></div>
+<script src="js/shared.js"></script>
+<script>
+  // Story nav active state on scroll
+  const storyBlocks = document.querySelectorAll('.story-block[id]');
+  const snavItems = document.querySelectorAll('.snav-item');
+  if (storyBlocks.length && snavItems.length) {
+    const onStoryScroll = () => {
+      let current = '';
+      storyBlocks.forEach(block => {
+        const top = block.getBoundingClientRect().top;
+        if (top < 160) current = block.id;
+      });
+      snavItems.forEach(item => {
+        item.classList.toggle('active', item.getAttribute('href') === '#' + current);
+      });
+    };
+    window.addEventListener('scroll', onStoryScroll, { passive: true });
+    onStoryScroll();
+  }
+</script>
+</body>
+</html>

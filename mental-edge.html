@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Edge | The Hockey Lab</title>
+  <meta name="description" content="The Mental Edge is a 6-week mindset coaching program for hockey athletes ages 10+. Build focus, composure, and confidence that shows up in games — not just practice.">
+  <link rel="stylesheet" href="css/site.css">
+  <style>
+    .me-hero {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 var(--pad-x) 80px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(165deg, #111 0%, #080808 100%);
+    }
+    .me-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 20% 50%, rgba(255,215,0,0.06) 0%, transparent 70%);
+    }
+    .me-hero::after {
+      content: 'MIND';
+      position: absolute;
+      right: -30px; bottom: -20px;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 280px;
+      color: rgba(255,215,0,0.025);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .me-inner { position: relative; z-index: 2; }
+    .me-h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(56px, 9vw, 100px);
+      text-transform: uppercase;
+      letter-spacing: -4px;
+      line-height: .88;
+      margin: 16px 0 24px;
+    }
+    .me-h1 span { color: var(--gold); }
+    .me-sub { font-size: 17px; color: var(--white-60); line-height: 1.75; max-width: 520px; margin-bottom: 44px; }
+    .me-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .me-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,215,0,0.08);
+      border: 1px solid rgba(255,215,0,0.25);
+      padding: 10px 20px;
+      margin-bottom: 24px;
+    }
+    .me-badge-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulseDot 2s infinite; }
+    .me-badge-txt {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .problem-section { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--white-08); }
+    .problem-left { padding: 80px var(--pad-x) 80px; border-right: 1px solid var(--white-08); }
+    .problem-right { padding: 80px 64px 80px; background: var(--dark-2); }
+    .prob-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--white-08);
+      transition: padding-left 0.2s;
+    }
+    .prob-item:first-child { padding-top: 0; border-top: none; }
+    .prob-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .prob-item:hover { padding-left: 6px; }
+    .prob-icon {
+      width: 36px; height: 36px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 14px;
+      color: var(--gold);
+    }
+    .prob-txt strong { display: block; font-size: 15px; color: #fff; font-weight: 500; margin-bottom: 6px; }
+    .prob-txt span { font-size: 13px; color: var(--white-60); line-height: 1.6; }
+    .gains-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 48px; }
+    .gain {
+      background: var(--dark-3);
+      padding: 32px 28px;
+      border: 1px solid var(--white-08);
+      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    }
+    .gain:hover { border-color: var(--gold-border); background: #1c1c1c; transform: translateY(-4px); }
+    .gain-icon {
+      width: 40px; height: 40px;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      color: #080808;
+    }
+    .gain-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: -0.3px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .gain-text { font-size: 13px; color: var(--white-60); line-height: 1.65; }
+    .how-section { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--white-08); }
+    .how-left { padding: 80px var(--pad-x) 80px; border-right: 1px solid var(--white-08); }
+    .how-right { padding: 80px 64px 80px; }
+    .week-list { display: flex; flex-direction: column; gap: 2px; }
+    .week-item {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 0;
+      border: 1px solid var(--white-08);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .week-item:hover { border-color: var(--gold-border); background: rgba(255,215,0,0.02); }
+    .week-n {
+      background: var(--gold-dim);
+      border-right: 1px solid var(--white-08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 14px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+    .week-info { padding: 18px 20px; }
+    .week-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .week-desc { font-size: 13px; color: var(--white-60); line-height: 1.5; }
+    .price-callout {
+      background: rgba(255,215,0,0.06);
+      border: 1px solid rgba(255,215,0,0.3);
+      padding: 36px;
+      margin-top: 32px;
+    }
+    .pc-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+    .pc-name {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      color: #fff;
+    }
+    .pc-price-block { text-align: right; }
+    .pc-pl {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      margin-bottom: 4px;
+    }
+    .pc-p {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 40px;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+    .pc-p em { font-style: normal; font-size: 14px; color: var(--white-35); font-weight: 400; }
+    .pc-items { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+    .pci { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--white-60); }
+    .pci::before { content: ''; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+    .testi-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .testi-single {
+      background: var(--dark-3);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--white-08);
+      transition: border-color 0.2s;
+    }
+    .testi-single:hover { border-color: var(--gold-border); }
+    .testi-single::before {
+      content: '\201C';
+      position: absolute;
+      top: 8px; right: 20px;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 100px;
+      color: rgba(255,215,0,0.04);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .tq { font-size: 15px; color: var(--white-60); line-height: 1.8; margin-bottom: 20px; position: relative; z-index: 1; }
+    .ta { border-top: 1px solid var(--white-08); padding-top: 16px; }
+    .tan {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .tar {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    /* FAQ Accordion */
+    .faq-list { display: flex; flex-direction: column; gap: 2px; margin-top: 48px; }
+    .faq-item { border: 1px solid var(--white-08); overflow: hidden; transition: border-color 0.2s; }
+    .faq-item.open { border-color: var(--gold-border); }
+    .faq-q {
+      padding: 22px 28px;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: -0.3px;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+      user-select: none;
+    }
+    .faq-q:hover { background: var(--dark-3); }
+    .faq-toggle {
+      color: var(--gold);
+      font-size: 24px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      line-height: 1;
+    }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .faq-a {
+      padding: 0 28px;
+      font-size: 14px;
+      color: var(--white-60);
+      line-height: 1.75;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 28px 22px; }
+    .grant-note {
+      border-left: 3px solid var(--gold);
+      padding: 24px 28px;
+      background: var(--dark-3);
+      margin-top: 32px;
+    }
+    .gn-lbl {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .gn-text { font-size: 14px; color: var(--white-60); line-height: 1.75; font-style: italic; }
+    .gn-attr {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-top: 12px;
+    }
+    #enroll { scroll-margin-top: 80px; }
+    @media (max-width: 768px) {
+      .problem-section { grid-template-columns: 1fr; }
+      .problem-left, .problem-right { padding: 48px var(--pad-x); border-right: none; border-bottom: 1px solid var(--white-08); }
+      .gains-grid { grid-template-columns: 1fr 1fr; }
+      .how-section { grid-template-columns: 1fr; }
+      .how-left, .how-right { padding: 48px var(--pad-x); border-right: none; border-bottom: 1px solid var(--white-08); }
+      .testi-pair { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="page-top">
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<section class="me-hero">
+  <div class="me-inner">
+    <div class="me-badge anim-1">
+      <div class="me-badge-dot"></div>
+      <div class="me-badge-txt">Available Now — No Facility Required</div>
+    </div>
+    <div class="t-eyebrow anim-1">Performance Mindset Coaching</div>
+    <h1 class="me-h1 anim-2">THE<br>MENTAL<br><span>EDGE</span></h1>
+    <p class="me-sub anim-3">Mindset training for hockey athletes who want to perform under pressure — not just in practice. Built for ages 10 and up. Available as a standalone program or integrated into any Hockey Lab membership.</p>
+    <div class="me-actions anim-4">
+      <a href="https://calendly.com/thehockeylab/mental-edge-call" class="btn btn-gold">Book a Free Mental Edge Call</a>
+      <a href="#enroll" class="btn btn-outline">Enroll Now — $199</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM / SIGNS -->
+<div class="problem-section">
+  <div class="problem-left reveal-left">
+    <div class="t-eyebrow">The Problem</div>
+    <h2 class="t-h2">YOUR ATHLETE<br>HAS THE <span class="gold">SKILL</span></h2>
+    <p class="t-body" style="margin:20px 0 32px;">But when the pressure hits — in big games, after mistakes, in tryouts — something changes. It is not a skill problem. Every hockey parent who has watched their kid collapse in a big moment knows this. And no amount of extra practice fixes it.</p>
+    <div class="grant-note">
+      <div class="gn-lbl">From Coach Grant</div>
+      <div class="gn-text">I have coached athletes at every level. The ones who stall out are almost never the least skilled. They are the ones who never learned to manage their own mind under pressure. That is what the Mental Edge is built to fix.</div>
+      <div class="gn-attr">Grant Truesdell — Founder, The Hockey Lab</div>
+    </div>
+  </div>
+  <div class="problem-right reveal-right">
+    <div class="t-eyebrow">What We See</div>
+    <h3 style="font-family:'Exo 2',sans-serif;font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:-0.5px;margin-bottom:24px;color:#fff;">The signs it's a mindset problem</h3>
+    <div class="prob-item"><div class="prob-icon">01</div><div class="prob-txt"><strong>Practices great, games fall apart</strong><span>Performance in low-pressure environments is consistently better than in games. The skill is there. The mental tools are not.</span></div></div>
+    <div class="prob-item"><div class="prob-icon">02</div><div class="prob-txt"><strong>One mistake becomes a spiral</strong><span>A bad goal, a turnover, or a missed shift starts a chain reaction that the athlete cannot break out of on their own.</span></div></div>
+    <div class="prob-item"><div class="prob-icon">03</div><div class="prob-txt"><strong>Hesitates in high-pressure moments</strong><span>Overthinking replaces instinct. Athletes who have the skill but cannot pull the trigger when the game is on the line.</span></div></div>
+    <div class="prob-item"><div class="prob-icon">04</div><div class="prob-txt"><strong>Confidence is inconsistent</strong><span>Plays with confidence in some games and disappears in others. Their internal state is running the show instead of their preparation.</span></div></div>
+  </div>
+</div>
+
+<!-- WHAT ATHLETES GAIN -->
+<section class="section section--dark2 border-top border-bottom">
+  <div class="reveal">
+    <div class="t-eyebrow">What Athletes Gain</div>
+    <h2 class="t-h2">REAL TOOLS.<br><span class="gold">REAL RESULTS.</span></h2>
+  </div>
+  <div class="gains-grid">
+    <div class="gain reveal reveal-delay-1"><div class="gain-icon">01</div><div class="gain-title">Focus Under Pressure</div><div class="gain-text">Pre-game and in-game focus routines that athletes can actually use — not generic advice, but personalized tools that match how each athlete thinks and competes.</div></div>
+    <div class="gain reveal reveal-delay-2"><div class="gain-icon">02</div><div class="gain-title">Reset After Mistakes</div><div class="gain-text">The single most valuable mental skill in hockey. Athletes who can reset quickly after a bad play are exponentially more consistent than those who cannot. We train this directly.</div></div>
+    <div class="gain reveal reveal-delay-3"><div class="gain-icon">03</div><div class="gain-title">Real Confidence</div><div class="gain-text">Not the kind that disappears when things go wrong. Confidence that is built through preparation, self-knowledge, and the mental habits that hold up in high-stakes moments.</div></div>
+    <div class="gain reveal reveal-delay-4"><div class="gain-icon">04</div><div class="gain-title">Composure in Big Moments</div><div class="gain-text">Tryouts, playoffs, big shifts. Athletes learn what composure actually feels like in their body and how to access it deliberately — not just hope it shows up.</div></div>
+    <div class="gain reveal reveal-delay-5"><div class="gain-icon">05</div><div class="gain-title">Performance Consistency</div><div class="gain-text">The goal is not one great game. It is reliable, consistent performance over the course of a season. Mental Edge athletes stop being streaky and start being dependable.</div></div>
+    <div class="gain reveal reveal-delay-6"><div class="gain-icon">06</div><div class="gain-title">A Personal Mental Blueprint</div><div class="gain-text">At the end of the 6 weeks, every athlete leaves with a personalized Mental Edge Blueprint — a written document they can return to throughout their entire career.</div></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="how-section" id="enroll">
+  <div class="how-left reveal-left">
+    <div class="t-eyebrow">How It Works</div>
+    <h2 class="t-h2">6 WEEKS.<br><span class="gold">ONE SYSTEM.</span></h2>
+    <p class="t-body" style="margin:20px 0 32px;">The Mental Edge is a 6-week coaching program delivered in weekly 1-hour sessions — available in a 1:1 format or small group. Each week builds on the last, creating a complete mental performance system that athletes carry with them long after the program ends.</p>
+    <div class="price-callout">
+      <div class="pc-top">
+        <div class="pc-name">Mental Edge<br>6-Week Program</div>
+        <div class="pc-price-block">
+          <div class="pc-pl">Full Program</div>
+          <div class="pc-p">$199 <em>total</em></div>
+        </div>
+      </div>
+      <div class="pc-items">
+        <div class="pci">6 x 1-hour coaching sessions (1:1 or small group)</div>
+        <div class="pci">Personalized mindset strategies for each athlete</div>
+        <div class="pci">Ongoing support between sessions</div>
+        <div class="pci">Final Mental Edge Blueprint document</div>
+        <div class="pci">Available as standalone or integrated into any Lab program</div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="https://buy.stripe.com/14keVp4HlgVjbksaEL" class="btn btn-gold">Enroll Now — $199</a>
+        <a href="https://calendly.com/thehockeylab/mental-edge-call" class="btn btn-outline">Book a Free Call First</a>
+      </div>
+    </div>
+  </div>
+  <div class="how-right reveal-right">
+    <div class="t-eyebrow">The 6-Week Structure</div>
+    <h3 style="font-family:'Exo 2',sans-serif;font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:-0.5px;margin-bottom:24px;color:#fff;">What we cover, week by week</h3>
+    <div class="week-list">
+      <div class="week-item"><div class="week-n">W1</div><div class="week-info"><div class="week-title">Foundation and Self-Assessment</div><div class="week-desc">Understanding your mental game — where you are, what is holding you back, and what your personal performance patterns look like.</div></div></div>
+      <div class="week-item"><div class="week-n">W2</div><div class="week-info"><div class="week-title">Focus and Presence</div><div class="week-desc">Building the ability to stay present during competition. Pre-game routines, focus cues, and the tools to stay locked in when it counts.</div></div></div>
+      <div class="week-item"><div class="week-n">W3</div><div class="week-info"><div class="week-title">Reset and Recovery</div><div class="week-desc">The most important session. How to recover from mistakes mid-game so one bad play never becomes a bad period or a bad night.</div></div></div>
+      <div class="week-item"><div class="week-n">W4</div><div class="week-info"><div class="week-title">Confidence and Pressure</div><div class="week-desc">Building confidence that holds up under real pressure — not just when things are going well. Preparation-based confidence, not mood-based confidence.</div></div></div>
+      <div class="week-item"><div class="week-n">W5</div><div class="week-info"><div class="week-title">Composure in Big Moments</div><div class="week-desc">Tryouts, playoffs, big shifts. Specific tools for the moments that matter most, including breathing techniques, physical anchors, and mental rehearsal.</div></div></div>
+      <div class="week-item"><div class="week-n">W6</div><div class="week-info"><div class="week-title">The Mental Edge Blueprint</div><div class="week-desc">Everything comes together. Each athlete leaves with a personalized, written Mental Edge Blueprint they can use for the rest of their career.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="section section--dark2 border-top border-bottom">
+  <div class="reveal">
+    <div class="t-eyebrow">What Families Say</div>
+    <h2 class="t-h2" style="margin-bottom:40px;">HEARD FROM <span class="gold">REAL ATHLETES</span></h2>
+  </div>
+  <div class="testi-pair">
+    <div class="testi-single reveal reveal-delay-1">
+      <div class="tq">Grant said something that really stuck with me: how often does your son train physically? Now compare that to how often he trains mentally. For a game that is largely mental, we spend far less time training the mind than the body — and that perspective alone was eye-opening.</div>
+      <div class="ta"><div class="tan">Kassandra S.</div><div class="tar">Parent of High-Level Goalie &nbsp;·&nbsp; Google Review ★★★★★</div></div>
+    </div>
+    <div class="testi-single reveal reveal-delay-2">
+      <div class="tq">My son is less nervous before big games and has more structured strategies to mentally prepare. He has also worked with Grant on ice — he is a great coach and my son enjoys working with him every single session.</div>
+      <div class="ta"><div class="tan">Bobby B.</div><div class="tar">Parent of Mental Edge Athlete &nbsp;·&nbsp; Google Review ★★★★★</div></div>
+    </div>
+  </div>
+  <div style="margin-top:2px;" class="reveal">
+    <div class="testi-single" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);">
+      <div class="tq" style="font-size:17px;">Our son looks forward to seeing Grant every week. Grant has taught him new skills that we have already seen him confidently apply during games. After each session, our son is eager to stay and continue practicing.</div>
+      <div class="ta"><div class="tan">Brad T.</div><div class="tar">Hockey Lab Parent &nbsp;·&nbsp; Google Review ★★★★★</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section border-bottom">
+  <div class="reveal">
+    <div class="t-eyebrow">Common Questions</div>
+    <h2 class="t-h2" style="margin-bottom:0;">EVERYTHING<br><span class="gold">YOU NEED TO KNOW</span></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">What is the Mental Edge program? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">The Mental Edge is a 6-week performance mindset coaching program. It is not therapy. It is performance coaching — the same kind of mental skills work that elite athletes at every level use to compete consistently under pressure.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Who is this program for? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Athletes ages 10 and up who are actively competing in hockey. Whether your athlete is chasing a spot on a higher team or just wants to be more consistent, the Mental Edge delivers tools that are immediately applicable to their game.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is this 1:1 or group? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Both formats are available. 1:1 sessions are fully private and personalized. Small group sessions (up to 4 athletes) are available when scheduling allows. Both formats cover the same curriculum and deliver the same tools.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I know if my athlete needs this? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">If your athlete consistently performs better in practice than in games, struggles to reset after mistakes, or their confidence seems fragile under pressure — those are the signs. Book a free 30-minute call with Grant and we will tell you honestly whether this is the right fit.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is it included in Hockey Lab programs? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Yes. The Mental Edge mindset component is integrated into the Performance and Elite programs as a monthly session. The full 6-week standalone program is also available at any time as an add-on or on its own.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the cost? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">The full 6-week standalone program is $199, which includes all 6 coaching sessions and the personalized Mental Edge Blueprint. There is no additional charge for ongoing support between sessions during the program.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section section--dark2" style="text-align:center;">
+  <div class="t-eyebrow reveal" style="justify-content:center;">Take the First Step</div>
+  <h2 class="t-h2 reveal" style="margin-bottom:20px;">START WITH A <span class="gold">FREE CALL</span></h2>
+  <p class="t-body reveal" style="max-width:460px;margin:0 auto 40px;">Book a free 30-minute call with Grant. We will walk through where your athlete is now, what they are struggling with, and whether the Mental Edge program is the right fit — no pressure, no commitment.</p>
+  <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;" class="reveal">
+    <a href="https://calendly.com/thehockeylab/mental-edge-call" class="btn btn-gold">Book a Free Mental Edge Call</a>
+    <a href="https://buy.stripe.com/14keVp4HlgVjbksaEL" class="btn btn-outline">Enroll Directly — $199</a>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<div id="mobile-cta-placeholder"></div>
+<script src="js/shared.js"></script>
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

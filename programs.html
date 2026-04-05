@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programs | The Hockey Lab | Coquitlam, BC</title>
+  <meta name="description" content="Four structured development programs for hockey athletes ages 5 to elite. Young Cup, Development, Performance, and Elite — clear pricing, clear progression.">
+  <link rel="stylesheet" href="css/site.css">
+  <style>
+    .page-hero {
+      padding: 100px var(--pad-x) 72px;
+      background: linear-gradient(165deg, #131313 0%, #080808 100%);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--white-08);
+    }
+    .page-hero::before {
+      content: 'PROGRAMS';
+      position: absolute;
+      right: -20px; top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 180px;
+      color: rgba(255,215,0,0.03);
+      line-height: 1;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .ph-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; }
+    .ph-h {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(48px, 7vw, 80px);
+      text-transform: uppercase;
+      letter-spacing: -3px;
+      line-height: .88;
+      margin: 16px 0;
+    }
+    .ph-h span { color: var(--gold); }
+    .prog-anchor { padding-top: 73px; margin-top: -73px; }
+    .prog-section { padding: 80px var(--pad-x); border-bottom: 1px solid var(--white-08); }
+    .prog-section:nth-child(even) { background: var(--dark-2); }
+    .prog-layout { display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; align-items: start; }
+    .prog-level-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold-dim);
+      border-left: 3px solid var(--gold);
+      padding: 6px 16px;
+      margin-bottom: 20px;
+    }
+    .plt-text {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .prog-big-name {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(52px, 7vw, 80px);
+      text-transform: uppercase;
+      letter-spacing: -3px;
+      line-height: .88;
+      margin-bottom: 12px;
+    }
+    .prog-big-name span { color: var(--gold); }
+    .prog-tagline {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      margin-bottom: 28px;
+    }
+    .prog-desc { font-size: 15px; color: var(--white-60); line-height: 1.85; margin-bottom: 20px; }
+    .price-block { margin-bottom: 32px; }
+    .price-lbl {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      margin-bottom: 8px;
+    }
+    .price-num {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 56px;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+    .price-num em { font-style: normal; font-size: 16px; color: var(--white-35); font-weight: 400; letter-spacing: 2px; }
+    .inc-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .inc-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 24px; }
+    .inc-item {
+      display: flex;
+      gap: 0;
+      align-items: stretch;
+      border: 1px solid var(--white-08);
+      border-bottom: none;
+      transition: background 0.2s;
+    }
+    .inc-item:last-child { border-bottom: 1px solid var(--white-08); }
+    .inc-item:hover { background: rgba(255,215,0,0.03); }
+    .inc-dot {
+      width: 48px;
+      flex-shrink: 0;
+      background: var(--gold-dim);
+      border-right: 1px solid var(--white-08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .inc-dot-inner { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+    .inc-text { padding: 16px 20px; font-size: 14px; color: var(--white-60); line-height: 1.5; }
+    .inc-text strong { color: #fff; font-weight: 500; display: block; margin-bottom: 3px; font-size: 14px; }
+    .session-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 24px; }
+    .sc {
+      background: var(--dark-3);
+      padding: 24px;
+      border: 1px solid var(--white-08);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .sc:hover { border-color: var(--gold-border); background: #1c1c1c; }
+    .sc-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .sc-text { font-size: 13px; color: var(--white-60); line-height: 1.6; }
+    .elite-callout {
+      background: rgba(255,215,0,0.06);
+      border: 1px solid rgba(255,215,0,0.3);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .ec-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .ec-text { font-size: 14px; color: var(--white-60); line-height: 1.6; }
+    .prog-cta-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .prog-note { font-size: 12px; color: var(--white-35); font-style: italic; }
+    .sticky-pathway {
+      position: sticky;
+      top: calc(var(--nav-h) + 3px);
+      z-index: 100;
+      background: rgba(8,8,8,0.96);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--white-08);
+    }
+    @media (max-width: 768px) {
+      .ph-inner { grid-template-columns: 1fr; gap: 24px; }
+      .prog-layout { grid-template-columns: 1fr; gap: 40px; }
+      .session-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="page-top">
+<div id="nav-placeholder"></div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="ph-inner">
+    <div class="reveal-left">
+      <div class="t-eyebrow">Programs 2026</div>
+      <h1 class="ph-h">THE FULL<br><span>LINEUP</span></h1>
+    </div>
+    <p class="ph-sub reveal-right">Four structured programs, one complete development pathway. Athletes enter at the right level based on ability and age — then progress with intention, not guesswork. Every program includes the Mental Edge mindset system.</p>
+  </div>
+</div>
+
+<!-- STICKY PATHWAY NAV -->
+<div class="sticky-pathway">
+  <div class="pathway-bar" style="padding:16px var(--pad-x);border-bottom:none;">
+    <div class="pathway-bar-label">Jump To</div>
+    <a href="#young-cup" style="text-decoration:none;"><div class="pstep on" style="cursor:pointer;">Young Cup</div></a>
+    <div class="parrow">›</div>
+    <a href="#development" style="text-decoration:none;"><div class="pstep" style="cursor:pointer;">Development</div></a>
+    <div class="parrow">›</div>
+    <a href="#performance" style="text-decoration:none;"><div class="pstep" style="cursor:pointer;">Performance</div></a>
+    <div class="parrow">›</div>
+    <a href="#elite" style="text-decoration:none;"><div class="pstep" style="cursor:pointer;">Elite</div></a>
+    <div style="margin-left:auto;">
+      <a href="waitlist.html" class="btn btn-gold" style="padding:10px 24px;font-size:10px;">Join the Waitlist</a>
+    </div>
+  </div>
+</div>
+
+<!-- YOUNG CUP -->
+<div id="young-cup" class="prog-anchor"></div>
+<div class="prog-section">
+  <div class="prog-layout">
+    <div class="prog-left reveal-left">
+      <div class="prog-level-tag"><div class="plt-text">Ages 5 – 7</div></div>
+      <div class="prog-big-name">YOUNG <span>CUP</span></div>
+      <div class="prog-tagline">Build the Love. Learn the Game.</div>
+      <p class="prog-desc">The first step in the pathway. Young Cup is where athletic foundations are laid, confidence is built, and the love for the game starts to take root. This is not about pressure. It is about play, movement, and showing up every week.</p>
+      <p class="prog-desc">Small group sessions on synthetic ice. High energy. Game-based. Designed for young athletes who are new to hockey or just getting started.</p>
+      <div class="price-block">
+        <div class="price-lbl">Monthly Investment</div>
+        <div class="price-num">$179 <em>/ mo</em></div>
+      </div>
+      <div class="prog-cta-row">
+        <a href="waitlist.html" class="btn btn-gold">Join the Waitlist</a>
+        <span class="prog-note">No commitment required</span>
+      </div>
+    </div>
+    <div class="prog-right reveal-right">
+      <div class="inc-label">What's Included</div>
+      <div class="inc-list">
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Weekly Group Session</strong>Fun, structured, small group environment on synthetic ice. Every session has a theme and a purpose.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Movement and Coordination Fundamentals</strong>The athletic base every hockey player needs — balance, body control, and spatial awareness through games and movement.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Basic Hockey Skills Through Play</strong>Stick handling, skating confidence, and positional awareness introduced through game-based drills. No pressure, just reps.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Confidence and Love for the Game</strong>Every session is designed to send young athletes home excited to come back. That is the most important outcome at this age.</div></div>
+      </div>
+      <div class="session-cards">
+        <div class="sc"><div class="sc-title">Format</div><div class="sc-text">1 weekly group session on synthetic ice. High energy, game-based, designed for athletes ages 5 to 7.</div></div>
+        <div class="sc"><div class="sc-title">Who It's For</div><div class="sc-text">Young athletes new to hockey or just starting out. The perfect entry into The Hockey Lab development system.</div></div>
+      </div>
+      <div class="pathway-bar">
+        <div class="pathway-bar-label">Pathway</div>
+        <div class="pstep on">Young Cup</div><div class="parrow">›</div>
+        <div class="pstep">Development</div><div class="parrow">›</div>
+        <div class="pstep">Performance</div><div class="parrow">›</div>
+        <div class="pstep">Elite</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DEVELOPMENT -->
+<div id="development" class="prog-anchor"></div>
+<div class="prog-section">
+  <div class="prog-layout">
+    <div class="prog-left reveal-left">
+      <div class="prog-level-tag"><div class="plt-text">Ages 8 – 11</div></div>
+      <div class="prog-big-name">DEVELOP<span>MENT</span></div>
+      <div class="prog-tagline">Build Your Game the Right Way.</div>
+      <p class="prog-desc">At this stage, athletes are ready to be challenged. The Development program introduces structured technical training alongside compete sessions and group dryland work — giving athletes a complete development environment for the first time.</p>
+      <p class="prog-desc">Private or semi-private technical sessions. Small-group compete work. Monthly dryland. All tied to the 4-pillar curriculum — every rep has a reason.</p>
+      <div class="price-block">
+        <div class="price-lbl">Monthly Investment</div>
+        <div class="price-num">$399 <em>/ mo</em></div>
+      </div>
+      <div class="prog-cta-row">
+        <a href="waitlist.html" class="btn btn-gold">Join the Waitlist</a>
+        <span class="prog-note">No commitment required</span>
+      </div>
+    </div>
+    <div class="prog-right reveal-right">
+      <div class="inc-label">What's Included</div>
+      <div class="inc-list">
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Weekly Private or Semi-Private Technical Session (45 min)</strong>Systematic skill work across the 4 pillars. Position-specific, intentional reps tied to a clear progression — not just drills.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Weekly Small Group Compete Session (up to 6 athletes)</strong>Game-scenario training with real pressure. Players vs. goalies, compete drills, decision-making built in from the start.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Monthly Group Dryland Session</strong>Off-ice strength, agility, and movement patterns that transfer directly to the ice. Built for young athletes, not adult athletes.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Structured 4-Pillar Curriculum</strong>Every session has a purpose and a progression across Movement, Tracking, Execution, and Mindset. Athletes know what they are working on and why.</div></div>
+      </div>
+      <div class="session-cards">
+        <div class="sc"><div class="sc-title">Technical Session</div><div class="sc-text">Private or semi-private, 45 min. Every rep tied to progression, not just repetition.</div></div>
+        <div class="sc"><div class="sc-title">Compete Session</div><div class="sc-text">Up to 6 athletes. Game-scenario training with real competitive pressure built in.</div></div>
+      </div>
+      <div class="pathway-bar">
+        <div class="pathway-bar-label">Pathway</div>
+        <div class="pstep">Young Cup</div><div class="parrow">›</div>
+        <div class="pstep on">Development</div><div class="parrow">›</div>
+        <div class="pstep">Performance</div><div class="parrow">›</div>
+        <div class="pstep">Elite</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PERFORMANCE -->
+<div id="performance" class="prog-anchor"></div>
+<div class="prog-section">
+  <div class="prog-layout">
+    <div class="prog-left reveal-left">
+      <div class="prog-level-tag"><div class="plt-text">Ages 12 – 16</div></div>
+      <div class="prog-big-name">PERFORM<span>ANCE</span></div>
+      <div class="prog-tagline">Train How You Play. Perform Under Pressure.</div>
+      <p class="prog-desc">The Performance program is where athletes learn to close the gap between their training and their game performance. Private technical sessions get more position-specific. Compete sessions simulate real in-game fatigue and decision-making. And the Mental Edge becomes a monthly touchpoint — not an afterthought.</p>
+      <p class="prog-desc">This is the level where separating yourself begins — if you are willing to do the work consistently.</p>
+      <div class="price-block">
+        <div class="price-lbl">Monthly Investment</div>
+        <div class="price-num">$399 <em>/ mo</em></div>
+      </div>
+      <div class="prog-cta-row">
+        <a href="waitlist.html" class="btn btn-gold">Join the Waitlist</a>
+        <span class="prog-note">No commitment required</span>
+      </div>
+    </div>
+    <div class="prog-right reveal-right">
+      <div class="inc-label">What's Included</div>
+      <div class="inc-list">
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Weekly Private Technical Session (45 min)</strong>Position-specific, high-intent reps. Every session designed to translate directly to game performance. No filler work.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Weekly Small Group Compete Session</strong>Up to 6 athletes. Decision-making under fatigue, game-pressure scenarios, and compete-level intensity every week.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Monthly Hockey IQ and Mental Edge Session</strong>Focus, composure, reset routines, and game-situation awareness built into every month of training. Not a separate add-on.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>4-Pillar Development Tracking</strong>Monthly tracking across Movement, Tracking, Execution, and Mindset so athletes and parents always know where they stand and what's next.</div></div>
+      </div>
+      <div class="session-cards">
+        <div class="sc"><div class="sc-title">Technical Session</div><div class="sc-text">Private 45-min. Position-specific. Built to translate to game performance every single week.</div></div>
+        <div class="sc"><div class="sc-title">Mental Edge Included</div><div class="sc-text">Monthly Hockey IQ and mindset session. Focus, composure, and reset routines — every month.</div></div>
+      </div>
+      <div class="pathway-bar">
+        <div class="pathway-bar-label">Pathway</div>
+        <div class="pstep">Young Cup</div><div class="parrow">›</div>
+        <div class="pstep">Development</div><div class="parrow">›</div>
+        <div class="pstep on">Performance</div><div class="parrow">›</div>
+        <div class="pstep">Elite</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ELITE -->
+<div id="elite" class="prog-anchor"></div>
+<div class="prog-section" style="background:linear-gradient(165deg,#0f0f0f 0%,#080808 100%);">
+  <div class="prog-layout">
+    <div class="prog-left reveal-left">
+      <div class="prog-level-tag" style="border-color:var(--gold);background:rgba(255,215,0,0.12)"><div class="plt-text">Ages 16+</div></div>
+      <div class="prog-big-name" style="color:var(--gold);font-size:clamp(64px,9vw,96px);">ELITE</div>
+      <div class="prog-tagline">Separate Yourself from the Competition.</div>
+      <p class="prog-desc">The Elite program is not for everyone — and that is intentional. This is reserved for athletes who are genuinely chasing the next level: junior hockey, college, or beyond. Spots are limited. Entry is by application only, based on fit and readiness, not first come first served.</p>
+      <p class="prog-desc">Twice-weekly private sessions. Elite-level compete work. Full Mental Edge integration. Priority access and scheduling built around your season.</p>
+      <div class="price-block">
+        <div class="price-lbl">Investment Starting At</div>
+        <div class="price-num">$899 <em>/ mo</em></div>
+      </div>
+      <div class="prog-cta-row">
+        <a href="mailto:grant@thehockeylabofficial.com?subject=Elite Program Application" class="btn btn-gold">Apply for Elite</a>
+        <span class="prog-note">Contact Grant directly to apply</span>
+      </div>
+    </div>
+    <div class="prog-right reveal-right">
+      <div class="inc-label">What's Included</div>
+      <div class="inc-list">
+        <div class="inc-item" style="border-color:rgba(255,215,0,0.15)"><div class="inc-dot" style="background:rgba(255,215,0,0.1)"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>2 Weekly Private Technical Sessions</strong>Advanced position-specific mastery. High-intensity, direct performance feedback, built for athletes chasing the next level. No shared time.</div></div>
+        <div class="inc-item" style="border-color:rgba(255,215,0,0.15)"><div class="inc-dot" style="background:rgba(255,215,0,0.1)"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Weekly Elite-Level Compete Session</strong>Simulated elite game scenarios. Decision-making, pressure, compete intensity — every week, not every month.</div></div>
+        <div class="inc-item" style="border-color:rgba(255,215,0,0.15)"><div class="inc-dot" style="background:rgba(255,215,0,0.1)"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>On-Ice Integration</strong>Lab work is specifically connected to your in-game execution. What you build off-ice shows up on game night.</div></div>
+        <div class="inc-item" style="border-color:rgba(255,215,0,0.15)"><div class="inc-dot" style="background:rgba(255,215,0,0.1)"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Full Mental Edge Integration</strong>Monthly IQ and mindset sessions plus in-season performance support. The mental side is not optional at this level.</div></div>
+        <div class="inc-item" style="border-color:rgba(255,215,0,0.15)"><div class="inc-dot" style="background:rgba(255,215,0,0.1)"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Priority Scheduling and Flexible Access</strong>Built around your team schedule, your season, and your development priorities. Your time matters here.</div></div>
+      </div>
+      <div class="elite-callout">
+        <div class="ec-title">By Application Only</div>
+        <div class="ec-text">Reserved for athletes ready to commit at the highest level. Spots are limited and filled based on fit and readiness — not first come first served. Reach out to Grant directly to start the conversation.</div>
+        <div style="margin-top:14px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);">grant@thehockeylabofficial.com &nbsp;·&nbsp; (778) 302-9245</div>
+      </div>
+      <div class="pathway-bar" style="border-color:rgba(255,215,0,0.2)">
+        <div class="pathway-bar-label">Pathway</div>
+        <div class="pstep">Young Cup</div><div class="parrow">›</div>
+        <div class="pstep">Development</div><div class="parrow">›</div>
+        <div class="pstep">Performance</div><div class="parrow">›</div>
+        <div class="pstep on">Elite</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CTA -->
+<section class="section section--dark2 border-top" style="text-align:center;">
+  <div class="t-eyebrow reveal" style="justify-content:center;">Not Sure Where to Start?</div>
+  <h2 class="t-h2 reveal" style="margin-bottom:20px;">BOOK A FREE <span class="gold">TRIAL</span></h2>
+  <p class="t-body reveal" style="max-width:480px;margin:0 auto 40px;">Come in, train with us, and get a development recommendation. We will place your athlete at the right level based on what we see — not just their age.</p>
+  <a href="waitlist.html" class="btn btn-gold reveal" style="font-size:12px;padding:16px 40px;">Join the Waitlist</a>
+</section>
+
+<div id="footer-placeholder"></div>
+<div id="mobile-cta-placeholder"></div>
+<script src="js/shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're on the List | The Hockey Lab</title>
+  <meta name="description" content="Your waitlist application has been received. Grant will follow up personally within 24 hours.">
+  <link rel="stylesheet" href="css/site.css">
+  <style>
+    .success-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--pad-x);
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .success-page::before {
+      content: '✓';
+      position: absolute;
+      font-size: 600px;
+      color: rgba(255,215,0,0.03);
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      line-height: 1;
+      pointer-events: none;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .success-inner {
+      max-width: 560px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .success-check {
+      width: 72px;
+      height: 72px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+      font-size: 28px;
+      color: var(--gold);
+    }
+    .success-eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .success-h {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 7vw, 56px);
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: .9;
+      margin-bottom: 24px;
+    }
+    .success-h span { color: var(--gold); }
+    .success-p {
+      font-size: 16px;
+      color: var(--white-60);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+    .success-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+<nav class="site-nav scrolled">
+  <a href="index.html" class="nav-logo">THE HOCKEY <span>LAB</span></a>
+</nav>
+
+<div class="success-page">
+  <div class="success-inner">
+    <div class="success-check">✓</div>
+    <div class="success-eyebrow">Application Received</div>
+    <h1 class="success-h">YOU'RE ON<br>THE <span>LIST.</span></h1>
+    <p class="success-p">Grant will personally review your application and follow up within 24 hours to talk through your athlete's goals, answer any questions, and confirm your spot. Welcome to The Hockey Lab.</p>
+    <div class="success-actions">
+      <a href="index.html" class="btn btn-gold">Back to Home</a>
+      <a href="programs.html" class="btn btn-outline">Explore Programs</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/shared.js"></script>
+</body>
+</html>

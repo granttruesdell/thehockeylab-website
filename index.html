@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Hockey Lab | Where Athletes Are Built | Coquitlam, BC</title>
+  <meta name="description" content="Structured goalie and player development in Coquitlam, BC. Synthetic ice skills, strength training, and Mental Edge mindset coaching for athletes ages 5 to elite. Opening June 2026.">
+  <meta property="og:title" content="The Hockey Lab | Where Athletes Are Built">
+  <meta property="og:description" content="A purpose-built training environment for athletes who want to develop with structure, intention, and a real plan. Coquitlam, BC.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/site.css">
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 var(--pad-x) 88px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 85% 10%, rgba(255,215,0,0.07) 0%, transparent 100%),
+        radial-gradient(ellipse 50% 50% at 5% 90%, rgba(255,215,0,0.04) 0%, transparent 100%),
+        linear-gradient(165deg, #141414 0%, #080808 55%, #050505 100%);
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 180px; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent 0%, rgba(255,215,0,0.1) 30%, rgba(255,215,0,0.1) 70%, transparent 100%);
+      transform: skewX(-6deg);
+    }
+    .hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      opacity: 0.28;
+      z-index: 0;
+      transform: scale(1.05);
+      transition: transform 8s ease;
+    }
+    .hero-img.loaded { transform: scale(1); }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, #080808 0%, rgba(8,8,8,0.8) 50%, rgba(8,8,8,0.2) 100%);
+      z-index: 0;
+    }
+    .hero-inner { position: relative; z-index: 2; }
+    .hero-loc {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .hero-loc-line { width: 40px; height: 2px; background: var(--gold); }
+    .hero-loc-txt {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero-h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(64px, 10vw, 108px);
+      line-height: .87;
+      text-transform: uppercase;
+      letter-spacing: -4px;
+      margin-bottom: 32px;
+    }
+    .hero-h1 .l2 {
+      -webkit-text-stroke: 1.5px rgba(255,255,255,0.22);
+      color: transparent;
+      display: block;
+    }
+    .hero-h1 .l3 { color: var(--gold); display: block; }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--white-60);
+      line-height: 1.75;
+      max-width: 500px;
+      margin-bottom: 44px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .hero-ghost {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      text-decoration: none;
+      border-bottom: 1px solid var(--white-15);
+      padding-bottom: 3px;
+      transition: color .2s, border-color .2s;
+    }
+    .hero-ghost:hover { color: #fff; border-color: var(--white-35); }
+    .hero-stats {
+      position: absolute;
+      bottom: 88px; right: var(--pad-x);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding-left: 20px;
+      border-left: 2px solid rgba(255,215,0,0.25);
+    }
+    .hero-countdown {
+      position: absolute;
+      bottom: 88px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      text-align: center;
+    }
+    .hero-countdown-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      margin-bottom: 10px;
+    }
+
+    /* ── LAUNCH BANNER ── */
+    .launch-banner {
+      background: linear-gradient(90deg, rgba(255,215,0,0.08) 0%, rgba(255,215,0,0.04) 100%);
+      border: 1px solid rgba(255,215,0,0.2);
+      border-left: 4px solid var(--gold);
+      padding: 20px var(--pad-x);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .launch-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .launch-dot {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulseDot 2s infinite;
+      flex-shrink: 0;
+    }
+    .launch-text {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .launch-sub {
+      font-size: 13px;
+      color: var(--white-60);
+      margin-top: 2px;
+    }
+
+    /* ── SOCIAL PROOF BAR ── */
+    .social-proof {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      padding: 28px var(--pad-x);
+      border-bottom: 1px solid var(--white-08);
+      background: var(--dark-2);
+      flex-wrap: wrap;
+    }
+    .sp-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sp-num {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: var(--gold);
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+    .sp-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      line-height: 1.4;
+    }
+    .sp-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--white-08);
+    }
+  </style>
+</head>
+<body class="page-top">
+<div id="nav-placeholder"></div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <img class="hero-img" id="hero-img" src="images/hero-rink.jpg" alt="Grant Truesdell coaching on ice at The Hockey Lab" loading="eager">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-inner">
+    <div class="hero-loc anim-1">
+      <div class="hero-loc-line"></div>
+      <div class="hero-loc-txt">Coming Soon &nbsp;·&nbsp; Coquitlam, BC</div>
+    </div>
+    <h1 class="hero-h1 anim-2">
+      WHERE<br>
+      <span class="l2">ATHLETES</span>
+      <span class="l3">ARE BUILT.</span>
+    </h1>
+    <p class="hero-sub anim-3">The Hockey Lab is launching at a new purpose-built training facility in Coquitlam. A structured development environment for athletes who want to train with intention and a real plan.</p>
+    <div class="hero-actions anim-4">
+      <a href="waitlist.html" class="btn btn-gold">Join the Waitlist</a>
+      <a href="programs.html" class="hero-ghost">See All Programs</a>
+    </div>
+  </div>
+
+  <div class="hero-stats anim-5">
+    <div class="stat-block">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Development<br>Pillars</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Ages Served<br>To Elite</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Years On<br>The Ice</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-bar"></div>
+    <div class="scroll-word">Scroll</div>
+  </div>
+</section>
+
+<!-- ── LAUNCH BANNER ── -->
+<div class="launch-banner reveal">
+  <div class="launch-banner-left">
+    <div class="launch-dot"></div>
+    <div>
+      <div class="launch-text">Now Accepting Waitlist Registrations</div>
+      <div class="launch-sub">Pre-selling 6-month commitment packages. Limited spots available.</div>
+    </div>
+  </div>
+  <a href="waitlist.html" class="btn btn-gold" style="flex-shrink:0;">Secure Your Spot</a>
+</div>
+
+<!-- ── MARQUEE STRIP ── -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <div class="marquee-item">Where Athletes Are Built<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Skills &middot; Strength &middot; Mindset<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Control Before Speed<div class="marquee-dot"></div></div>
+    <div class="marquee-item">The Mental Game Is Not Optional<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Ability, Not Age<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Not A Drill Sheet. A Curriculum.<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Coming Soon &middot; Coquitlam BC<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Where Athletes Are Built<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Skills &middot; Strength &middot; Mindset<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Control Before Speed<div class="marquee-dot"></div></div>
+    <div class="marquee-item">The Mental Game Is Not Optional<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Ability, Not Age<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Not A Drill Sheet. A Curriculum.<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Coming Soon &middot; Coquitlam BC<div class="marquee-dot"></div></div>
+  </div>
+</div>
+
+
+
+<!-- ── THE MISSING PIECE ── -->
+<section class="section border-top">
+  <div class="gap-grid">
+    <div class="reveal-left">
+      <div class="t-eyebrow">The Problem</div>
+      <h2 class="gap-h">THE<br>MISSING <em>PIECE</em></h2>
+      <div class="gap-body">
+        <p>Your athlete is putting in the work. Practice every week. Games every weekend. But the gap between training and performing never seems to close.</p>
+        <p>It is not a work ethic problem. It is a system problem. Most training environments focus on volume, not structure. Ice time without intentionality. Reps without progression.</p>
+        <p>The Hockey Lab was built to close that gap — with a curriculum, not a drill sheet.</p>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <div class="tension">
+        <div class="tn">01</div>
+        <div class="tt">
+          <strong>Skills don't transfer to games</strong>
+          <span>We train specifically for game situations — compete sessions, real pressure, real decisions, every week.</span>
+        </div>
+      </div>
+      <div class="tension">
+        <div class="tn">02</div>
+        <div class="tt">
+          <strong>No clear development path</strong>
+          <span>Our 4-pillar system tracks and progresses every athlete with intention — not guesswork.</span>
+        </div>
+      </div>
+      <div class="tension">
+        <div class="tn">03</div>
+        <div class="tt">
+          <strong>The mental game is ignored</strong>
+          <span>Skill gets you to the door. Mindset gets you through it. Mental Edge is built into every program.</span>
+        </div>
+      </div>
+      <div class="tension">
+        <div class="tn">04</div>
+        <div class="tt">
+          <strong>Held back by age, not ability</strong>
+          <span>At The Hockey Lab, athletes move through programs based on what they can actually do and demonstrate — not just their birthday.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 4 PILLARS ── -->
+<section class="section section--dark2 border-top border-bottom">
+  <div class="reveal">
+    <div class="t-eyebrow">Our System</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:0;">
+      <h2 class="t-h2">THE 4<br><span class="gold">PILLARS</span></h2>
+      <p class="t-body">Every session is built around four interconnected pillars. This is not a checklist — it is a framework that ensures every rep, every session, and every month has a clear purpose and direction.</p>
+    </div>
+  </div>
+  <div class="pillars-grid">
+    <div class="pillar reveal reveal-delay-1">
+      <div class="pg">1</div>
+      <div class="pn">Move<span>ment</span></div>
+      <div class="pd">Skating mechanics, balance, coordination, and the athletic foundation every hockey player builds from. Control before speed — always.</div>
+    </div>
+    <div class="pillar reveal reveal-delay-2">
+      <div class="pg">2</div>
+      <div class="pn">Track<span>ing</span></div>
+      <div class="pd">Vision, awareness, hand-eye coordination, hockey IQ, and decision-making under pressure. Seeing the game before it happens.</div>
+    </div>
+    <div class="pillar reveal reveal-delay-3">
+      <div class="pg">3</div>
+      <div class="pn">Execu<span>tion</span></div>
+      <div class="pd">Technical skill — shooting, passing, saves, puck control, rebound management. The craft of hockey, built rep by rep.</div>
+    </div>
+    <div class="pillar reveal reveal-delay-4">
+      <div class="pg">4</div>
+      <div class="pn">Mind<span>set</span></div>
+      <div class="pd">Focus, confidence, composure, and reset routines. The Mental Edge system is built into every program — not sold separately.</div>
+    </div>
+  </div>
+  <div class="pathway-bar reveal">
+    <div class="pathway-bar-label">The Pathway</div>
+    <div class="pstep on">Young Cup <span style="font-size:9px;opacity:.6;margin-left:6px;">5-7</span></div>
+    <div class="parrow">›</div>
+    <div class="pstep">Development <span style="font-size:9px;opacity:.6;margin-left:6px;">8-11</span></div>
+    <div class="parrow">›</div>
+    <div class="pstep">Performance <span style="font-size:9px;opacity:.6;margin-left:6px;">12-16</span></div>
+    <div class="parrow">›</div>
+    <div class="pstep">Elite <span style="font-size:9px;opacity:.6;margin-left:6px;">16+</span></div>
+    <div style="margin-left:auto;font-family:'Rajdhani',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--white-35);">Ages 5 to Elite</div>
+  </div>
+</section>
+
+<!-- ── PROGRAMS ── -->
+<section class="section border-bottom">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;" class="reveal">
+    <div>
+      <div class="t-eyebrow">Programs</div>
+      <h2 class="t-h2">FIND YOUR<br><span class="gold">LEVEL</span></h2>
+    </div>
+    <p class="t-body" style="align-self:end;">Athletes enter at the right level based on ability and age, then progress with structure and accountability. Not sure where to start? Join the waitlist and we will place your athlete correctly.</p>
+  </div>
+  <div class="prog-grid">
+
+    <!-- YOUNG CUP -->
+    <div class="prog-tile prog-expand reveal reveal-delay-1" data-prog="young-cup">
+      <div class="prog-tile-header">
+        <div class="pa">Ages 5-7</div>
+        <div class="pname">YOUNG <span class="g">CUP</span></div>
+        <div class="pslogan">Build the love. Learn the game.</div>
+        <div class="ppr">
+          <div class="ppl">Monthly</div>
+          <div class="pp">$179 <em>/ mo</em></div>
+        </div>
+        <div class="plnk prog-toggle">Learn More <span class="prog-arrow">&#9660;</span></div>
+      </div>
+      <div class="prog-details" aria-hidden="true">
+        <ul class="prog-detail-list">
+          <li>Weekly small group sessions on synthetic ice</li>
+          <li>Movement, coordination &amp; balance fundamentals</li>
+          <li>Basic hockey skills through game-based play</li>
+          <li>Confidence-first environment — no pressure, just reps</li>
+        </ul>
+        <a href="programs.html#young-cup" class="prog-full-link">View Full Program &rarr;</a>
+      </div>
+    </div>
+
+    <!-- DEVELOPMENT -->
+    <div class="prog-tile feat prog-expand reveal reveal-delay-2" data-prog="development">
+      <div class="prog-tile-header">
+        <div class="pa">Ages 8-11</div>
+        <div class="pname">DEVELOP<span class="g">MENT</span></div>
+        <div class="pslogan">Build your game the right way.</div>
+        <div class="ppr">
+          <div class="ppl">Monthly</div>
+          <div class="pp">$399 <em>/ mo</em></div>
+        </div>
+        <div class="plnk prog-toggle">Learn More <span class="prog-arrow">&#9660;</span></div>
+      </div>
+      <div class="prog-details" aria-hidden="true">
+        <ul class="prog-detail-list">
+          <li>1 weekly private or semi-private technical session (45 min)</li>
+          <li>1 weekly small group compete session (up to 6 athletes)</li>
+          <li>1 monthly group dryland session</li>
+          <li>Structured 4-pillar curriculum — every rep has a reason</li>
+        </ul>
+        <a href="programs.html#development" class="prog-full-link">View Full Program &rarr;</a>
+      </div>
+    </div>
+
+    <!-- PERFORMANCE -->
+    <div class="prog-tile prog-expand reveal reveal-delay-3" data-prog="performance">
+      <div class="prog-tile-header">
+        <div class="pa">Ages 12-16</div>
+        <div class="pname">PERFORM<span class="g">ANCE</span></div>
+        <div class="pslogan">Train how you play. Perform under pressure.</div>
+        <div class="ppr">
+          <div class="ppl">Monthly</div>
+          <div class="pp">$399 <em>/ mo</em></div>
+        </div>
+        <div class="plnk prog-toggle">Learn More <span class="prog-arrow">&#9660;</span></div>
+      </div>
+      <div class="prog-details" aria-hidden="true">
+        <ul class="prog-detail-list">
+          <li>1 weekly private technical session (45 min) — position-specific</li>
+          <li>1 weekly small group compete session with game-pressure scenarios</li>
+          <li>1 monthly Hockey IQ &amp; Mental Edge session</li>
+          <li>4-pillar development tracking every month</li>
+        </ul>
+        <a href="programs.html#performance" class="prog-full-link">View Full Program &rarr;</a>
+      </div>
+    </div>
+
+    <!-- ELITE -->
+    <div class="prog-tile prog-expand reveal reveal-delay-4" data-prog="elite">
+      <div class="prog-tile-header">
+        <div class="pa">Ages 16+</div>
+        <div class="pname" style="color:var(--gold);font-size:36px;">ELITE</div>
+        <div class="pslogan">Separate yourself from the competition.</div>
+        <div class="ppr">
+          <div class="ppl">Starting At</div>
+          <div class="pp">$899 <em>/ mo</em></div>
+        </div>
+        <div class="plnk prog-toggle">Learn More <span class="prog-arrow">&#9660;</span></div>
+      </div>
+      <div class="prog-details" aria-hidden="true">
+        <ul class="prog-detail-list">
+          <li>2 weekly private technical sessions — advanced position-specific mastery</li>
+          <li>1 weekly elite-level compete session</li>
+          <li>Full Mental Edge integration + in-season performance support</li>
+          <li>By application only — limited spots based on fit &amp; readiness</li>
+        </ul>
+        <a href="programs.html#elite" class="prog-full-link">Apply Now &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="section section--dark2 border-bottom">
+  <div class="reveal">
+    <div class="t-eyebrow">What Families Say</div>
+    <h2 class="t-h2">REAL <span class="gold">RESULTS</span></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi reveal reveal-delay-1">
+      <div class="testi-q">He is not just a hockey trainer — he really takes the time to focus on the small details and makes sure the kids truly understand the game. That attention to detail has helped our son grow more confident and more interested in hockey long term.</div>
+      <div class="testi-a">
+        <div class="testi-n">Shahram B.</div>
+        <div class="testi-r">Hockey Lab Parent &nbsp;·&nbsp; Google Review ★★★★★</div>
+      </div>
+    </div>
+    <div class="testi reveal reveal-delay-2">
+      <div class="testi-q">Our son looks forward to seeing Grant every week. Grant has taught him new skills that we have already seen him confidently apply during games. After each session, our son is eager to stay and continue practicing.</div>
+      <div class="testi-a">
+        <div class="testi-n">Brad T.</div>
+        <div class="testi-r">Hockey Lab Parent &nbsp;·&nbsp; Google Review ★★★★★</div>
+      </div>
+    </div>
+    <div class="testi reveal reveal-delay-3">
+      <div class="testi-q">Grant connects so well with our child, makes the sessions fun, and provides positive reinforcement. Our child is 7 and wants to be a goalie — it was hard finding coaching for his age. I highly recommend The Hockey Lab.</div>
+      <div class="testi-a">
+        <div class="testi-n">Natasha L.</div>
+        <div class="testi-r">Parent of U7 Goalie &nbsp;·&nbsp; Google Review ★★★★★</div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:36px;" class="reveal">
+    <a href="https://g.page/r/CVE_VTfxO_5qEAE/review" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:10px;padding:12px 28px;letter-spacing:3px;">Read All Reviews on Google &rarr;</a>
+  </div>
+</section>
+
+<!-- ── GRANT STRIP ── -->
+<div class="grant-strip">
+  <div class="grant-photo" style="padding:0;overflow:hidden;">
+    <img src="images/grant-headshot.jpg" alt="Grant Truesdell — Founder, The Hockey Lab" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+    <div class="grant-badge">30+<br>Years<br>On Ice</div>
+  </div>
+  <div class="grant-content reveal">
+    <div class="t-eyebrow">Your Coach</div>
+    <h2 class="grant-h">GRANT<br><span>TRUESDELL</span></h2>
+    <p class="grant-p">Grant is a <strong>lifelong goalie, coach, and performance mentor</strong> who has spent decades training in environments where the margin for error is zero. He has been accepted into Hockey Canada's NCCP Goaltending Program.</p>
+    <p class="grant-p">As a competitive hockey goalie and an <strong>internationally touring musician and Juno Award winner</strong>, Grant has built his coaching philosophy around one truth: sustainable performance is built through preparation, discipline, and mental resilience — in hockey and in life.</p>
+    <p class="grant-p">He is directly involved in every athlete's development at The Hockey Lab. Not as a brand — as a coach who is genuinely invested in the long game.</p>
+    <a href="about.html" class="btn btn-gold-outline" style="margin-top:8px;">Read Grant's Story</a>
+  </div>
+  <div class="grant-cta-col reveal">
+    <div>
+      <div class="grant-kicker">Juno Award<br><span>Winner</span></div>
+      <div style="height:32px;"></div>
+      <div class="grant-kicker">30+ Years<br><span>On Ice</span></div>
+      <div style="height:20px;"></div>
+      <div class="grant-kicker">NCCP<br><span style="font-size:16px;letter-spacing:0;">Hockey Canada<br>Certification Stream</span></div>
+    </div>
+    <a href="waitlist.html" class="btn btn-gold" style="width:100%;justify-content:center;margin-top:24px;">Join the Waitlist</a>
+  </div>
+</div>
+
+<!-- ── MENTAL EDGE CALLOUT ── -->
+<section class="section border-top border-bottom" style="background: linear-gradient(135deg, #0a0a0a 0%, #111 100%); position:relative; overflow:hidden;">
+  <div style="position:absolute;top:0;right:0;width:40%;height:100%;background:radial-gradient(ellipse 80% 80% at 100% 50%, rgba(255,215,0,0.05) 0%, transparent 70%);pointer-events:none;"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+    <div class="reveal-left">
+      <div class="t-eyebrow">Available Now</div>
+      <h2 class="t-h2">THE MENTAL<br><span class="gold">EDGE</span></h2>
+      <p class="t-body" style="margin:24px 0;">The mental game is not optional. It is the difference between an athlete who has the skill and one who can actually use it. Six weeks. Five pillars. One program that changes how your athlete thinks under pressure.</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <a href="mental-edge.html" class="btn btn-gold">Learn More</a>
+        <a href="mental-edge.html#enroll" class="btn btn-gold-outline">Enroll Now — $199</a>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+        <div style="background:var(--dark-3);border:1px solid var(--white-08);padding:28px 24px;transition:border-color 0.2s,transform 0.2s;" onmouseenter="this.style.borderColor='rgba(255,215,0,0.22)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
+          <div style="font-family:'Exo 2',sans-serif;font-weight:900;font-size:16px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Ownership</div>
+          <div style="font-size:12px;color:var(--white-35);line-height:1.6;">Take full responsibility for your performance.</div>
+        </div>
+        <div style="background:var(--dark-3);border:1px solid var(--white-08);padding:28px 24px;transition:border-color 0.2s,transform 0.2s;" onmouseenter="this.style.borderColor='rgba(255,215,0,0.22)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
+          <div style="font-family:'Exo 2',sans-serif;font-weight:900;font-size:16px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Attitude</div>
+          <div style="font-size:12px;color:var(--white-35);line-height:1.6;">Choose your state. Control your response.</div>
+        </div>
+        <div style="background:var(--dark-3);border:1px solid var(--white-08);padding:28px 24px;transition:border-color 0.2s,transform 0.2s;" onmouseenter="this.style.borderColor='rgba(255,215,0,0.22)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
+          <div style="font-family:'Exo 2',sans-serif;font-weight:900;font-size:16px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Habits</div>
+          <div style="font-size:12px;color:var(--white-35);line-height:1.6;">Build the routines that make performance repeatable.</div>
+        </div>
+        <div style="background:var(--dark-3);border:1px solid var(--white-08);padding:28px 24px;transition:border-color 0.2s,transform 0.2s;" onmouseenter="this.style.borderColor='rgba(255,215,0,0.22)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
+          <div style="font-family:'Exo 2',sans-serif;font-weight:900;font-size:16px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Identity</div>
+          <div style="font-size:12px;color:var(--white-35);line-height:1.6;">Know who you are before the game starts.</div>
+        </div>
+        <div style="background:var(--dark-3);border:1px solid var(--white-08);padding:28px 24px;grid-column:span 2;transition:border-color 0.2s,transform 0.2s;" onmouseenter="this.style.borderColor='rgba(255,215,0,0.22)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
+          <div style="font-family:'Exo 2',sans-serif;font-weight:900;font-size:16px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Pressure</div>
+          <div style="font-size:12px;color:var(--white-35);line-height:1.6;">Perform when it counts. Not despite the pressure — because of it.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="section section--dark2 cta-sec border-top">
+  <h2 class="cta-h reveal">READY TO<br><span>START?</span></h2>
+  <p class="cta-sub reveal">Two ways to begin. Pick what feels right for where you are right now.</p>
+  <div class="cta-cards reveal">
+    <a href="waitlist.html" class="cta-card pri">
+      <div class="cc-lbl">First Access</div>
+      <div class="cc-title">Join the Waitlist</div>
+      <div class="cc-desc">Be first to know when trial bookings open. No commitment — just first in line.</div>
+    </a>
+    <a href="mailto:grant@thehockeylabofficial.com" class="cta-card">
+      <div class="cc-lbl">Have Questions?</div>
+      <div class="cc-title">Talk to Grant</div>
+      <div class="cc-desc">Email or call Grant directly. He will tell you honestly if the program is the right fit.</div>
+    </a>
+    <a href="mental-edge.html" class="cta-card">
+      <div class="cc-lbl">Available Now</div>
+      <div class="cc-title">Mental Edge Program</div>
+      <div class="cc-desc">6 weeks of mindset coaching. Available while the facility launches — no ice required.</div>
+    </a>
+  </div>
+  <div class="cta-sm reveal">Questions? <a href="mailto:grant@thehockeylabofficial.com">grant@thehockeylabofficial.com</a> &nbsp;·&nbsp; <a href="tel:7783029245">(778) 302-9245</a></div>
+</section>
+
+<div id="footer-placeholder"></div>
+<div id="mobile-cta-placeholder"></div>
+<script src="js/shared.js"></script>
+<script>
+  // Hero image subtle scale on load
+  const heroImg = document.getElementById('hero-img');
+  if (heroImg) {
+    heroImg.addEventListener('load', () => heroImg.classList.add('loaded'));
+    if (heroImg.complete) heroImg.classList.add('loaded');
+  }
+</script>
+<script>
+  // ── EXPANDABLE PROGRAM CARDS ──
+  document.querySelectorAll('.prog-expand').forEach(tile => {
+    const header = tile.querySelector('.prog-tile-header');
+    const details = tile.querySelector('.prog-details');
+    const arrow = tile.querySelector('.prog-arrow');
+    if (!header || !details) return;
+
+    // Set initial max-height for animation
+    details.style.maxHeight = '0';
+    details.style.overflow = 'hidden';
+    details.style.transition = 'max-height 0.38s ease, opacity 0.3s ease, padding 0.3s ease';
+    details.style.opacity = '0';
+    details.style.paddingTop = '0';
+
+    header.style.cursor = 'pointer';
+    header.addEventListener('click', (e) => {
+      // Don't re-trigger if clicking the full-link inside details
+      const isOpen = tile.classList.contains('prog-open');
+      // Close all others
+      document.querySelectorAll('.prog-expand.prog-open').forEach(other => {
+        if (other !== tile) {
+          other.classList.remove('prog-open');
+          const od = other.querySelector('.prog-details');
+          const oa = other.querySelector('.prog-arrow');
+          if (od) { od.style.maxHeight = '0'; od.style.opacity = '0'; od.style.paddingTop = '0'; od.setAttribute('aria-hidden','true'); }
+          if (oa) oa.style.transform = 'rotate(0deg)';
+        }
+      });
+      if (isOpen) {
+        tile.classList.remove('prog-open');
+        details.style.maxHeight = '0';
+        details.style.opacity = '0';
+        details.style.paddingTop = '0';
+        details.setAttribute('aria-hidden','true');
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+      } else {
+        tile.classList.add('prog-open');
+        details.style.maxHeight = details.scrollHeight + 80 + 'px';
+        details.style.opacity = '1';
+        details.style.paddingTop = '20px';
+        details.setAttribute('aria-hidden','false');
+        if (arrow) arrow.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+</script>
+</body>
+</html>

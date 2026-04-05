@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Method | The Hockey Lab</title>
+  <meta name="description" content="The Hockey Lab's 4-pillar development framework: Movement, Tracking, Execution, and Mindset. A system built for long-term athlete development, not short-term results.">
+  <link rel="stylesheet" href="css/site.css">
+  <style>
+    .page-hero {
+      padding: 100px var(--pad-x) 72px;
+      background: linear-gradient(165deg, #131313 0%, #080808 100%);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--white-08);
+    }
+    .page-hero::before {
+      content: 'METHOD';
+      position: absolute;
+      right: -20px; top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 200px;
+      color: rgba(255,215,0,0.03);
+      line-height: 1;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .ph-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; }
+    .ph-h {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(48px, 7vw, 80px);
+      text-transform: uppercase;
+      letter-spacing: -3px;
+      line-height: .88;
+      margin: 16px 0;
+    }
+    .ph-h span { color: var(--gold); }
+    .philosophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 48px; }
+    .phil-card {
+      background: var(--dark-3);
+      padding: 36px 32px;
+      border: 1px solid var(--white-08);
+      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    }
+    .phil-card:hover {
+      border-color: var(--gold-border);
+      background: #1c1c1c;
+      transform: translateY(-3px);
+    }
+    .phil-q {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      color: var(--gold);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .phil-a { font-size: 14px; color: var(--white-60); line-height: 1.75; }
+    .pillars-deep { display: flex; flex-direction: column; gap: 2px; margin-top: 48px; }
+    .pillar-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 1.2fr;
+      gap: 0;
+      align-items: stretch;
+      border: 1px solid var(--white-08);
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .pillar-row:hover { border-color: var(--gold-border); }
+    .pillar-num-col {
+      background: var(--gold-dim);
+      border-right: 1px solid var(--white-08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 0;
+    }
+    .pillar-n {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 48px;
+      color: var(--gold);
+      line-height: 1;
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      letter-spacing: -2px;
+    }
+    .pillar-info { padding: 32px 36px; border-right: 1px solid var(--white-08); }
+    .pillar-name-big {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .pillar-name-big span { color: var(--gold); }
+    .pillar-body-text { font-size: 15px; color: var(--white-60); line-height: 1.8; }
+    .pillar-skills { padding: 32px 36px; background: var(--dark-3); }
+    .ps-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .ps-items { display: flex; flex-direction: column; gap: 10px; }
+    .ps-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--white-60);
+      transition: color 0.2s, padding-left 0.2s;
+    }
+    .ps-item:hover { color: #fff; padding-left: 4px; }
+    .ps-item::before {
+      content: '';
+      width: 4px; height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .pathway-section { padding: 80px var(--pad-x); border-top: 1px solid var(--white-08); }
+    .path-timeline { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 48px; }
+    .path-stage {
+      border: 1px solid var(--white-08);
+      padding: 32px 28px;
+      position: relative;
+      background: var(--dark-2);
+      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    }
+    .path-stage:hover { border-color: var(--gold-border); background: var(--dark-3); transform: translateY(-4px); }
+    .path-stage.current { border-color: rgba(255,215,0,0.35); background: #111; }
+    .ps-tag {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .ps-name {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .ps-name span { color: var(--gold); }
+    .ps-age {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      margin-bottom: 20px;
+    }
+    .ps-desc { font-size: 13px; color: var(--white-60); line-height: 1.65; margin-bottom: 20px; }
+    .principles-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 48px; }
+    .principle {
+      background: var(--dark-3);
+      padding: 32px 28px;
+      border: 1px solid var(--white-08);
+      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    }
+    .principle:hover { border-color: var(--gold-border); background: #1c1c1c; transform: translateY(-3px); }
+    .pr-n {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 64px;
+      color: rgba(255,215,0,0.06);
+      line-height: 1;
+      margin-bottom: -16px;
+      transition: color 0.25s;
+    }
+    .principle:hover .pr-n { color: rgba(255,215,0,0.1); }
+    .pr-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      color: #fff;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .pr-text { font-size: 13px; color: var(--white-60); line-height: 1.7; position: relative; z-index: 1; }
+    @media (max-width: 768px) {
+      .ph-grid { grid-template-columns: 1fr; gap: 24px; }
+      .philosophy-grid { grid-template-columns: 1fr; }
+      .pillar-row { grid-template-columns: 1fr; }
+      .pillar-num-col { padding: 16px; writing-mode: horizontal-tb; }
+      .pillar-n { writing-mode: horizontal-tb; transform: none; font-size: 32px; }
+      .path-timeline { grid-template-columns: 1fr 1fr; }
+      .principles-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="page-top">
+<div id="nav-placeholder"></div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="ph-grid">
+    <div class="reveal-left">
+      <div class="t-eyebrow">How We Train</div>
+      <h1 class="ph-h">THE<br><span>METHOD</span></h1>
+    </div>
+    <p class="t-body reveal-right">Most training programs are a collection of drills. The Hockey Lab is a development system. Every session, every rep, and every month of training is tied to a framework that was built to produce real, transferable improvement — not just good practices.</p>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="section border-top">
+  <div class="reveal">
+    <div class="t-eyebrow">Our Philosophy</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;">
+      <h2 class="t-h2">WHAT WE<br><span class="gold">BELIEVE</span></h2>
+      <p class="t-body">The Hockey Lab was built on a specific set of beliefs about how athletes develop. These are not slogans. They are the principles behind every program decision, every session structure, and every coaching interaction.</p>
+    </div>
+  </div>
+  <div class="philosophy-grid">
+    <div class="phil-card reveal reveal-delay-1">
+      <div class="phil-q">Control before speed.</div>
+      <div class="phil-a">Athletes who try to move fast before they can move well develop habits that limit them later. We build control first — clean mechanics, deliberate movement — and speed follows naturally as a result.</div>
+    </div>
+    <div class="phil-card reveal reveal-delay-2">
+      <div class="phil-q">Movement supports everything.</div>
+      <div class="phil-a">Skating, athletic coordination, and physical literacy are the foundation everything else is built on. A player who moves well will always have more ceiling than a player who only trained their hands.</div>
+    </div>
+    <div class="phil-card reveal reveal-delay-3">
+      <div class="phil-q">Training must transfer to game situations.</div>
+      <div class="phil-a">Drills that do not connect to real game pressure are entertainment, not development. Every session at The Hockey Lab includes elements of decision-making, fatigue, and compete — because that is what games look like.</div>
+    </div>
+    <div class="phil-card reveal reveal-delay-4">
+      <div class="phil-q">Athletes progress based on ability, not just age.</div>
+      <div class="phil-a">Age is a starting point, not a ceiling. Athletes move through the development pathway based on what they can actually do and demonstrate — not just the birthday on their registration form.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 PILLARS DEEP -->
+<section class="section section--dark2 border-top border-bottom">
+  <div class="reveal">
+    <div class="t-eyebrow">The Framework</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:0;">
+      <h2 class="t-h2">THE 4<br><span class="gold">PILLARS</span></h2>
+      <p class="t-body">Every session at The Hockey Lab is structured around four interconnected pillars of athlete development. No pillar is optional. No pillar operates in isolation. Together, they form a complete picture of what it takes to perform at a high level in hockey.</p>
+    </div>
+  </div>
+  <div class="pillars-deep">
+    <div class="pillar-row reveal">
+      <div class="pillar-num-col"><div class="pillar-n">01</div></div>
+      <div class="pillar-info">
+        <div class="pillar-name-big">Move<span>ment</span></div>
+        <p class="pillar-body-text">The athletic base that everything else is built on. Movement training at The Hockey Lab focuses on skating mechanics, balance, coordination, edge work, and the off-ice athletic qualities that transfer directly to the ice.</p>
+        <br>
+        <p class="pillar-body-text">Most athletes who plateau at some level have movement gaps — compensations in their skating or body control that were never addressed. We address them early and deliberately.</p>
+      </div>
+      <div class="pillar-skills">
+        <div class="ps-label">What We Train</div>
+        <div class="ps-items">
+          <div class="ps-item">Skating mechanics and edge work</div>
+          <div class="ps-item">Balance and body control</div>
+          <div class="ps-item">Athletic coordination patterns</div>
+          <div class="ps-item">Agility and directional change</div>
+          <div class="ps-item">Off-ice movement quality</div>
+          <div class="ps-item">Posture and skating posture</div>
+        </div>
+      </div>
+    </div>
+    <div class="pillar-row reveal">
+      <div class="pillar-num-col"><div class="pillar-n">02</div></div>
+      <div class="pillar-info">
+        <div class="pillar-name-big">Track<span>ing</span></div>
+        <p class="pillar-body-text">Vision, awareness, and the ability to process information quickly under pressure. Tracking is where hockey IQ gets trained — not just talked about. It is the cognitive side of the game, and it is trainable.</p>
+        <br>
+        <p class="pillar-body-text">Athletes who see the game early make better decisions faster. We build that through exercises that challenge perception, reaction, and awareness with and without the puck.</p>
+      </div>
+      <div class="pillar-skills">
+        <div class="ps-label">What We Train</div>
+        <div class="ps-items">
+          <div class="ps-item">Visual tracking and puck reading</div>
+          <div class="ps-item">Hand-eye coordination</div>
+          <div class="ps-item">Spatial awareness on the ice</div>
+          <div class="ps-item">Decision-making under pressure</div>
+          <div class="ps-item">Hockey IQ and game situation reading</div>
+          <div class="ps-item">Reaction speed and processing</div>
+        </div>
+      </div>
+    </div>
+    <div class="pillar-row reveal">
+      <div class="pillar-num-col"><div class="pillar-n">03</div></div>
+      <div class="pillar-info">
+        <div class="pillar-name-big">Execu<span>tion</span></div>
+        <p class="pillar-body-text">The technical craft of hockey. Execution covers every skill that requires deliberate, repeatable technique — from a skater's shot mechanics to a goalie's butterfly and rebound control. This is where precision meets repetition.</p>
+        <br>
+        <p class="pillar-body-text">Execution is trained with intentionality. Every rep has a standard. Every standard has a progression. Athletes know what good looks like at their stage — and they are held to it.</p>
+      </div>
+      <div class="pillar-skills">
+        <div class="ps-label">What We Train</div>
+        <div class="ps-items">
+          <div class="ps-item">Shooting mechanics and release</div>
+          <div class="ps-item">Passing accuracy and reception</div>
+          <div class="ps-item">Puck control and protection</div>
+          <div class="ps-item">Goalie positioning and butterfly</div>
+          <div class="ps-item">Rebound control and tracking</div>
+          <div class="ps-item">Position-specific technical mastery</div>
+        </div>
+      </div>
+    </div>
+    <div class="pillar-row reveal">
+      <div class="pillar-num-col"><div class="pillar-n">04</div></div>
+      <div class="pillar-info">
+        <div class="pillar-name-big">Mind<span>set</span></div>
+        <p class="pillar-body-text">The fourth pillar and the one most consistently ignored in youth hockey. Mindset is not about motivation speeches — it is about building the mental skills that allow athletes to perform under pressure, reset after mistakes, and stay consistent over a long season.</p>
+        <br>
+        <p class="pillar-body-text">The Mental Edge system is embedded into every program at The Hockey Lab. It is not an optional add-on. It is part of the curriculum — because talent without mental skills has a very low ceiling.</p>
+      </div>
+      <div class="pillar-skills">
+        <div class="ps-label">What We Train</div>
+        <div class="ps-items">
+          <div class="ps-item">Pre-game and in-game focus routines</div>
+          <div class="ps-item">Reset tools after mistakes</div>
+          <div class="ps-item">Composure under pressure</div>
+          <div class="ps-item">Confidence and self-belief</div>
+          <div class="ps-item">Competitive mindset habits</div>
+          <div class="ps-item">Performance consistency over time</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATHWAY -->
+<section class="pathway-section">
+  <div class="reveal">
+    <div class="t-eyebrow">The Pathway</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;">
+      <h2 class="t-h2">ONE PATH.<br><span class="gold">FOUR STAGES.</span></h2>
+      <p class="t-body">The development pathway is designed so that every athlete knows where they are, where they are going, and what it takes to get there. Progression is based on readiness and ability — not just age.</p>
+    </div>
+  </div>
+  <div class="path-timeline">
+    <div class="path-stage current reveal reveal-delay-1">
+      <div class="ps-tag">Stage 1</div>
+      <div class="ps-name">YOUNG <span>CUP</span></div>
+      <div class="ps-age">Ages 5–7</div>
+      <div class="ps-desc">Movement fundamentals, athletic coordination, and the love of the game. The foundation everything else is built on.</div>
+      <a href="programs.html#young-cup" class="btn btn-gold-outline" style="font-size:10px;padding:10px 18px;">View Program</a>
+    </div>
+    <div class="path-stage reveal reveal-delay-2">
+      <div class="ps-tag">Stage 2</div>
+      <div class="ps-name">DEVELOP<span>MENT</span></div>
+      <div class="ps-age">Ages 8–11</div>
+      <div class="ps-desc">Structured technical training, compete sessions, and group dryland. Athletes start learning what intentional development feels like.</div>
+      <a href="programs.html#development" class="btn btn-gold-outline" style="font-size:10px;padding:10px 18px;">View Program</a>
+    </div>
+    <div class="path-stage reveal reveal-delay-3">
+      <div class="ps-tag">Stage 3</div>
+      <div class="ps-name">PERFORM<span>ANCE</span></div>
+      <div class="ps-age">Ages 12–16</div>
+      <div class="ps-desc">Position-specific mastery, game-pressure compete sessions, and monthly Mental Edge work. Where separation starts to happen.</div>
+      <a href="programs.html#performance" class="btn btn-gold-outline" style="font-size:10px;padding:10px 18px;">View Program</a>
+    </div>
+    <div class="path-stage reveal reveal-delay-4">
+      <div class="ps-tag">Stage 4 — By Application</div>
+      <div class="ps-name" style="color:var(--gold);">ELITE</div>
+      <div class="ps-age">Ages 16+</div>
+      <div class="ps-desc">Twice-weekly private sessions, elite compete work, and full Mental Edge integration. Reserved for athletes chasing the next level.</div>
+      <a href="programs.html#elite" class="btn btn-gold" style="font-size:10px;padding:10px 18px;">Apply Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- CORE PRINCIPLES -->
+<section class="section section--dark2 border-top border-bottom">
+  <div class="reveal">
+    <div class="t-eyebrow">Core Principles</div>
+    <h2 class="t-h2" style="margin-bottom:48px;">HOW WE <span class="gold">OPERATE</span></h2>
+  </div>
+  <div class="principles-grid">
+    <div class="principle reveal reveal-delay-1"><div class="pr-n">01</div><div class="pr-title">Mentorship Over Instruction</div><div class="pr-text">Athletes are not machines to be programmed. They are people developing through sport. Every coaching interaction at The Hockey Lab is built on trust, accountability, and genuine investment in the individual athlete.</div></div>
+    <div class="principle reveal reveal-delay-2"><div class="pr-n">02</div><div class="pr-title">Complement, Don't Compete</div><div class="pr-text">The Hockey Lab is designed to work alongside team hockey programs — not replace them. We communicate with families about workload, and we align our training with what athletes need from their overall hockey calendar.</div></div>
+    <div class="principle reveal reveal-delay-3"><div class="pr-n">03</div><div class="pr-title">Progress is Measured, Not Assumed</div><div class="pr-text">Athletes do not graduate to the next level because time has passed. They earn progression by demonstrating competency across the 4 pillars. Monthly tracking ensures athletes and families always know where things stand.</div></div>
+    <div class="principle reveal reveal-delay-4"><div class="pr-n">04</div><div class="pr-title">Small Groups by Design</div><div class="pr-text">Every compete session is capped at 6 athletes. Private sessions are truly private. This is not a volume business. It is a development environment that requires attention, and attention requires space.</div></div>
+    <div class="principle reveal reveal-delay-5"><div class="pr-n">05</div><div class="pr-title">The Long Game</div><div class="pr-text">The goal is never just a better practice next week. It is an athlete who has learned how to develop, compete, and grow under pressure over years. That takes consistency — and we build systems around it.</div></div>
+    <div class="principle reveal reveal-delay-6"><div class="pr-n">06</div><div class="pr-title">Mindset is Non-Negotiable</div><div class="pr-text">The Mental Edge is not a premium add-on. It is part of every program because performance is not just physical. Athletes who learn to manage their minds become athletes who can be counted on when it matters.</div></div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="section" style="text-align:center;">
+  <div class="t-eyebrow reveal" style="justify-content:center;">Experience the Method</div>
+  <h2 class="t-h2 reveal" style="margin-bottom:20px;">COME SEE IT <span class="gold">IN PERSON</span></h2>
+  <p class="t-body reveal" style="max-width:480px;margin:0 auto 40px;">Join the waitlist for early access when we open. We will place your athlete at the right level based on what we see — not just their age.</p>
+  <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;" class="reveal">
+    <a href="waitlist.html" class="btn btn-gold">Join the Waitlist</a>
+    <a href="mailto:grant@thehockeylabofficial.com" class="btn btn-outline">Talk to Grant</a>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<div id="mobile-cta-placeholder"></div>
+<script src="js/shared.js"></script>
+</body>
+</html>

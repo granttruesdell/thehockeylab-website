@@ -240,4 +240,61 @@ document.addEventListener('DOMContentLoaded', () => {
     eb.style.overflow = 'hidden';
   });
 
+  // ── Pathway Stepper ──
+  const psNodes = document.querySelectorAll('.ps-node');
+  const psPanels = document.querySelectorAll('.ps-panel');
+  const psLine = document.querySelector('.ps-line');
+  if (psNodes.length > 0) {
+    const progressMap = ['0%', '33.3%', '66.6%', '100%'];
+    const activateStep = (idx) => {
+      psNodes.forEach((n, i) => n.classList.toggle('active', i === idx));
+      psPanels.forEach((p, i) => p.classList.toggle('active', i === idx));
+      if (psLine) psLine.style.setProperty('--ps-progress', progressMap[idx]);
+    };
+    psNodes.forEach((node, i) => {
+      node.addEventListener('click', () => activateStep(i));
+    });
+    // Set initial progress line
+    if (psLine) psLine.style.setProperty('--ps-progress', progressMap[0]);
+  }
+
+  // ── Expandable Program Cards ──
+  const progToggles = document.querySelectorAll('.prog-toggle');
+  progToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const tile = toggle.closest('.prog-expand');
+      const details = tile.querySelector('.prog-details');
+      const arrow = toggle.querySelector('.prog-arrow');
+      const isOpen = tile.classList.contains('expanded');
+      // Close all others
+      document.querySelectorAll('.prog-expand.expanded').forEach(t => {
+        if (t !== tile) {
+          t.classList.remove('expanded');
+          const d = t.querySelector('.prog-details');
+          const a = t.querySelector('.prog-arrow');
+          if (d) { d.style.maxHeight = '0'; d.style.paddingTop = '0'; d.setAttribute('aria-hidden', 'true'); }
+          if (a) a.style.transform = 'rotate(0deg)';
+        }
+      });
+      if (isOpen) {
+        tile.classList.remove('expanded');
+        if (details) { details.style.maxHeight = '0'; details.style.paddingTop = '0'; details.setAttribute('aria-hidden', 'true'); }
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+      } else {
+        tile.classList.add('expanded');
+        if (details) { details.style.maxHeight = details.scrollHeight + 'px'; details.style.paddingTop = '16px'; details.setAttribute('aria-hidden', 'false'); }
+        if (arrow) arrow.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+
+});
+
+// ── Prog details initial state ──
+document.querySelectorAll('.prog-details').forEach(d => {
+  d.style.maxHeight = '0';
+  d.style.overflow = 'hidden';
+  d.style.transition = 'max-height 0.4s ease, padding-top 0.3s ease';
+  d.style.paddingTop = '0';
 });

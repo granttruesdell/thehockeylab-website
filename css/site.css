@@ -515,37 +515,154 @@ em { font-style: italic; }
 .pn span { color: var(--gold); }
 .pd { font-size: 13px; color: var(--white-60); line-height: 1.7; position: relative; z-index: 1; }
 
-/* ── PATHWAY BAR ── */
-.pathway-bar {
+/* ── PATHWAY STEPPER ── */
+.pathway-stepper { padding: 40px 0 0; }
+.ps-header { margin-bottom: 32px; }
+.ps-track { position: relative; margin-bottom: 0; }
+.ps-line {
+  position: absolute;
+  top: 22px;
+  left: calc(12.5% + 22px);
+  right: calc(12.5% + 22px);
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  z-index: 0;
+}
+.ps-line::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: var(--ps-progress, 0%);
+  background: var(--gold);
+  transition: width 0.5s ease;
+}
+.ps-nodes {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+.ps-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  flex: 1;
+  transition: opacity 0.2s;
+}
+.ps-node:hover { opacity: 0.85; }
+.ps-dot {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.15);
+  background: #0d0d0d;
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  padding: 16px 0;
-  border: 1px solid var(--white-08);
-  padding: 14px 20px;
+  justify-content: center;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  color: rgba(255,255,255,0.3);
+  transition: all 0.3s ease;
 }
-.pathway-bar-label {
+.ps-node.active .ps-dot {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #000;
+  box-shadow: 0 0 20px rgba(255,215,0,0.35);
+}
+.ps-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+  transition: color 0.3s;
+  line-height: 1.3;
+}
+.ps-node.active .ps-label { color: #fff; }
+.ps-age {
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: 4px;
+}
+.ps-panels { margin-top: 32px; }
+.ps-panel { display: none; }
+.ps-panel.active { display: block; animation: psFadeIn 0.35s ease; }
+@keyframes psFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.ps-panel-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto auto;
+  gap: 8px 32px;
+  padding: 32px 40px;
+  background: var(--dark-3);
+  border: 1px solid var(--gold-border);
+  border-top: 3px solid var(--gold);
+  align-items: start;
+}
+.ps-panel-tag {
+  grid-column: 1; grid-row: 1;
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
   font-size: 9px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--white-35);
-  margin-right: 8px;
+  color: var(--gold);
 }
-.pstep {
+.ps-panel-title {
+  grid-column: 1; grid-row: 2;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: -1.5px;
+  color: #fff;
+  line-height: 1;
+}
+.ps-panel-desc {
+  grid-column: 1; grid-row: 3;
+  font-size: 14px;
+  color: var(--white-60);
+  line-height: 1.75;
+  max-width: 560px;
+  margin-top: 8px;
+}
+.ps-panel-price {
+  grid-column: 2; grid-row: 1 / 3;
+  align-self: center;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  color: var(--gold);
+  letter-spacing: -2px;
+  white-space: nowrap;
+}
+.ps-panel-price span {
+  font-size: 16px;
+  color: var(--white-35);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.ps-panel-link {
+  grid-column: 2; grid-row: 3;
+  align-self: end;
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
-  font-size: 10px;
-  letter-spacing: 2px;
+  font-size: 11px;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--white-35);
-  padding: 4px 10px;
-  transition: color 0.2s;
+  color: var(--gold);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
 }
-.pstep.on { color: var(--gold); background: var(--gold-dim); }
-.parrow { color: var(--white-15); font-size: 14px; }
+.ps-panel-link:hover { opacity: 0.7; }
 
 /* ── PROGRAM TILES ── */
 .prog-grid {
@@ -1076,6 +1193,27 @@ em { font-style: italic; }
   .sp-divider { display: none; }
   .sp-num { font-size: 22px; }
   .launch-banner { flex-direction: column; gap: 16px; }
+
+  /* Pathway stepper mobile */
+  .ps-line { display: none; }
+  .ps-nodes { flex-direction: column; gap: 0; }
+  .ps-node {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    justify-content: flex-start;
+  }
+  .ps-label { text-align: left; }
+  .ps-panel-inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 24px 20px;
+  }
+  .ps-panel-price { grid-column: 1; grid-row: auto; font-size: 28px; }
+  .ps-panel-link { grid-column: 1; grid-row: auto; }
+  .ps-panel-title { font-size: 24px; }
 }
 
 /* ── REDUCED MOTION ── */

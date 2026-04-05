@@ -9,6 +9,10 @@
   <meta property="og:description" content="A purpose-built training environment for athletes who want to develop with structure, intention, and a real plan. Coquitlam, BC.">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="css/site.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <style>
     /* ── HERO ── */
     .hero {
@@ -344,16 +348,71 @@
       <div class="pd">Focus, confidence, composure, and reset routines. The Mental Edge system is built into every program — not sold separately.</div>
     </div>
   </div>
-  <div class="pathway-bar reveal">
-    <div class="pathway-bar-label">The Pathway</div>
-    <div class="pstep on">Young Cup <span style="font-size:9px;opacity:.6;margin-left:6px;">5-7</span></div>
-    <div class="parrow">›</div>
-    <div class="pstep">Development <span style="font-size:9px;opacity:.6;margin-left:6px;">8-11</span></div>
-    <div class="parrow">›</div>
-    <div class="pstep">Performance <span style="font-size:9px;opacity:.6;margin-left:6px;">12-16</span></div>
-    <div class="parrow">›</div>
-    <div class="pstep">Elite <span style="font-size:9px;opacity:.6;margin-left:6px;">16+</span></div>
-    <div style="margin-left:auto;font-family:'Rajdhani',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--white-35);">Ages 5 to Elite</div>
+  <!-- PATHWAY STEPPER -->
+  <div class="pathway-stepper reveal" style="margin-top:48px;">
+    <div class="ps-header">
+      <div class="t-eyebrow" style="margin-bottom:8px;">The Pathway</div>
+      <p style="font-size:13px;color:var(--white-35);font-family:'Rajdhani',sans-serif;letter-spacing:1px;">Every athlete enters at the right level and progresses with structure. Tap a level to learn more.</p>
+    </div>
+    <div class="ps-track">
+      <div class="ps-line"></div>
+      <div class="ps-nodes">
+        <div class="ps-node active" data-step="0">
+          <div class="ps-dot"><span>1</span></div>
+          <div class="ps-label">Young Cup<div class="ps-age">Ages 5–7</div></div>
+        </div>
+        <div class="ps-node" data-step="1">
+          <div class="ps-dot"><span>2</span></div>
+          <div class="ps-label">Development<div class="ps-age">Ages 8–11</div></div>
+        </div>
+        <div class="ps-node" data-step="2">
+          <div class="ps-dot"><span>3</span></div>
+          <div class="ps-label">Performance<div class="ps-age">Ages 12–16</div></div>
+        </div>
+        <div class="ps-node" data-step="3">
+          <div class="ps-dot"><span>4</span></div>
+          <div class="ps-label">Elite<div class="ps-age">Ages 16+</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="ps-panels">
+      <div class="ps-panel active" data-panel="0">
+        <div class="ps-panel-inner">
+          <div class="ps-panel-tag">Entry Level</div>
+          <div class="ps-panel-title">Young Cup</div>
+          <div class="ps-panel-desc">Where the love of the game begins. Small group sessions focused on movement, coordination, and basic hockey skills through game-based play. No pressure — just reps and confidence.</div>
+          <div class="ps-panel-price">$179<span>/mo</span></div>
+          <a href="programs.html#young-cup" class="ps-panel-link">View Full Program →</a>
+        </div>
+      </div>
+      <div class="ps-panel" data-panel="1">
+        <div class="ps-panel-inner">
+          <div class="ps-panel-tag">Core Development</div>
+          <div class="ps-panel-title">Development</div>
+          <div class="ps-panel-desc">The 4-pillar system in full effect. Private and semi-private technical sessions, small group compete sessions, and monthly dryland. Every rep has a reason.</div>
+          <div class="ps-panel-price">$399<span>/mo</span></div>
+          <a href="programs.html#development" class="ps-panel-link">View Full Program →</a>
+        </div>
+      </div>
+      <div class="ps-panel" data-panel="2">
+        <div class="ps-panel-inner">
+          <div class="ps-panel-tag">Competitive Edge</div>
+          <div class="ps-panel-title">Performance</div>
+          <div class="ps-panel-desc">Train how you play. Position-specific technical sessions, game-pressure compete sessions, and monthly Mental Edge integration. Built for athletes who want to compete at a higher level.</div>
+          <div class="ps-panel-price">$399<span>/mo</span></div>
+          <a href="programs.html#performance" class="ps-panel-link">View Full Program →</a>
+        </div>
+      </div>
+      <div class="ps-panel" data-panel="3">
+        <div class="ps-panel-inner">
+          <div class="ps-panel-tag">By Application Only</div>
+          <div class="ps-panel-title">Elite</div>
+          <div class="ps-panel-desc">For athletes who are ready to separate themselves. Two weekly private sessions, elite compete sessions, full Mental Edge integration, and in-season performance support. Limited spots.</div>
+          <div class="ps-panel-price">$899<span>/mo</span></div>
+          <a href="programs.html#elite" class="ps-panel-link">Apply Now →</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -573,10 +632,10 @@
       <div class="cc-title">Join the Waitlist</div>
       <div class="cc-desc">Be first to know when trial bookings open. No commitment — just first in line.</div>
     </a>
-    <a href="mailto:grant@thehockeylabofficial.com" class="cta-card">
+    <a href="https://calendly.com/fusionflowcoaching/development-consultation" target="_blank" rel="noopener" class="cta-card">
       <div class="cc-lbl">Have Questions?</div>
       <div class="cc-title">Talk to Grant</div>
-      <div class="cc-desc">Email or call Grant directly. He will tell you honestly if the program is the right fit.</div>
+      <div class="cc-desc">Book a free 15-minute development consultation. He will tell you honestly if the program is the right fit.</div>
     </a>
     <a href="mental-edge.html" class="cta-card">
       <div class="cc-lbl">Available Now</div>

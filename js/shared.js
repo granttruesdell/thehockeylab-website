@@ -5,7 +5,7 @@
 // ── NAV HTML ──
 const NAV_HTML = `
 <nav class="site-nav" id="site-nav">
-  <a href="index.html" class="nav-logo">THE HOCKEY <span>LAB</span></a>
+  <a href="index.html" class="nav-logo" onclick="if(window.location.pathname.endsWith('index.html')||window.location.pathname==='/'){window.scrollTo({top:0,behavior:'smooth'});return false;}">THE HOCKEY <span>LAB</span></a>
   <ul class="nav-links">
     <li><a href="programs.html">Programs</a></li>
     <li><a href="method.html">The Method</a></li>
@@ -251,17 +251,30 @@ document.addEventListener('DOMContentLoaded', () => {
       psPanels.forEach((p, i) => p.classList.toggle('active', i === idx));
       if (psLine) psLine.style.setProperty('--ps-progress', progressMap[idx]);
 
-      // Highlight the matching program card if on the homepage
+      // Highlight + auto-open the matching program card if on the homepage
       const progGrid = document.getElementById('prog-grid');
       if (progGrid) {
         const activeNode = psNodes[idx];
         const progKey = activeNode ? activeNode.dataset.prog : null;
+        // Update mobile prog-row-node active states
+        document.querySelectorAll('.prog-row-node').forEach(rn => {
+          rn.classList.toggle('ps-row-active', rn.dataset.prog === progKey);
+        });
         document.querySelectorAll('.prog-tile').forEach(tile => {
           const isMatch = tile.dataset.prog === progKey;
           tile.classList.toggle('ps-highlighted', isMatch);
-          // Scroll the highlighted tile into view smoothly
+          const details = tile.querySelector('.prog-details');
+          const arrow = tile.querySelector('.prog-arrow');
           if (isMatch) {
-            tile.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+            // Open this card
+            tile.classList.add('expanded');
+            if (details) { details.style.maxHeight = details.scrollHeight + 'px'; details.style.paddingTop = '16px'; details.setAttribute('aria-hidden', 'false'); }
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+          } else {
+            // Close all others
+            tile.classList.remove('expanded');
+            if (details) { details.style.maxHeight = '0'; details.style.paddingTop = '0'; details.setAttribute('aria-hidden', 'true'); }
+            if (arrow) arrow.style.transform = 'rotate(0deg)';
           }
         });
       }
@@ -269,9 +282,17 @@ document.addEventListener('DOMContentLoaded', () => {
     psNodes.forEach((node, i) => {
       node.addEventListener('click', () => activateStep(i));
     });
+    // Mobile prog-row-node tap also activates the stepper
+    document.querySelectorAll('.prog-row-node').forEach(rn => {
+      rn.addEventListener('click', () => {
+        const step = parseInt(rn.dataset.step, 10);
+        if (!isNaN(step)) activateStep(step);
+      });
+    });
     // Set initial progress line and highlight
+    // Use rAF so scrollHeight is measured after first paint
     if (psLine) psLine.style.setProperty('--ps-progress', progressMap[0]);
-    activateStep(0);
+    requestAnimationFrame(() => { activateStep(0); });
   }
 
   // ── Expandable Program Cards ──

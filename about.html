@@ -15,9 +15,10 @@
     /* ── ABOUT HERO ── */
     .about-hero {
       display: grid;
-      grid-template-columns: 1fr 480px;
+      grid-template-columns: 1fr 1fr;
       min-height: 100vh;
       padding-top: var(--nav-h);
+      overflow: hidden;
     }
     .ah-content {
       display: flex;
@@ -27,6 +28,7 @@
       background: var(--dark);
       position: relative;
       overflow: hidden;
+      z-index: 1;
     }
     .ah-content::before {
       content: 'GRANT';
@@ -71,15 +73,14 @@
       object-fit: cover;
       object-position: center 15%;
       display: block;
-      opacity: 0.55;
-      mix-blend-mode: luminosity;
+      /* Full colour — no desaturation */
     }
     .ah-photo-overlay {
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to right, rgba(8,8,8,0.75) 0%, rgba(8,8,8,0.15) 55%, transparent 100%),
-        linear-gradient(to top, rgba(8,8,8,0.7) 0%, transparent 45%);
+        linear-gradient(to right, rgba(8,8,8,0.55) 0%, rgba(8,8,8,0.1) 40%, transparent 70%),
+        linear-gradient(to top, rgba(8,8,8,0.5) 0%, transparent 40%);
     }
     .ah-photo-caption {
       position: absolute;
@@ -301,7 +302,8 @@
     /* ── MOBILE ── */
     @media (max-width: 1024px) {
       .about-hero { grid-template-columns: 1fr; min-height: auto; }
-      .ah-photo { height: 60vw; min-height: 320px; max-height: 520px; }
+      .ah-photo { height: 70vw; min-height: 340px; max-height: 560px; }
+      .ah-photo img { object-position: center 10%; }
       .ah-content { padding: 64px var(--pad-x); justify-content: flex-start; }
       .ah-content::before { font-size: 140px; }
     }

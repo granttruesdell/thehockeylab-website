@@ -250,12 +250,28 @@ document.addEventListener('DOMContentLoaded', () => {
       psNodes.forEach((n, i) => n.classList.toggle('active', i === idx));
       psPanels.forEach((p, i) => p.classList.toggle('active', i === idx));
       if (psLine) psLine.style.setProperty('--ps-progress', progressMap[idx]);
+
+      // Highlight the matching program card if on the homepage
+      const progGrid = document.getElementById('prog-grid');
+      if (progGrid) {
+        const activeNode = psNodes[idx];
+        const progKey = activeNode ? activeNode.dataset.prog : null;
+        document.querySelectorAll('.prog-tile').forEach(tile => {
+          const isMatch = tile.dataset.prog === progKey;
+          tile.classList.toggle('ps-highlighted', isMatch);
+          // Scroll the highlighted tile into view smoothly
+          if (isMatch) {
+            tile.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+          }
+        });
+      }
     };
     psNodes.forEach((node, i) => {
       node.addEventListener('click', () => activateStep(i));
     });
-    // Set initial progress line
+    // Set initial progress line and highlight
     if (psLine) psLine.style.setProperty('--ps-progress', progressMap[0]);
+    activateStep(0);
   }
 
   // ── Expandable Program Cards ──

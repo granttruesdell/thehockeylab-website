@@ -697,6 +697,8 @@ em { font-style: italic; }
 .prog-tile:hover { border-color: var(--gold-border); background: #1c1c1c; transform: translateY(-4px); }
 .prog-tile:hover::before { transform: scaleX(1); }
 .prog-tile.feat { border-color: rgba(255,215,0,0.2); background: #111; }
+.prog-tile.ps-highlighted { border-color: var(--gold-border); background: #1a1a0f; transform: translateY(-4px); }
+.prog-tile.ps-highlighted::before { transform: scaleX(1); }
 .pa {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
@@ -1176,7 +1178,8 @@ em { font-style: italic; }
   .footer-main { grid-template-columns: 1fr; gap: 40px; padding: 48px var(--pad-x); }
   .footer-bottom { flex-direction: column; text-align: center; }
   .grant-strip { grid-template-columns: 1fr; }
-  .grant-photo { height: 300px; }
+  .grant-photo { height: 360px; }
+  .grant-photo img { object-position: center 15%; }
   .grant-cta-col { display: none; }
   .hero-stats { display: none; }
   .hero-countdown { display: none; }

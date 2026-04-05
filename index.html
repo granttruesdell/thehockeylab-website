@@ -348,72 +348,6 @@
       <div class="pd">Focus, confidence, composure, and reset routines. The Mental Edge system is built into every program — not sold separately.</div>
     </div>
   </div>
-  <!-- PATHWAY STEPPER -->
-  <div class="pathway-stepper reveal" style="margin-top:48px;">
-    <div class="ps-header">
-      <div class="t-eyebrow" style="margin-bottom:8px;">The Pathway</div>
-      <p style="font-size:13px;color:var(--white-35);font-family:'Rajdhani',sans-serif;letter-spacing:1px;">Every athlete enters at the right level and progresses with structure. Tap a level to learn more.</p>
-    </div>
-    <div class="ps-track">
-      <div class="ps-line"></div>
-      <div class="ps-nodes">
-        <div class="ps-node active" data-step="0">
-          <div class="ps-dot"><span>1</span></div>
-          <div class="ps-label">Young Cup<div class="ps-age">Ages 5–7</div></div>
-        </div>
-        <div class="ps-node" data-step="1">
-          <div class="ps-dot"><span>2</span></div>
-          <div class="ps-label">Development<div class="ps-age">Ages 8–11</div></div>
-        </div>
-        <div class="ps-node" data-step="2">
-          <div class="ps-dot"><span>3</span></div>
-          <div class="ps-label">Performance<div class="ps-age">Ages 12–16</div></div>
-        </div>
-        <div class="ps-node" data-step="3">
-          <div class="ps-dot"><span>4</span></div>
-          <div class="ps-label">Elite<div class="ps-age">Ages 16+</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="ps-panels">
-      <div class="ps-panel active" data-panel="0">
-        <div class="ps-panel-inner">
-          <div class="ps-panel-tag">Entry Level</div>
-          <div class="ps-panel-title">Young Cup</div>
-          <div class="ps-panel-desc">Where the love of the game begins. Small group sessions focused on movement, coordination, and basic hockey skills through game-based play. No pressure — just reps and confidence.</div>
-          <div class="ps-panel-price">$179<span>/mo</span></div>
-          <a href="programs.html#young-cup" class="ps-panel-link">View Full Program →</a>
-        </div>
-      </div>
-      <div class="ps-panel" data-panel="1">
-        <div class="ps-panel-inner">
-          <div class="ps-panel-tag">Core Development</div>
-          <div class="ps-panel-title">Development</div>
-          <div class="ps-panel-desc">The 4-pillar system in full effect. Private and semi-private technical sessions, small group compete sessions, and monthly dryland. Every rep has a reason.</div>
-          <div class="ps-panel-price">$399<span>/mo</span></div>
-          <a href="programs.html#development" class="ps-panel-link">View Full Program →</a>
-        </div>
-      </div>
-      <div class="ps-panel" data-panel="2">
-        <div class="ps-panel-inner">
-          <div class="ps-panel-tag">Competitive Edge</div>
-          <div class="ps-panel-title">Performance</div>
-          <div class="ps-panel-desc">Train how you play. Position-specific technical sessions, game-pressure compete sessions, and monthly Mental Edge integration. Built for athletes who want to compete at a higher level.</div>
-          <div class="ps-panel-price">$399<span>/mo</span></div>
-          <a href="programs.html#performance" class="ps-panel-link">View Full Program →</a>
-        </div>
-      </div>
-      <div class="ps-panel" data-panel="3">
-        <div class="ps-panel-inner">
-          <div class="ps-panel-tag">By Application Only</div>
-          <div class="ps-panel-title">Elite</div>
-          <div class="ps-panel-desc">For athletes who are ready to separate themselves. Two weekly private sessions, elite compete sessions, full Mental Edge integration, and in-season performance support. Limited spots.</div>
-          <div class="ps-panel-price">$899<span>/mo</span></div>
-          <a href="programs.html#elite" class="ps-panel-link">Apply Now →</a>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- ── PROGRAMS ── -->
@@ -425,7 +359,33 @@
     </div>
     <p class="t-body" style="align-self:end;">Athletes enter at the right level based on ability and age, then progress with structure and accountability. Not sure where to start? Join the waitlist and we will place your athlete correctly.</p>
   </div>
-  <div class="prog-grid">
+
+  <!-- PATHWAY STEPPER -->
+  <div class="pathway-stepper reveal" style="margin-top:8px;margin-bottom:0;">
+    <div class="ps-track">
+      <div class="ps-line"></div>
+      <div class="ps-nodes">
+        <div class="ps-node active" data-step="0" data-prog="young-cup">
+          <div class="ps-dot"><span>1</span></div>
+          <div class="ps-label">Young Cup<div class="ps-age">Ages 5–7</div></div>
+        </div>
+        <div class="ps-node" data-step="1" data-prog="development">
+          <div class="ps-dot"><span>2</span></div>
+          <div class="ps-label">Development<div class="ps-age">Ages 8–11</div></div>
+        </div>
+        <div class="ps-node" data-step="2" data-prog="performance">
+          <div class="ps-dot"><span>3</span></div>
+          <div class="ps-label">Performance<div class="ps-age">Ages 12–16</div></div>
+        </div>
+        <div class="ps-node" data-step="3" data-prog="elite">
+          <div class="ps-dot"><span>4</span></div>
+          <div class="ps-label">Elite<div class="ps-age">Ages 16+</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prog-grid" id="prog-grid">
 
     <!-- YOUNG CUP -->
     <div class="prog-tile prog-expand reveal reveal-delay-1" data-prog="young-cup">

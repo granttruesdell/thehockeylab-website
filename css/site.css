@@ -370,6 +370,40 @@ em { font-style: italic; }
   flex-shrink: 0;
 }
 
+/* Stats marquee variant */
+.marquee-stats {
+  padding: 18px 0;
+  background: var(--dark);
+  border-top: 1px solid var(--white-08);
+  border-bottom: 1px solid var(--gold-20, rgba(255,215,0,.15));
+}
+.marquee-stats .marquee-inner {
+  animation-duration: 35s;
+}
+.marquee-stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 32px;
+  white-space: nowrap;
+}
+.ms-num {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  color: var(--gold);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+.ms-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white-60);
+}
+
 /* ── GAP GRID (HOME PROBLEM SECTION) ── */
 .gap-grid {
   display: grid;

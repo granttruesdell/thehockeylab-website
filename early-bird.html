@@ -850,6 +850,27 @@
       color: #080808;
     }
 
+    /* ── GRANT PHOTO ── */
+    .grant-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .grant-photo-wrap {
+      overflow: hidden;
+      border: 1px solid var(--white-08);
+      aspect-ratio: 4/3;
+    }
+    .grant-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .grant-photo-wrap:hover img { transform: scale(1.03); }
+
     /* ── SCROLL REVEAL ── */
     .reveal {
       opacity: 0;
@@ -869,6 +890,7 @@
       .inc-grid { grid-template-columns: 1fr 1fr; }
       .pay-grid { grid-template-columns: 1fr; }
       .grant-strip { grid-template-columns: 1fr; gap: 48px; }
+      .grant-right { gap: 2px; }
       .reviews-grid { grid-template-columns: 1fr; }
       .faq-grid { grid-template-columns: 1fr 1fr; }
       .claim-inner { grid-template-columns: 1fr; gap: 48px; padding: 64px var(--pad-x); }
@@ -910,9 +932,9 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Founding Member Offer — 10 Spots Only</div>
-    <h1 class="hero-h">WE'RE GETTING<br>A REAL <span>FACILITY.</span><br>LOCK IN BEFORE<br>THE PRICE DOES TOO.</h1>
+    <h1 class="hero-h">THE PROGRAM IS<br>LEVELLING <span>UP.</span><br>LOCK IN BEFORE<br>THE PRICE DOES TOO.</h1>
     <p class="hero-sub">
-      The Hockey Lab is moving into the <strong>Express Performance Centre in Coquitlam</strong>. Same coaching. Serious upgrade. The price goes up when the doors open — but not for you, if you commit now.
+      The Hockey Lab is moving into the <strong>Express Performance Centre in Coquitlam</strong> — with a new curriculum, new technology, and new equipment. The program is getting better. The price reflects that. Lock in today's rate before the doors open.
     </p>
     <div class="hero-ctas">
       <a href="#claim" class="btn-gold">Claim Your Spot — $250/mo &rarr;</a>
@@ -962,7 +984,7 @@
       <p>The Hockey Lab started in a backyard. That's not a metaphor — Grant built the program from scratch, training athletes one-on-one with a real system and zero infrastructure.</p>
       <p>That environment produced real results. The program worked because of the coaching — not the building.</p>
       <p><strong>Now the building is catching up.</strong> The move to the Express Performance Centre gives The Hockey Lab a purpose-built space: synthetic ice, dedicated compete areas, and a mental performance room. Year-round. Professional grade.</p>
-      <p>The program doesn't change. The environment gets a serious upgrade — and the price reflects that. Which is why locking in now matters.</p>
+      <p><strong>The program is getting better.</strong> New curriculum. New drills. New technology and equipment built specifically for skill development. The move to the Express Performance Centre isn't just a change of address — it's a full upgrade to what The Hockey Lab delivers. The price reflects that. Which is why locking in now matters.</p>
     </div>
   </div>
 </section>
@@ -971,8 +993,8 @@
 <section style="border-top: 1px solid var(--white-08); border-bottom: 1px solid var(--white-08);">
   <div class="includes">
     <div class="t-eyebrow reveal">Everything included</div>
-    <h2 class="section-h reveal reveal-d1">THE FULL PROGRAM.<br><span>NOTHING REMOVED.</span></h2>
-    <p class="section-sub reveal reveal-d2">This is not a discounted version of the program. Founding members get the complete curriculum — same sessions, same access, same direct coaching from Grant.</p>
+    <h2 class="section-h reveal reveal-d1">THE UPGRADED PROGRAM.<br><span>AT TODAY'S RATE.</span></h2>
+    <p class="section-sub reveal reveal-d2">Founding members get the upgraded program — new curriculum, new technology, new equipment — at today's rate. This is the full experience, not a reduced version of it.</p>
 
     <div class="inc-grid">
       <div class="inc-card reveal">
@@ -1041,10 +1063,14 @@
       <div class="grant-body reveal reveal-d2">
         <p>Grant has been playing and coaching hockey for over 30 years. He's a competitive goalie, a <strong>Juno Award-winning musician</strong>, and the founder of The Hockey Lab.</p>
         <p>He built the program from scratch — not from a coaching manual, but from decades of performing under pressure in two unforgiving disciplines. The Mental Edge system came directly from that experience.</p>
-        <p><strong>He coaches every athlete in the program personally. That doesn't change when the facility opens.</strong></p>
+        <p><strong>He coaches every athlete personally. The new facility gives him better tools. The coaching doesn't change — it gets sharper.</strong></p>
       </div>
     </div>
-    <div class="grant-stats reveal reveal-d1">
+    <div class="grant-right reveal reveal-d1">
+      <div class="grant-photo-wrap">
+        <img src="images/grant-rink-coaching.webp" alt="Grant Truesdell — The Hockey Lab" loading="lazy">
+      </div>
+      <div class="grant-stats">
       <div class="gs-item">
         <div class="gs-val">30+</div>
         <div class="gs-lbl">Years playing and coaching at a competitive level</div>
@@ -1061,6 +1087,7 @@
         <div class="gs-val">4</div>
         <div class="gs-lbl">Development pillars — Movement, Tracking, Execution, Mindset</div>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -1167,16 +1194,6 @@
             <label class="form-label" for="phone">Phone / Text</label>
             <input class="form-input" type="tel" id="phone" name="phone" placeholder="(778) 000-0000">
           </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="program">Program Level</label>
-          <select class="form-select" id="program" name="program" required>
-            <option value="" disabled selected>Select program</option>
-            <option value="development">Development — Ages 8–11</option>
-            <option value="performance">Performance — Ages 12–16</option>
-            <option value="other">Other — I'll explain below</option>
-          </select>
         </div>
 
         <div class="form-group">

@@ -891,6 +891,9 @@
       .pay-grid { grid-template-columns: 1fr; }
       .grant-strip { grid-template-columns: 1fr; gap: 48px; }
       .grant-right { gap: 2px; }
+      /* two-panel facility: stack on mobile */
+      .facility-panels { grid-template-columns: 1fr !important; }
+      .facility-panels > div:last-child { border-left: none !important; border-top: 1px solid var(--white-08); }
       .reviews-grid { grid-template-columns: 1fr; }
       .faq-grid { grid-template-columns: 1fr 1fr; }
       .claim-inner { grid-template-columns: 1fr; gap: 48px; padding: 64px var(--pad-x); }
@@ -970,32 +973,46 @@
   </div>
 </div>
 
-<!-- FACILITY — interior photo + story -->
-<section class="facility">
-  <div class="facility-photo">
-    <img src="images/express-interior.jpg"
-         alt="Express Performance Centre — training floor"
-         loading="lazy"
-         style="object-position: center 40%;">
+<!-- FACILITY — before/after two-panel -->
+<section style="border-top:1px solid var(--white-08);">
+  <div class="facility-panels" style="display:grid;grid-template-columns:1fr 1fr;min-height:480px;">
+
+    <!-- LEFT: Backyard roots -->
+    <div style="position:relative;overflow:hidden;">
+      <img src="images/backyard-rink.jpg" alt="The Hockey Lab — where it started" loading="lazy"
+           style="width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:0.75;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,0.9) 0%,rgba(8,8,8,0.2) 60%,rgba(8,8,8,0.4) 100%);"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:32px;">
+        <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;">Where it started</div>
+        <div style="font-family:'Exo 2',sans-serif;font-weight:900;font-size:clamp(20px,2.2vw,28px);text-transform:uppercase;letter-spacing:-0.5px;color:#fff;line-height:1.1;">A BACKYARD.<br>A NET.<br><span style="color:var(--gold);">A REAL SYSTEM.</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: New facility -->
+    <div style="position:relative;overflow:hidden;border-left:1px solid var(--white-08);">
+      <img src="images/express-interior.jpg" alt="Express Performance Centre — training floor" loading="lazy"
+           style="width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:0.75;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,0.9) 0%,rgba(8,8,8,0.2) 60%,rgba(8,8,8,0.4) 100%);"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:32px;">
+        <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,215,0,0.7);margin-bottom:8px;">Where it's going</div>
+        <div style="font-family:'Exo 2',sans-serif;font-weight:900;font-size:clamp(20px,2.2vw,28px);text-transform:uppercase;letter-spacing:-0.5px;color:#fff;line-height:1.1;">EXPRESS<br>PERFORMANCE<br><span style="color:var(--gold);">CENTRE.</span></div>
+      </div>
+    </div>
+
   </div>
-  <div class="facility-text">
-    <div class="t-eyebrow reveal">The new home</div>
-    <h2 class="facility-h reveal reveal-d1">THIS ISN'T<br>JUST A NEW<br><span>ADDRESS.</span></h2>
-    <div class="facility-body reveal reveal-d2">
+
+  <!-- Story copy below the two panels -->
+  <div style="max-width:760px;margin:0 auto;padding:64px var(--pad-x);">
+    <div class="t-eyebrow reveal" style="text-align:center;">The new home</div>
+    <h2 class="section-h reveal reveal-d1" style="text-align:center;">THIS ISN'T<br>JUST A NEW <span>ADDRESS.</span></h2>
+    <div class="facility-body reveal reveal-d2" style="text-align:center;">
       <p>The Hockey Lab started in a backyard. That's not a metaphor — Grant built the program from scratch, training athletes one-on-one with a real system and zero infrastructure.</p>
       <p>That environment produced real results. The program worked because of the coaching — not the building.</p>
       <p><strong>Now the building is catching up.</strong> The move to the Express Performance Centre gives The Hockey Lab a purpose-built space: synthetic ice, dedicated compete areas, and a mental performance room. Year-round. Professional grade.</p>
-      <p><strong>The program is getting better.</strong> New curriculum. New drills. New technology and equipment built specifically for skill development. The move to the Express Performance Centre isn't just a change of address — it's a full upgrade to what The Hockey Lab delivers. The price reflects that. Which is why locking in now matters.</p>
+      <p><strong>The program is getting better.</strong> New curriculum. New drills. New technology and equipment. The price reflects that. Which is why locking in now matters.</p>
     </div>
   </div>
 </section>
-
-<!-- PHOTO STRIP 1 — synthetic ice training (subtle) -->
-<div style="height:220px;overflow:hidden;position:relative;">
-  <img src="images/synthetic-ice-training.jpg" alt="Goalie training on synthetic ice" loading="lazy"
-       style="width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:0.55;">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,8,0.6) 0%,rgba(8,8,8,0.1) 50%,rgba(8,8,8,0.7) 100%);"></div>
-</div>
 
 <!-- BONUS STRIP -->
 <div class="bonus-strip">
@@ -1025,13 +1042,6 @@
     </div>
   </div>
 </section>
-
-<!-- PHOTO STRIP 2 — synthetic ice surface (subtle) -->
-<div style="height:180px;overflow:hidden;position:relative;">
-  <img src="images/synthetic-ice.jpg" alt="Synthetic ice surface at Express Performance Centre" loading="lazy"
-       style="width:100%;height:100%;object-fit:cover;object-position:center 55%;opacity:0.5;">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,8,0.7) 0%,rgba(8,8,8,0.1) 50%,rgba(8,8,8,0.7) 100%);"></div>
-</div>
 
 <!-- GRANT -->
 <section style="border-top: 1px solid var(--white-08); border-bottom: 1px solid var(--white-08);">

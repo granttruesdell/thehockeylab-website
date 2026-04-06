@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Founding Member Offer | The Hockey Lab</title>
+  <meta name="description" content="Lock in $250/month for 6 months before The Hockey Lab moves into its new purpose-built facility. 8 spots remaining.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,600;0,700;0,900;1,900&family=Rajdhani:wght@500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --dark:        #080808;
+      --dark-2:      #0e0e0e;
+      --dark-3:      #141414;
+      --gold:        #FFD700;
+      --gold-dim:    rgba(255,215,0,0.07);
+      --gold-border: rgba(255,215,0,0.22);
+      --white-60:    rgba(255,255,255,0.60);
+      --white-35:    rgba(255,255,255,0.35);
+      --white-15:    rgba(255,255,255,0.15);
+      --white-08:    rgba(255,255,255,0.08);
+      --pad-x:       clamp(24px, 6vw, 80px);
+      --red:         #ff4444;
+      --red-dim:     rgba(255,68,68,0.10);
+      --red-border:  rgba(255,68,68,0.30);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--dark);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* ── TOP URGENCY BAR ── */
+    .urgency-bar {
+      background: var(--red);
+      padding: 10px var(--pad-x);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .urgency-dot {
+      width: 8px; height: 8px;
+      background: #fff;
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .urgency-text {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+      text-align: center;
+    }
+    .urgency-text strong { color: #fff; font-weight: 900; }
+
+    /* ── MINIMAL NAV ── */
+    .lp-nav {
+      padding: 20px var(--pad-x);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--white-08);
+      background: var(--dark);
+    }
+    .lp-logo {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .lp-logo span { color: var(--gold); }
+    .lp-nav-tag {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--white-35);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px var(--pad-x) 72px;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 80px;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      padding: 6px 16px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+    .hero-h {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(44px, 6vw, 80px);
+      text-transform: uppercase;
+      letter-spacing: -3px;
+      line-height: .88;
+      margin-bottom: 28px;
+    }
+    .hero-h span { color: var(--gold); }
+    .hero-sub {
+      font-size: 17px;
+      color: var(--white-60);
+      line-height: 1.8;
+      max-width: 540px;
+      margin-bottom: 36px;
+    }
+    .hero-sub strong { color: #fff; font-weight: 500; }
+    .hero-proof {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-top: 28px;
+      border-top: 1px solid var(--white-08);
+    }
+    .hp-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .hp-val {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: var(--gold);
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+    .hp-lbl {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white-35);
+    }
+    .hp-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--white-08);
+    }
+
+    /* ── HERO PRICE CARD ── */
+    .price-card {
+      background: var(--dark-2);
+      border: 1px solid var(--gold-border);
+      padding: 36px 32px;
+      position: relative;
+    }
+    .price-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+    }
+    .pc-spots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .pc-spots-bar {
+      flex: 1;
+      height: 4px;
+      background: var(--white-08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .pc-spots-fill {
+      height: 100%;
+      width: 20%; /* 2 of 10 taken */
+      background: var(--gold);
+      border-radius: 2px;
+    }
+    .pc-spots-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .pc-was {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      margin-bottom: 4px;
+    }
+    .pc-strikethrough {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 36px;
+      color: rgba(255,255,255,0.2);
+      text-decoration: line-through;
+      text-decoration-color: rgba(255,68,68,0.6);
+      text-decoration-thickness: 2px;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .pc-now-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .pc-price {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 72px;
+      color: var(--gold);
+      letter-spacing: -3px;
+      line-height: 1;
+    }
+    .pc-price em {
+      font-style: normal;
+      font-size: 20px;
+      color: var(--white-35);
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+    .pc-divider {
+      border: none;
+      border-top: 1px solid var(--white-08);
+      margin: 20px 0;
+    }
+    .pc-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 8px;
+    }
+    .pc-total-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white-35);
+    }
+    .pc-total-was {
+      font-size: 13px;
+      color: rgba(255,255,255,0.2);
+      text-decoration: line-through;
+      text-decoration-color: rgba(255,68,68,0.5);
+    }
+    .pc-total-now {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      color: #fff;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+    .pc-savings-pill {
+      background: var(--red-dim);
+      border: 1px solid var(--red-border);
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .pc-savings-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,120,120,0.8);
+    }
+    .pc-savings-amount {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      color: #ff6b6b;
+      letter-spacing: -0.5px;
+    }
+    .btn-primary {
+      display: block;
+      width: 100%;
+      background: var(--gold);
+      color: #080808;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      padding: 18px 24px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-bottom: 10px;
+    }
+    .btn-primary:hover { background: #e6c200; transform: translateY(-2px); }
+    .btn-secondary {
+      display: block;
+      width: 100%;
+      background: transparent;
+      color: var(--white-60);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      padding: 14px 24px;
+      border: 1px solid var(--white-08);
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      margin-bottom: 16px;
+    }
+    .btn-secondary:hover { border-color: var(--white-35); color: #fff; }
+    .pc-fine {
+      font-size: 11px;
+      color: var(--white-35);
+      text-align: center;
+      line-height: 1.6;
+    }
+    .pc-fine a { color: var(--gold); text-decoration: none; }
+
+    /* ── SECTION SHARED ── */
+    .section {
+      padding: 80px var(--pad-x);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-full {
+      padding: 80px var(--pad-x);
+    }
+    .t-eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .t-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .section-h {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 5vw, 56px);
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: .9;
+      margin-bottom: 20px;
+    }
+    .section-h span { color: var(--gold); }
+    .section-sub {
+      font-size: 16px;
+      color: var(--white-60);
+      line-height: 1.8;
+      max-width: 600px;
+      margin-bottom: 48px;
+    }
+    .section-sub strong { color: #fff; font-weight: 500; }
+
+    /* ── FACILITY SECTION ── */
+    .facility-section {
+      background: var(--dark-2);
+      border-top: 1px solid var(--white-08);
+      border-bottom: 1px solid var(--white-08);
+    }
+    .facility-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px var(--pad-x);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .facility-h {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 4.5vw, 56px);
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: .9;
+      margin-bottom: 24px;
+    }
+    .facility-h span { color: var(--gold); }
+    .facility-body {
+      font-size: 15px;
+      color: var(--white-60);
+      line-height: 1.9;
+    }
+    .facility-body p { margin-bottom: 18px; }
+    .facility-body p:last-child { margin-bottom: 0; }
+    .facility-body strong { color: #fff; font-weight: 500; }
+    .facility-features {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .ff-item {
+      background: var(--dark-3);
+      border: 1px solid var(--white-08);
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .ff-item:hover { border-color: var(--gold-border); background: #1a1a0f; }
+    .ff-icon {
+      width: 40px; height: 40px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .ff-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: -0.3px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .ff-desc {
+      font-size: 13px;
+      color: var(--white-35);
+      line-height: 1.5;
+    }
+
+    /* ── WHAT'S INCLUDED ── */
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      margin-bottom: 32px;
+    }
+    .inc-item {
+      background: var(--dark-2);
+      border: 1px solid var(--white-08);
+      padding: 28px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .inc-item:hover { border-color: var(--gold-border); background: var(--dark-3); }
+    .inc-icon {
+      width: 44px; height: 44px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .inc-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: -0.3px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .inc-desc {
+      font-size: 13px;
+      color: var(--white-60);
+      line-height: 1.6;
+    }
+
+    /* ── BONUS BANNER ── */
+    .bonus-banner {
+      background: rgba(255,215,0,0.06);
+      border: 1px solid rgba(255,215,0,0.3);
+      padding: 28px 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .bonus-tag {
+      background: var(--gold);
+      color: #080808;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 900;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      margin-top: 2px;
+    }
+    .bonus-content {}
+    .bonus-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .bonus-desc {
+      font-size: 14px;
+      color: var(--white-60);
+      line-height: 1.6;
+    }
+    .bonus-desc strong { color: #fff; font-weight: 500; }
+
+    /* ── PAYMENT OPTIONS ── */
+    .payment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 48px;
+    }
+    .pay-card {
+      background: var(--dark-2);
+      border: 1px solid var(--white-08);
+      padding: 32px 28px;
+      position: relative;
+    }
+    .pay-card.featured {
+      border-color: var(--gold-border);
+      background: #0f0f08;
+    }
+    .pay-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -1px; right: 24px;
+      background: var(--gold);
+      color: #080808;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 900;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+    }
+    .pay-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      margin-bottom: 8px;
+    }
+    .pay-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .pay-amount {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 52px;
+      color: var(--gold);
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pay-amount em {
+      font-style: normal;
+      font-size: 16px;
+      color: var(--white-35);
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+    .pay-sub {
+      font-size: 13px;
+      color: var(--white-35);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .pay-divider {
+      border: none;
+      border-top: 1px solid var(--white-08);
+      margin: 20px 0;
+    }
+    .pay-detail {
+      font-size: 13px;
+      color: var(--white-60);
+      line-height: 1.7;
+    }
+    .pay-detail strong { color: #fff; font-weight: 500; }
+
+    /* ── GRANT STRIP ── */
+    .grant-strip {
+      background: var(--dark-2);
+      border-top: 1px solid var(--white-08);
+      border-bottom: 1px solid var(--white-08);
+    }
+    .grant-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px var(--pad-x);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .grant-h {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(32px, 4vw, 48px);
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: .9;
+      margin-bottom: 20px;
+    }
+    .grant-h span { color: var(--gold); }
+    .grant-body {
+      font-size: 15px;
+      color: var(--white-60);
+      line-height: 1.9;
+    }
+    .grant-body p { margin-bottom: 16px; }
+    .grant-body p:last-child { margin-bottom: 0; }
+    .grant-body strong { color: #fff; font-weight: 500; }
+    .grant-creds {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .gc-item {
+      background: var(--dark-3);
+      border: 1px solid var(--white-08);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .gc-num {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: var(--gold);
+      letter-spacing: -1px;
+      line-height: 1;
+      min-width: 56px;
+    }
+    .gc-text {
+      font-size: 13px;
+      color: var(--white-60);
+      line-height: 1.5;
+    }
+    .gc-text strong { color: #fff; font-weight: 500; }
+
+    /* ── OBJECTION HANDLER ── */
+    .objections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .obj-item {
+      background: var(--dark-2);
+      border: 1px solid var(--white-08);
+      padding: 28px 24px;
+    }
+    .obj-q {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: -0.3px;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .obj-a {
+      font-size: 13px;
+      color: var(--white-60);
+      line-height: 1.7;
+    }
+    .obj-a strong { color: #fff; font-weight: 500; }
+
+    /* ── TESTIMONIALS ── */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 0;
+    }
+    .testi {
+      background: var(--dark-2);
+      border: 1px solid var(--white-08);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .testi::before {
+      content: '\201C';
+      position: absolute;
+      top: -20px; right: 16px;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 120px;
+      color: rgba(255,215,0,0.05);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .testi-stars {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+    .testi-text {
+      font-size: 14px;
+      color: var(--white-60);
+      line-height: 1.75;
+      flex: 1;
+    }
+    .testi-author {
+      border-top: 1px solid var(--white-08);
+      padding-top: 16px;
+    }
+    .ta-name {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: -0.3px;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .ta-role {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white-35);
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: var(--dark-2);
+      border-top: 1px solid var(--white-08);
+    }
+    .final-cta-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px var(--pad-x);
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 80px;
+      align-items: start;
+    }
+    .fci-h {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 5vw, 60px);
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: .88;
+      margin-bottom: 20px;
+    }
+    .fci-h span { color: var(--gold); }
+    .fci-sub {
+      font-size: 15px;
+      color: var(--white-60);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+    .fci-sub strong { color: #fff; font-weight: 500; }
+    .fci-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .fci-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--white-60);
+    }
+    .fci-contact-item a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .fci-contact-item a:hover { text-decoration: underline; }
+
+    /* ── CLAIM FORM ── */
+    .claim-form {
+      background: var(--dark-3);
+      border: 1px solid var(--gold-border);
+      padding: 36px 32px;
+      position: relative;
+    }
+    .claim-form::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+    }
+    .cf-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .cf-sub {
+      font-size: 13px;
+      color: var(--white-35);
+      margin-bottom: 24px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-label {
+      display: block;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      margin-bottom: 6px;
+    }
+    .form-input, .form-select {
+      width: 100%;
+      background: var(--dark);
+      border: 1px solid var(--white-08);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-input:focus, .form-select:focus {
+      border-color: var(--gold-border);
+    }
+    .form-input::placeholder { color: var(--white-35); }
+    .form-select { cursor: pointer; }
+    .form-select option { background: #141414; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .cf-submit {
+      width: 100%;
+      background: var(--gold);
+      color: #080808;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      padding: 18px 24px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 8px;
+    }
+    .cf-submit:hover { background: #e6c200; transform: translateY(-2px); }
+    .cf-note {
+      font-size: 11px;
+      color: var(--white-35);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    .lp-footer {
+      padding: 32px var(--pad-x);
+      border-top: 1px solid var(--white-08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .lp-footer-logo {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .lp-footer-logo span { color: var(--gold); }
+    .lp-footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .lp-footer-links a {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .lp-footer-links a:hover { color: var(--gold); }
+
+    /* ── MOBILE CTA BAR ── */
+    .mobile-cta-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 900;
+      background: var(--gold);
+      padding: 16px var(--pad-x);
+      text-align: center;
+    }
+    .mobile-cta-bar a {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #080808;
+      text-decoration: none;
+    }
+
+    /* ── DIVIDERS ── */
+    .border-top { border-top: 1px solid var(--white-08); }
+    .border-bottom { border-bottom: 1px solid var(--white-08); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 48px var(--pad-x) 64px;
+      }
+      .facility-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 64px var(--pad-x);
+      }
+      .grant-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 64px var(--pad-x);
+      }
+      .final-cta-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 64px var(--pad-x);
+      }
+      .includes-grid { grid-template-columns: 1fr; }
+      .payment-grid { grid-template-columns: 1fr; }
+      .objections-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .lp-footer { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .mobile-cta-bar { display: block; }
+      body { padding-bottom: 60px; }
+      .hero-proof { flex-wrap: wrap; gap: 16px; }
+    }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .lp-nav-tag { display: none; }
+      .urgency-text { font-size: 10px; letter-spacing: 2px; }
+    }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+<!-- ── URGENCY BAR ── -->
+<div class="urgency-bar">
+  <div class="urgency-dot"></div>
+  <div class="urgency-text"><strong>8 of 10 founding member spots remaining</strong> &nbsp;—&nbsp; Offer closes when spots are filled</div>
+</div>
+
+<!-- ── NAV ── -->
+<nav class="lp-nav">
+  <a href="index.html" class="lp-logo">THE HOCKEY <span>LAB</span></a>
+  <span class="lp-nav-tag">Founding Member Offer</span>
+</nav>
+
+<!-- ── HERO ── -->
+<div style="border-bottom: 1px solid var(--white-08);">
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-dot"></div>
+      Founding Member Pricing — Limited to 10 Families
+    </div>
+    <h1 class="hero-h">LOCK IN<br>YOUR RATE<br><span>BEFORE WE</span><br>OPEN THE DOORS.</h1>
+    <p class="hero-sub">
+      The Hockey Lab is moving into a <strong>purpose-built training facility at the Express Development Centre in Coquitlam</strong> — and the program is changing with it. New structure. New pricing. Higher capacity. A real facility.
+      <br><br>
+      Before that happens, we're offering <strong>10 founding member spots</strong> at $250/month — locked in for 6 months. The same full program. The same direct access to Grant. At a rate that won't exist once the doors open.
+    </p>
+    <div class="hero-proof">
+      <div class="hp-item">
+        <div class="hp-val">$250</div>
+        <div class="hp-lbl">Locked-In Rate</div>
+      </div>
+      <div class="hp-divider"></div>
+      <div class="hp-item">
+        <div class="hp-val">$399</div>
+        <div class="hp-lbl">New Program Rate</div>
+      </div>
+      <div class="hp-divider"></div>
+      <div class="hp-item">
+        <div class="hp-val">$894</div>
+        <div class="hp-lbl">Total Savings</div>
+      </div>
+      <div class="hp-divider"></div>
+      <div class="hp-item">
+        <div class="hp-val">8 Left</div>
+        <div class="hp-lbl">Spots Remaining</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICE CARD -->
+  <div class="price-card reveal">
+    <div class="pc-spots">
+      <div class="pc-spots-bar"><div class="pc-spots-fill"></div></div>
+      <div class="pc-spots-label">8 of 10 remaining</div>
+    </div>
+
+    <div class="pc-was">New program rate (launching soon)</div>
+    <div class="pc-strikethrough">$399 / mo</div>
+
+    <div class="pc-now-label">Your Founding Member Rate</div>
+    <div class="pc-price">$250 <em>/ mo</em></div>
+
+    <hr class="pc-divider">
+
+    <div class="pc-total-row">
+      <div class="pc-total-label">6-Month Total</div>
+      <div>
+        <div class="pc-total-was">$2,394 at new rate</div>
+        <div class="pc-total-now">$1,500</div>
+      </div>
+    </div>
+
+    <div class="pc-savings-pill" style="margin-top:12px;">
+      <div class="pc-savings-label">You save over 6 months</div>
+      <div class="pc-savings-amount">$894</div>
+    </div>
+
+    <a href="#claim" class="btn-primary">Claim Your Spot Now &rarr;</a>
+    <a href="sms:7783029245&body=Hi Grant, I want to claim an Early Bird founding member spot." class="btn-secondary">Text Grant Directly: (778) 302-9245</a>
+    <div class="pc-fine">
+      No commitment beyond 6 months &nbsp;·&nbsp; Pause with 30 days notice<br>
+      <a href="#payment-options">See payment options &darr;</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ── THE FACILITY ── -->
+<div class="facility-section">
+  <div class="facility-inner">
+    <div>
+      <div class="t-eyebrow reveal">What's changing</div>
+      <h2 class="facility-h reveal reveal-delay-1">THIS ISN'T<br>JUST A NEW<br><span>ADDRESS.</span></h2>
+      <div class="facility-body reveal reveal-delay-2">
+        <p>The Hockey Lab started in a backyard. That's not a metaphor — Grant built the program from scratch, training athletes one-on-one with intention and a real system, in a space that had zero of the infrastructure of a traditional training facility.</p>
+        <p>That environment produced real results. Athletes who developed faster, competed harder, and understood the game at a deeper level than their peers. The program worked because of the coaching — not the building.</p>
+        <p><strong>Now the building is catching up.</strong> The move to the Express Development Centre in Coquitlam gives The Hockey Lab a purpose-built space designed specifically for the kind of training that's always happened here: technical sessions on synthetic ice, compete sessions under real game pressure, and mental performance work built into every rep.</p>
+        <p>The program doesn't change. The environment gets a serious upgrade. And the price reflects that — which is why locking in now matters.</p>
+      </div>
+    </div>
+    <div class="facility-features reveal reveal-delay-1">
+      <div class="ff-item">
+        <div class="ff-icon">🏒</div>
+        <div>
+          <div class="ff-title">Synthetic Ice Surface</div>
+          <div class="ff-desc">Purpose-built for technical skill work — edges, puck handling, shooting, goalie-specific movement. Year-round, no ice time required.</div>
+        </div>
+      </div>
+      <div class="ff-item">
+        <div class="ff-icon">⚡</div>
+        <div>
+          <div class="ff-title">Compete Session Space</div>
+          <div class="ff-desc">Dedicated area for small-group game-scenario training. Capped at 6 athletes — real pressure, real decisions, every session.</div>
+        </div>
+      </div>
+      <div class="ff-item">
+        <div class="ff-icon">🧠</div>
+        <div>
+          <div class="ff-title">Mental Performance Room</div>
+          <div class="ff-desc">A dedicated space for Hockey IQ and Mental Edge sessions — not a corner of a gym. Built for focus and performance work.</div>
+        </div>
+      </div>
+      <div class="ff-item">
+        <div class="ff-icon">📍</div>
+        <div>
+          <div class="ff-title">Express Development Centre</div>
+          <div class="ff-desc">Unit 211, 1080 Austin Ave, Coquitlam. Launching June 2026. Founding members get priority access from day one.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WHAT'S INCLUDED ── -->
+<div class="border-bottom" style="background: var(--dark);">
+  <div class="section">
+    <div class="t-eyebrow reveal">Everything included</div>
+    <h2 class="section-h reveal reveal-delay-1">THE FULL<br><span>PROGRAM.</span></h2>
+    <p class="section-sub reveal reveal-delay-2">This is not a reduced version of the program at a lower price. Founding members get the complete Development or Performance curriculum — the same structure, the same access, the same direct coaching from Grant.</p>
+
+    <div class="includes-grid">
+      <div class="inc-item reveal">
+        <div class="inc-icon">🏒</div>
+        <div>
+          <div class="inc-title">Weekly Technical Session</div>
+          <div class="inc-desc">Private or semi-private, 45 minutes, position-specific. Skating, puck handling, shooting mechanics, goalie movement — built around what your athlete actually needs to improve.</div>
+        </div>
+      </div>
+      <div class="inc-item reveal reveal-delay-1">
+        <div class="inc-icon">⚡</div>
+        <div>
+          <div class="inc-title">Weekly Compete Session</div>
+          <div class="inc-desc">Small group (max 6 athletes), game-scenario training. Not drills — real pressure situations that force athletes to make decisions and execute under stress.</div>
+        </div>
+      </div>
+      <div class="inc-item reveal reveal-delay-2">
+        <div class="inc-icon">🧠</div>
+        <div>
+          <div class="inc-title">Monthly Mental Edge Session</div>
+          <div class="inc-desc">Hockey IQ and mindset work built into every month. Focus, composure, reset routines, and performance under pressure — not sold separately, not optional.</div>
+        </div>
+      </div>
+      <div class="inc-item reveal reveal-delay-3">
+        <div class="inc-icon">📍</div>
+        <div>
+          <div class="inc-title">Priority Facility Access</div>
+          <div class="inc-desc">Founding members get first access to the new Express Development Centre schedule when it opens in June 2026. Your spot is held. No re-enrollment required.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus-banner reveal">
+      <div class="bonus-tag">Free Bonus</div>
+      <div class="bonus-content">
+        <div class="bonus-title">2-Day Summer Hockey Lab Camp — Included</div>
+        <div class="bonus-desc">Every founding member receives a spot in the <strong>2-Day Summer Hockey Lab Camp (August 2026)</strong>. Goalies train as goalies. Skaters and shooters welcome as shooter/helpers. Dates TBC — your spot is reserved with your commitment.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PAYMENT OPTIONS ── -->
+<div id="payment-options" class="border-bottom" style="background: var(--dark-2);">
+  <div class="section">
+    <div class="t-eyebrow reveal">How to pay</div>
+    <h2 class="section-h reveal reveal-delay-1">TWO WAYS<br><span>TO COMMIT.</span></h2>
+    <p class="section-sub reveal reveal-delay-2">Both options lock in the same $250/month founding member rate for 6 months. Choose what works for your family.</p>
+
+    <div class="payment-grid">
+      <div class="pay-card featured reveal">
+        <div class="pay-label">Option 1</div>
+        <div class="pay-title">Pay in Full</div>
+        <div class="pay-amount">$1,500 <em>total</em></div>
+        <div class="pay-sub">One payment. Done. No monthly billing to think about.</div>
+        <hr class="pay-divider">
+        <div class="pay-detail">
+          <strong>$1,500 due today</strong> to lock in your spot and start immediately. Saves you $894 versus the new program rate over 6 months. Simplest option — one transaction, full commitment, full access.
+        </div>
+      </div>
+      <div class="pay-card reveal reveal-delay-1">
+        <div class="pay-label">Option 2</div>
+        <div class="pay-title">Split Payment</div>
+        <div class="pay-amount">$750 <em>× 2</em></div>
+        <div class="pay-sub">$750 now, $750 in 30 days. Same total, easier on cash flow.</div>
+        <hr class="pay-divider">
+        <div class="pay-detail">
+          <strong>$750 due today</strong> to reserve your spot, then <strong>$750 automatically in 30 days</strong>. Same locked-in rate, same full program access. Good option if upfront payment doesn't work right now.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── GRANT ── -->
+<div class="grant-strip">
+  <div class="grant-inner">
+    <div>
+      <div class="t-eyebrow reveal">Your coach</div>
+      <h2 class="grant-h reveal reveal-delay-1">GRANT<br><span>TRUESDELL</span></h2>
+      <div class="grant-body reveal reveal-delay-2">
+        <p>Grant has been playing and coaching hockey for over 30 years. He's a competitive goalie, an <strong>internationally touring musician and Juno Award winner</strong>, and the founder of The Hockey Lab.</p>
+        <p>He built the program from scratch — not from a coaching manual, but from decades of performing under pressure in two unforgiving disciplines. The Mental Edge system at The Hockey Lab came directly from that experience.</p>
+        <p><strong>He is in the building, working with athletes, every week.</strong> Not a brand. Not a franchise. Grant coaches every athlete in the program personally. That doesn't change when the facility opens.</p>
+      </div>
+    </div>
+    <div class="grant-creds reveal reveal-delay-1">
+      <div class="gc-item">
+        <div class="gc-num">30+</div>
+        <div class="gc-text"><strong>Years on the ice</strong> — playing and coaching at a competitive level. The experience behind every session.</div>
+      </div>
+      <div class="gc-item">
+        <div class="gc-num">Juno</div>
+        <div class="gc-text"><strong>Award-winning musician</strong> — international touring performer. The mental performance framework comes from here.</div>
+      </div>
+      <div class="gc-item">
+        <div class="gc-num">NCCP</div>
+        <div class="gc-text"><strong>Hockey Canada Certification Stream</strong> — accepted into the NCCP Goaltending Program. The credentials to back the results.</div>
+      </div>
+      <div class="gc-item">
+        <div class="gc-num">4</div>
+        <div class="gc-text"><strong>Development pillars</strong> — Movement, Tracking, Execution, Mindset. A curriculum, not a drill sheet.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TESTIMONIALS ── -->
+<div class="border-top border-bottom" style="background: var(--dark);">
+  <div class="section">
+    <div class="t-eyebrow reveal">What families say</div>
+    <h2 class="section-h reveal reveal-delay-1">REAL<br><span>RESULTS.</span></h2>
+    <p class="section-sub reveal reveal-delay-2">These families trained with Grant before the new facility. Same coaching. Same system. Same results that are now moving into a purpose-built environment.</p>
+
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"He is not just a hockey trainer — he really takes the time to focus on the small details and makes sure the kids truly understand the game. That attention to detail has helped our son grow more confident and more interested in hockey long term."</div>
+        <div class="testi-author">
+          <div class="ta-name">Shahram B.</div>
+          <div class="ta-role">Hockey Lab Parent &nbsp;·&nbsp; Google Review</div>
+        </div>
+      </div>
+      <div class="testi reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Our son looks forward to seeing Grant every week. Grant has taught him new skills that we have already seen him confidently apply during games. After each session, our son is eager to stay and continue practicing."</div>
+        <div class="testi-author">
+          <div class="ta-name">Brad T.</div>
+          <div class="ta-role">Hockey Lab Parent &nbsp;·&nbsp; Google Review</div>
+        </div>
+      </div>
+      <div class="testi reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Grant connects so well with our child, makes the sessions fun, and provides positive reinforcement. Our child is 7 and wants to be a goalie — it was hard finding coaching for his age. I highly recommend The Hockey Lab."</div>
+        <div class="testi-author">
+          <div class="ta-name">Natasha L.</div>
+          <div class="ta-role">Parent of U7 Goalie &nbsp;·&nbsp; Google Review</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OBJECTIONS ── -->
+<div class="border-bottom" style="background: var(--dark-2);">
+  <div class="section">
+    <div class="t-eyebrow reveal">Common questions</div>
+    <h2 class="section-h reveal reveal-delay-1">STRAIGHT<br><span>ANSWERS.</span></h2>
+
+    <div class="objections-grid">
+      <div class="obj-item reveal">
+        <div class="obj-q">What if we need to pause?</div>
+        <div class="obj-a">Give 30 days notice and your spot is paused — no penalty, no questions. Life happens. Your locked-in rate is held when you restart within the 6-month window.</div>
+      </div>
+      <div class="obj-item reveal reveal-delay-1">
+        <div class="obj-q">What program level does this cover?</div>
+        <div class="obj-a">The $250/month founding rate applies to the <strong>Development (Ages 8–11)</strong> and <strong>Performance (Ages 12–16)</strong> programs. Young Cup and Elite program families — reach out directly to discuss options.</div>
+      </div>
+      <div class="obj-item reveal reveal-delay-2">
+        <div class="obj-q">When does the new facility open?</div>
+        <div class="obj-a">The Express Development Centre is targeting <strong>June 2026</strong>. Founding members get priority access from day one — your schedule transfers automatically, no re-enrollment.</div>
+      </div>
+      <div class="obj-item reveal">
+        <div class="obj-q">Is this the same program as before?</div>
+        <div class="obj-a">Yes. Same 4-pillar curriculum. Same direct coaching from Grant. Same compete sessions capped at 6 athletes. The facility upgrades — the coaching doesn't change.</div>
+      </div>
+      <div class="obj-item reveal reveal-delay-1">
+        <div class="obj-q">Why only 10 spots?</div>
+        <div class="obj-a">The Hockey Lab deliberately stays small. Compete sessions are capped at 6 athletes. Grant coaches every athlete personally. 10 founding spots is the maximum that maintains that standard.</div>
+      </div>
+      <div class="obj-item reveal reveal-delay-2">
+        <div class="obj-q">What happens after 6 months?</div>
+        <div class="obj-a">You transition to the standard program rate ($399/month) — or you're free to walk away with no obligation. There's no auto-renewal trap. The 6 months is the commitment, nothing more.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FINAL CTA + FORM ── -->
+<div id="claim" class="final-cta">
+  <div class="final-cta-inner">
+    <div>
+      <div class="t-eyebrow reveal">Claim your spot</div>
+      <h2 class="fci-h reveal reveal-delay-1">8 SPOTS.<br>ONE RATE.<br><span>CLOSES WHEN</span><br>THEY'RE GONE.</h2>
+      <p class="fci-sub reveal reveal-delay-2">
+        Fill out the form and Grant will reach out within 24 hours to confirm your spot and sort out payment. <strong>No payment is taken through this form</strong> — this is just to reserve your place in line.
+        <br><br>
+        Prefer to talk first? Text or call Grant directly.
+      </p>
+      <div class="fci-contact reveal reveal-delay-3">
+        <div class="fci-contact-item">
+          📱 <a href="sms:7783029245&body=Hi Grant, I want to claim an Early Bird founding member spot.">Text Grant: (778) 302-9245</a>
+        </div>
+        <div class="fci-contact-item">
+          📞 <a href="tel:7783029245">Call: (778) 302-9245</a>
+        </div>
+        <div class="fci-contact-item">
+          📧 <a href="mailto:grant@thehockeylabofficial.com">grant@thehockeylabofficial.com</a>
+        </div>
+        <div class="fci-contact-item">
+          🗓 <a href="https://calendly.com/fusionflowcoaching/development-consultation" target="_blank">Book a 15-min call on Calendly</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLAIM FORM -->
+    <div class="claim-form reveal reveal-delay-1">
+      <div class="cf-title">Reserve Your Spot</div>
+      <div class="cf-sub">Grant will confirm within 24 hours. No payment taken here.</div>
+
+      <form name="early-bird-claim" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
+        <input type="hidden" name="form-name" value="early-bird-claim">
+        <input type="hidden" name="bot-field" style="display:none;">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="parent-name">Parent Name</label>
+            <input class="form-input" type="text" id="parent-name" name="parent-name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="athlete-name">Athlete Name</label>
+            <input class="form-input" type="text" id="athlete-name" name="athlete-name" placeholder="Athlete's name" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone / Text</label>
+            <input class="form-input" type="tel" id="phone" name="phone" placeholder="(778) 000-0000">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="program">Program Level</label>
+          <select class="form-select" id="program" name="program" required>
+            <option value="" disabled selected>Select program</option>
+            <option value="development">Development — Ages 8–11</option>
+            <option value="performance">Performance — Ages 12–16</option>
+            <option value="other">Other — I'll explain below</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="payment">Payment Preference</label>
+          <select class="form-select" id="payment" name="payment" required>
+            <option value="" disabled selected>Select option</option>
+            <option value="full">Pay in Full — $1,500 today</option>
+            <option value="split">Split Payment — $750 now, $750 in 30 days</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Anything Grant should know? (optional)</label>
+          <input class="form-input" type="text" id="message" name="message" placeholder="Athlete's position, current level, questions...">
+        </div>
+
+        <button type="submit" class="cf-submit">Reserve My Spot &rarr;</button>
+        <div class="cf-note">No payment taken here &nbsp;·&nbsp; Grant confirms within 24 hours &nbsp;·&nbsp; 8 spots remaining</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="lp-footer">
+  <a href="index.html" class="lp-footer-logo">THE HOCKEY <span>LAB</span></a>
+  <ul class="lp-footer-links">
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="about.html">About Grant</a></li>
+    <li><a href="mailto:grant@thehockeylabofficial.com">Contact</a></li>
+  </ul>
+</footer>
+
+<!-- ── MOBILE CTA BAR ── -->
+<div class="mobile-cta-bar">
+  <a href="#claim">Claim Your Spot — 8 Remaining &rarr;</a>
+</div>
+
+<script>
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

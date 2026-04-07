@@ -75,10 +75,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: absolute;
-      top: 40px; /* below urgency bar */
+      position: fixed;
+      top: 38px; /* below sticky urgency bar (~38px tall) */
       left: 0; right: 0;
-      z-index: 100;
+      z-index: 300;
+      background: linear-gradient(to bottom, rgba(8,8,8,0.7) 0%, transparent 100%);
     }
     .lp-logo {
       font-family: 'Exo 2', sans-serif;
@@ -908,7 +909,7 @@
       .grant-stats { grid-template-columns: 1fr 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .hero-h { letter-spacing: -2px; }
-      .lp-nav { display: none; }
+      .lp-nav { display: flex; }
     }
   </style>
 </head>
@@ -935,13 +936,13 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Founding Member Offer — 10 Spots Only</div>
-    <h1 class="hero-h">THE PROGRAM IS<br>LEVELLING <span>UP.</span><br>LOCK IN BEFORE<br>THE PRICE DOES TOO.</h1>
+    <h1 class="hero-h">THE LAB IS<br>LEVELLING <span>UP.</span><br>LOCK IN NOW.</h1>
     <p class="hero-sub">
       The Hockey Lab is moving into the <strong>Express Performance Centre in Coquitlam</strong> — with a new curriculum, new technology, and new equipment. The program is getting better. The price reflects that. Lock in today's rate before the doors open.
     </p>
     <div class="hero-ctas">
-      <a href="#claim" class="btn-gold">Claim Your Spot — $250/mo &rarr;</a>
-      <a href="sms:7783029245&body=Hi Grant, I want to claim an Early Bird founding member spot." class="btn-ghost">Text Grant Directly</a>
+      <a href="https://buy.stripe.com/bJe6oIf742EY8YB5F7efC0h" class="btn-gold" target="_blank" rel="noopener">Pay in Full — $1,500 &rarr;</a>
+      <a href="https://buy.stripe.com/eVqcN66AygvO8YBgjLefC0i" class="btn-ghost" target="_blank" rel="noopener">Split Payment — $750 &times; 2</a>
     </div>
     <div class="hero-spots">
       <div class="hs-bar-wrap"><div class="hs-bar-fill"></div></div>
@@ -1032,12 +1033,14 @@
         <div class="pay-title">Pay in Full</div>
         <div class="pay-amount">$1,500 <em>total</em></div>
         <div class="pay-desc"><strong>One payment today.</strong> Lock in your spot immediately. Saves you $894 versus the new rate over 6 months. Simplest option — done in one transaction.</div>
+        <a href="https://buy.stripe.com/bJe6oIf742EY8YB5F7efC0h" class="btn-gold" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:24px;">Buy Now — $1,500 &rarr;</a>
       </div>
       <div class="pay-card reveal reveal-d1">
         <div class="pay-option-label">Option 2</div>
         <div class="pay-title">Split Payment</div>
-        <div class="pay-amount">$750 <em>× 2</em></div>
+        <div class="pay-amount">$750 <em>&times; 2</em></div>
         <div class="pay-desc"><strong>$750 today, $750 in 30 days.</strong> Same total, same rate, same full access. Good option if paying upfront doesn't work right now.</div>
+        <a href="https://buy.stripe.com/eVqcN66AygvO8YBgjLefC0i" class="btn-ghost" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:24px;">Start Split Payment — $750 &rarr;</a>
       </div>
     </div>
   </div>

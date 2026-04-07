@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Mental Edge Call — The Hockey Lab</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <style>
+    /* ── BOOKING PAGE STYLES ── */
+    .book-hero {
+      padding: calc(var(--nav-h) + 48px) var(--pad-x) 48px;
+      background: var(--dark);
+      border-bottom: 1px solid var(--white-08);
+    }
+    .book-hero-inner {
+      max-width: 760px;
+    }
+    .book-eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .book-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(28px, 4vw, 44px);
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      line-height: 1.05;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .book-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: var(--white-60);
+      line-height: 1.7;
+      max-width: 620px;
+      margin-bottom: 24px;
+    }
+    .book-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .book-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white-60);
+    }
+    .book-meta-item svg {
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    /* ── BOOKING LAYOUT ── */
+    .book-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--pad-x) 80px;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .book-layout { grid-template-columns: 1fr; }
+    }
+
+    /* ── CALENDAR PANEL ── */
+    .book-calendar-panel {
+      padding: 40px 40px 40px 0;
+      border-right: 1px solid var(--white-08);
+    }
+    @media (max-width: 900px) {
+      .book-calendar-panel { padding: 32px 0; border-right: none; border-bottom: 1px solid var(--white-08); }
+    }
+
+    .book-step-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .book-section-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    /* Timezone selector */
+    .tz-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .tz-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      white-space: nowrap;
+    }
+    .tz-select {
+      background: var(--dark-3);
+      border: 1px solid var(--white-15);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      padding: 7px 12px;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      flex: 1;
+      min-width: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FFD700' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 32px;
+    }
+    .tz-select:focus { outline: 1px solid var(--gold); }
+
+    /* Month navigation */
+    .cal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .cal-month-label {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      color: #fff;
+    }
+    .cal-nav-btn {
+      background: none;
+      border: 1px solid var(--white-15);
+      color: var(--white-60);
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .cal-nav-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .cal-nav-btn:disabled { opacity: 0.25; cursor: default; }
+
+    /* Day grid */
+    .cal-day-names {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+    .cal-day-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      text-align: center;
+      padding: 4px 0;
+    }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+    .cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all var(--transition);
+      position: relative;
+    }
+    .cal-day:hover:not(.disabled):not(.empty) {
+      border-color: var(--gold-border);
+      color: var(--gold);
+    }
+    .cal-day.today {
+      color: var(--gold);
+    }
+    .cal-day.today::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+    .cal-day.selected {
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      border-color: var(--gold);
+    }
+    .cal-day.disabled {
+      color: var(--white-15);
+      cursor: default;
+    }
+    .cal-day.empty { cursor: default; }
+
+    /* Time slots */
+    .time-slots-wrap {
+      margin-top: 32px;
+    }
+    .time-slots-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 16px;
+      max-height: 280px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .time-slots-grid::-webkit-scrollbar { width: 4px; }
+    .time-slots-grid::-webkit-scrollbar-track { background: var(--dark-3); }
+    .time-slots-grid::-webkit-scrollbar-thumb { background: var(--white-15); }
+    .time-slot {
+      padding: 10px 8px;
+      border: 1px solid var(--white-15);
+      background: var(--dark-3);
+      color: var(--white-60);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .time-slot:hover:not(.taken) {
+      border-color: var(--gold-border);
+      color: var(--gold);
+    }
+    .time-slot.selected {
+      background: var(--gold);
+      color: #000;
+      border-color: var(--gold);
+      font-weight: 700;
+    }
+    .time-slot.taken {
+      opacity: 0.25;
+      cursor: default;
+      text-decoration: line-through;
+    }
+    .time-slots-loading {
+      text-align: center;
+      padding: 32px 0;
+      color: var(--white-35);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .time-slots-empty {
+      text-align: center;
+      padding: 24px 0;
+      color: var(--white-35);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+    }
+
+    /* ── FORM PANEL ── */
+    .book-form-panel {
+      padding: 40px 0 40px 40px;
+    }
+    @media (max-width: 900px) {
+      .book-form-panel { padding: 32px 0; }
+    }
+
+    .selected-slot-display {
+      background: var(--dark-3);
+      border: 1px solid var(--gold-border);
+      padding: 14px 18px;
+      margin-bottom: 28px;
+      display: none;
+    }
+    .selected-slot-display.visible { display: block; }
+    .selected-slot-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .selected-slot-value {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: #fff;
+      letter-spacing: -0.3px;
+    }
+
+    .book-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white-35);
+    }
+    .form-label .req { color: var(--gold); margin-left: 2px; }
+    .form-input, .form-select, .form-textarea {
+      background: var(--dark-3);
+      border: 1px solid var(--white-15);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      padding: 12px 14px;
+      transition: border-color var(--transition);
+      width: 100%;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--white-35); }
+    .form-select {
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FFD700' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .form-select option { background: var(--dark-3); }
+    .form-textarea { resize: vertical; min-height: 90px; }
+
+    .form-divider {
+      border: none;
+      border-top: 1px solid var(--white-08);
+      margin: 4px 0;
+    }
+
+    .book-submit-btn {
+      background: var(--gold);
+      color: #000;
+      border: none;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      cursor: pointer;
+      transition: opacity var(--transition), transform var(--transition);
+      width: 100%;
+      margin-top: 8px;
+    }
+    .book-submit-btn:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+    .book-submit-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+    .form-error-msg {
+      color: #ff5555;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      margin-top: 4px;
+      display: none;
+    }
+    .form-error-msg.visible { display: block; }
+
+    /* ── SUCCESS STATE ── */
+    .book-success {
+      display: none;
+      text-align: center;
+      padding: 60px 40px;
+    }
+    .book-success.visible { display: block; }
+    .book-success-icon {
+      width: 64px;
+      height: 64px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .book-success-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .book-success-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: var(--white-60);
+      line-height: 1.7;
+      max-width: 440px;
+      margin: 0 auto 28px;
+    }
+
+    /* Loading spinner */
+    .spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(0,0,0,0.3);
+      border-top-color: #000;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <!-- HERO -->
+  <section class="book-hero">
+    <div class="book-hero-inner">
+      <div class="book-eyebrow">Free 30-Minute Call</div>
+      <h1 class="book-title">Mental Edge<br>Call</h1>
+      <p class="book-desc">The mental side of hockey is where most athletes leave performance on the table. This call is a chance to talk through what's going on between the ears — confidence, pressure, consistency, focus. Whether you're curious about the Mental Edge program or just want to understand how Grant approaches the mental game, this is the conversation to start with.</p>
+      <div class="book-meta-row">
+        <div class="book-meta-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          30 Minutes
+        </div>
+        <div class="book-meta-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          Phone / Video Call
+        </div>
+        <div class="book-meta-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+          Pacific Time (default)
+        </div>
+        <div class="book-meta-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Weekdays &amp; Weekends
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING LAYOUT -->
+  <div class="book-layout">
+
+    <!-- CALENDAR PANEL -->
+    <div class="book-calendar-panel">
+      <!-- Timezone -->
+      <div class="tz-row">
+        <span class="tz-label">Time Zone</span>
+        <select class="tz-select" id="tz-select">
+          <option value="America/Vancouver">Pacific Time (PT)</option>
+          <option value="America/Denver">Mountain Time (MT)</option>
+          <option value="America/Chicago">Central Time (CT)</option>
+          <option value="America/New_York">Eastern Time (ET)</option>
+          <option value="America/Halifax">Atlantic Time (AT)</option>
+          <option value="America/St_Johns">Newfoundland Time (NT)</option>
+          <option value="Europe/London">London (GMT/BST)</option>
+          <option value="Europe/Paris">Central European (CET)</option>
+          <option value="Asia/Dubai">Dubai (GST)</option>
+          <option value="Asia/Tokyo">Japan (JST)</option>
+          <option value="Australia/Sydney">Sydney (AEST)</option>
+        </select>
+      </div>
+
+      <!-- Month nav -->
+      <div class="book-step-label">Step 1 — Select a Date</div>
+      <div class="cal-header">
+        <button class="cal-nav-btn" id="cal-prev" aria-label="Previous month">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="cal-month-label" id="cal-month-label">April 2026</div>
+        <button class="cal-nav-btn" id="cal-next" aria-label="Next month">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <div class="cal-day-names">
+        <div class="cal-day-name">Sun</div>
+        <div class="cal-day-name">Mon</div>
+        <div class="cal-day-name">Tue</div>
+        <div class="cal-day-name">Wed</div>
+        <div class="cal-day-name">Thu</div>
+        <div class="cal-day-name">Fri</div>
+        <div class="cal-day-name">Sat</div>
+      </div>
+      <div class="cal-grid" id="cal-grid"></div>
+
+      <!-- Time slots -->
+      <div class="time-slots-wrap" id="time-slots-wrap" style="display:none;">
+        <div class="book-step-label">Step 2 — Select a Time</div>
+        <div class="book-section-title" id="time-slots-date-label"></div>
+        <div class="time-slots-grid" id="time-slots-grid"></div>
+      </div>
+    </div>
+
+    <!-- FORM PANEL -->
+    <div class="book-form-panel">
+      <div class="book-step-label">Step 3 — Your Details</div>
+      <div class="book-section-title">Almost There</div>
+
+      <!-- Selected slot display -->
+      <div class="selected-slot-display" id="selected-slot-display">
+        <div class="selected-slot-label">Your Selected Time</div>
+        <div class="selected-slot-value" id="selected-slot-value">—</div>
+      </div>
+
+      <!-- Success state -->
+      <div class="book-success" id="book-success">
+        <div class="book-success-icon">
+          <svg width="28" height="28" fill="none" stroke="#FFD700" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="book-success-title">You're Booked.</div>
+        <p class="book-success-desc">Your Mental Edge call is confirmed. Grant will reach out shortly with call details. Check your email for a confirmation.</p>
+        <a href="index.html" class="btn btn-gold" style="display:inline-block;padding:14px 32px;font-family:'Exo 2',sans-serif;font-weight:900;font-size:13px;letter-spacing:2px;text-transform:uppercase;background:var(--gold);color:#000;text-decoration:none;">Back to Home</a>
+      </div>
+
+      <!-- Form -->
+      <form class="book-form" id="book-form" novalidate>
+        <input type="hidden" name="bookingType" value="mental-edge">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="parent-name">Parent Name <span class="req">*</span></label>
+            <input class="form-input" type="text" id="parent-name" name="parentName" placeholder="Your full name" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email <span class="req">*</span></label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="phone">Phone Number <span class="req">*</span></label>
+          <input class="form-input" type="tel" id="phone" name="phone" placeholder="(778) 000-0000" required autocomplete="tel">
+        </div>
+
+        <hr class="form-divider">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="athlete-name">Athlete Name <span class="req">*</span></label>
+            <input class="form-input" type="text" id="athlete-name" name="athleteName" placeholder="Athlete's name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="athlete-age">Athlete Age <span class="req">*</span></label>
+            <input class="form-input" type="number" id="athlete-age" name="athleteAge" placeholder="e.g. 10" min="4" max="25" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="hockey-level">Hockey Level</label>
+          <select class="form-select" id="hockey-level" name="hockeyLevel">
+            <option value="">Select current level (optional)</option>
+            <option value="learn-to-skate">Learn to Skate / Initiation</option>
+            <option value="novice">Novice</option>
+            <option value="atom">Atom</option>
+            <option value="peewee">Peewee</option>
+            <option value="bantam">Bantam</option>
+            <option value="midget">Midget / U18</option>
+            <option value="junior">Junior</option>
+            <option value="rep-aaa">Rep / AAA</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="notes">Anything You'd Like Grant to Know</label>
+          <textarea class="form-textarea" id="notes" name="notes" placeholder="Goals, current challenges, questions — anything that helps Grant prepare for your call."></textarea>
+        </div>
+
+        <div class="form-error-msg" id="form-error-msg">Please fill in all required fields and select a time slot.</div>
+
+        <button type="submit" class="book-submit-btn" id="submit-btn" disabled>
+          Select a Time Slot First
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/shared.js"></script>
+  <script>
+  /* ============================================================
+     BOOKING PAGE — CALENDAR + SLOT LOGIC
+     Backend endpoint: replace BOOKING_API_URL with your server URL
+     Expected POST body: { bookingType, slotISO, parentName, email,
+       phone, athleteName, athleteAge, hockeyLevel, notes, timezone }
+     Expected GET availability: /api/availability?date=YYYY-MM-DD&tz=TZ
+       Returns: { slots: ["09:00","09:30",...], taken: ["10:00",...] }
+  ============================================================ */
+  const BOOKING_API_URL = '/api/book';
+  const AVAILABILITY_API_URL = '/api/availability';
+
+  // Weekday hours: 11:00–20:00, Weekend: 10:00–20:00, 30-min slots
+  const WEEKDAY_START = 11, WEEKEND_START = 10, END_HOUR = 20;
+
+  let currentYear, currentMonth, selectedDate = null, selectedSlot = null;
+  const today = new Date();
+
+  function generateSlots(dateObj) {
+    const isWeekend = dateObj.getDay() === 0 || dateObj.getDay() === 6;
+    const startH = isWeekend ? WEEKEND_START : WEEKDAY_START;
+    const slots = [];
+    for (let h = startH; h < END_HOUR; h++) {
+      slots.push(`${String(h).padStart(2,'0')}:00`);
+      slots.push(`${String(h).padStart(2,'0')}:30`);
+    }
+    return slots;
+  }
+
+  function formatSlotDisplay(slot) {
+    const [h, m] = slot.split(':').map(Number);
+    const period = h >= 12 ? 'p.m.' : 'a.m.';
+    const h12 = h % 12 === 0 ? 12 : h % 12;
+    return `${h12}:${String(m).padStart(2,'0')} ${period}`;
+  }
+
+  function formatDateDisplay(dateObj, tz) {
+    return dateObj.toLocaleDateString('en-CA', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', timeZone: tz });
+  }
+
+  function renderCalendar(year, month) {
+    currentYear = year;
+    currentMonth = month;
+    const label = new Date(year, month, 1).toLocaleDateString('en-CA', { month: 'long', year: 'numeric' });
+    document.getElementById('cal-month-label').textContent = label.replace(/^\w/, c => c.toUpperCase());
+
+    const prevBtn = document.getElementById('cal-prev');
+    const nowMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    const viewMonth = new Date(year, month, 1);
+    prevBtn.disabled = viewMonth <= nowMonth;
+
+    const grid = document.getElementById('cal-grid');
+    grid.innerHTML = '';
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    for (let i = 0; i < firstDay; i++) {
+      const empty = document.createElement('div');
+      empty.className = 'cal-day empty';
+      grid.appendChild(empty);
+    }
+
+    for (let d = 1; d <= daysInMonth; d++) {
+      const dayEl = document.createElement('div');
+      dayEl.className = 'cal-day';
+      dayEl.textContent = d;
+      const thisDate = new Date(year, month, d);
+      const isPast = thisDate < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+      if (isPast) {
+        dayEl.classList.add('disabled');
+      } else {
+        if (thisDate.toDateString() === today.toDateString()) dayEl.classList.add('today');
+        if (selectedDate && thisDate.toDateString() === selectedDate.toDateString()) dayEl.classList.add('selected');
+        dayEl.addEventListener('click', () => selectDate(thisDate));
+      }
+      grid.appendChild(dayEl);
+    }
+  }
+
+  function selectDate(dateObj) {
+    selectedDate = dateObj;
+    selectedSlot = null;
+    updateSubmitBtn();
+    renderCalendar(currentYear, currentMonth);
+    loadTimeSlots(dateObj);
+  }
+
+  async function loadTimeSlots(dateObj) {
+    const wrap = document.getElementById('time-slots-wrap');
+    const grid = document.getElementById('time-slots-grid');
+    const tz = document.getElementById('tz-select').value;
+    const dateLabel = document.getElementById('time-slots-date-label');
+
+    wrap.style.display = 'block';
+    dateLabel.textContent = formatDateDisplay(dateObj, tz);
+    grid.innerHTML = '<div class="time-slots-loading">Loading availability...</div>';
+
+    // Generate all possible slots for this day
+    const allSlots = generateSlots(dateObj);
+    let takenSlots = [];
+
+    // Try to fetch real availability from backend
+    try {
+      const dateStr = `${dateObj.getFullYear()}-${String(dateObj.getMonth()+1).padStart(2,'0')}-${String(dateObj.getDate()).padStart(2,'0')}`;
+      const res = await fetch(`${AVAILABILITY_API_URL}?date=${dateStr}&tz=${encodeURIComponent(tz)}&type=mental-edge`, { signal: AbortSignal.timeout(5000) });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.taken) takenSlots = data.taken;
+      }
+    } catch (e) {
+      // Backend not connected yet — show all slots as available
+    }
+
+    renderTimeSlots(allSlots, takenSlots, dateObj, tz);
+  }
+
+  function renderTimeSlots(allSlots, takenSlots, dateObj, tz) {
+    const grid = document.getElementById('time-slots-grid');
+    grid.innerHTML = '';
+
+    if (allSlots.length === 0) {
+      grid.innerHTML = '<div class="time-slots-empty">No available times on this day.</div>';
+      return;
+    }
+
+    allSlots.forEach(slot => {
+      const el = document.createElement('div');
+      el.className = 'time-slot';
+      el.textContent = formatSlotDisplay(slot);
+      const isTaken = takenSlots.includes(slot);
+      if (isTaken) {
+        el.classList.add('taken');
+      } else {
+        if (selectedSlot === slot) el.classList.add('selected');
+        el.addEventListener('click', () => selectSlot(slot, dateObj, tz));
+      }
+      grid.appendChild(el);
+    });
+  }
+
+  function selectSlot(slot, dateObj, tz) {
+    selectedSlot = slot;
+    // Re-render slots to update selected state
+    const allSlots = generateSlots(dateObj);
+    renderTimeSlots(allSlots, [], dateObj, tz);
+    // Mark selected
+    const slotEls = document.querySelectorAll('.time-slot:not(.taken)');
+    const allSlotTimes = allSlots.filter((_, i) => i < slotEls.length);
+    slotEls.forEach((el, i) => {
+      if (allSlotTimes[i] === slot) el.classList.add('selected');
+    });
+    // Update display
+    const display = document.getElementById('selected-slot-display');
+    const value = document.getElementById('selected-slot-value');
+    display.classList.add('visible');
+    value.textContent = `${formatDateDisplay(dateObj, tz)} at ${formatSlotDisplay(slot)} (${tz.split('/').pop().replace(/_/g,' ')})`;
+    updateSubmitBtn();
+  }
+
+  function updateSubmitBtn() {
+    const btn = document.getElementById('submit-btn');
+    if (selectedDate && selectedSlot) {
+      btn.disabled = false;
+      btn.textContent = 'Confirm Booking';
+    } else if (selectedDate) {
+      btn.disabled = true;
+      btn.textContent = 'Select a Time Slot';
+    } else {
+      btn.disabled = true;
+      btn.textContent = 'Select a Date First';
+    }
+  }
+
+  // Form submission
+  document.getElementById('book-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const errorMsg = document.getElementById('form-error-msg');
+    errorMsg.classList.remove('visible');
+
+    if (!selectedDate || !selectedSlot) {
+      errorMsg.textContent = 'Please select a date and time slot before submitting.';
+      errorMsg.classList.add('visible');
+      return;
+    }
+
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(field => { if (!field.value.trim()) valid = false; });
+    if (!valid) {
+      errorMsg.textContent = 'Please fill in all required fields.';
+      errorMsg.classList.add('visible');
+      return;
+    }
+
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>Booking...';
+
+    const tz = document.getElementById('tz-select').value;
+    const slotISO = new Date(
+      selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(),
+      parseInt(selectedSlot.split(':')[0]), parseInt(selectedSlot.split(':')[1])
+    ).toISOString();
+
+    const payload = {
+      bookingType: 'mental-edge',
+      slotISO,
+      timezone: tz,
+      parentName: form.parentName.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      athleteName: form.athleteName.value.trim(),
+      athleteAge: form.athleteAge.value.trim(),
+      hockeyLevel: form.hockeyLevel.value,
+      notes: form.notes.value.trim()
+    };
+
+    try {
+      const res = await fetch(BOOKING_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        // Show success
+        form.style.display = 'none';
+        document.getElementById('selected-slot-display').style.display = 'none';
+        document.getElementById('book-success').classList.add('visible');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const data = await res.json().catch(() => ({}));
+        errorMsg.textContent = data.message || 'Something went wrong. Please try again or contact Grant directly.';
+        errorMsg.classList.add('visible');
+        btn.disabled = false;
+        btn.textContent = 'Confirm Booking';
+      }
+    } catch (err) {
+      errorMsg.textContent = 'Unable to connect. Please try again or text Grant at (778) 302-9245.';
+      errorMsg.classList.add('visible');
+      btn.disabled = false;
+      btn.textContent = 'Confirm Booking';
+    }
+  });
+
+  // Timezone change: re-render slots if date selected
+  document.getElementById('tz-select').addEventListener('change', () => {
+    if (selectedDate) loadTimeSlots(selectedDate);
+  });
+
+  // Month navigation
+  document.getElementById('cal-prev').addEventListener('click', () => {
+    if (currentMonth === 0) renderCalendar(currentYear - 1, 11);
+    else renderCalendar(currentYear, currentMonth - 1);
+  });
+  document.getElementById('cal-next').addEventListener('click', () => {
+    if (currentMonth === 11) renderCalendar(currentYear + 1, 0);
+    else renderCalendar(currentYear, currentMonth + 1);
+  });
+
+  // Init
+  renderCalendar(today.getFullYear(), today.getMonth());
+  </script>
+</body>
+</html>

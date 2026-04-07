@@ -19,6 +19,7 @@ const NAV_HTML = `
 </nav>
 <div class="nav-mobile-menu" id="nav-mobile-menu">
   <ul class="nav-mobile-links">
+    <li><a href="index.html">Home</a></li>
     <li><a href="programs.html">Programs</a></li>
     <li><a href="method.html">The Method</a></li>
     <li><a href="mental-edge.html">Mental Edge</a></li>

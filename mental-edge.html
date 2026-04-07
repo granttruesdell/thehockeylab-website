@@ -21,6 +21,12 @@
       overflow: hidden;
       background: linear-gradient(165deg, #111 0%, #080808 100%);
     }
+    .me-hero-photo {
+      position: absolute; inset: 0;
+      background: url('images/battle-scars.png') center 30% / cover no-repeat;
+      opacity: 0.22;
+      z-index: 0;
+    }
     .me-hero::before {
       content: '';
       position: absolute; inset: 0;
@@ -317,6 +323,7 @@
 
 <!-- HERO -->
 <section class="me-hero">
+  <div class="me-hero-photo" aria-hidden="true"></div>
   <div class="me-inner">
     <div class="me-badge anim-1">
       <div class="me-badge-dot"></div>

@@ -637,8 +637,8 @@
      Expected GET availability: /api/availability?date=YYYY-MM-DD&tz=TZ
        Returns: { slots: ["09:00","09:30",...], taken: ["10:00",...] }
   ============================================================ */
-  const BOOKING_API_URL = '/api/book';
-  const AVAILABILITY_API_URL = '/api/availability';
+  const BOOKING_API_URL = 'https://hockeywait-en2ftlab.manus.space/api/book';
+  const AVAILABILITY_API_URL = 'https://hockeywait-en2ftlab.manus.space/api/availability';
 
   // Weekday hours: 11:00–20:00, Weekend: 10:00–20:00, 30-min slots
   const WEEKDAY_START = 11, WEEKEND_START = 10, END_HOUR = 20;

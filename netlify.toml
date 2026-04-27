@@ -2,6 +2,21 @@
   publish = "."
 
 [[redirects]]
+  from = "/early-bird"
+  to = "/waitlist.html"
+  status = 301
+
+[[redirects]]
+  from = "/early-bird.html"
+  to = "/waitlist.html"
+  status = 301
+
+[[redirects]]
+  from = "/early-bird-confirmation.html"
+  to = "/waitlist.html"
+  status = 301
+
+[[redirects]]
   from = "/waitlist"
   to = "/waitlist.html"
   status = 200

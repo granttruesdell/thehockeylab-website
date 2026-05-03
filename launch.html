@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Hockey Lab is Here | Express Performance Centre, Coquitlam</title>
+  <meta name="description" content="The Hockey Lab is now inside Coquitlam Express Performance Centre. 20 charter athlete spots at $349/month. Goalie Development Camp July 6–10.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:   #FFD700;
+      --dark:   #0a0a0a;
+      --card:   #111111;
+      --border: rgba(255,255,255,0.08);
+      --pad:    clamp(20px, 5vw, 64px);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: #fff;
+      font-family: 'Barlow', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announce-bar {
+      background: var(--gold);
+      color: #000;
+      text-align: center;
+      padding: 10px var(--pad);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ── NAV ── */
+    .lp-nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px var(--pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .lp-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .lp-logo span { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold);
+      color: #000;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      display: inline-block;
+    }
+    .nav-cta:hover { background: #e6c200; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 80px var(--pad);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+    }
+    .hero-h {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(52px, 9vw, 96px);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-h span { color: var(--gold); }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: rgba(255,255,255,0.8);
+      max-width: 520px;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+    .btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: #000;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 18px 40px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-gold:hover { background: #e6c200; transform: translateY(-2px); }
+    .btn-ghost {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.85);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 18px 40px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .hero-link {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.5px;
+    }
+    .hero-link a {
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .hero-link a:hover { color: #fff; }
+
+    /* ── SECTION BASE ── */
+    .section {
+      padding: clamp(60px, 8vw, 100px) var(--pad);
+      border-bottom: 1px solid var(--border);
+    }
+    .section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .t-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .t-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--gold);
+    }
+    .section-h {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .section-h span { color: var(--gold); }
+    .section-body {
+      font-size: clamp(16px, 1.8vw, 18px);
+      color: rgba(255,255,255,0.75);
+      max-width: 640px;
+      line-height: 1.7;
+    }
+
+    /* ── WHAT IS THE HOCKEY LAB ── */
+    .what-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .pillar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 20px;
+    }
+    .pillar-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .pillar-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ── CHARTER SECTION ── */
+    .charter-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: clamp(32px, 5vw, 60px);
+      position: relative;
+      overflow: hidden;
+    }
+    .charter-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+    }
+    .charter-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(48px, 7vw, 80px);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .charter-price-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 1px;
+      margin-bottom: 32px;
+    }
+    .charter-features {
+      list-style: none;
+      margin-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .charter-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 16px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+    }
+    .charter-features li::before {
+      content: '→';
+      color: var(--gold);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .charter-features li strong { color: #fff; }
+    .charter-bonus {
+      background: rgba(255,215,0,0.07);
+      border: 1px solid rgba(255,215,0,0.25);
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+    }
+    .charter-bonus strong { color: var(--gold); }
+    .spots-bar-wrap {
+      background: rgba(255,255,255,0.08);
+      height: 6px;
+      margin-bottom: 10px;
+    }
+    .spots-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--gold);
+    }
+    .spots-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+    }
+
+    /* ── CAMP SECTION ── */
+    .camp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .camp-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .camp-tag {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--border);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      color: rgba(255,255,255,0.7);
+    }
+    .camp-tag.highlight {
+      background: rgba(255,215,0,0.1);
+      border-color: rgba(255,215,0,0.3);
+      color: var(--gold);
+    }
+    .camp-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .camp-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+    }
+    .camp-features li::before {
+      content: '→';
+      color: var(--gold);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .camp-price-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 32px;
+      text-align: center;
+    }
+    .camp-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 64px;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .camp-price-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+    .camp-spots {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    /* ── SOCIAL PROOF ── */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .review {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 32px;
+    }
+    .review-stars {
+      color: var(--gold);
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .review-text {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.65;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .review-author {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── FOOTER CTA ── */
+    .footer-cta {
+      padding: clamp(60px, 8vw, 100px) var(--pad);
+      text-align: center;
+      background: var(--card);
+      border-top: 1px solid var(--border);
+    }
+    .footer-cta .section-h {
+      margin-bottom: 12px;
+    }
+    .footer-cta-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 40px;
+      letter-spacing: 0.5px;
+    }
+    .footer-cta-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .footer-link {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-link a {
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ── SITE FOOTER ── */
+    .site-footer {
+      padding: 28px var(--pad);
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .site-footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .site-footer-logo span { color: var(--gold); }
+    .site-footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── MOBILE STICKY BAR ── */
+    .mobile-sticky {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      background: var(--gold);
+    }
+    .mobile-sticky a {
+      display: block;
+      text-align: center;
+      padding: 18px var(--pad);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #000;
+    }
+
+    /* ── REVEAL ANIMATION ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .what-grid,
+      .camp-grid,
+      .reviews-grid { grid-template-columns: 1fr; }
+      .pillars { grid-template-columns: 1fr 1fr; }
+      .hero { min-height: 100svh; padding-bottom: 100px; }
+      .nav-cta { display: none; }
+      .mobile-sticky { display: block; }
+      .footer-cta-btns { flex-direction: column; align-items: center; }
+      .btn-gold, .btn-ghost { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar">
+  Now Open &nbsp;·&nbsp; Express Performance Centre, Coquitlam &nbsp;·&nbsp; 20 Charter Spots Available
+</div>
+
+<!-- NAV -->
+<nav class="lp-nav">
+  <a href="index.html" class="lp-logo">THE HOCKEY <span>LAB</span></a>
+  <a href="https://square.link/u/chV0hfL7" class="nav-cta" target="_blank" rel="noopener">Claim Charter Spot →</a>
+</nav>
+
+<!-- ── SECTION 1: HERO ── -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="images/express-exterior.webp"
+         alt="Express Performance Centre — The Hockey Lab's new home"
+         loading="eager">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Now Open — May 2025</div>
+    <h1 class="hero-h">THE HOCKEY<br>LAB IS <span>HERE.</span></h1>
+    <p class="hero-sub">Structured goalie and hockey development — now inside Coquitlam Express Performance Centre.</p>
+    <div class="hero-ctas">
+      <a href="https://square.link/u/chV0hfL7" class="btn-gold" target="_blank" rel="noopener">Claim Your Charter Spot — $349/mo →</a>
+    </div>
+    <div class="hero-link">
+      Not sure? <a href="https://calendly.com/thehockeylabofficial-info/free-15-min-call-with-coach-grant" target="_blank" rel="noopener">Book a free 15-min call with Grant</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 2: WHAT IS THE HOCKEY LAB ── -->
+<section class="section">
+  <div class="section-inner">
+    <div class="what-grid">
+      <div>
+        <div class="t-eyebrow reveal">The Program</div>
+        <h2 class="section-h reveal reveal-d1">WHAT IS THE<br><span>HOCKEY LAB.</span></h2>
+        <p class="section-body reveal reveal-d2">
+          The Hockey Lab is a structured, recurring hockey development program built around four pillars: Movement, Tracking, Execution, and Mindset. This isn't drop-in training. It's a system — designed to develop athletes who perform when it counts.
+        </p>
+      </div>
+      <div>
+        <div class="pillars">
+          <div class="pillar reveal">
+            <div class="pillar-num">01</div>
+            <div class="pillar-name">Movement</div>
+          </div>
+          <div class="pillar reveal reveal-d1">
+            <div class="pillar-num">02</div>
+            <div class="pillar-name">Tracking</div>
+          </div>
+          <div class="pillar reveal reveal-d2">
+            <div class="pillar-num">03</div>
+            <div class="pillar-name">Execution</div>
+          </div>
+          <div class="pillar reveal reveal-d3">
+            <div class="pillar-num">04</div>
+            <div class="pillar-name">Mindset</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 3: CHARTER ATHLETE OFFER ── -->
+<section class="section" id="charter">
+  <div class="section-inner">
+    <div class="t-eyebrow reveal">Limited Availability</div>
+    <h2 class="section-h reveal reveal-d1">20 CHARTER<br><span>ATHLETE SPOTS.</span></h2>
+    <p class="section-body reveal reveal-d2" style="margin-bottom: 40px;">Lock in the founding rate before the doors open to the public. Once these 20 spots are gone, the price goes to $399/month.</p>
+
+    <div class="charter-wrap reveal reveal-d2">
+      <div class="charter-price">$349<span style="font-size:0.4em;color:rgba(255,255,255,0.5);font-weight:700;">/mo</span></div>
+      <div class="charter-price-label">Charter Athlete Rate &nbsp;·&nbsp; Locked for life</div>
+
+      <ul class="charter-features">
+        <li><strong>3-month commitment</strong> — first month due at signup, months 2 and 3 auto-billed</li>
+        <li><strong>Rate locked for life</strong> as long as your membership stays active</li>
+        <li>After these 20 spots, public rate is <strong>$399/month</strong></li>
+      </ul>
+
+      <div class="charter-bonus">
+        <strong>🏒 First 10 athletes to commit</strong> get free entry to the 2-day Goalie Intensive in August — included automatically.
+      </div>
+
+      <div class="spots-bar-wrap">
+        <div class="spots-bar-fill" id="spotsBar"></div>
+      </div>
+      <div class="spots-label" id="spotsLabel">20 of 20 spots available</div>
+
+      <a href="https://square.link/u/chV0hfL7" class="btn-gold" target="_blank" rel="noopener" style="font-size:16px;padding:20px 48px;">Claim Your Charter Spot →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 4: GOALIE DEVELOPMENT CAMP ── -->
+<section class="section" id="camp">
+  <div class="section-inner">
+    <div class="camp-grid">
+      <div>
+        <div class="t-eyebrow reveal">Summer 2025</div>
+        <h2 class="section-h reveal reveal-d1">GOALIE<br>DEVELOPMENT<br><span>CAMP.</span></h2>
+
+        <div class="camp-meta reveal reveal-d2">
+          <span class="camp-tag highlight">July 6–10</span>
+          <span class="camp-tag">Ages 8–13</span>
+          <span class="camp-tag">9AM–1PM Daily</span>
+          <span class="camp-tag highlight">10 Spots Only</span>
+        </div>
+
+        <ul class="camp-features reveal reveal-d2">
+          <li>Pure goalie-specific training — not an afterthought in a general camp</li>
+          <li>Max 3 goalies on the synthetic ice at a time — real reps, real attention</li>
+          <li>Goalie-curious skaters welcome — loaner gear available for U9 and under</li>
+        </ul>
+      </div>
+
+      <div class="camp-price-block reveal reveal-d1">
+        <div class="camp-price">$449</div>
+        <div class="camp-price-sub">Per athlete &nbsp;·&nbsp; Full week</div>
+        <div class="camp-spots">10 spots only</div>
+        <a href="https://square.link/u/3PkwKqfX" class="btn-gold" target="_blank" rel="noopener" style="width:100%;text-align:center;font-size:15px;padding:18px 24px;">Reserve Your Camp Spot →</a>
+        <div style="margin-top:16px;font-size:13px;color:rgba(255,255,255,0.35);text-align:center;">Spots fill fast — no waitlist once full</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 5: SOCIAL PROOF ── -->
+<section class="section">
+  <div class="section-inner">
+    <div class="t-eyebrow reveal">What families say</div>
+    <h2 class="section-h reveal reveal-d1">REAL<br><span>RESULTS.</span></h2>
+    <div class="reviews-grid" style="margin-top:40px;">
+      <div class="review reveal reveal-d1">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Leaving feeling inspired and motivated, which is amazing for a teenager!!"</div>
+        <div class="review-author">Allan MacInnes &nbsp;·&nbsp; Hockey Lab Parent</div>
+      </div>
+      <div class="review reveal reveal-d2">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Focus, confidence, bouncing back after mistakes and handling pressure."</div>
+        <div class="review-author">Natasha Neklyudov &nbsp;·&nbsp; Hockey Lab Parent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 6: FOOTER CTA ── -->
+<section class="footer-cta">
+  <div class="t-eyebrow" style="justify-content:center;margin-bottom:20px;">Charter Offer</div>
+  <h2 class="section-h">20 CHARTER SPOTS.<br><span>ONCE THEY'RE GONE,</span><br>THEY'RE GONE.</h2>
+  <p class="footer-cta-sub">Public rate goes to $399/month after these spots are filled.</p>
+  <div class="footer-cta-btns">
+    <a href="https://square.link/u/chV0hfL7" class="btn-gold" target="_blank" rel="noopener" style="font-size:16px;padding:20px 48px;">Claim Your Charter Spot →</a>
+    <a href="https://square.link/u/3PkwKqfX" class="btn-ghost" target="_blank" rel="noopener">Reserve Camp Spot →</a>
+  </div>
+  <div class="footer-link">
+    Questions? <a href="https://calendly.com/thehockeylabofficial-info/free-15-min-call-with-coach-grant" target="_blank" rel="noopener">Book a free 15-min call with Grant →</a>
+  </div>
+</section>
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <a href="index.html" class="site-footer-logo">THE HOCKEY <span>LAB</span></a>
+  <div class="site-footer-copy">© 2025 The Hockey Lab · Coquitlam, BC</div>
+</footer>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mobile-sticky">
+  <a href="https://square.link/u/chV0hfL7" target="_blank" rel="noopener">Claim Charter Spot — $349/mo →</a>
+</div>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Spots bar — starts at 0, animate to 0% (all available)
+  // Update this number as spots fill: e.g. 5 taken = 25%
+  const spotsTaken = 0;
+  const totalSpots = 20;
+  const pct = Math.round((spotsTaken / totalSpots) * 100);
+  document.getElementById('spotsBar').style.width = pct + '%';
+  const remaining = totalSpots - spotsTaken;
+  document.getElementById('spotsLabel').textContent = remaining + ' of ' + totalSpots + ' spots available';
+</script>
+
+</body>
+</html>

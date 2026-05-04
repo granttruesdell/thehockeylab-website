@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camp Spot Reserved | The Hockey Lab</title>
+  <meta name="description" content="Your Goalie Development Camp spot is reserved. See you July 6th.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --gold: #ffd700;
+      --gold-dim: rgba(255,215,0,0.12);
+      --white: #ffffff;
+      --text: rgba(255,255,255,0.82);
+      --text-muted: rgba(255,255,255,0.45);
+      --border: rgba(255,255,255,0.08);
+      --green: #22c55e;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Rajdhani', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ── */
+    .conf-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .conf-logo {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .conf-logo span { color: var(--gold); }
+
+    /* ── HERO ── */
+    .conf-hero {
+      text-align: center;
+      padding: 80px 24px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+    .conf-check {
+      width: 72px;
+      height: 72px;
+      background: rgba(34,197,94,0.12);
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 32px;
+    }
+    .conf-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .conf-h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 7vw, 64px);
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .conf-h1 span { color: var(--gold); }
+    .conf-sub {
+      font-size: 18px;
+      max-width: 520px;
+      margin: 0 auto;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .conf-main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* ── CAMP DETAILS CARD ── */
+    .camp-card {
+      background: rgba(255,215,0,0.04);
+      border: 1px solid rgba(255,215,0,0.2);
+      padding: 28px;
+      margin-bottom: 48px;
+    }
+    .camp-card-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .camp-detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 16px;
+    }
+    .camp-detail-row:last-child { border-bottom: none; }
+    .camp-detail-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      width: 120px;
+    }
+    .camp-detail-value {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      text-align: right;
+    }
+
+    /* ── NEXT STEPS ── */
+    .steps-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+    .steps-title span { color: var(--gold); }
+    .step {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(255,215,0,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      color: var(--gold);
+    }
+    .step-body {}
+    .step-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .step-text {
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── WAIVER ── */
+    .waiver-banner {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      padding: 20px 24px;
+      margin: 40px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .waiver-text {
+      font-size: 15px;
+      color: var(--text);
+    }
+    .waiver-text strong { color: var(--white); }
+    .waiver-link {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .waiver-link:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 40px;
+    }
+    .contact-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .contact-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-link:hover { border-color: var(--gold); color: var(--gold); }
+    .contact-link.primary {
+      background: var(--gold);
+      color: #000;
+      border-color: var(--gold);
+      font-weight: 700;
+    }
+    .contact-link.primary:hover { background: #e6c200; border-color: #e6c200; color: #000; }
+
+    /* ── SOCIAL ── */
+    .social-section {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .social-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .social-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border: 1px solid rgba(255,215,0,0.3);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .social-btn:hover { background: var(--gold-dim); }
+
+    /* ── FOOTER ── */
+    .conf-footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .conf-footer a { color: var(--text-muted); text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .conf-hero { padding: 60px 20px 40px; }
+      .camp-detail-row { flex-direction: column; }
+      .camp-detail-value { text-align: left; }
+      .waiver-banner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="conf-nav">
+    <a href="/" class="conf-logo">THE HOCKEY <span>LAB</span></a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="conf-hero">
+    <div class="conf-check">✓</div>
+    <div class="conf-eyebrow">Goalie Development Camp — Spot Reserved</div>
+    <h1 class="conf-h1">SPOT RESERVED.<br>SEE YOU <span>JULY 6TH.</span></h1>
+    <p class="conf-sub">You've secured one of 10 spots in the Goalie Development Camp. Grant will reach out within 24 hours with full camp details and to answer any questions.</p>
+  </div>
+
+  <!-- MAIN -->
+  <main class="conf-main">
+
+    <!-- CAMP DETAILS -->
+    <div class="camp-card">
+      <div class="camp-card-title">Camp Details</div>
+      <div class="camp-detail-row">
+        <div class="camp-detail-label">Dates</div>
+        <div class="camp-detail-value">July 6–10, 2025</div>
+      </div>
+      <div class="camp-detail-row">
+        <div class="camp-detail-label">Time</div>
+        <div class="camp-detail-value">9:00 AM – 1:00 PM daily</div>
+      </div>
+      <div class="camp-detail-row">
+        <div class="camp-detail-label">Location</div>
+        <div class="camp-detail-value">Express Performance Centre, Coquitlam, BC</div>
+      </div>
+      <div class="camp-detail-row">
+        <div class="camp-detail-label">Ages</div>
+        <div class="camp-detail-value">8–13</div>
+      </div>
+      <div class="camp-detail-row">
+        <div class="camp-detail-label">Spots</div>
+        <div class="camp-detail-value">10 total — max 3 goalies on ice at a time</div>
+      </div>
+      <div class="camp-detail-row">
+        <div class="camp-detail-label">Loaner Gear</div>
+        <div class="camp-detail-value">Available for U9 and under</div>
+      </div>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <h2 class="steps-title">WHAT HAPPENS <span>NEXT</span></h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Grant Reaches Out Within 24 Hours</div>
+        <p class="step-text">Expect a call or text from Grant at <strong>778-302-9245</strong> within 24 hours to confirm your spot, share the exact facility address, and answer any questions you have before camp starts.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">What to Bring</div>
+        <p class="step-text">Full goalie equipment — pads, blocker, glove, chest protector, helmet, and skates. Goalie stick. Water bottle and snacks for the break. Loaner gear is available for U9 and under — let Grant know in advance if you need it.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">What to Expect</div>
+        <p class="step-text">This is not a general hockey camp with goalies as an afterthought. Every drill, every rep, every session is goalie-specific. With a maximum of 3 goalies on the synthetic ice at a time, your athlete gets real attention and real reps — every single day.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Complete Your Participant Waiver</div>
+        <p class="step-text">Before the first day of camp, please read and acknowledge The Hockey Lab participant waiver. This covers liability, photo consent, and medical authorization.</p>
+      </div>
+    </div>
+
+    <!-- WAIVER BANNER -->
+    <div class="waiver-banner">
+      <div class="waiver-text"><strong>Participant Waiver</strong><br>Required before the first day of camp. Takes about 2 minutes to read.</div>
+      <a href="/waiver.html" class="waiver-link" target="_blank">Read the Waiver →</a>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-section">
+      <div class="contact-title">Questions Before Camp?</div>
+      <div class="contact-sub">Grant is happy to answer any questions about gear, the schedule, or what to expect. Reach out anytime.</div>
+      <div class="contact-links">
+        <a href="tel:7783029245" class="contact-link primary">Call or Text — 778-302-9245</a>
+        <a href="mailto:thehockeylabofficial@gmail.com" class="contact-link">Email Grant</a>
+        <a href="https://calendly.com/thehockeylabofficial-info/free-15-min-call-with-coach-grant" class="contact-link" target="_blank" rel="noopener">Book a Free 15-Min Call</a>
+      </div>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="social-section">
+      <div class="social-title">Follow Along</div>
+      <div class="social-sub">Camp prep content, behind-the-scenes, and training tips — follow both accounts to stay in the loop.</div>
+      <div class="social-links">
+        <a href="https://instagram.com/TheHockeyLabOfficial" class="social-btn" target="_blank" rel="noopener">
+          @TheHockeyLabOfficial
+        </a>
+        <a href="https://instagram.com/GrantTruesdell" class="social-btn" target="_blank" rel="noopener">
+          @GrantTruesdell
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="conf-footer">
+    <p>Questions? Call or text Grant at <a href="tel:7783029245">778-302-9245</a> &nbsp;·&nbsp; <a href="/waiver.html">Participant Waiver</a></p>
+    <p style="margin-top:8px;">© 2025 The Hockey Lab. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -11,7 +11,7 @@ const NAV_HTML = `
     <li><a href="method.html">The Method</a></li>
     <li><a href="mental-edge.html">Mental Edge</a></li>
     <li><a href="about.html">About Grant</a></li>
-    <li><a href="waitlist.html" class="nav-btn">Join the Waitlist</a></li>
+    <li><a href="launch.html" class="nav-btn nav-btn-charter">Charter Spots &rarr;</a></li>
   </ul>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -24,8 +24,9 @@ const NAV_HTML = `
     <li><a href="method.html">The Method</a></li>
     <li><a href="mental-edge.html">Mental Edge</a></li>
     <li><a href="about.html">About Grant</a></li>
+    <li><a href="waitlist.html">Join the Waitlist</a></li>
   </ul>
-  <a href="waitlist.html" class="nav-btn-mobile">Join the Waitlist</a>
+  <a href="launch.html" class="nav-btn-mobile">Claim Charter Spot &rarr;</a>
 </div>`;
 
 // ── FOOTER HTML ──
@@ -37,8 +38,8 @@ const FOOTER_HTML = `
       <div class="footer-tagline">Skills &nbsp;·&nbsp; Strength &nbsp;·&nbsp; Mindset</div>
       <p class="footer-desc">A structured off-ice development system built for athletes who want to train with purpose, progress with intention, and perform when it matters most.</p>
       <div class="footer-waitlist-box">
-        <div class="footer-waitlist-label">Now Accepting Waitlist</div>
-        <a href="waitlist.html">Join the waitlist for early access when we open at our new facility &rarr;</a>
+        <div class="footer-waitlist-label">Now Open for Charter Enrollment</div>
+        <a href="launch.html">Claim your charter athlete spot at the Express Performance Centre &rarr;</a>
       </div>
     </div>
     <div class="footer-col">
@@ -65,8 +66,12 @@ const FOOTER_HTML = `
     <div class="footer-col">
       <div class="footer-col-title">Contact</div>
       <div class="footer-contact-item">
-        <div class="footer-contact-label">Coming Soon</div>
-        <div class="footer-contact-value">New Facility<br>Coquitlam, BC</div>
+        <div class="footer-contact-label">Location</div>
+        <div class="footer-contact-value"><a href="https://maps.google.com/?q=1020+Austin+Avenue+Coquitlam+BC" target="_blank" rel="noopener">Unit 211, 1020 Austin Ave<br>Coquitlam, BC</a></div>
+      </div>
+      <div class="footer-contact-item">
+        <div class="footer-contact-label">Grand Opening</div>
+        <div class="footer-contact-value">July 1, 2026</div>
       </div>
       <div class="footer-contact-item">
         <div class="footer-contact-label">Email</div>
@@ -94,7 +99,7 @@ const FOOTER_HTML = `
 // ── MOBILE CTA BAR ──
 const MOBILE_CTA_HTML = `
 <div class="mobile-cta-bar" id="mobile-cta-bar">
-  <a href="waitlist.html">Join the Waitlist &rarr;</a>
+  <a href="launch.html">Claim Charter Spot &rarr;</a>
 </div>`;
 
 // ── INIT ──

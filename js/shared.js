@@ -75,7 +75,7 @@ const FOOTER_HTML = `
       </div>
       <div class="footer-contact-item">
         <div class="footer-contact-label">Email</div>
-        <div class="footer-contact-value"><a href="mailto:grant@thehockeylabofficial.com">grant@thehockeylabofficial.com</a></div>
+        <div class="footer-contact-value"><a href="mailto:info@thehockeylabofficial.com">info@thehockeylabofficial.com</a></div>
       </div>
       <div class="footer-contact-item">
         <div class="footer-contact-label">Phone</div>

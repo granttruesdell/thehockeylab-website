@@ -11,6 +11,7 @@ const NAV_HTML = `
     <li><a href="method.html">The Method</a></li>
     <li><a href="mental-edge.html">Mental Edge</a></li>
     <li><a href="about.html">About Grant</a></li>
+    <li><a href="faq.html">FAQ</a></li>
     <li><a href="launch.html" class="nav-btn nav-btn-charter">Charter Spots &rarr;</a></li>
   </ul>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
@@ -24,6 +25,7 @@ const NAV_HTML = `
     <li><a href="method.html">The Method</a></li>
     <li><a href="mental-edge.html">Mental Edge</a></li>
     <li><a href="about.html">About Grant</a></li>
+    <li><a href="faq.html">FAQ</a></li>
     <li><a href="waitlist.html">Join the Waitlist</a></li>
   </ul>
   <a href="launch.html" class="nav-btn-mobile">Claim Charter Spot &rarr;</a>
@@ -59,6 +61,7 @@ const FOOTER_HTML = `
         <li><a href="method.html">The Method</a></li>
         <li><a href="mental-edge.html">Mental Edge</a></li>
         <li><a href="about.html">About Grant</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a href="waitlist.html">Join the Waitlist</a></li>
         <li><a href="https://g.page/r/CVE_VTfxO_5qEAE/review" target="_blank" rel="noopener">Review Us on Google</a></li>
       </ul>

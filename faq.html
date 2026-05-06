@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ — The Hockey Lab</title>
+  <meta name="description" content="Everything you need to know about The Hockey Lab at Express Performance Centre — the system, programs, pricing, and how to get started."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,700;0,900;1,900&family=Rajdhani:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold: #FFC72C;
+      --black: #000;
+      --dark: #0a0a0a;
+      --dark2: #111;
+      --dark3: #1a1a1a;
+      --white: #fff;
+      --white-60: rgba(255,255,255,0.6);
+      --white-35: rgba(255,255,255,0.35);
+      --white-12: rgba(255,255,255,0.12);
+      --white-06: rgba(255,255,255,0.06);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--dark);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV PLACEHOLDER ── */
+    #nav-placeholder { position: relative; z-index: 200; }
+
+    /* ── HERO ── */
+    .faq-hero {
+      background: var(--black);
+      border-bottom: 1px solid var(--white-12);
+      padding: 120px 24px 64px;
+      text-align: center;
+    }
+    .faq-hero-eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .faq-hero h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 7vw, 64px);
+      text-transform: uppercase;
+      line-height: 1.0;
+      letter-spacing: -0.5px;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .faq-hero h1 span { color: var(--gold); }
+    .faq-hero-sub {
+      font-size: 16px;
+      color: var(--white-60);
+      max-width: 560px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .faq-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 2px;
+      transition: opacity 0.2s;
+    }
+    .faq-hero-cta:hover { opacity: 0.88; }
+
+    /* ── JUMP NAV ── */
+    .faq-jump {
+      background: var(--dark2);
+      border-bottom: 1px solid var(--white-12);
+      padding: 0 24px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .faq-jump::-webkit-scrollbar { display: none; }
+    .faq-jump-inner {
+      display: flex;
+      gap: 0;
+      max-width: 860px;
+      margin: 0 auto;
+      white-space: nowrap;
+    }
+    .faq-jump a {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white-60);
+      padding: 16px 20px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .faq-jump a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+    /* ── MAIN ── */
+    .faq-main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+    }
+
+    /* ── SECTION ── */
+    .faq-section {
+      margin-bottom: 64px;
+    }
+    .faq-section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--gold);
+    }
+    .faq-section-label {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
+    .faq-section-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--white);
+    }
+
+    /* ── FAQ ACCORDION ── */
+    .faq-item {
+      border-bottom: 1px solid var(--white-12);
+    }
+    .faq-item:first-of-type { border-top: 1px solid var(--white-12); }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 0;
+      text-align: left;
+      color: var(--white);
+    }
+    .faq-q-text {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 1.3;
+      color: var(--white);
+    }
+    .faq-q-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border: 1.5px solid var(--white-35);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .faq-q-icon svg {
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-q-icon {
+      border-color: var(--gold);
+      background: var(--gold);
+    }
+    .faq-item.open .faq-q-icon svg {
+      transform: rotate(45deg);
+    }
+    .faq-item.open .faq-q-icon svg path { stroke: var(--black); }
+    .faq-a-wrap {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .faq-item.open .faq-a-wrap {
+      max-height: 800px;
+    }
+    .faq-a {
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.72);
+      padding-bottom: 24px;
+    }
+    .faq-a strong { color: var(--white); font-weight: 500; }
+    .faq-a a { color: var(--gold); text-decoration: underline; }
+
+    /* ── TIER GRID ── */
+    .tier-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    @media (max-width: 560px) { .tier-grid { grid-template-columns: 1fr; } }
+    .tier-card {
+      border: 1.5px solid var(--white-12);
+      border-radius: 4px;
+      padding: 18px 20px;
+      background: var(--dark3);
+    }
+    .tier-card.highlight {
+      border-color: var(--gold);
+      background: rgba(255,199,44,0.06);
+    }
+    .tier-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white-60);
+      margin-bottom: 4px;
+    }
+    .tier-price {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .tier-price .tier-mo {
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      color: var(--white-35);
+    }
+    .tier-charter {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .tier-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .tier-sessions {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+    }
+    .tier-sessions li { margin-left: 16px; margin-bottom: 3px; }
+
+    /* ── CALLOUT ── */
+    .faq-callout {
+      background: var(--dark3);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 4px 4px 0;
+      padding: 18px 22px;
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.72);
+    }
+    .faq-callout strong { color: var(--gold); }
+
+    /* ── CONTACT STRIP ── */
+    .faq-contact {
+      background: var(--black);
+      border: 1px solid var(--white-12);
+      border-radius: 6px;
+      padding: 40px 32px;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .faq-contact-eyebrow {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .faq-contact h3 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .faq-contact p {
+      font-size: 14px;
+      color: var(--white-60);
+      margin-bottom: 28px;
+    }
+    .faq-contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .faq-contact-links a {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border-radius: 2px;
+      transition: opacity 0.2s;
+    }
+    .faq-contact-links a:hover { opacity: 0.8; }
+    .faq-contact-links .btn-gold { background: var(--gold); color: var(--black); }
+    .faq-contact-links .btn-outline { border: 1.5px solid var(--white-35); color: var(--white); }
+
+    /* ── FOOTER PLACEHOLDER ── */
+    #footer-placeholder {}
+
+    @media (max-width: 640px) {
+      .faq-hero { padding: 100px 20px 48px; }
+      .faq-main { padding: 40px 20px 60px; }
+      .faq-contact { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<section class="faq-hero">
+  <div class="faq-hero-eyebrow">The Hockey Lab @ Express Performance Centre</div>
+  <h1>Frequently<br/><span>Asked Questions</span></h1>
+  <p class="faq-hero-sub">Everything you need to know about The Hockey Lab — the system, the programs, and how to get started.</p>
+  <a href="/launch.html" class="faq-hero-cta">Claim Charter Spot — $349/mo →</a>
+</section>
+
+<!-- JUMP NAV -->
+<nav class="faq-jump" aria-label="FAQ sections">
+  <div class="faq-jump-inner">
+    <a href="#basics">The Basics</a>
+    <a href="#system">Training System</a>
+    <a href="#who">Who It's For</a>
+    <a href="#pricing">Programs & Pricing</a>
+    <a href="#camp">Goalie Camp</a>
+    <a href="#start">Getting Started</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="faq-main">
+
+  <!-- THE BASICS -->
+  <section class="faq-section" id="basics">
+    <div class="faq-section-header">
+      <span class="faq-section-label">01</span>
+      <span class="faq-section-title">The Basics</span>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">What is The Hockey Lab?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">The Hockey Lab is a structured, recurring hockey development program built on a four-pillar system: <strong>Movement, Tracking, Execution, and Mindset.</strong> It's not drop-in skates or a one-off skills camp — it's systematic, ongoing development where every session connects to a larger plan and every athlete's progress is tracked over time.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">Where is it located?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">Inside <strong>Express Performance Centre</strong> — <a href="https://maps.google.com/?q=1020+Austin+Ave+Unit+211+Coquitlam+BC" target="_blank" rel="noopener">1020 Austin Ave, Unit 211, Coquitlam, BC.</a></div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">When does it open?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">Grand opening is <strong>July 1, 2026.</strong> A soft launch with early training begins mid-to-late June once the synthetic ice surface is installed. Charter spots are available to sign up for now — and they're capped at 20.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINING SYSTEM -->
+  <section class="faq-section" id="system">
+    <div class="faq-section-header">
+      <span class="faq-section-label">02</span>
+      <span class="faq-section-title">The Training System</span>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">How is The Hockey Lab different from power skating or skills camps?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">Most camps and skills sessions give athletes extra reps with no continuity — each session is stand-alone. The Hockey Lab is a system. Every session builds on the last, progress is tracked across four specific pillars, and athletes develop across their entire game. It's designed to produce measurable, compounding improvement over a season — not a one-time boost.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">What are the four pillars?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">
+          Every drill, training block, and coaching cue connects to one or more of these:<br/><br/>
+          <strong>Movement</strong> — Skating mechanics, edge work, physical base, and mobility<br/><br/>
+          <strong>Tracking</strong> — Visual awareness, reading the ice, and anticipation<br/><br/>
+          <strong>Execution</strong> — Skill application under pressure, puck skills, and shooting<br/><br/>
+          <strong>Mindset</strong> — Composure, reset routines, ownership, and confidence under pressure
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">What does "tracked progress" mean in practice?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">Athletes don't just train — they get feedback. Progress across the four pillars is measured and logged, so coaching is responsive to where each athlete actually is, not where a generic program assumes they should be. Parents see real development, not just activity.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">What are the Technical and Compete sessions?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a"><strong>Technical sessions</strong> focus on skill mechanics — breaking down movement, edges, execution, and positioning in a structured, repetition-based environment. <strong>Compete sessions</strong> put those skills under pressure — game scenarios, small-area games, and competitive reps where athletes have to make decisions and perform. Both sessions are 45 minutes.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">What is the Mental Edge program?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">Mental Edge is The Hockey Lab's mental performance component — focus, composure, handling pressure, and building habits that transfer from the training environment to game situations. It's the <strong>Mindset pillar</strong> in action. Mental Edge is integrated into every Hockey Lab membership, and also available as a standalone 6-session program for athletes who want to focus on the mental side specifically.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">Is The Hockey Lab just for goalies?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">The program is <strong>goalie-first</strong> — built by a goalie coach, with the synthetic ice surface and session structure optimized for goalie development. Skaters are welcome and the four-pillar system applies to every position. There is also a dedicated <strong>Goalie Development Camp (July 6–10)</strong> for athletes who want goalie-specific intensive work.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="faq-section" id="who">
+    <div class="faq-section-header">
+      <span class="faq-section-label">03</span>
+      <span class="faq-section-title">Who It's For</span>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">What ages does The Hockey Lab serve?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">The program runs from age 5 through elite junior level, across four tiers. Athletes don't advance by age — they advance by demonstrated progress through the four pillars.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">What skill level is this for?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">All levels. Every new athlete is assessed and placed in the right track at intake, regardless of age. A 10-year-old with strong fundamentals and a 10-year-old just starting out will be placed appropriately and coached accordingly.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">Does my child need to be committed to hockey to join?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">A reasonable level of interest and willingness to work is all that's needed at the start. This isn't casual drop-in — it's structured development that builds on itself. Athletes who show up consistently get the most out of it.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS & PRICING -->
+  <section class="faq-section" id="pricing">
+    <div class="faq-section-header">
+      <span class="faq-section-label">04</span>
+      <span class="faq-section-title">Programs &amp; Pricing</span>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">What programs are available?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">
+          Four membership tiers, built as a progression ladder:
+          <div class="tier-grid">
+            <div class="tier-card">
+              <div class="tier-name">Young Cup</div>
+              <div class="tier-price">$179<span class="tier-mo">/month</span></div>
+              <div class="tier-sessions">
+                Ages 5–7. Small group format (1–3 athletes).<br/><br/>
+                <ul>
+                  <li>1 × weekly group session</li>
+                  <li>Fundamentals, fun, and light competition</li>
+                  <li>Low-pressure, high-energy environment</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tier-card highlight">
+              <div class="tier-name">Development <span class="tier-badge">Charter Open</span></div>
+              <div class="tier-price">$399<span class="tier-mo">/month</span></div>
+              <div class="tier-charter">Charter rate: $349/month — locked for life</div>
+              <div class="tier-sessions">
+                Ages 8–15. Core programming.<br/><br/>
+                <ul>
+                  <li>1 × 45-min Technical Session / week</li>
+                  <li>1 × 45-min Compete Session / week</li>
+                  <li>1 × Dry Land session / month</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tier-card highlight">
+              <div class="tier-name">Performance <span class="tier-badge">Charter Open</span></div>
+              <div class="tier-price">$399<span class="tier-mo">/month</span></div>
+              <div class="tier-charter">Charter rate: $349/month — locked for life</div>
+              <div class="tier-sessions">
+                Ages 8–15. Game transfer focus.<br/><br/>
+                <ul>
+                  <li>1 × 45-min Technical Session / week</li>
+                  <li>1 × 45-min Compete Session / week</li>
+                  <li>1 × Hockey IQ &amp; Mental Edge session / month</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tier-card">
+              <div class="tier-name">Elite</div>
+              <div class="tier-price">$899+<span class="tier-mo">/month</span></div>
+              <div class="tier-sessions">
+                Ages 16+. Rep, junior, high-performance prep.<br/><br/>
+                <ul>
+                  <li>3 × synthetic ice sessions / week</li>
+                  <li>1 × on-ice integration session / week</li>
+                  <li>Coach attends team practices</li>
+                  <li>Private Mental Edge integration</li>
+                  <li>Priority scheduling + open lab access</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">What is a Charter Athlete?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">Charter Athletes are the founding generation of The Hockey Lab — the first 20 athletes to sign up. They lock in at <strong>$349/month</strong>, a rate that never increases as long as membership stays continuous. Public rate after launch: $399/month. Once the 20 spots are filled, charter pricing closes permanently. Charter Athletes are placed on either the Development or Performance track at intake — Grant will recommend the right fit.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">What is the 3-month commitment?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">Charter Athletes commit to an initial 3 months. This protects your locked rate and gives the training system enough time to produce real results — meaningful development doesn't happen in a few weeks. After the initial 3 months, membership continues month-to-month at your locked charter rate.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">What happens if I cancel and come back later?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">The charter rate is tied to continuous membership. If you cancel and re-enroll, the locked rate is forfeited and the current public rate applies at that time.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">Is there a free trial?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">Yes — a free trial session is available for athletes who want to experience the program before committing. Reach out to book: <a href="mailto:info@thehockeylabofficial.com">info@thehockeylabofficial.com</a> or <a href="tel:7783029245">778-302-9245.</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOALIE CAMP -->
+  <section class="faq-section" id="camp">
+    <div class="faq-section-header">
+      <span class="faq-section-label">05</span>
+      <span class="faq-section-title">Goalie Development Camp</span>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">What is the Goalie Development Camp?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">A 5-day intensive camp running <strong>July 6–10.</strong> Ages 8–13. Daily 9AM–1PM drop-off. 10 spots at <strong>$449.</strong><br/><br/>Athletes rotate through three stations each day: on-ice goalie training with Grant, off-ice training with the assistant coach, and self-guided skill work. Day 5 features real ice time at Express — parents welcome to watch.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">Does my child need to be a dedicated goalie to attend?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">No. Goalie-curious skaters — players interested in learning or trying the position — are welcome.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">Is loaner gear available?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">Loaner goalie gear is available upon request. Please reach out to <a href="mailto:info@thehockeylabofficial.com">info@thehockeylabofficial.com</a> or call <a href="tel:7783029245">778-302-9245</a> to arrange.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">Is the camp connected to the membership?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">They're separate offers. Charter Athletes who complete the 3-month commitment also receive a free entry to the <strong>2-day Goalie Intensive in August</strong> — separate from the July camp, and limited to the first 10 charter members to commit.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GETTING STARTED -->
+  <section class="faq-section" id="start">
+    <div class="faq-section-header">
+      <span class="faq-section-label">06</span>
+      <span class="faq-section-title">Getting Started</span>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">How do I sign up?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">Go to <a href="/launch.html"><strong>thehockeylabofficial.com/launch</strong></a>. Charter spots are capped at 20 — once they're gone, they're gone at this price.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">
+        <span class="faq-q-text">I want to talk to someone first. How do I reach Grant?</span>
+        <span class="faq-q-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1V9M1 5H9" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      </button>
+      <div class="faq-a-wrap">
+        <div class="faq-a">
+          <strong>Email:</strong> <a href="mailto:info@thehockeylabofficial.com">info@thehockeylabofficial.com</a><br/><br/>
+          <strong>Call or Text:</strong> <a href="tel:7783029245">778-302-9245</a><br/><br/>
+          <strong>Book a free 15-min call:</strong> <a href="https://calendly.com/thehockeylabofficial-info/free-15-min-call-with-coach-grant" target="_blank" rel="noopener">Book with Grant →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT STRIP -->
+    <div class="faq-contact">
+      <div class="faq-contact-eyebrow">Still have questions?</div>
+      <h3>Talk to Grant Directly</h3>
+      <p>Grant responds to every message personally. Reach out any time.</p>
+      <div class="faq-contact-links">
+        <a href="https://square.link/u/ydo7DV3c" class="btn-gold" target="_blank" rel="noopener">Claim Charter Spot — $349/mo →</a>
+        <a href="https://calendly.com/thehockeylabofficial-info/free-15-min-call-with-coach-grant" class="btn-outline" target="_blank" rel="noopener">Book a Free 15-Min Call</a>
+        <a href="tel:7783029245" class="btn-outline">Call / Text 778-302-9245</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/shared.js"></script>
+<script>
+  // Accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+</body>
+</html>

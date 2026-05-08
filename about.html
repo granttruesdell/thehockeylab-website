@@ -193,11 +193,13 @@
     }
     .story-photo img {
       width: 100%;
-      height: 320px;
-      object-fit: cover;
-      object-position: center 20%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      object-position: center center;
       display: block;
-      opacity: 0.85;
+      opacity: 0.9;
+      background: #0d0d0d;
       transition: opacity 0.3s;
     }
     .story-photo:hover img { opacity: 1; }

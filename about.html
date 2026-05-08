@@ -185,6 +185,22 @@
     .sb-body p { margin-bottom: 18px; }
     .sb-body p:last-child { margin-bottom: 0; }
     .sb-body strong { color: #fff; font-weight: 500; }
+    .story-photo {
+      width: 100%;
+      margin: 32px 0;
+      overflow: hidden;
+      border: 1px solid var(--white-08);
+    }
+    .story-photo img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      opacity: 0.85;
+      transition: opacity 0.3s;
+    }
+    .story-photo:hover img { opacity: 1; }
     .pull-quote {
       border-left: 3px solid var(--gold);
       padding: 20px 28px;
@@ -312,8 +328,8 @@
     <p class="ah-sub anim-3">Lifelong goalie. Juno Award-winning musician. General Manager and Lead Instructor of The Hockey Lab at Express Performance Centre. Every part of that sentence connects — and shapes how Grant coaches athletes.</p>
   </div>
   <div class="ah-photo anim-4">
-    <img src="images/grant-goalie-gear.webp"
-         alt="Grant Truesdell in goalie gear in front of the net"
+    <img src="images/grant-headshot.webp"
+         alt="Grant Truesdell, General Manager and Lead Instructor, The Hockey Lab"
          loading="eager">
     <div class="ah-photo-overlay"></div>
     <div class="ah-photo-caption">
@@ -367,6 +383,9 @@
         <p><strong>You are the last line of defense. Every mistake is visible. Every save or goal is decided in a fraction of a second.</strong> You learn composure or you break down. You learn to reset or the next goal becomes inevitable.</p>
         <p>Over 30 years of playing the position at a competitive level, Grant developed a deep understanding of what it actually takes to perform under pressure — not just in theory, but in the moments when it costs something real.</p>
         <p>That experience is the foundation of everything taught at The Hockey Lab. Not coaching credentials. Not YouTube. Three decades of being in the net, feeling the weight of the moment, and learning how to perform through it.</p>
+      </div>
+      <div class="story-photo">
+        <img src="images/grant-at-net.webp" alt="Grant Truesdell coaching at the net" loading="lazy">
       </div>
       <div class="pull-quote">
         <div class="pq-text">Every goalie learns composure eventually. <span>The ones who learn it early</span> have a massive advantage over everyone else.</div>

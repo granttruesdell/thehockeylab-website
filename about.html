@@ -3,127 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Grant | The Hockey Lab</title>
-  <meta name="description" content="Grant Truesdell is a lifelong goalie, Juno Award-winning musician, and founder of The Hockey Lab — a structured development system built in Coquitlam, BC.">
+  <title>Our Story | The Hockey Lab</title>
+  <meta name="description" content="The Hockey Lab started as a backyard experiment and grew into a purpose-built development hub at the Express Performance Centre. Read our origin story.">
   <link rel="stylesheet" href="css/site.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <style>
-
-    /* ── ABOUT HERO ── */
-    .about-hero {
-      position: relative;
-      min-height: 100vh;
-      padding-top: var(--nav-h);
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
-    }
-    /* Full-bleed background photo */
-    .ah-photo {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    .ah-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 25%;
-      display: block;
-      opacity: 0.75;
-    }
-    /* Dark gradient overlay — heavy on left/bottom so text is always readable */
-    .ah-photo-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to right, rgba(8,8,8,0.80) 0%, rgba(8,8,8,0.40) 40%, rgba(8,8,8,0.10) 65%, transparent 100%),
-        linear-gradient(to top, rgba(8,8,8,0.65) 0%, transparent 50%);
-    }
-    /* Text sits above the photo */
-    .ah-content {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 80px var(--pad-x) 100px;
-      max-width: 760px;
-    }
-    .ah-content::before {
-      content: 'GRANT';
-      position: absolute;
-      left: -20px; bottom: -60px;
-      font-family: 'Exo 2', sans-serif;
-      font-weight: 900;
-      font-size: 220px;
-      color: rgba(255,215,0,0.03);
-      line-height: 1;
-      pointer-events: none;
-      white-space: nowrap;
-    }
-    .ah-h {
-      font-family: 'Exo 2', sans-serif;
-      font-weight: 900;
-      font-size: clamp(52px, 7vw, 96px);
-      text-transform: uppercase;
-      letter-spacing: -4px;
-      line-height: .88;
-      margin: 16px 0 28px;
-      position: relative;
-      z-index: 1;
-    }
-    .ah-h span { color: var(--gold); }
-    .ah-sub {
-      font-size: 16px;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.8;
-      max-width: 520px;
-      position: relative;
-      z-index: 1;
-    }
-    /* Caption removed from photo — no longer needed */
-    .ah-photo-caption { display: none; }
-    .apc-name, .apc-role { display: none; }
-
-    /* ── CREDENTIALS STRIP ── */
-    .creds-strip {
-      display: flex;
-      gap: 0;
-      border-top: 1px solid var(--white-08);
-      border-bottom: 1px solid var(--white-08);
+    /* ── PAGE HERO (No Photo) ── */
+    .page-hero {
+      padding: clamp(120px, 15vw, 180px) var(--pad-x) clamp(80px, 10vw, 120px);
       background: var(--dark-2);
+      border-bottom: 1px solid var(--white-08);
+      position: relative;
+      overflow: hidden;
     }
-    .cred {
-      flex: 1;
-      padding: 24px 28px;
-      border-right: 1px solid var(--white-08);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      transition: background 0.2s;
+    .ph-inner {
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
     }
-    .cred:last-child { border-right: none; }
-    .cred:hover { background: rgba(255,215,0,0.03); }
-    .cred-val {
+    .ph-h {
       font-family: 'Exo 2', sans-serif;
       font-weight: 900;
-      font-size: 32px;
-      color: var(--gold);
-      line-height: 1;
-      letter-spacing: -1px;
-    }
-    .cred-lbl {
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 600;
-      font-size: 9px;
-      letter-spacing: 4px;
+      font-size: clamp(48px, 8vw, 88px);
       text-transform: uppercase;
-      color: var(--white-35);
-      line-height: 1.4;
+      letter-spacing: -3px;
+      line-height: .9;
+      margin: 16px 0 24px;
+    }
+    .ph-h span { color: var(--gold); }
+    .ph-sub {
+      font-size: clamp(16px, 2vw, 18px);
+      color: var(--white-60);
+      line-height: 1.8;
+      max-width: 600px;
     }
 
     /* ── STORY LAYOUT ── */
@@ -219,29 +134,51 @@
       line-height: 1.3;
     }
     .pq-text span { color: var(--gold); }
-    .values-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      margin-top: 32px;
-    }
-    .val {
+
+    /* ── MEET THE BUILDER ── */
+    .builder-section {
       background: var(--dark-3);
-      padding: 24px;
+      border-top: 1px solid var(--white-08);
+      padding: 80px var(--pad-x);
+    }
+    .builder-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .builder-photo {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
       border: 1px solid var(--white-08);
-      transition: border-color 0.2s, background 0.2s, transform 0.2s;
     }
-    .val:hover { border-color: var(--gold-border); background: #1c1c1c; transform: translateY(-2px); }
-    .val-title {
+    .builder-content .t-eyebrow { margin-bottom: 12px; }
+    .builder-name {
       font-family: 'Exo 2', sans-serif;
-      font-weight: 700;
-      font-size: 15px;
+      font-weight: 900;
+      font-size: 32px;
       text-transform: uppercase;
-      letter-spacing: -0.3px;
+      letter-spacing: -1px;
       color: #fff;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
-    .val-text { font-size: 13px; color: var(--white-60); line-height: 1.65; }
+    .builder-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .builder-bio {
+      font-size: 15px;
+      color: var(--white-60);
+      line-height: 1.7;
+    }
 
     /* ── CTA FINAL ── */
     .cta-final {
@@ -298,23 +235,15 @@
       color: #fff;
       margin-bottom: 4px;
     }
-    .cf-info-desc { font-size: 13px; color: var(--white-35); }
 
     /* ── MOBILE ── */
-    @media (max-width: 1024px) {
-      .about-hero { min-height: 80vh; align-items: flex-end; }
-      .ah-photo img { object-position: 65% 10%; }
-      .ah-content { padding: 64px var(--pad-x) 80px; max-width: 100%; }
-      .ah-content::before { font-size: 140px; }
-    }
     @media (max-width: 768px) {
-      .ah-h { font-size: clamp(48px, 13vw, 72px); }
-      .creds-strip { flex-wrap: wrap; }
-      .cred { min-width: 50%; border-bottom: 1px solid var(--white-08); }
       .story-section { grid-template-columns: 1fr; }
       .story-nav { display: none; }
       .story-content { padding: 40px var(--pad-x); }
-      .values-grid { grid-template-columns: 1fr; }
+      .builder-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .builder-photo { max-width: 200px; margin: 0 auto; }
+      .builder-content .t-eyebrow { justify-content: center; }
       .cta-final { grid-template-columns: 1fr; gap: 40px; }
     }
   </style>
@@ -323,154 +252,96 @@
 <div id="nav-placeholder"></div>
 
 <!-- ── HERO ── -->
-<div class="about-hero">
-  <div class="ah-content">
-    <div class="t-eyebrow anim-1">General Manager &amp; Lead Instructor</div>
-    <h1 class="ah-h anim-2">GRANT<br><span>TRUESDELL</span></h1>
-    <p class="ah-sub anim-3">Lifelong goalie. Juno Award-winning musician. General Manager and Lead Instructor of The Hockey Lab at Express Performance Centre. Every part of that sentence connects — and shapes how Grant coaches athletes.</p>
-  </div>
-  <div class="ah-photo anim-4">
-    <img src="images/grant-headshot.webp"
-         alt="Grant Truesdell, General Manager and Lead Instructor, The Hockey Lab"
-         loading="eager">
-    <div class="ah-photo-overlay"></div>
-    <div class="ah-photo-caption">
-      <div class="apc-name">Grant Truesdell</div>
-      <div class="apc-role">In the net &nbsp;·&nbsp; Coquitlam, BC</div>
-    </div>
-  </div>
-</div>
-
-<!-- ── CREDENTIALS STRIP ── -->
-<div class="creds-strip reveal">
-  <div class="cred">
-    <div class="cred-val">30+</div>
-    <div class="cred-lbl">Years Playing<br>and Coaching</div>
-  </div>
-  <div class="cred">
-    <div class="cred-val">Juno</div>
-    <div class="cred-lbl">Award<br>Winner</div>
-  </div>
-  <div class="cred">
-    <div class="cred-val" style="font-size:22px;letter-spacing:-0.5px;">NCCP</div>
-    <div class="cred-lbl">Hockey Canada<br>Certification Stream</div>
-  </div>
-  <div class="cred">
-    <div class="cred-val">4</div>
-    <div class="cred-lbl">Development<br>Pillars Built</div>
-  </div>
-  <div class="cred">
-    <div class="cred-val">1</div>
-    <div class="cred-lbl">Focus:<br>The Long Game</div>
+<div class="page-hero">
+  <div class="ph-inner">
+    <div class="t-eyebrow reveal">Our Story</div>
+    <h1 class="ph-h reveal reveal-d1">BUILT FROM<br><span>THE GROUND UP</span></h1>
+    <p class="ph-sub reveal reveal-d2">The Hockey Lab didn't start in a boardroom. It started on fields, in lacrosse boxes, and in a backyard. This is how a development system earned its way into a premier facility.</p>
   </div>
 </div>
 
 <!-- ── STORY ── -->
-<div class="story-section border-top">
+<div class="story-section">
   <nav class="story-nav" id="story-nav">
-    <a href="#the-goalie"     class="snav-item active">The Goalie</a>
-    <a href="#the-musician"   class="snav-item">The Musician</a>
-    <a href="#the-lab"        class="snav-item">The Lab</a>
-    <a href="#the-philosophy" class="snav-item">The Philosophy</a>
-    <a href="#the-values"     class="snav-item">What He Values</a>
+    <a href="#the-mindset"    class="snav-item active">The Mindset</a>
+    <a href="#the-fields"     class="snav-item">The Fields</a>
+    <a href="#the-backyard"   class="snav-item">The Backyard</a>
+    <a href="#the-facility"   class="snav-item">The Facility</a>
   </nav>
   <div class="story-content">
 
     <!-- Chapter 1 -->
-    <div id="the-goalie" class="story-block reveal">
+    <div id="the-mindset" class="story-block reveal">
       <div class="sb-eyebrow">Chapter 1</div>
-      <h2 class="sb-h">THE <span>GOALIE</span></h2>
+      <h2 class="sb-h">THE <span>MINDSET</span></h2>
       <div class="sb-body">
-        <p>Grant has been playing hockey since he was old enough to put on pads. The goalie position found him early and never let go — and for good reason. There is something about standing in net that teaches you things no other position in any sport quite replicates.</p>
-        <p><strong>You are the last line of defense. Every mistake is visible. Every save or goal is decided in a fraction of a second.</strong> You learn composure or you break down. You learn to reset or the next goal becomes inevitable.</p>
-        <p>Over 30 years of playing the position at a competitive level, Grant developed a deep understanding of what it actually takes to perform under pressure — not just in theory, but in the moments when it costs something real.</p>
-        <p>That experience is the foundation of everything taught at The Hockey Lab. Not coaching credentials. Not YouTube. Three decades of being in the net, feeling the weight of the moment, and learning how to perform through it.</p>
-      </div>
-      <div class="story-photo">
-        <img src="images/grant-at-net.webp" alt="Grant Truesdell coaching at the net" loading="lazy">
-      </div>
-      <div class="pull-quote">
-        <div class="pq-text">Every goalie learns composure eventually. <span>The ones who learn it early</span> have a massive advantage over everyone else.</div>
+        <p>Before there was a facility, before there was synthetic ice, there was a problem that needed solving. Athletes had the physical tools, they had the technical instruction, but when the pressure hit, the execution fell apart.</p>
+        <p>The Hockey Lab began purely as a <strong>mental performance program</strong>. Drawing on decades of experience in high-pressure environments — from the crease to the stage — the focus was entirely on the mind. Teaching athletes how to reset, how to maintain composure, and how to perform when the stakes were real.</p>
+        <p>But mindset doesn't exist in a vacuum. To truly develop an athlete, the mental side had to be integrated directly with the physical and technical work. The system needed to expand.</p>
       </div>
     </div>
 
     <!-- Chapter 2 -->
-    <div id="the-musician" class="story-block reveal">
+    <div id="the-fields" class="story-block reveal">
       <div class="sb-eyebrow">Chapter 2</div>
-      <h2 class="sb-h">THE <span>MUSICIAN</span></h2>
+      <h2 class="sb-h">THE <span>FIELDS</span></h2>
       <div class="sb-body">
-        <p>Most hockey coaches do not have a Juno Award. Grant does. As an internationally touring musician performing at the highest levels of the Canadian music industry, Grant lived in a world where the margin for error is just as unforgiving as sport — but the pressure looks different.</p>
-        <p><strong>You perform in front of thousands of people. One bad night is not just a loss — it is a career moment.</strong> Preparation, mindset, and execution under pressure are not optional. They are the entire job.</p>
-        <p>What Grant discovered across both hockey and music is that the mental skills required to perform at a high level are identical. Composure. Reset ability. Confidence under pressure. Pre-performance routines. The ability to be fully present when the stakes are highest.</p>
-        <p>The Mental Edge system at The Hockey Lab was born directly from this insight. It is not a generic mindset program adapted for hockey — it is a performance framework built from real experience in two high-pressure disciplines over decades.</p>
-      </div>
-      <div class="pull-quote">
-        <div class="pq-text">Playing in front of thousands of people teaches you the same things a playoff game does. <span>Preparation is everything. Mindset is the multiplier.</span></div>
+        <p>Without a dedicated ice surface, the physical training had to happen wherever there was space. The Hockey Lab moved to turf fields, lacrosse boxes, and dryland training areas.</p>
+        <p>This constraint became an advantage. It forced the curriculum to focus entirely on <strong>movement mechanics, tracking, and execution</strong> without the crutch of just "taking shots." Athletes learned how to move efficiently, how to read the play, and how to build the physical foundation required for elite goaltending.</p>
+        <p>The athletes who committed to this unconventional training started seeing massive results on the ice. The system was working, but it needed a home.</p>
       </div>
     </div>
 
     <!-- Chapter 3 -->
-    <div id="the-lab" class="story-block reveal">
+    <div id="the-backyard" class="story-block reveal">
       <div class="sb-eyebrow">Chapter 3</div>
-      <h2 class="sb-h">THE <span>LAB</span></h2>
+      <h2 class="sb-h">THE <span>BACKYARD</span></h2>
       <div class="sb-body">
-        <p>The Hockey Lab started as a backyard experiment. Grant had been coaching hockey — primarily goalies — and kept running into the same problem. Athletes who had real talent but no structured development environment outside of team practice. No one connecting the physical, technical, and mental sides of their game into a single coherent system.</p>
-        <p><strong>So he built one.</strong> Starting small, working with individual athletes, refining what worked and cutting what did not. The 4-pillar framework emerged from that process — not from a textbook, but from years of watching what actually produces development.</p>
-        <p>The Hockey Lab is now launching inside the <strong>Express Performance Centre</strong> in Coquitlam — a purpose-built development hub for hockey players in the community. Grant has been named <strong>General Manager and Lead Instructor</strong>, a role that puts him at the centre of both the program design and the day-to-day coaching environment.</p>
-        <p>Grant has been accepted into Hockey Canada's NCCP Goaltending Program, and is directly involved in every aspect of the program — from curriculum design to on-ice coaching. He is not the face of a brand he has stepped back from. He is in the building, working with athletes, every week.</p>
-        <p>The partnership with the Coquitlam Express organization brings The Hockey Lab into one of British Columbia's premier hockey training environments — with a dedicated synthetic ice surface, off-ice training space, and the infrastructure to support serious athlete development at every level.</p>
+        <p>If you can't find the right facility, you build it. The Hockey Lab took its next major step when a standalone training space was constructed literally in a backyard.</p>
+        <p>Outfitted with purpose-built synthetic ice, this became the testing ground for the full 4-pillar system: <strong>Movement, Tracking, Execution, and Mindset</strong>. It was small, it was private, and it was highly effective. The backyard lab allowed for max-repetition, high-focus training where every detail could be analyzed and corrected.</p>
+        <p>Word spread. The roster grew. The athletes developed. The backyard experiment proved that when you combine a structured curriculum with a dedicated space, the results speak for themselves.</p>
       </div>
-    </div>
-
-    <!-- Chapter 4 -->
-    <div id="the-philosophy" class="story-block reveal">
-      <div class="sb-eyebrow">Chapter 4</div>
-      <h2 class="sb-h">THE <span>PHILOSOPHY</span></h2>
-      <div class="sb-body">
-        <p>Grant's coaching philosophy is built on a simple premise: <strong>development is earned through clarity, consistency, and character — not volume.</strong></p>
-        <p>The youth hockey world is full of ice time, instruction, and opportunity. What is consistently missing is an environment where athletes are mentored, not just trained. Where the long-term health of their development matters more than short-term results. Where families receive honest feedback instead of empty reassurance.</p>
-        <p>Grant works closely with athletes and their families to provide clear development plans, direct feedback, and consistent support over time. He is not interested in managing a roster of clients. He is interested in having a real impact on the athletes he works with.</p>
-        <p>The Hockey Lab is deliberately kept small for this reason. The compete sessions are capped at six athletes. The private sessions are truly private. The results speak for themselves — and they are built on trust, not on marketing.</p>
+      <div class="story-photo">
+        <img src="images/grant-at-net.webp" alt="Coaching at the net" loading="lazy">
       </div>
       <div class="pull-quote">
         <div class="pq-text">Development is earned through <span>clarity, consistency, and character</span> — not volume.</div>
       </div>
     </div>
 
-    <!-- Chapter 5 -->
-    <div id="the-values" class="story-block reveal">
-      <div class="sb-eyebrow">Chapter 5</div>
-      <h2 class="sb-h">WHAT HE <span>VALUES</span></h2>
+    <!-- Chapter 4 -->
+    <div id="the-facility" class="story-block reveal">
+      <div class="sb-eyebrow">Chapter 4</div>
+      <h2 class="sb-h">THE <span>FACILITY</span></h2>
       <div class="sb-body">
-        <p>These are not posted on a wall. They show up in how every session is run, how every conversation with a family is handled, and how every difficult moment with an athlete is navigated.</p>
-      </div>
-      <div class="values-grid">
-        <div class="val">
-          <div class="val-title">Honesty over comfort</div>
-          <div class="val-text">Athletes get honest feedback. Parents get honest assessments. Development does not happen in an environment where hard truths are avoided.</div>
-        </div>
-        <div class="val">
-          <div class="val-title">The long game</div>
-          <div class="val-text">Every decision in the program is made with the athlete's long-term development in mind — not the next game, and not the next season registration.</div>
-        </div>
-        <div class="val">
-          <div class="val-title">Respect for the ecosystem</div>
-          <div class="val-text">The Hockey Lab is not in competition with team hockey. It is a complement. Grant communicates with coaches and associations, not around them.</div>
-        </div>
-        <div class="val">
-          <div class="val-title">Character first</div>
-          <div class="val-text">The best athletes Grant has coached are the ones who showed up consistently, took feedback well, and competed with integrity. That is what he looks for and what he builds.</div>
-        </div>
+        <p>Less than a year after the backyard lab was built, the system had outgrown it. The results caught the attention of the Coquitlam Express organization, who were looking to build a true development hub for hockey players in the community.</p>
+        <p>The partnership was formed. The Hockey Lab moved out of the backyard and into the <strong>Express Performance Centre</strong> — a premier training environment with a dedicated synthetic ice sheet and integrated off-ice space.</p>
+        <p>The location changed, but the philosophy didn't. It is still the same 4-pillar system. It is still small, focused groups. It is still about building athletes from the ground up. The only difference is that now, The Hockey Lab has the facility to match the program.</p>
       </div>
     </div>
 
   </div>
 </div>
 
+<!-- ── MEET THE BUILDER ── -->
+<div class="builder-section">
+  <div class="builder-inner reveal">
+    <img src="images/grant-headshot.webp" alt="Grant Truesdell" class="builder-photo">
+    <div class="builder-content">
+      <div class="t-eyebrow">The Builder</div>
+      <div class="builder-name">GRANT TRUESDELL</div>
+      <div class="builder-title">General Manager &amp; Lead Instructor</div>
+      <div class="builder-bio">
+        Grant is a lifelong goalie with 30+ years in the position, a Hockey Canada NCCP certified coach, and a Juno Award-winning musician. He built The Hockey Lab system from the ground up, combining his experience in high-pressure performance environments with a deep understanding of goaltending mechanics. He remains directly involved in every session and every development plan.
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ── CTA FINAL ── -->
 <div class="cta-final">
   <div class="cf-left reveal-left">
-    <div class="t-eyebrow">Work With Grant</div>
+    <div class="t-eyebrow">Join The Lab</div>
     <h2 class="cf-h">READY TO<br>BUILD <span>SOMETHING</span>?</h2>
     <p class="cf-text">Every athlete who trains at The Hockey Lab starts with one conversation or one session. Pick what feels right for where you are right now.</p>
     <a href="mailto:info@thehockeylabofficial.com" class="btn btn-outline">Email Grant Directly</a>

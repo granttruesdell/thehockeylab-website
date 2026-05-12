@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goalie Development Camp Registration | The Hockey Lab</title>
+  <meta name="description" content="Register your athlete for The Hockey Lab Goalie Development Camp — July 6–10, 2026 at the Express Performance Centre, Coquitlam BC.">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <style>
+    /* ── PAGE LAYOUT ── */
+    .reg-hero {
+      background: #000;
+      border-bottom: 1px solid var(--border);
+      padding: clamp(80px, 12vw, 140px) var(--pad-x) clamp(48px, 6vw, 72px);
+    }
+    .reg-hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .reg-hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .reg-hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(40px, 7vw, 80px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.0;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .reg-hero h1 span { color: var(--gold); }
+    .reg-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 28px;
+    }
+    .reg-meta-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+    }
+    .reg-meta-pill strong { color: #fff; }
+
+    /* ── FORM CONTAINER ── */
+    .reg-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: clamp(48px, 6vw, 80px) var(--pad-x);
+    }
+
+    /* ── SECTIONS ── */
+    .form-section {
+      margin-bottom: 56px;
+    }
+    .form-section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .form-section-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .form-section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    /* ── FIELD ROWS ── */
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .field-row.single { grid-template-columns: 1fr; }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+    label .req {
+      color: var(--gold);
+      margin-left: 3px;
+    }
+    label .opt {
+      color: rgba(255,255,255,0.3);
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      font-size: 11px;
+      margin-left: 4px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      font-family: 'Inter', 'Barlow', sans-serif;
+      font-size: 15px;
+      padding: 14px 16px;
+      width: 100%;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.6);
+      cursor: pointer;
+    }
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--gold);
+      background: rgba(255,215,0,0.04);
+    }
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    select option {
+      background: #111;
+      color: #fff;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+      line-height: 1.6;
+    }
+
+    /* ── RADIO GROUPS ── */
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      padding: 12px 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .radio-option:hover {
+      border-color: rgba(255,215,0,0.4);
+      background: rgba(255,215,0,0.03);
+    }
+    .radio-option input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      accent-color: var(--gold);
+      cursor: pointer;
+      padding: 0;
+      border: none;
+      background: none;
+    }
+    .radio-option span {
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.4;
+    }
+    .radio-option input[type="radio"]:checked ~ span {
+      color: #fff;
+    }
+
+    /* ── CONDITIONAL FIELD ── */
+    .conditional-field {
+      display: none;
+      margin-top: 16px;
+    }
+    .conditional-field.visible {
+      display: block;
+    }
+
+    /* ── SUBMIT ── */
+    .submit-section {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 8px;
+    }
+    .submit-note {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .submit-note strong { color: rgba(255,255,255,0.7); }
+    .btn-submit {
+      display: inline-block;
+      background: var(--gold);
+      color: #000;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 20px 48px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .btn-submit:hover { opacity: 0.88; }
+    .btn-submit:active { transform: scale(0.99); }
+
+    /* ── SUCCESS STATE ── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 64px 32px;
+    }
+    .form-success.visible { display: block; }
+    .form-success h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .form-success h2 span { color: var(--gold); }
+    .form-success p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .field-row { grid-template-columns: 1fr; }
+      .reg-hero-meta { gap: 12px; }
+    }
+  </style>
+</head>
+<body class="page-top">
+
+<div id="nav-placeholder"></div>
+
+<!-- ── HERO ── -->
+<section class="reg-hero">
+  <div class="reg-hero-eyebrow">Summer 2026 Registration</div>
+  <h1>Goalie Development<br><span>Camp</span></h1>
+  <p style="font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,0.6);max-width:560px;line-height:1.7;margin-top:12px;">
+    Complete the form below to register your athlete. All spots are confirmed on a first-come, first-served basis. Payment is handled separately via the link provided after submission.
+  </p>
+  <div class="reg-hero-meta">
+    <div class="reg-meta-pill">📅 <strong>July 6–10, 2026</strong></div>
+    <div class="reg-meta-pill">⏰ <strong>9am–1pm Daily</strong></div>
+    <div class="reg-meta-pill">📍 <strong>Express Performance Centre</strong></div>
+    <div class="reg-meta-pill">🎯 <strong>Ages 8–13</strong></div>
+    <div class="reg-meta-pill">💰 <strong>$449 / Athlete</strong></div>
+    <div class="reg-meta-pill">🏒 <strong>10 Spots Only</strong></div>
+  </div>
+</section>
+
+<!-- ── FORM ── -->
+<div class="reg-wrap">
+
+  <!-- Success message (hidden until submit) -->
+  <div class="form-success" id="formSuccess">
+    <h2>You're <span>Registered!</span></h2>
+    <p>Thanks for signing up. Grant will be in touch within 24–48 hours to confirm your spot and send payment details. Check your inbox (and spam folder just in case).</p>
+    <a href="/launch.html" class="btn-submit" style="display:inline-block;width:auto;text-decoration:none;padding:18px 40px;">Back to The Hockey Lab →</a>
+  </div>
+
+  <form
+    id="campForm"
+    name="goalie-camp-registration"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    action="/camp-registration.html?success=true"
+  >
+    <!-- Netlify hidden fields -->
+    <input type="hidden" name="form-name" value="goalie-camp-registration">
+    <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+    <!-- ══ SECTION 1: ATHLETE INFO ══ -->
+    <div class="form-section">
+      <div class="form-section-header">
+        <div class="form-section-num">Section 01</div>
+        <div class="form-section-title">Athlete Info</div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="athlete_first">Athlete First Name <span class="req">*</span></label>
+          <input type="text" id="athlete_first" name="athlete_first" required placeholder="First name">
+        </div>
+        <div class="field-group">
+          <label for="athlete_last">Athlete Last Name <span class="req">*</span></label>
+          <input type="text" id="athlete_last" name="athlete_last" required placeholder="Last name">
+        </div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field-group">
+          <label for="dob">Date of Birth <span class="req">*</span></label>
+          <input type="date" id="dob" name="date_of_birth" required min="2011-01-01" max="2018-12-31">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="team_name">Current Team Name <span class="req">*</span></label>
+          <input type="text" id="team_name" name="team_name" required placeholder="e.g. Coquitlam Adanacs">
+        </div>
+        <div class="field-group">
+          <label for="division">Current Division <span class="req">*</span></label>
+          <select id="division" name="division" required>
+            <option value="" disabled selected>Select division</option>
+            <option>U9</option>
+            <option>U11</option>
+            <option>U13</option>
+            <option>U15</option>
+            <option>U18</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field-group">
+          <label>Is your athlete a dedicated goalie or goalie-curious? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="goalie_type" value="Dedicated goalie" required>
+              <span>Dedicated goalie</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="goalie_type" value="Trying it out">
+              <span>Trying it out / Goalie-curious</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="goalie_type" value="Both — plays out and in net">
+              <span>Both — plays out and in net</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SECTION 2: GEAR ══ -->
+    <div class="form-section">
+      <div class="form-section-header">
+        <div class="form-section-num">Section 02</div>
+        <div class="form-section-title">Gear</div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field-group">
+          <label>Does your athlete have their own goalie gear? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="gear_status" value="Yes — full gear" required id="gear_full">
+              <span>Yes — full gear</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="gear_status" value="Partial gear" id="gear_partial">
+              <span>Partial gear</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="gear_status" value="No gear — need loaner" id="gear_loaner">
+              <span>No gear — need loaner</span>
+            </label>
+          </div>
+          <!-- Conditional gear notes field -->
+          <div class="conditional-field" id="gearNotesField">
+            <div class="field-group" style="margin-top:8px;">
+              <label for="gear_notes">Gear notes or sizing info <span class="opt">(optional)</span></label>
+              <input type="text" id="gear_notes" name="gear_notes" placeholder="e.g. size 6 skates, need pads + blocker">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SECTION 3: PARENT / GUARDIAN ══ -->
+    <div class="form-section">
+      <div class="form-section-header">
+        <div class="form-section-num">Section 03</div>
+        <div class="form-section-title">Parent / Guardian</div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="parent_first">First Name <span class="req">*</span></label>
+          <input type="text" id="parent_first" name="parent_first" required placeholder="First name">
+        </div>
+        <div class="field-group">
+          <label for="parent_last">Last Name <span class="req">*</span></label>
+          <input type="text" id="parent_last" name="parent_last" required placeholder="Last name">
+        </div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field-group">
+          <label for="relationship">Relationship to Athlete <span class="req">*</span></label>
+          <select id="relationship" name="relationship" required>
+            <option value="" disabled selected>Select relationship</option>
+            <option>Parent</option>
+            <option>Guardian</option>
+            <option>Grandparent</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="phone">Best Phone Number <span class="req">*</span></label>
+          <input type="tel" id="phone" name="phone" required placeholder="(604) 555-0100">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="email">Email Address <span class="req">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com">
+        </div>
+        <div class="field-group">
+          <label for="email_confirm">Confirm Email <span class="req">*</span></label>
+          <input type="email" id="email_confirm" name="email_confirm" required placeholder="Confirm email">
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SECTION 4: EMERGENCY & MEDICAL ══ -->
+    <div class="form-section">
+      <div class="form-section-header">
+        <div class="form-section-num">Section 04</div>
+        <div class="form-section-title">Emergency &amp; Medical</div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="emergency_name">Emergency Contact Name <span class="opt">(if different from above)</span></label>
+          <input type="text" id="emergency_name" name="emergency_contact_name" placeholder="Full name">
+        </div>
+        <div class="field-group">
+          <label for="emergency_phone">Emergency Contact Phone</label>
+          <input type="tel" id="emergency_phone" name="emergency_contact_phone" placeholder="(604) 555-0100">
+        </div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field-group">
+          <label for="medical">Allergies, Medical Conditions, or Injuries <span class="req">*</span></label>
+          <textarea id="medical" name="medical_notes" required placeholder='Please describe any allergies, conditions, or injuries we should know about. Type "None" if not applicable.'></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SECTION 5: ANYTHING ELSE ══ -->
+    <div class="form-section">
+      <div class="form-section-header">
+        <div class="form-section-num">Section 05</div>
+        <div class="form-section-title">Anything Else?</div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field-group">
+          <label for="goals">What is your athlete hoping to get out of camp? <span class="opt">(optional — helps Grant prep)</span></label>
+          <textarea id="goals" name="athlete_goals" placeholder="e.g. Improve butterfly technique, build confidence in net, try goalie for the first time..."></textarea>
+        </div>
+      </div>
+
+      <div class="field-row single">
+        <div class="field-group">
+          <label for="referral">How did you hear about The Hockey Lab Goalie Camp? <span class="req">*</span></label>
+          <select id="referral" name="referral_source" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Instagram</option>
+            <option>Express Performance Centre</option>
+            <option>Coquitlam Express</option>
+            <option>Word of mouth</option>
+            <option>Email</option>
+            <option>thehockeylabofficial.com</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SUBMIT ══ -->
+    <div class="submit-section">
+      <p class="submit-note">
+        <strong>10 spots only.</strong> Submitting this form holds your place in the queue. Grant will follow up within 24–48 hours to confirm your spot and send a payment link. Your spot is not confirmed until payment is received. Questions? Email <a href="mailto:info@thehockeylabofficial.com" style="color:var(--gold);">info@thehockeylabofficial.com</a>.
+      </p>
+      <button type="submit" class="btn-submit">Submit Registration →</button>
+    </div>
+
+  </form>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+<script>
+  // ── Show/hide gear notes based on gear selection ──
+  const gearRadios = document.querySelectorAll('input[name="gear_status"]');
+  const gearNotesField = document.getElementById('gearNotesField');
+  gearRadios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      const val = document.querySelector('input[name="gear_status"]:checked')?.value || '';
+      if (val === 'Partial gear' || val === 'No gear — need loaner') {
+        gearNotesField.classList.add('visible');
+      } else {
+        gearNotesField.classList.remove('visible');
+      }
+    });
+  });
+
+  // ── Email confirmation validation ──
+  const form = document.getElementById('campForm');
+  form.addEventListener('submit', function(e) {
+    const email = document.getElementById('email').value.trim();
+    const confirm = document.getElementById('email_confirm').value.trim();
+    if (email !== confirm) {
+      e.preventDefault();
+      alert('Email addresses do not match. Please check and try again.');
+      document.getElementById('email_confirm').focus();
+      return;
+    }
+  });
+
+  // ── Show success message if redirected back with ?success=true ──
+  if (window.location.search.includes('success=true')) {
+    document.getElementById('campForm').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

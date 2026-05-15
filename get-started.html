@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Started | The Hockey Lab | Coquitlam, BC</title>
+  <meta name="description" content="Try The Hockey Lab with a free 45-minute trial session, drop-in ice time, or a coached Lab Pack. No long-term commitment required. Coquitlam, BC.">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <style>
+    /* ── PAGE HERO ── */
+    .gs-hero {
+      padding: 140px 40px 80px;
+      text-align: center;
+      background: #0a0a0a;
+      border-bottom: 4px solid var(--gold);
+    }
+    .gs-hero .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .gs-hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0 0 20px;
+    }
+    .gs-hero h1 span { color: var(--gold); }
+    .gs-hero p {
+      max-width: 620px;
+      margin: 0 auto;
+      color: #aaa;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    /* ── LEAD MAGNET BANNER ── */
+    .free-trial-banner {
+      background: var(--gold);
+      padding: 60px 40px;
+      text-align: center;
+    }
+    .free-trial-banner .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #000;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .free-trial-banner h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #000;
+      line-height: 1.05;
+      margin: 0 0 16px;
+    }
+    .free-trial-banner p {
+      color: #222;
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+    .free-trial-banner .btn-dark {
+      display: inline-block;
+      background: #000;
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      text-decoration: none;
+      border: 2px solid #000;
+      transition: background 0.2s, color 0.2s;
+    }
+    .free-trial-banner .btn-dark:hover {
+      background: var(--gold);
+      color: #000;
+      border-color: #000;
+    }
+    .free-trial-banner .fine-print {
+      font-size: 0.78rem;
+      color: #555;
+      margin-top: 14px;
+    }
+
+    /* ── OFFERS SECTION ── */
+    .offers-section {
+      padding: 80px 40px;
+      background: #0a0a0a;
+    }
+    .offers-section .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .offers-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      text-align: center;
+      margin: 0 0 12px;
+    }
+    .offers-section .section-sub {
+      text-align: center;
+      color: #888;
+      max-width: 560px;
+      margin: 0 auto 56px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ── OFFER CARDS ── */
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .offer-card {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      padding: 36px 32px;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+    .offer-card:hover { border-color: var(--gold); }
+    .offer-card.featured {
+      border-color: var(--gold);
+      background: #111;
+    }
+    .offer-card .badge {
+      position: absolute;
+      top: -14px;
+      left: 32px;
+      background: var(--gold);
+      color: #000;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+    }
+    .offer-card .offer-type {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .offer-card h3 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0 0 6px;
+      line-height: 1.1;
+    }
+    .offer-card .price {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin: 16px 0 4px;
+    }
+    .offer-card .price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #888;
+    }
+    .offer-card .per-session {
+      font-size: 0.82rem;
+      color: #888;
+      margin-bottom: 20px;
+    }
+    .offer-card .divider {
+      height: 1px;
+      background: #2a2a2a;
+      margin: 20px 0;
+    }
+    .offer-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+    }
+    .offer-card ul li {
+      font-size: 0.9rem;
+      color: #ccc;
+      padding: 5px 0;
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.4;
+    }
+    .offer-card ul li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.8rem;
+    }
+    .offer-card .card-cta {
+      display: block;
+      text-align: center;
+      padding: 14px 24px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      transition: background 0.2s, color 0.2s;
+    }
+    .offer-card .card-cta:hover,
+    .offer-card.featured .card-cta {
+      background: var(--gold);
+      color: #000;
+    }
+    .offer-card.featured .card-cta:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    /* ── FUNNEL EXPLAINER ── */
+    .funnel-section {
+      padding: 80px 40px;
+      background: #111;
+      border-top: 1px solid #1e1e1e;
+    }
+    .funnel-section .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .funnel-section h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      text-align: center;
+      margin: 0 0 48px;
+    }
+    .funnel-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .funnel-step {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 28px 0;
+      border-bottom: 1px solid #1e1e1e;
+    }
+    .funnel-step:last-child { border-bottom: none; }
+    .step-num {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      font-size: 1rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-content h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0 0 6px;
+      letter-spacing: 0.06em;
+    }
+    .step-content p {
+      font-size: 0.9rem;
+      color: #888;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── CHARTER CALLOUT ── */
+    .charter-callout {
+      padding: 80px 40px;
+      background: #0a0a0a;
+      border-top: 1px solid #1e1e1e;
+      text-align: center;
+    }
+    .charter-callout .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .charter-callout h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0 0 16px;
+    }
+    .charter-callout p {
+      max-width: 580px;
+      margin: 0 auto 32px;
+      color: #888;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .charter-callout .charter-details {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .charter-detail-item {
+      text-align: center;
+    }
+    .charter-detail-item .val {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .charter-detail-item .lbl {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-top: 4px;
+    }
+    .charter-callout .btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: #000;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .charter-callout .btn-gold:hover { opacity: 0.85; }
+
+    /* ── CAMP CALLOUT ── */
+    .camp-callout {
+      padding: 80px 40px;
+      background: #111;
+      border-top: 4px solid var(--gold);
+      text-align: center;
+    }
+    .camp-callout .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .camp-callout h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0 0 16px;
+    }
+    .camp-callout p {
+      max-width: 560px;
+      margin: 0 auto 28px;
+      color: #888;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .camp-meta {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .camp-meta-item .val {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .camp-meta-item .lbl {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-top: 2px;
+    }
+    .camp-callout .btn-outline {
+      display: inline-block;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 15px 38px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .camp-callout .btn-outline:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .gs-hero { padding: 120px 24px 60px; }
+      .free-trial-banner { padding: 48px 24px; }
+      .offers-section { padding: 60px 24px; }
+      .offer-grid { grid-template-columns: 1fr; }
+      .funnel-section { padding: 60px 24px; }
+      .charter-callout { padding: 60px 24px; }
+      .charter-details { gap: 28px; }
+      .camp-callout { padding: 60px 24px; }
+      .camp-meta { gap: 24px; }
+    }
+  </style>
+</head>
+<body class="page-top">
+  <div id="nav-placeholder"></div>
+
+  <!-- ── HERO ── -->
+  <section class="gs-hero">
+    <p class="eyebrow">The Hockey Lab · Coquitlam, BC</p>
+    <h1>Get <span>Started</span></h1>
+    <p>No long-term commitment required. Try a free session, book a drop-in, or grab a Lab Pack. The door is open — come see what the system is about.</p>
+  </section>
+
+  <!-- ── FREE TRIAL BANNER ── -->
+  <section class="free-trial-banner" id="free-trial">
+    <p class="label">Lead Magnet · Best Place to Start</p>
+    <h2>Try It Free.<br>No Commitment.</h2>
+    <p>One free 45-minute session on the synthetic ice at the Express Performance Centre. No gear required for your first visit. Just show up and see what the Lab is about.</p>
+    <a href="#free-trial-waitlist" class="btn-dark">Claim Your Free Trial →</a>
+    <p class="fine-print">Limited spots per week. Join the waitlist and Grant will reach out to schedule.</p>
+  </section>
+
+  <!-- ── FREE TRIAL WAITLIST FORM ── -->
+  <section style="padding: 60px 40px; background: #0d0d0d; border-bottom: 1px solid #1e1e1e;" id="free-trial-waitlist">
+    <div style="max-width: 560px; margin: 0 auto; text-align: center;">
+      <p style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px;">Free Trial Waitlist</p>
+      <h2 style="font-size: 1.8rem; font-weight: 900; text-transform: uppercase; color: #fff; margin: 0 0 12px;">Join the Waitlist</h2>
+      <p style="color: #888; font-size: 0.95rem; line-height: 1.6; margin-bottom: 32px;">Drop your info below. Grant will reach out within 24 hours to schedule your free 45-minute trial session.</p>
+      <form name="free-trial-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="text-align: left;">
+        <input type="hidden" name="form-name" value="free-trial-waitlist">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <div>
+            <label style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; display: block; margin-bottom: 6px;">First Name *</label>
+            <input type="text" name="first_name" required style="width: 100%; background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 12px 14px; font-size: 0.95rem; box-sizing: border-box;">
+          </div>
+          <div>
+            <label style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; display: block; margin-bottom: 6px;">Last Name *</label>
+            <input type="text" name="last_name" required style="width: 100%; background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 12px 14px; font-size: 0.95rem; box-sizing: border-box;">
+          </div>
+        </div>
+        <div style="margin-bottom: 16px;">
+          <label style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; display: block; margin-bottom: 6px;">Email Address *</label>
+          <input type="email" name="email" required style="width: 100%; background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 12px 14px; font-size: 0.95rem; box-sizing: border-box;">
+        </div>
+        <div style="margin-bottom: 16px;">
+          <label style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; display: block; margin-bottom: 6px;">Phone Number</label>
+          <input type="tel" name="phone" style="width: 100%; background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 12px 14px; font-size: 0.95rem; box-sizing: border-box;">
+        </div>
+        <div style="margin-bottom: 16px;">
+          <label style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; display: block; margin-bottom: 6px;">Athlete Age / Division</label>
+          <input type="text" name="athlete_age" placeholder="e.g. 12 / U13" style="width: 100%; background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 12px 14px; font-size: 0.95rem; box-sizing: border-box;">
+        </div>
+        <div style="margin-bottom: 28px;">
+          <label style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; display: block; margin-bottom: 6px;">Anything else we should know? (Optional)</label>
+          <textarea name="notes" rows="3" style="width: 100%; background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 12px 14px; font-size: 0.95rem; box-sizing: border-box; resize: vertical;"></textarea>
+        </div>
+        <button type="submit" style="width: 100%; background: var(--gold); color: #000; border: none; padding: 16px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;">Join the Free Trial Waitlist →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── OFFERS ── -->
+  <section class="offers-section" id="offers">
+    <p class="section-label">All Options · No Pressure</p>
+    <h2>Choose Your Entry Point</h2>
+    <p class="section-sub">Start wherever makes sense for you. Every option gives you access to the same system, the same facility, and the same coaching.</p>
+
+    <div class="offer-grid">
+
+      <!-- Drop-in -->
+      <div class="offer-card">
+        <p class="offer-type">Uncoached · Single Session</p>
+        <h3>Drop-In</h3>
+        <div class="price">$35 <span>/ session</span></div>
+        <p class="per-session">45 minutes · synthetic ice · no coach</p>
+        <div class="divider"></div>
+        <ul>
+          <li>45 min on the synthetic ice surface</li>
+          <li>Self-directed — work on what you want</li>
+          <li>Express Performance Centre facility access</li>
+          <li>No gear required for first visit</li>
+          <li>Book anytime, no commitment</li>
+        </ul>
+        <a href="mailto:grant@thehockeylabofficial.com?subject=Drop-In Session Inquiry" class="card-cta">Book a Drop-In →</a>
+      </div>
+
+      <!-- 5-Pack -->
+      <div class="offer-card featured">
+        <span class="badge">Most Popular</span>
+        <p class="offer-type">Coached · 5 Sessions</p>
+        <h3>Lab Pack 5</h3>
+        <div class="price">$325 <span>/ pack</span></div>
+        <p class="per-session">$65/session · save $50 vs single</p>
+        <div class="divider"></div>
+        <ul>
+          <li>5 × 45-min 1-on-1 sessions with Coach Grant</li>
+          <li>Technical goalie development — on synthetic ice</li>
+          <li>Max 3 athletes on ice at a time</li>
+          <li>Use within 60 days of purchase</li>
+          <li>Progress notes after each session</li>
+        </ul>
+        <a href="mailto:grant@thehockeylabofficial.com?subject=Lab Pack 5 Inquiry" class="card-cta">Get the 5-Pack →</a>
+      </div>
+
+      <!-- 10-Pack -->
+      <div class="offer-card">
+        <p class="offer-type">Coached · 10 Sessions</p>
+        <h3>Lab Pack 10</h3>
+        <div class="price">$599 <span>/ pack</span></div>
+        <p class="per-session">$59.90/session · save $151 vs single</p>
+        <div class="divider"></div>
+        <ul>
+          <li>10 × 45-min 1-on-1 sessions with Coach Grant</li>
+          <li>Full technical development arc over the pack</li>
+          <li>Max 3 athletes on ice at a time</li>
+          <li>Use within 90 days of purchase</li>
+          <li>Progress notes + session recap after each session</li>
+        </ul>
+        <a href="mailto:grant@thehockeylabofficial.com?subject=Lab Pack 10 Inquiry" class="card-cta">Get the 10-Pack →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS FUNNEL ── -->
+  <section class="funnel-section">
+    <p class="section-label">The Path</p>
+    <h2>How Most Athletes Start</h2>
+    <div class="funnel-steps">
+      <div class="funnel-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Free Trial</h4>
+          <p>One free 45-minute session. No gear required. No commitment. Just come see what the system is about and meet Coach Grant.</p>
+        </div>
+      </div>
+      <div class="funnel-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Lab Pack 5</h4>
+          <p>If it clicks, grab a 5-pack. Five coached sessions to start building real skills with structure and feedback. Most athletes see measurable improvement by session 3.</p>
+        </div>
+      </div>
+      <div class="funnel-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Lab Pack 10 or Charter</h4>
+          <p>Once you've seen what consistent training does, you'll want more of it. The 10-pack gives you a full development arc. Charter Athlete locks in the founding rate and adds compete sessions and monthly programming.</p>
+        </div>
+      </div>
+      <div class="funnel-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Charter Athlete</h4>
+          <p>The full system. Two sessions per week, monthly programming, progress tracking, and the founding rate of $349/month — locked for life. 20 spots total.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CHARTER CALLOUT ── -->
+  <section class="charter-callout" id="charter">
+    <p class="label">For Athletes Ready to Commit</p>
+    <h2>Charter Athlete Program</h2>
+    <p>The founding membership. 20 spots at $349/month — locked for life. Two sessions per week, monthly programming, and priority scheduling. Grand Opening July 1, 2026.</p>
+    <div class="charter-details">
+      <div class="charter-detail-item">
+        <div class="val">$349</div>
+        <div class="lbl">Per Month · Locked for Life</div>
+      </div>
+      <div class="charter-detail-item">
+        <div class="val">20</div>
+        <div class="lbl">Founding Spots Only</div>
+      </div>
+      <div class="charter-detail-item">
+        <div class="val">2×</div>
+        <div class="lbl">Sessions Per Week</div>
+      </div>
+      <div class="charter-detail-item">
+        <div class="val">Jul 1</div>
+        <div class="lbl">Grand Opening</div>
+      </div>
+    </div>
+    <a href="launch.html" class="btn-gold">Learn About Charter →</a>
+  </section>
+
+  <!-- ── CAMP CALLOUT ── -->
+  <section class="camp-callout" id="camp">
+    <p class="label">Summer 2026 · Limited Spots</p>
+    <h2>Goalie Development Camp</h2>
+    <p>Five days. Four hours a day. Max 3 goalies on the ice at a time. Pure goalie-specific training at the Express Performance Centre.</p>
+    <div class="camp-meta">
+      <div class="camp-meta-item">
+        <div class="val">July 6–10</div>
+        <div class="lbl">Dates</div>
+      </div>
+      <div class="camp-meta-item">
+        <div class="val">9am–1pm</div>
+        <div class="lbl">Daily Hours</div>
+      </div>
+      <div class="camp-meta-item">
+        <div class="val">Ages 8–13</div>
+        <div class="lbl">Eligibility</div>
+      </div>
+      <div class="camp-meta-item">
+        <div class="val">$449</div>
+        <div class="lbl">Full Week</div>
+      </div>
+      <div class="camp-meta-item">
+        <div class="val">10 Spots</div>
+        <div class="lbl">No Waitlist Once Full</div>
+      </div>
+    </div>
+    <a href="camp-registration.html" class="btn-outline">Register for Camp →</a>
+  </section>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/shared.js"></script>
+</body>
+</html>

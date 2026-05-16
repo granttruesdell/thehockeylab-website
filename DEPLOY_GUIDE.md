@@ -103,3 +103,9 @@ When you're ready to build the coach/athlete/parent app (drill library, report c
 ## Questions?
 
 Everything was built to be easily editable. All HTML is clean and well-commented. The CSS uses CSS custom properties (variables) so changing brand colors is a one-line edit.
+
+---
+
+## Agent Operations & Links
+
+For a complete list of all Square payment links, Acuity scheduling links, confirmation page URLs, and current booking workflows, refer to the **`AGENTS.md`** file in the root directory. Any AI agent working on this project should read that file first.

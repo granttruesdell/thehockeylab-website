@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Services | The Hockey Lab</title>
+  <meta name="description" content="Every way to train with The Hockey Lab — from a free trial session to Charter Athlete membership. Goalie-first development at the Express Performance Centre, Coquitlam.">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <style>
+    /* ── PAGE HERO ── */
+    .services-hero {
+      background: #0a0a0a;
+      padding: 140px 24px 60px;
+      text-align: center;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .services-hero .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: #FFD700;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .services-hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+      color: #fff;
+      margin: 0 0 18px;
+    }
+    .services-hero h1 span { color: #FFD700; }
+    .services-hero p {
+      font-size: 1.05rem;
+      color: #aaa;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .services-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 24px 20px;
+    }
+    .services-section-title {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #FFD700;
+      margin-bottom: 28px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #222;
+    }
+
+    /* ── SERVICE CARDS GRID ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    .service-card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 6px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .service-card:hover {
+      border-color: #FFD700;
+      transform: translateY(-3px);
+    }
+    .service-card.featured {
+      border-color: #FFD700;
+      background: #111;
+      position: relative;
+    }
+    .service-card.featured::before {
+      content: 'BEST VALUE';
+      position: absolute;
+      top: -1px;
+      right: 20px;
+      background: #FFD700;
+      color: #000;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      padding: 4px 10px;
+      border-radius: 0 0 4px 4px;
+    }
+    .service-card.lead-magnet {
+      border-color: #fff;
+      background: #0f0f0f;
+      position: relative;
+    }
+    .service-card.lead-magnet::before {
+      content: 'START HERE';
+      position: absolute;
+      top: -1px;
+      right: 20px;
+      background: #fff;
+      color: #000;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      padding: 4px 10px;
+      border-radius: 0 0 4px 4px;
+    }
+    .service-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .service-name {
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .service-price {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #FFD700;
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .service-price span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #888;
+    }
+    .service-price.free-price {
+      color: #fff;
+    }
+    .service-desc {
+      font-size: 0.88rem;
+      color: #999;
+      line-height: 1.6;
+      margin: 14px 0 20px;
+      flex: 1;
+    }
+    .service-includes {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px;
+    }
+    .service-includes li {
+      font-size: 0.82rem;
+      color: #bbb;
+      padding: 5px 0;
+      border-bottom: 1px solid #1a1a1a;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .service-includes li::before {
+      content: '✓';
+      color: #FFD700;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .service-btn {
+      display: inline-block;
+      padding: 13px 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 4px;
+      transition: all 0.2s;
+      margin-top: auto;
+    }
+    .service-btn-gold {
+      background: #FFD700;
+      color: #000;
+    }
+    .service-btn-gold:hover { background: #e6c200; }
+    .service-btn-outline {
+      background: transparent;
+      color: #FFD700;
+      border: 1px solid #FFD700;
+    }
+    .service-btn-outline:hover { background: #FFD700; color: #000; }
+    .service-btn-white {
+      background: #fff;
+      color: #000;
+    }
+    .service-btn-white:hover { background: #e0e0e0; }
+
+    /* ── VALUE LADDER ── */
+    .value-ladder {
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      border-radius: 6px;
+      padding: 40px 36px;
+      margin-bottom: 70px;
+    }
+    .value-ladder h3 {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #FFD700;
+      margin: 0 0 28px;
+    }
+    .ladder-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .ladder-step {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 16px 0;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .ladder-step:last-child { border-bottom: none; }
+    .ladder-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #FFD700;
+      flex-shrink: 0;
+    }
+    .ladder-info { flex: 1; }
+    .ladder-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .ladder-sub {
+      font-size: 0.78rem;
+      color: #666;
+      margin-top: 2px;
+    }
+    .ladder-price {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFD700;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .ladder-price.free { color: #fff; }
+
+    /* ── CAMP BANNER ── */
+    .camp-banner {
+      background: #111;
+      border: 1px solid #FFD700;
+      border-radius: 6px;
+      padding: 36px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 70px;
+    }
+    .camp-banner-text .eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #FFD700;
+      margin-bottom: 8px;
+    }
+    .camp-banner-text h3 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0 0 6px;
+    }
+    .camp-banner-text p {
+      font-size: 0.85rem;
+      color: #999;
+      margin: 0;
+    }
+    .camp-banner-price {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .camp-banner-price .price {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #FFD700;
+      line-height: 1;
+    }
+    .camp-banner-price .price-sub {
+      font-size: 0.75rem;
+      color: #888;
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: 640px) {
+      .camp-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .camp-banner-price { text-align: center; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="page-top">
+  <div id="nav-placeholder"></div>
+
+  <!-- HERO -->
+  <section class="services-hero">
+    <div class="eyebrow">The Hockey Lab — Express Performance Centre</div>
+    <h1>Every Way to <span>Train</span></h1>
+    <p>From a free first session to a founding membership — find the right entry point for your athlete and get started today.</p>
+  </section>
+
+  <div class="services-section">
+
+    <!-- VALUE LADDER -->
+    <div class="value-ladder reveal">
+      <h3>The Training Ladder — Start Anywhere, Build Up</h3>
+      <div class="ladder-steps">
+        <div class="ladder-step">
+          <div class="ladder-num">1</div>
+          <div class="ladder-info">
+            <div class="ladder-name">Free Trial Session</div>
+            <div class="ladder-sub">45-min session · Join the waitlist, Grant reaches out to schedule</div>
+          </div>
+          <div class="ladder-price free">FREE</div>
+        </div>
+        <div class="ladder-step">
+          <div class="ladder-num">2</div>
+          <div class="ladder-info">
+            <div class="ladder-name">Drop-In (Uncoached)</div>
+            <div class="ladder-sub">45-min open ice · No commitment · Book anytime</div>
+          </div>
+          <div class="ladder-price">$35</div>
+        </div>
+        <div class="ladder-step">
+          <div class="ladder-num">3</div>
+          <div class="ladder-info">
+            <div class="ladder-name">Single Coached Session</div>
+            <div class="ladder-sub">45-min 1-on-1 with Coach Grant · No commitment</div>
+          </div>
+          <div class="ladder-price">$75</div>
+        </div>
+        <div class="ladder-step">
+          <div class="ladder-num">4</div>
+          <div class="ladder-info">
+            <div class="ladder-name">Lab Pack — 5 Sessions</div>
+            <div class="ladder-sub">5 × 1-on-1 coached sessions · Use anytime</div>
+          </div>
+          <div class="ladder-price">$325 <span style="font-size:0.75rem;color:#666;">($65/session)</span></div>
+        </div>
+        <div class="ladder-step">
+          <div class="ladder-num">5</div>
+          <div class="ladder-info">
+            <div class="ladder-name">Lab Pack — 10 Sessions</div>
+            <div class="ladder-sub">10 × 1-on-1 coached sessions · Best per-session value before Charter</div>
+          </div>
+          <div class="ladder-price">$599 <span style="font-size:0.75rem;color:#666;">($59.90/session)</span></div>
+        </div>
+        <div class="ladder-step">
+          <div class="ladder-num">6</div>
+          <div class="ladder-info">
+            <div class="ladder-name">Charter Athlete Membership</div>
+            <div class="ladder-sub">2 sessions/week · Technical + Compete · Rate locked for life · 20 spots</div>
+          </div>
+          <div class="ladder-price">$349<span style="font-size:0.75rem;color:#666;">/mo</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SESSION OFFERS -->
+    <div class="services-section-title">Get On The Ice</div>
+    <div class="services-grid">
+
+      <!-- Free Trial -->
+      <div class="service-card lead-magnet reveal">
+        <div class="service-tag">Lead Magnet · No Cost</div>
+        <div class="service-name">Free Trial Session</div>
+        <div class="service-price free-price">FREE <span>· 45 min</span></div>
+        <p class="service-desc">Not sure if The Hockey Lab is the right fit? Come try it. One 45-minute session, no commitment, no pressure. Join the waitlist and Grant will reach out to schedule your athlete's first session.</p>
+        <ul class="service-includes">
+          <li>1 × 45-minute coached session</li>
+          <li>1-on-1 with Coach Grant</li>
+          <li>Synthetic ice at Express Performance Centre</li>
+          <li>No gear required for first visit</li>
+        </ul>
+        <a href="get-started.html#free-trial" class="service-btn service-btn-white">Join the Free Trial Waitlist &rarr;</a>
+      </div>
+
+      <!-- Drop-In -->
+      <div class="service-card reveal">
+        <div class="service-tag">Uncoached · Open Ice</div>
+        <div class="service-name">Drop-In Session</div>
+        <div class="service-price">$35 <span>/ session</span></div>
+        <p class="service-desc">45 minutes of open synthetic ice time at the Express Performance Centre. No coach, no structure — just you, the pucks, and the net. Perfect for athletes who want extra reps on their own schedule.</p>
+        <ul class="service-includes">
+          <li>45-min open ice access</li>
+          <li>Synthetic ice at Express Performance Centre</li>
+          <li>No coaching included</li>
+          <li>Book anytime, no commitment</li>
+        </ul>
+        <a href="get-started.html#drop-in" class="service-btn service-btn-outline">Book a Drop-In &rarr;</a>
+      </div>
+
+      <!-- Single Session -->
+      <div class="service-card reveal">
+        <div class="service-tag">Coached · 1-on-1</div>
+        <div class="service-name">Single Session</div>
+        <div class="service-price">$75 <span>/ session</span></div>
+        <p class="service-desc">One fully coached 45-minute session with Coach Grant. Ideal for athletes who want to work on a specific skill, or parents who want to see the system in action before committing to a pack.</p>
+        <ul class="service-includes">
+          <li>45-min 1-on-1 with Coach Grant</li>
+          <li>Technical goalie skill work</li>
+          <li>Synthetic ice at Express Performance Centre</li>
+          <li>No commitment required</li>
+        </ul>
+        <a href="get-started.html#single" class="service-btn service-btn-outline">Book a Session &rarr;</a>
+      </div>
+
+    </div>
+
+    <!-- LAB PACKS -->
+    <div class="services-section-title">Lab Packs — 1-on-1 Coached Sessions</div>
+    <div class="services-grid">
+
+      <!-- 5-Pack -->
+      <div class="service-card reveal">
+        <div class="service-tag">Lab Pack · Save $50</div>
+        <div class="service-name">5-Session Pack</div>
+        <div class="service-price">$325 <span>· $65/session</span></div>
+        <p class="service-desc">Five 1-on-1 coached sessions with Coach Grant. Use them on your schedule — no expiry pressure. A great way to build a training habit before committing to a monthly membership.</p>
+        <ul class="service-includes">
+          <li>5 × 45-min 1-on-1 sessions</li>
+          <li>Save $50 vs single session rate</li>
+          <li>Use anytime — no expiry</li>
+          <li>Progress tracked session to session</li>
+        </ul>
+        <a href="get-started.html#packs" class="service-btn service-btn-outline">Get the 5-Pack &rarr;</a>
+      </div>
+
+      <!-- 10-Pack -->
+      <div class="service-card featured reveal">
+        <div class="service-tag">Lab Pack · Best Value</div>
+        <div class="service-name">10-Session Pack</div>
+        <div class="service-price">$599 <span>· $59.90/session</span></div>
+        <p class="service-desc">Ten 1-on-1 coached sessions — the most cost-effective way to train with Coach Grant outside of a Charter membership. Enough sessions to see real, measurable development.</p>
+        <ul class="service-includes">
+          <li>10 × 45-min 1-on-1 sessions</li>
+          <li>Save $151 vs single session rate</li>
+          <li>Use anytime — no expiry</li>
+          <li>Progress tracked session to session</li>
+          <li>Priority scheduling</li>
+        </ul>
+        <a href="get-started.html#packs" class="service-btn service-btn-gold">Get the 10-Pack &rarr;</a>
+      </div>
+
+    </div>
+
+    <!-- CHARTER ATHLETE -->
+    <div class="services-section-title">Charter Athlete Membership</div>
+    <div class="services-grid">
+      <div class="service-card reveal" style="grid-column: 1 / -1; max-width: 680px;">
+        <div class="service-tag">Founding Membership · 20 Spots Only</div>
+        <div class="service-name">Charter Athlete</div>
+        <div class="service-price">$349 <span>/ month · rate locked for life</span></div>
+        <p class="service-desc">The Hockey Lab's flagship membership. Two structured sessions per week — one private technical session (max 3 on ice) and one weekly compete session. Your rate is locked at $349/month for as long as you remain a member, regardless of future price increases. Grand Opening July 1, 2026.</p>
+        <ul class="service-includes">
+          <li>2 sessions/week (8–9 sessions/month)</li>
+          <li>Weekly private technical session — max 3 on ice at a time</li>
+          <li>Weekly compete session — group, game-like training</li>
+          <li>Rate locked for life at founding price</li>
+          <li>Access to Mental Edge performance framework</li>
+          <li>Progress tracking and session notes</li>
+          <li>20 spots total — no waitlist once full</li>
+        </ul>
+        <a href="launch.html" class="service-btn service-btn-gold" style="max-width:300px;">View Charter Details &rarr;</a>
+      </div>
+    </div>
+
+    <!-- GOALIE DEVELOPMENT CAMP -->
+    <div class="services-section-title">Summer Camp</div>
+    <div class="camp-banner reveal">
+      <div class="camp-banner-text">
+        <div class="eyebrow">Summer 2026 · Express Performance Centre</div>
+        <h3>Goalie Development Camp</h3>
+        <p>July 6–10 · 9am–1pm daily · Ages 8–13 · Max 3 on ice at a time · 10 spots only</p>
+      </div>
+      <div class="camp-banner-price">
+        <div class="price">$449</div>
+        <div class="price-sub">per athlete · full week</div>
+        <a href="camp-registration.html" class="service-btn service-btn-gold">Register Your Athlete &rarr;</a>
+      </div>
+    </div>
+
+    <!-- MENTAL EDGE -->
+    <div class="services-section-title">Mental Performance</div>
+    <div class="services-grid">
+      <div class="service-card reveal" style="grid-column: 1 / -1; max-width: 680px;">
+        <div class="service-tag">Mental Performance · All Athletes</div>
+        <div class="service-name">Mental Edge Program</div>
+        <div class="service-price" style="font-size:1.3rem; color:#fff;">Included with Charter <span>· Available standalone</span></div>
+        <p class="service-desc">The mental performance framework built into every Hockey Lab session. Covers focus, pressure management, identity, and the mental habits that separate good athletes from great ones. Developed through Grant's background in mental performance coaching with Fusion Flow Coaching.</p>
+        <ul class="service-includes">
+          <li>Focus and attention training</li>
+          <li>Pressure performance techniques</li>
+          <li>Identity and confidence framework</li>
+          <li>Integrated into every Charter Athlete session</li>
+        </ul>
+        <a href="mental-edge.html" class="service-btn service-btn-outline">Learn More &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <div id="mobile-cta-placeholder"></div>
+  <script src="js/shared.js"></script>
+</body>
+</html>

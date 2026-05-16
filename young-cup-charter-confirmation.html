@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're In | Young Cup Charter | The Hockey Lab</title>
+  <meta name="description" content="Welcome to The Hockey Lab. Your Young Cup Charter membership is confirmed.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --gold: #ffd700;
+      --gold-dim: rgba(255,215,0,0.12);
+      --white: #ffffff;
+      --text: rgba(255,255,255,0.82);
+      --text-muted: rgba(255,255,255,0.45);
+      --border: rgba(255,255,255,0.08);
+      --green: #22c55e;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Rajdhani', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ── */
+    .conf-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .conf-logo {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .conf-logo span { color: var(--gold); }
+
+    /* ── HERO ── */
+    .conf-hero {
+      text-align: center;
+      padding: 80px 24px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+    .conf-check {
+      width: 72px;
+      height: 72px;
+      background: rgba(34,197,94,0.12);
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 32px;
+    }
+    .conf-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .conf-h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 7vw, 64px);
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .conf-h1 span { color: var(--gold); }
+    .conf-sub {
+      font-size: 18px;
+      max-width: 520px;
+      margin: 0 auto;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .conf-main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* ── NEXT STEPS ── */
+    .steps-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+    .steps-title span { color: var(--gold); }
+    .step {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(255,215,0,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      color: var(--gold);
+    }
+    .step-body {}
+    .step-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .step-text {
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── WHAT YOU LOCKED IN ── */
+    .locked-card {
+      background: rgba(255,215,0,0.04);
+      border: 1px solid rgba(255,215,0,0.2);
+      padding: 28px;
+      margin: 48px 0;
+    }
+    .locked-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .locked-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 16px;
+    }
+    .locked-check { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 40px;
+    }
+    .contact-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .contact-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-link:hover { border-color: var(--gold); color: var(--gold); }
+    .contact-link.primary {
+      background: var(--gold);
+      color: #000;
+      border-color: var(--gold);
+      font-weight: 700;
+    }
+    .contact-link.primary:hover { background: #e6c200; border-color: #e6c200; color: #000; }
+
+    /* ── SOCIAL ── */
+    .social-section {
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .social-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .social-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border: 1px solid rgba(255,215,0,0.3);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .social-btn:hover { background: var(--gold-dim); }
+
+    /* ── WAIVER ── */
+    .waiver-banner {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      padding: 20px 24px;
+      margin: 40px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .waiver-text {
+      font-size: 15px;
+      color: var(--text);
+    }
+    .waiver-text strong { color: var(--white); }
+    .waiver-link {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .waiver-link:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── YOUNG CUP BADGE ── */
+    .yc-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: #000;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+
+    /* ── FOOTER ── */
+    .conf-footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .conf-footer a { color: var(--text-muted); text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .conf-hero { padding: 60px 20px 40px; }
+      .waiver-banner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="conf-nav">
+    <a href="/" class="conf-logo">THE HOCKEY <span>LAB</span></a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="conf-hero">
+    <div class="conf-check">✓</div>
+    <div class="conf-eyebrow">Young Cup Charter · Ages 5–7 · Membership Confirmed</div>
+    <h1 class="conf-h1">YOU'RE IN.<br>WELCOME TO <span>THE LAB.</span></h1>
+    <p class="conf-sub">Your Young Cup Charter membership is confirmed. You've locked in the founding rate for your athlete. Grant will be in touch within 24 hours to get everything set up.</p>
+  </div>
+
+  <!-- MAIN -->
+  <main class="conf-main">
+
+    <!-- NEXT STEPS -->
+    <h2 class="steps-title">WHAT HAPPENS <span>NEXT</span></h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Grant Reaches Out Within 24 Hours</div>
+        <p class="step-text">Expect a call or text from Grant at <strong>778-302-9245</strong> within 24 hours to introduce himself, confirm your athlete's start date, and walk you through what to expect in the first session.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">First Session — Introduction &amp; Assessment</div>
+        <p class="step-text">The first session is designed to meet your athlete where they are. Grant will do a brief assessment to understand their current movement, coordination, and comfort on the ice — then tailor the program from there. Young Cup sessions are fun, low-pressure, and built for the youngest athletes.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">What to Bring</div>
+        <p class="step-text">Full hockey gear including skates, stick, and CSA-approved helmet. Water bottle recommended. The Express Performance Centre is located in Coquitlam — Grant will confirm the exact address and session time when he reaches out.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Complete Your Participant Waiver</div>
+        <p class="step-text">Before the first session, please read and acknowledge The Hockey Lab participant waiver. This covers liability, photo consent, and medical authorization for your athlete.</p>
+      </div>
+    </div>
+
+    <!-- WAIVER BANNER -->
+    <div class="waiver-banner">
+      <div class="waiver-text"><strong>Participant Waiver</strong><br>Required before your athlete's first session. Takes about 2 minutes to read.</div>
+      <a href="/waiver.html" class="waiver-link" target="_blank">Read the Waiver →</a>
+    </div>
+
+    <!-- WHAT YOU LOCKED IN -->
+    <div class="locked-card">
+      <div class="yc-badge">Young Cup · Ages 5–7</div>
+      <div class="locked-title">What You've Locked In</div>
+      <div class="locked-item"><span class="locked-check">✓</span> Young Cup Charter Athlete membership — founding rate locked for life</div>
+      <div class="locked-item"><span class="locked-check">✓</span> 2 sessions/week — 1 private technical session + 1 weekly compete session</div>
+      <div class="locked-item"><span class="locked-check">✓</span> Age-appropriate curriculum built for athletes ages 5–7</div>
+      <div class="locked-item"><span class="locked-check">✓</span> Max 3 athletes on the synthetic ice at a time</div>
+      <div class="locked-item"><span class="locked-check">✓</span> Progress tracking and session notes after every session</div>
+      <div class="locked-item"><span class="locked-check">✓</span> Mental Edge framework integrated — focus, confidence, and composure built in</div>
+      <div class="locked-item"><span class="locked-check">✓</span> Grand Opening July 1, 2026 at the Express Performance Centre, Coquitlam</div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-section">
+      <div class="contact-title">Questions? Reach Out.</div>
+      <div class="contact-sub">Grant typically responds same-day. Don't hesitate to reach out before the first session.</div>
+      <div class="contact-links">
+        <a href="tel:7783029245" class="contact-link primary">Call or Text — 778-302-9245</a>
+        <a href="mailto:info@thehockeylabofficial.com" class="contact-link">Email The Lab</a>
+      </div>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="social-section">
+      <div class="social-title">Follow Along</div>
+      <div class="social-sub">Stay up to date on training content, camp announcements, and behind-the-scenes from The Lab.</div>
+      <div class="social-links">
+        <a href="https://instagram.com/TheHockeyLabOfficial" class="social-btn" target="_blank" rel="noopener">@TheHockeyLabOfficial</a>
+        <a href="https://instagram.com/GrantTruesdell" class="social-btn" target="_blank" rel="noopener">@GrantTruesdell</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="conf-footer">
+    <p>Questions? Call or text Grant at <a href="tel:7783029245">778-302-9245</a> &nbsp;·&nbsp; <a href="/waiver.html">Participant Waiver</a></p>
+    <p style="margin-top:8px;">© 2026 The Hockey Lab. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

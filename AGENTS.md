@@ -12,6 +12,7 @@ All payments are processed through Square. When adding new CTAs or updating pric
 | **Lab Pack — 5 Sessions** | $325 | [https://square.link/u/fxlJ6lSJ](https://square.link/u/fxlJ6lSJ) |
 | **Lab Pack — 10 Sessions** | $599 | [https://square.link/u/qqbxCCRe](https://square.link/u/qqbxCCRe) |
 | **Young Cup Charter** | $179/mo | [https://square.link/u/zSpDjD6b](https://square.link/u/zSpDjD6b) |
+| **Goalie Development Camp** | $449 | [https://square.link/u/3PkwKqfX](https://square.link/u/3PkwKqfX) |
 
 *Note: Square payment links must be configured in the Square Dashboard to redirect to the corresponding confirmation page (see Section 3) upon successful payment.*
 

@@ -7,9 +7,9 @@
 //
 // Required environment variables (set in Netlify → Site configuration → Environment variables):
 //   NOTION_API_TOKEN    — Your Notion integration token
-//   NOTION_DATABASE_ID  — Leads database ID (default hardcoded below)
+//   NOTION_DATABASE_ID  — Leads database ID
 //   TELEGRAM_BOT_TOKEN  — Token from Telegram BotFather
-//   TELEGRAM_CHAT_ID    — Grant's Telegram chat ID (default hardcoded below)
+//   TELEGRAM_CHAT_ID    — Grant's Telegram chat ID
 
 // Native fetch is available in Node.js 18+ (Netlify default as of 2023).
 
@@ -37,9 +37,9 @@ exports.handler = async (event) => {
 
     // ── Environment variables ──────────────────────────────────────────────
     const NOTION_API_TOKEN   = process.env.NOTION_API_TOKEN;
-    const NOTION_DATABASE_ID = process.env.NOTION_DATABASE_ID || '32a750f5bacd4d60a22161a876a6a2e4';
-    const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8584370462:AAGaExx8U4vkoor0hdRBlsgoaDehezg0H4E';
-    const TELEGRAM_CHAT_ID   = process.env.TELEGRAM_CHAT_ID   || '7189157520';
+    const NOTION_DATABASE_ID = process.env.NOTION_DATABASE_ID;
+    const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+    const TELEGRAM_CHAT_ID   = process.env.TELEGRAM_CHAT_ID;
 
     if (!NOTION_API_TOKEN) {
       console.error('[form-submission] NOTION_API_TOKEN is not set.');

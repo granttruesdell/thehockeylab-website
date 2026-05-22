@@ -32,6 +32,11 @@
   to = "/success.html"
   status = 200
 
+[[redirects]]
+  from = "/meet-grant"
+  to = "/meet-grant.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]

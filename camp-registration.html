@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Goalie Development Camp Registration | The Hockey Lab</title>
-  <meta name="description" content="Register your athlete for The Hockey Lab Goalie Development Camp — July 6–10, 2026 at the Express Performance Centre, Coquitlam BC.">
+  <meta name="description" content="Register your athlete for The Hockey Lab Goalie Development Camp — July 27–31, 2026 at the Express Performance Centre, Coquitlam BC.">
   <link rel="stylesheet" href="css/site.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -311,7 +311,7 @@
     Welcome to The Hockey Lab Goalie Camp. Your payment has been received and your spot is confirmed. Please complete the form below so we can prepare for your athlete specifically — it takes about 2 minutes.
   </p>
   <div class="reg-hero-meta">
-    <div class="reg-meta-pill">📅 <strong>July 6–10, 2026</strong></div>
+    <div class="reg-meta-pill">📅 <strong>July 27–31, 2026</strong></div>
     <div class="reg-meta-pill">⏰ <strong>9am–1pm Daily</strong></div>
     <div class="reg-meta-pill">📍 <strong>Express Performance Centre</strong></div>
     <div class="reg-meta-pill">🎯 <strong>Ages 8–13</strong></div>
@@ -326,18 +326,11 @@
   <!-- Success message (hidden until submit) -->
     <div class="form-success" id="formSuccess">
     <h2>All <span>Set!</span></h2>
-    <p>Thanks for completing the form. Grant has everything he needs to prepare for your athlete. We’ll see you July 6 at the Express Performance Centre. Questions? Text Grant at <a href="tel:7783029245" style="color:var(--gold);">778-302-9245</a>.</p>
-    <a href="/launch.html" class="btn-submit" style="display:inline-block;width:auto;text-decoration:none;padding:18px 40px;">Back to The Hockey Lab →</a>
+    <p>Thanks for completing the form. Grant has everything he needs to prepare for your athlete. We’ll see you July 27 at the Express Performance Centre. Questions? Text Grant at <a href="tel:7783029245" style="color:var(--gold);">778-302-9245</a>.</p>
+    <a class='btn-submit' href='launch.html' style='display:inline-block;width:auto;text-decoration:none;padding:18px 40px;'>Back to The Hockey Lab →</a>
   </div>
 
-  <form
-    id="campForm"
-    name="goalie-camp-registration"
-    method="POST"
-    data-netlify="true"
-    netlify-honeypot="bot-field"
-    action="/camp-registration.html?success=true"
-  >
+  <form action='https://thehockeylabofficial.com/camp-registration.html?success=true' id='campForm' method='POST' name='goalie-camp-registration'>
     <!-- Netlify hidden fields -->
     <input type="hidden" name="form-name" value="goalie-camp-registration">
     <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>

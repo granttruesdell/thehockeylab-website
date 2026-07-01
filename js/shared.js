@@ -37,7 +37,7 @@ const NAV_HTML = `
     <li><a href="method.html">The Method</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="faq.html">FAQ</a></li>
-    <li><a href="launch.html">Charter Athlete</a></li>
+    <li><a href="get-started.html">Get Started</a></li>
   </ul>
   <a href="get-started.html" class="nav-btn-mobile">Get Started &rarr;</a>
   <div class="nav-mobile-social">
@@ -60,10 +60,10 @@ const FOOTER_HTML = `
     <div class="footer-brand">
       <div class="footer-logo-text">THE HOCKEY <span>LAB</span></div>
       <div class="footer-tagline">Where Athletes Are Built</div>
-      <p class="footer-desc">The Hockey Lab is a goalie-first development program inside the Coquitlam Express Performance Centre. General Manager &amp; Lead Instructor: Grant Truesdell. Built for goalies. Skaters welcome. Grand Opening July 1, 2026.</p>
+      <p class="footer-desc">The Hockey Lab is a goalie-first development program inside the Coquitlam Express Performance Centre. General Manager &amp; Lead Instructor: Grant Truesdell. Built for goalies. Skaters welcome. Opening Summer 2026.</p>
       <div class="footer-waitlist-box">
-        <div class="footer-waitlist-label">Now Open for Charter Enrollment</div>
-        <a href="launch.html">Claim your charter athlete spot at the Express Performance Centre &rarr;</a>
+        <div class="footer-waitlist-label">Opening Summer 2026 &mdash; Memberships Available Now</div>
+        <a href="get-started.html">Join the free trial waitlist or grab a Lab Pack &rarr;</a>
       </div>
       <div class="footer-social">
         <a href="https://instagram.com/thehockeylabofficial" class="footer-social-link footer-social-link--ig" target="_blank" rel="noopener" aria-label="Instagram">
@@ -106,8 +106,8 @@ const FOOTER_HTML = `
         <div class="footer-contact-value"><a href="https://maps.google.com/?q=1020+Austin+Avenue+Coquitlam+BC" target="_blank" rel="noopener">Unit 211, 1020 Austin Ave<br>Coquitlam, BC</a></div>
       </div>
       <div class="footer-contact-item">
-        <div class="footer-contact-label">Grand Opening</div>
-        <div class="footer-contact-value">July 1, 2026</div>
+        <div class="footer-contact-label">Opening</div>
+        <div class="footer-contact-value">Summer 2026 &mdash; Coming Soon</div>
       </div>
       <div class="footer-contact-item">
         <div class="footer-contact-label">Email</div>

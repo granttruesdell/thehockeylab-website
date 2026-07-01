@@ -32,11 +32,11 @@ const NAV_HTML = `
 <div class="nav-mobile-menu" id="nav-mobile-menu">
   <ul class="nav-mobile-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="programs.html">Programs</a></li>
-    <li><a href="services.html">Services</a></li>
+    <li><a href="train.html">Train With Us</a></li>
     <li><a href="method.html">The Method</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
     <li><a href="get-started.html">Get Started</a></li>
   </ul>
   <a href="get-started.html" class="nav-btn-mobile">Get Started &rarr;</a>

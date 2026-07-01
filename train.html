@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Programs | The Hockey Lab | Coquitlam, BC</title>
-  <meta name="description" content="Four structured development programs for hockey athletes ages 5 to elite. Young Cup, Development, Performance, and Elite — clear pricing, clear progression.">
+  <title>Train With Us | The Hockey Lab | Coquitlam, BC</title>
+  <meta name="description" content="Train at The Hockey Lab — 1-on-1 goalie coaching on synthetic ice. Single sessions, Lab Packs, and monthly memberships. Opening Summer 2026 in Coquitlam, BC.">
   <link rel="stylesheet" href="css/site.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -19,13 +19,13 @@
       border-bottom: 1px solid var(--white-08);
     }
     .page-hero::before {
-      content: 'PROGRAMS';
+      content: 'TRAIN';
       position: absolute;
       right: -20px; top: 50%;
       transform: translateY(-50%);
       font-family: 'Exo 2', sans-serif;
       font-weight: 900;
-      font-size: 180px;
+      font-size: 220px;
       color: rgba(255,215,0,0.03);
       line-height: 1;
       pointer-events: none;
@@ -42,6 +42,8 @@
       margin: 16px 0;
     }
     .ph-h span { color: var(--gold); }
+
+    /* ── OPTION SECTIONS ── */
     .prog-anchor { padding-top: 73px; margin-top: -73px; }
     .prog-section { padding: 80px var(--pad-x); border-bottom: 1px solid var(--white-08); }
     .prog-section:nth-child(even) { background: var(--dark-2); }
@@ -152,13 +154,13 @@
       margin-bottom: 8px;
     }
     .sc-text { font-size: 13px; color: var(--white-60); line-height: 1.6; }
-    .elite-callout {
+    .hybrid-callout {
       background: rgba(255,215,0,0.06);
       border: 1px solid rgba(255,215,0,0.3);
       padding: 24px;
       margin-bottom: 24px;
     }
-    .ec-title {
+    .hc-title {
       font-family: 'Rajdhani', sans-serif;
       font-weight: 700;
       font-size: 10px;
@@ -167,9 +169,11 @@
       color: var(--gold);
       margin-bottom: 10px;
     }
-    .ec-text { font-size: 14px; color: var(--white-60); line-height: 1.6; }
+    .hc-text { font-size: 14px; color: var(--white-60); line-height: 1.6; }
     .prog-cta-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
     .prog-note { font-size: 12px; color: var(--white-35); font-style: italic; }
+
+    /* ── STICKY NAV ── */
     .sticky-pathway {
       position: sticky;
       top: calc(var(--nav-h) + 3px);
@@ -178,6 +182,30 @@
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--white-08);
     }
+    .sp-inner {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 0 var(--pad-x);
+    }
+    .sp-inner::-webkit-scrollbar { display: none; }
+    .sp-link {
+      flex-shrink: 0;
+      padding: 14px 20px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white-35);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .sp-link:hover, .sp-link.active { color: var(--gold); border-bottom-color: var(--gold); }
+
     @media (max-width: 768px) {
       .ph-inner { grid-template-columns: 1fr; gap: 24px; }
       .prog-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -192,167 +220,210 @@
 <div class="page-hero">
   <div class="ph-inner">
     <div class="reveal-left">
-      <div class="t-eyebrow">Express Performance Centre &nbsp;·&nbsp; Opening Summer 2026</div>
-      <h1 class="ph-h">THE FULL<br><span>LINEUP</span></h1>
+      <div class="t-eyebrow">Express Performance Centre &nbsp;&middot;&nbsp; Opening Summer 2026</div>
+      <h1 class="ph-h">TRAIN<br><span>WITH US</span></h1>
     </div>
-    <p class="ph-sub reveal-right">Four structured programs, one complete development pathway — now inside the Coquitlam Express Performance Centre. Athletes enter at the right level based on ability and age, then progress with intention. Memberships are available now. Opening Summer 2026.</p>
+    <p class="ph-sub reveal-right">Every option includes 1-on-1 coaching with Grant on the synthetic ice surface. Start with a single session, build with a Lab Pack, or commit to consistent development with a membership. No long-term contracts required.</p>
   </div>
 </div>
 
+<!-- STICKY NAV -->
+<div class="sticky-pathway">
+  <div class="sp-inner">
+    <a href="#single" class="sp-link">Single Session</a>
+    <a href="#packs" class="sp-link">Lab Packs</a>
+    <a href="#membership" class="sp-link">Lab Membership</a>
+    <a href="#plus" class="sp-link">Membership Plus</a>
+    <a href="#hybrid" class="sp-link">Hybrid Integration</a>
+  </div>
+</div>
 
-<!-- YOUNG CUP -->
-<div id="young-cup" class="prog-anchor"></div>
+<!-- SINGLE SESSION -->
+<div id="single" class="prog-anchor"></div>
 <div class="prog-section">
   <div class="prog-layout">
     <div class="prog-left reveal-left">
-      <div class="prog-level-tag"><div class="plt-text">Ages 5 – 7</div></div>
-      <div class="prog-big-name">YOUNG <span>CUP</span></div>
-      <div class="prog-tagline">Build the Love. Learn the Game.</div>
-      <p class="prog-desc">Young Cup is where athletic foundations are laid, confidence is built, and the love for the game starts to take root. This is not about pressure. It is about play, movement, and showing up every week.</p>
-      <p class="prog-desc">Small group sessions on synthetic ice. High energy. Game-based. Designed for young athletes who are new to hockey or just getting started.</p>
+      <div class="prog-level-tag"><div class="plt-text">No Commitment</div></div>
+      <div class="prog-big-name">SINGLE <span>SESSION</span></div>
+      <div class="prog-tagline">Try It. One Session, No Strings Attached.</div>
+      <p class="prog-desc">One 45-minute coached session on the synthetic ice with Grant. No package required, no commitment. A great way to experience the system before deciding what's right for your athlete.</p>
+      <p class="prog-desc">All positions welcome. Gear is not required for a first session — just come ready to work.</p>
       <div class="price-block">
-        <div class="price-lbl">Monthly Investment</div>
-        <div class="price-num">$179 <em>/ mo</em></div>
+        <div class="price-lbl">Per Session</div>
+        <div class="price-num">$89</div>
       </div>
       <div class="prog-cta-row">
-        <a href="https://square.link/u/zSpDjD6b" target="_blank" class="btn btn-gold">Claim Young Cup Spot &rarr;</a>
+        <a href="https://square.link/u/PMTMJz5x" target="_blank" class="btn btn-gold">Book Single Session &rarr;</a>
         <span class="prog-note">Opening Summer 2026</span>
       </div>
     </div>
     <div class="prog-right reveal-right">
       <div class="inc-label">What's Included</div>
       <div class="inc-list">
-        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Weekly Group Session</strong>Fun, structured, small group environment on synthetic ice. Every session has a theme and a purpose.</div></div>
-        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Movement and Coordination Fundamentals</strong>The athletic base every hockey player needs — balance, body control, and spatial awareness through games and movement.</div></div>
-        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Basic Hockey Skills Through Play</strong>Stick handling, skating confidence, and positional awareness introduced through game-based drills. No pressure, just reps.</div></div>
-        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Confidence and Love for the Game</strong>Every session is designed to send young athletes home excited to come back. That is the most important outcome at this age.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>45-Minute 1-on-1 Session with Coach Grant</strong>Private coaching on the synthetic ice surface. Every session is structured, purposeful, and tied to the four-pillar development system.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Goalie-First Training Environment</strong>The facility and session structure are built around goalie development. Skaters are welcome — the same four-pillar system applies to every position.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Post-Session Feedback</strong>Grant provides direct feedback after every session — what was strong, what to work on, and what the next step looks like.</div></div>
       </div>
       <div class="session-cards">
-        <div class="sc"><div class="sc-title">Format</div><div class="sc-text">1 weekly group session on synthetic ice. High energy, game-based, designed for athletes ages 5 to 7.</div></div>
-        <div class="sc"><div class="sc-title">Who It's For</div><div class="sc-text">Young athletes new to hockey or just starting out. The perfect entry into The Hockey Lab development system.</div></div>
+        <div class="sc"><div class="sc-title">Format</div><div class="sc-text">1-on-1 with Coach Grant. 45 minutes on synthetic ice. Max 3 athletes on ice at a time.</div></div>
+        <div class="sc"><div class="sc-title">Who It's For</div><div class="sc-text">Any athlete who wants to try the system before committing. All ages, all positions.</div></div>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- DEVELOPMENT -->
-<div id="development" class="prog-anchor"></div>
+<!-- LAB PACKS -->
+<div id="packs" class="prog-anchor"></div>
 <div class="prog-section">
   <div class="prog-layout">
     <div class="prog-left reveal-left">
-      <div class="prog-level-tag"><div class="plt-text">Ages 8 – 11</div></div>
-      <div class="prog-big-name">DEVELOP<span>MENT</span></div>
-      <div class="prog-tagline">Build Your Game the Right Way.</div>
-      <p class="prog-desc">At this stage, athletes are ready to be challenged. The Development program introduces structured technical training alongside compete sessions and group dryland work — giving athletes a complete development environment for the first time.</p>
-      <p class="prog-desc">Private or semi-private technical sessions. Small-group compete work. Monthly dryland. All tied to the 4-pillar curriculum — every rep has a reason.</p>
+      <div class="prog-level-tag"><div class="plt-text">5 or 10 Sessions</div></div>
+      <div class="prog-big-name">LAB <span>PACKS</span></div>
+      <div class="prog-tagline">Pre-Paid Sessions. No Expiry. Your Schedule.</div>
+      <p class="prog-desc">Pre-paid coached sessions at a discounted rate. Use them on your schedule — no weekly commitment, no expiry. A Lab Pack is the most flexible way to train consistently without a monthly membership.</p>
+      <p class="prog-desc">Athletes who train with a Lab Pack see measurable improvement by session 3. By session 5, the system starts to compound.</p>
       <div class="price-block">
-        <div class="price-lbl">Monthly Investment</div>
+        <div class="price-lbl">Lab Pack 5</div>
+        <div class="price-num">$349 <em>/ 5 sessions</em></div>
+      </div>
+      <div class="price-block" style="margin-top: -16px;">
+        <div class="price-lbl">Lab Pack 10</div>
+        <div class="price-num">$649 <em>/ 10 sessions</em></div>
+      </div>
+      <div class="prog-cta-row">
+        <a href="https://square.link/u/fxlJ6lSJ" target="_blank" class="btn btn-gold">Buy Lab Pack 5 &rarr;</a>
+        <a href="https://square.link/u/qqbxCCRe" target="_blank" class="btn btn-gold-outline">Buy Lab Pack 10 &rarr;</a>
+      </div>
+    </div>
+    <div class="prog-right reveal-right">
+      <div class="inc-label">What's Included</div>
+      <div class="inc-list">
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>45-Minute 1-on-1 Sessions with Coach Grant</strong>Each session is structured and tied to a clear development arc across the four pillars — not just isolated drills.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Progress Notes After Each Session</strong>Grant tracks what was covered and what to focus on next. Athletes and parents always know where they stand.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>No Expiry, No Weekly Commitment</strong>Use your sessions on a schedule that works for your athlete's season, travel, and availability.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Flexible Upgrade Path</strong>Lab Pack sessions count toward your development history. When you're ready to move to a membership, Grant already knows your athlete.</div></div>
+      </div>
+      <div class="session-cards">
+        <div class="sc"><div class="sc-title">Lab Pack 5</div><div class="sc-text">$349 total. $69.80/session. Best for athletes building a training habit or returning after a break.</div></div>
+        <div class="sc"><div class="sc-title">Lab Pack 10</div><div class="sc-text">$649 total. $64.90/session. Best for athletes ready for a full development arc over a training block.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LAB MEMBERSHIP -->
+<div id="membership" class="prog-anchor"></div>
+<div class="prog-section">
+  <div class="prog-layout">
+    <div class="prog-left reveal-left">
+      <div class="prog-level-tag"><div class="plt-text">Weekly Training</div></div>
+      <div class="prog-big-name">LAB <span>MEMBERSHIP</span></div>
+      <div class="prog-tagline">Consistent Development. Every Week.</div>
+      <p class="prog-desc">One coached session per week plus unlimited drop-in open ice. The Lab Membership is designed for athletes who are ready to train consistently and want the structure of a recurring development program.</p>
+      <p class="prog-desc">Month-to-month. No long-term contract. Cancel anytime.</p>
+      <div class="price-block">
+        <div class="price-lbl">Monthly</div>
+        <div class="price-num">$299 <em>/ mo</em></div>
+      </div>
+      <div class="prog-cta-row">
+        <a class='btn btn-gold' href='get-started.html'>Join the Waitlist &rarr;</a>
+        <span class="prog-note">Opening Summer 2026</span>
+      </div>
+    </div>
+    <div class="prog-right reveal-right">
+      <div class="inc-label">What's Included</div>
+      <div class="inc-list">
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Weekly Coached Session (45 min)</strong>Private 1-on-1 with Coach Grant. Structured, progressive, and tied to the four-pillar development system every week.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Unlimited Drop-In Open Ice</strong>30-minute open ice slots available throughout the week. Use the synthetic ice surface on your own schedule between coached sessions.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Ongoing Progress Tracking</strong>Grant tracks development across all four pillars — Movement, Tracking, Execution, and Mindset — so every session builds on the last.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Mental Edge Integrated</strong>The Mindset pillar is built into every membership. Not a separate add-on — it is part of the system.</div></div>
+      </div>
+      <div class="session-cards">
+        <div class="sc"><div class="sc-title">Coached Session</div><div class="sc-text">1 × 45-min private session per week with Coach Grant. Structured, progressive, position-specific.</div></div>
+        <div class="sc"><div class="sc-title">Drop-In Open Ice</div><div class="sc-text">Unlimited 30-min open ice slots. Use the facility on your own schedule between coached sessions.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LAB MEMBERSHIP PLUS -->
+<div id="plus" class="prog-anchor"></div>
+<div class="prog-section">
+  <div class="prog-layout">
+    <div class="prog-left reveal-left">
+      <div class="prog-level-tag"><div class="plt-text">2x Per Week</div></div>
+      <div class="prog-big-name">MEMBERSHIP <span>PLUS</span></div>
+      <div class="prog-tagline">Accelerate. Two Sessions Per Week.</div>
+      <p class="prog-desc">Everything in the Lab Membership, plus a second coached session per week. For athletes who want to accelerate their development and are ready to commit to a higher training volume.</p>
+      <p class="prog-desc">Two coached sessions per week compounds results faster than anything else in the system. This is the level where athletes start to separate themselves.</p>
+      <div class="price-block">
+        <div class="price-lbl">Monthly</div>
         <div class="price-num">$399 <em>/ mo</em></div>
       </div>
       <div class="prog-cta-row">
-        <a class='btn btn-gold' href='get-started.html'>Get Started &rarr;</a>
+        <a class='btn btn-gold' href='get-started.html'>Join the Waitlist &rarr;</a>
         <span class="prog-note">Opening Summer 2026</span>
       </div>
     </div>
     <div class="prog-right reveal-right">
       <div class="inc-label">What's Included</div>
       <div class="inc-list">
-        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Weekly Private or Semi-Private Technical Session (45 min)</strong>Systematic skill work across the 4 pillars. Position-specific, intentional reps tied to a clear progression — not just drills.</div></div>
-        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Weekly Small Group Compete Session (up to 6 athletes)</strong>Game-scenario training with real pressure. Players vs. goalies, compete drills, decision-making built in from the start.</div></div>
-        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Monthly Group Dryland Session</strong>Off-ice strength, agility, and movement patterns that transfer directly to the ice. Built for young athletes, not adult athletes.</div></div>
-        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Structured 4-Pillar Curriculum</strong>Every session has a purpose and a progression across Movement, Tracking, Execution, and Mindset. Athletes know what they are working on and why.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>2 Weekly Coached Sessions (45 min each)</strong>Two private 1-on-1 sessions per week with Coach Grant. Higher volume means faster skill acquisition and more responsive coaching adjustments.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Unlimited Drop-In Open Ice</strong>Same unlimited open ice access as the Lab Membership — use the facility as much as you need between coached sessions.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Accelerated Progress Tracking</strong>With two sessions per week, Grant can adjust and progress the development plan faster. More data, more responsive coaching.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Mental Edge Integrated</strong>The Mindset pillar is built into every session — composure, reset routines, and performance habits developed alongside technical skills.</div></div>
       </div>
       <div class="session-cards">
-        <div class="sc"><div class="sc-title">Technical Session</div><div class="sc-text">Private or semi-private, 45 min. Every rep tied to progression, not just repetition.</div></div>
-        <div class="sc"><div class="sc-title">Compete Session</div><div class="sc-text">Up to 6 athletes. Game-scenario training with real competitive pressure built in.</div></div>
+        <div class="sc"><div class="sc-title">2 Coached Sessions / Week</div><div class="sc-text">Two 45-min private sessions with Coach Grant. The fastest path to measurable improvement in the system.</div></div>
+        <div class="sc"><div class="sc-title">Unlimited Drop-In</div><div class="sc-text">Open ice access included. Use the synthetic ice on your own schedule between coached sessions.</div></div>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- PERFORMANCE -->
-<div id="performance" class="prog-anchor"></div>
-<div class="prog-section">
-  <div class="prog-layout">
-    <div class="prog-left reveal-left">
-      <div class="prog-level-tag"><div class="plt-text">Ages 12 – 16</div></div>
-      <div class="prog-big-name">PERFORM<span>ANCE</span></div>
-      <div class="prog-tagline">Train How You Play. Perform Under Pressure.</div>
-      <p class="prog-desc">The Performance program is where athletes learn to close the gap between their training and their game performance. Private technical sessions get more position-specific. Compete sessions simulate real in-game fatigue and decision-making. And the Mental Edge becomes a monthly touchpoint — not an afterthought.</p>
-      <p class="prog-desc">This is the level where separating yourself begins — if you are willing to do the work consistently.</p>
-      <div class="price-block">
-        <div class="price-lbl">Monthly Investment</div>
-        <div class="price-num">$399 <em>/ mo</em></div>
-      </div>
-      <div class="prog-cta-row">
-        <a class='btn btn-gold' href='get-started.html'>Get Started &rarr;</a>
-        <span class="prog-note">Opening Summer 2026</span>
-      </div>
-    </div>
-    <div class="prog-right reveal-right">
-      <div class="inc-label">What's Included</div>
-      <div class="inc-list">
-        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Weekly Private Technical Session (45 min)</strong>Position-specific, high-intent reps. Every session designed to translate directly to game performance. No filler work.</div></div>
-        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Weekly Small Group Compete Session</strong>Up to 6 athletes. Decision-making under fatigue, game-pressure scenarios, and compete-level intensity every week.</div></div>
-        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Monthly Hockey IQ and Mental Edge Session</strong>Focus, composure, reset routines, and game-situation awareness built into every month of training. Not a separate add-on.</div></div>
-        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>4-Pillar Development Tracking</strong>Monthly tracking across Movement, Tracking, Execution, and Mindset so athletes and parents always know where they stand and what's next.</div></div>
-      </div>
-      <div class="session-cards">
-        <div class="sc"><div class="sc-title">Technical Session</div><div class="sc-text">Private 45-min. Position-specific. Built to translate to game performance every single week.</div></div>
-        <div class="sc"><div class="sc-title">Mental Edge Included</div><div class="sc-text">Monthly Hockey IQ and mindset session. Focus, composure, and reset routines — every month.</div></div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- ELITE -->
-<div id="elite" class="prog-anchor"></div>
+<!-- HYBRID INTEGRATION -->
+<div id="hybrid" class="prog-anchor"></div>
 <div class="prog-section" style="background:linear-gradient(165deg,#0f0f0f 0%,#080808 100%);">
   <div class="prog-layout">
     <div class="prog-left reveal-left">
-      <div class="prog-level-tag" style="border-color:var(--gold);background:rgba(255,215,0,0.12)"><div class="plt-text">Ages 16+</div></div>
-      <div class="prog-big-name" style="color:var(--gold);font-size:clamp(64px,9vw,96px);">ELITE</div>
-      <div class="prog-tagline">Separate Yourself from the Competition.</div>
-      <p class="prog-desc">The Elite program is not for everyone — and that is intentional. This is reserved for athletes who are genuinely chasing the next level: junior hockey, college, or beyond. Spots are limited. Entry is by application only, based on fit and readiness, not first come first served.</p>
-      <p class="prog-desc">Twice-weekly private sessions. Elite-level compete work. Full Mental Edge integration. Priority access and scheduling built around your season.</p>
+      <div class="prog-level-tag" style="border-color:var(--gold);background:rgba(255,215,0,0.12)"><div class="plt-text">Full Integration</div></div>
+      <div class="prog-big-name" style="color:var(--gold);font-size:clamp(52px,7vw,80px);">HYBRID</div>
+      <div class="prog-tagline">Lab Training + On-Ice Team Integration.</div>
+      <p class="prog-desc">The most complete training option. Two coached sessions per week at The Hockey Lab plus on-ice integration at your team practices. Grant attends team practices to connect Lab work directly to in-game execution.</p>
+      <p class="prog-desc">Built for athletes who want their development to show up on game night — not just in training. Contact Grant directly to discuss fit and scheduling.</p>
       <div class="price-block">
-        <div class="price-lbl">Investment Starting At</div>
-        <div class="price-num">$899 <em>/ mo</em></div>
+        <div class="price-lbl">Monthly</div>
+        <div class="price-num">$599 <em>/ mo</em></div>
       </div>
       <div class="prog-cta-row">
-        <a href="mailto:info@thehockeylabofficial.com?subject=Elite Program Application" class="btn btn-gold">Apply for Elite</a>
-        <span class="prog-note">Contact Grant directly to apply</span>
+        <a href="contact.html" class="btn btn-gold">Talk to Grant &rarr;</a>
+        <span class="prog-note">Limited spots available</span>
       </div>
     </div>
     <div class="prog-right reveal-right">
       <div class="inc-label">What's Included</div>
       <div class="inc-list">
-        <div class="inc-item" style="border-color:rgba(255,215,0,0.15)"><div class="inc-dot" style="background:rgba(255,215,0,0.1)"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>2 Weekly Private Technical Sessions</strong>Advanced position-specific mastery. High-intensity, direct performance feedback, built for athletes chasing the next level. No shared time.</div></div>
-        <div class="inc-item" style="border-color:rgba(255,215,0,0.15)"><div class="inc-dot" style="background:rgba(255,215,0,0.1)"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>1 Weekly Elite-Level Compete Session</strong>Simulated elite game scenarios. Decision-making, pressure, compete intensity — every week, not every month.</div></div>
-        <div class="inc-item" style="border-color:rgba(255,215,0,0.15)"><div class="inc-dot" style="background:rgba(255,215,0,0.1)"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>On-Ice Integration</strong>Lab work is specifically connected to your in-game execution. What you build off-ice shows up on game night.</div></div>
-        <div class="inc-item" style="border-color:rgba(255,215,0,0.15)"><div class="inc-dot" style="background:rgba(255,215,0,0.1)"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Full Mental Edge Integration</strong>Monthly IQ and mindset sessions plus in-season performance support. The mental side is not optional at this level.</div></div>
-        <div class="inc-item" style="border-color:rgba(255,215,0,0.15)"><div class="inc-dot" style="background:rgba(255,215,0,0.1)"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Priority Scheduling and Flexible Access</strong>Built around your team schedule, your season, and your development priorities. Your time matters here.</div></div>
+        <div class="inc-item" style="border-color:rgba(255,215,0,0.15)"><div class="inc-dot" style="background:rgba(255,215,0,0.1)"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>2 Weekly Coached Sessions at The Hockey Lab</strong>Two private 1-on-1 sessions per week on the synthetic ice surface. Same high-intensity, position-specific development as Membership Plus.</div></div>
+        <div class="inc-item" style="border-color:rgba(255,215,0,0.15)"><div class="inc-dot" style="background:rgba(255,215,0,0.1)"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>On-Ice Integration at Team Practices</strong>Grant attends your team practices to observe, coach, and directly connect Lab training to in-game situations. What you build in the Lab shows up on game night.</div></div>
+        <div class="inc-item" style="border-color:rgba(255,215,0,0.15)"><div class="inc-dot" style="background:rgba(255,215,0,0.1)"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Unlimited Drop-In Open Ice</strong>Full open ice access included. Use the facility on your own schedule in addition to coached sessions.</div></div>
+        <div class="inc-item" style="border-color:rgba(255,215,0,0.15)"><div class="inc-dot" style="background:rgba(255,215,0,0.1)"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Full Mental Edge Integration</strong>Mindset coaching is woven into every session and every practice visit. Composure, reset routines, and performance habits built for game situations.</div></div>
       </div>
-      <div class="elite-callout">
-        <div class="ec-title">By Application Only</div>
-        <div class="ec-text">Reserved for athletes ready to commit at the highest level. Spots are limited and filled based on fit and readiness — not first come first served. Reach out to Grant directly to start the conversation.</div>
-        <div style="margin-top:14px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);">info@thehockeylabofficial.com &nbsp;·&nbsp; (778) 302-9245</div>
+      <div class="hybrid-callout">
+        <div class="hc-title">Limited Availability</div>
+        <div class="hc-text">Hybrid Integration requires scheduling coordination with your team. Spots are limited. Reach out to Grant directly to discuss whether this option is the right fit for your athlete's season and schedule.</div>
+        <div style="margin-top:14px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);">info@thehockeylabofficial.com &nbsp;&middot;&nbsp; (778) 302-9245</div>
       </div>
-
     </div>
   </div>
 </div>
 
 <!-- BOTTOM CTA -->
 <section class="section section--dark2 border-top" style="text-align:center;">
-  <div class="t-eyebrow reveal" style="justify-content:center;">Memberships Available Now &mdash; Opening Summer 2026</div>
-  <h2 class="t-h2 reveal" style="margin-bottom:20px;">FIND YOUR <span class="gold">FIT</span></h2>
-  <p class="t-body reveal" style="max-width:520px;margin:0 auto 20px;">Lab Membership from $299/month. Lab Membership Plus at $399/month. Hybrid on-ice integration at $599/month. Or start with a free trial session &mdash; no commitment required.</p>
+  <div class="t-eyebrow reveal" style="justify-content:center;">Not Sure Where to Start?</div>
+  <h2 class="t-h2 reveal" style="margin-bottom:20px;">START WITH A <span class="gold">FREE TRIAL</span></h2>
+  <p class="t-body reveal" style="max-width:520px;margin:0 auto 20px;">One free 45-minute session on the synthetic ice. No gear required. No commitment. Join the waitlist and Grant will reach out to schedule.</p>
   <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;" class="reveal">
-    <a class='btn btn-gold' href='get-started.html' style='font-size:12px;padding:16px 40px;'>Get Started &rarr;</a>
+    <a class='btn btn-gold' href='get-started.html' style='font-size:12px;padding:16px 40px;'>Join the Free Trial Waitlist &rarr;</a>
     <a href="contact.html" class="btn btn-gold-outline" style="font-size:12px;padding:16px 40px;">Book a Free 15-Min Call</a>
   </div>
 </section>

@@ -78,13 +78,14 @@ const FOOTER_HTML = `
       </div>
     </div>
     <div class="footer-col">
-      <div class="footer-col-title">Programs</div>
+      <div class="footer-col-title">Train With Us</div>
       <ul>
-        <li><a href="programs.html#young-cup">Young Cup (Ages 5-7)</a></li>
-        <li><a href="programs.html#development">Development (Ages 8-11)</a></li>
-        <li><a href="programs.html#performance">Performance (Ages 12-16)</a></li>
-        <li><a href="programs.html#elite">Elite (Ages 16+)</a></li>
-        <li><a href="mental-edge.html">Mental Edge Program</a></li>
+        <li><a href="train.html#single">Single Session ($89)</a></li>
+        <li><a href="train.html#packs">Lab Pack 5 ($349)</a></li>
+        <li><a href="train.html#packs">Lab Pack 10 ($649)</a></li>
+        <li><a href="train.html#membership">Lab Membership ($299/mo)</a></li>
+        <li><a href="train.html#plus">Membership Plus ($399/mo)</a></li>
+        <li><a href="train.html#hybrid">Hybrid Integration ($599/mo)</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -95,7 +96,8 @@ const FOOTER_HTML = `
         <li><a href="mental-edge.html">Mental Edge</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="faq.html">FAQ</a></li>
-        <li><a href="waitlist.html">Join the Waitlist</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
         <li><a href="https://g.page/r/CVE_VTfxO_5qEAE/review" target="_blank" rel="noopener">Review Us on Google</a></li>
       </ul>
     </div>

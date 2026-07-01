@@ -7,11 +7,11 @@ const NAV_HTML = `
 <nav class="site-nav" id="site-nav">
   <a href="index.html" class="nav-logo" onclick="if(window.location.pathname.endsWith('index.html')||window.location.pathname==='/'){window.scrollTo({top:0,behavior:'smooth'});return false;}">THE HOCKEY <span>LAB</span></a>
   <ul class="nav-links">
-    <li><a href="programs.html">Programs</a></li>
-    <li><a href="services.html">Services</a></li>
+    <li><a href="train.html">Train With Us</a></li>
     <li><a href="method.html">The Method</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
     <li class="nav-social">
       <a href="https://instagram.com/thehockeylabofficial" class="nav-social-link nav-social-link--ig" target="_blank" rel="noopener" aria-label="Instagram">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>

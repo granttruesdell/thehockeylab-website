@@ -344,113 +344,88 @@
   </div>
 </section>
 
-<!-- ── PROGRAMS ── -->
-<section class="section border-bottom" style="position:relative;overflow:hidden;">
+<!-- ── HOW TO TRAIN ── -->
+<section class="section border-bottom" style="position:relative;overflow:hidden;" id="train">
   <div style="position:absolute;inset:0;background:url('images/frozen-topography.png') center center / cover no-repeat;opacity:0.07;pointer-events:none;z-index:0;"></div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;position:relative;z-index:1;" class="reveal">
     <div>
-      <div class="t-eyebrow">Programs</div>
-      <h2 class="t-h2">FIND YOUR<br><span class="gold">LEVEL</span></h2>
+      <div class="t-eyebrow">Training Options</div>
+      <h2 class="t-h2">TRAIN YOUR<br><span class="gold">WAY</span></h2>
     </div>
-    <p class="t-body" style="align-self:end;">Athletes enter at the right level based on ability and age, then progress with structure and accountability. Not sure where to start? Join the waitlist and we will place your athlete correctly.</p>
+    <p class="t-body" style="align-self:end;">Start with a single session. Build with a Lab Pack. Or commit to consistent development with a membership. Every option includes 1-on-1 coaching with Grant on the synthetic ice surface.</p>
   </div>
 
-  <!-- PATHWAY STEPPER (desktop: horizontal above grid; mobile: vertical left side via .prog-row wrappers) -->
-  <div class="pathway-stepper reveal" style="margin-top:8px;margin-bottom:0;" id="pathway-stepper-desktop">
-    <div class="ps-track">
-      <div class="ps-line"></div>
-      <div class="ps-nodes">
-        <div class="ps-node active" data-step="0" data-prog="young-cup">
-          <div class="ps-dot"><span>1</span></div>
-          <div class="ps-label">Young Cup<div class="ps-age">Ages 5–7</div></div>
-        </div>
-        <div class="ps-node" data-step="1" data-prog="development">
-          <div class="ps-dot"><span>2</span></div>
-          <div class="ps-label">Development<div class="ps-age">Ages 8–11</div></div>
-        </div>
-        <div class="ps-node" data-step="2" data-prog="performance">
-          <div class="ps-dot"><span>3</span></div>
-          <div class="ps-label">Performance<div class="ps-age">Ages 12–16</div></div>
-        </div>
-        <div class="ps-node" data-step="3" data-prog="elite">
-          <div class="ps-dot"><span>4</span></div>
-          <div class="ps-label">Elite<div class="ps-age">Ages 16+</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="prog-grid" id="prog-grid" style="margin-top:48px;">
 
-  <div class="prog-grid" id="prog-grid">
-
-    <!-- YOUNG CUP -->
-    <div class="prog-row" data-prog-row="young-cup">
-      <div class="prog-row-node" data-step="0" data-prog="young-cup">
+    <!-- SINGLE SESSION -->
+    <div class="prog-row" data-prog-row="single">
+      <div class="prog-row-node" data-step="0" data-prog="single">
         <div class="ps-dot"><span>1</span></div>
         <div class="prog-row-line"></div>
       </div>
-      <div class="prog-tile reveal reveal-delay-1" data-prog="young-cup">
-        <div class="pa">Ages 5-7</div>
-        <div class="pname">YOUNG <span class="g">CUP</span></div>
-        <div class="pslogan">Build the love. Learn the game.</div>
+      <div class="prog-tile reveal reveal-delay-1" data-prog="single">
+        <div class="pa">No Commitment</div>
+        <div class="pname">SINGLE <span class="g">SESSION</span></div>
+        <div class="pslogan">Try it. One session, no strings attached.</div>
         <div class="ppr">
-          <div class="ppl">Monthly</div>
-          <div class="pp">$179 <em>/ mo</em></div>
+          <div class="ppl">Per Session</div>
+          <div class="pp">$89</div>
         </div>
-        <a class='plnk' href='programs.html#young-cup' style='text-decoration:none;'>Learn More &rarr;</a>
+        <a class='plnk' href='train.html' style='text-decoration:none;'>Learn More &rarr;</a>
       </div>
     </div>
 
-    <!-- DEVELOPMENT -->
-    <div class="prog-row" data-prog-row="development">
-      <div class="prog-row-node" data-step="1" data-prog="development">
+    <!-- LAB PACK -->
+    <div class="prog-row" data-prog-row="labpack">
+      <div class="prog-row-node" data-step="1" data-prog="labpack">
         <div class="ps-dot"><span>2</span></div>
         <div class="prog-row-line"></div>
       </div>
-      <div class="prog-tile feat reveal reveal-delay-2" data-prog="development">
-        <div class="pa">Ages 8-11</div>
-        <div class="pname">DEVELOP<span class="g">MENT</span></div>
-        <div class="pslogan">Build your game the right way.</div>
+      <div class="prog-tile feat reveal reveal-delay-2" data-prog="labpack">
+        <div class="pa">5 or 10 Sessions</div>
+        <div class="pname">LAB <span class="g">PACK</span></div>
+        <div class="pslogan">Pre-paid sessions at a discounted rate. No expiry.</div>
         <div class="ppr">
-          <div class="ppl">Monthly</div>
-          <div class="pp">$399 <em>/ mo</em></div>
+          <div class="ppl">From</div>
+          <div class="pp">$349 <em>/ 5-pack</em></div>
         </div>
-        <a class='plnk' href='programs.html#development' style='text-decoration:none;'>Learn More &rarr;</a>
+        <a class='plnk' href='train.html#packs' style='text-decoration:none;'>Learn More &rarr;</a>
       </div>
     </div>
 
-    <!-- PERFORMANCE -->
-    <div class="prog-row" data-prog-row="performance">
-      <div class="prog-row-node" data-step="2" data-prog="performance">
+    <!-- LAB MEMBERSHIP -->
+    <div class="prog-row" data-prog-row="membership">
+      <div class="prog-row-node" data-step="2" data-prog="membership">
         <div class="ps-dot"><span>3</span></div>
         <div class="prog-row-line"></div>
       </div>
-      <div class="prog-tile reveal reveal-delay-3" data-prog="performance">
-        <div class="pa">Ages 12-16</div>
-        <div class="pname">PERFORM<span class="g">ANCE</span></div>
-        <div class="pslogan">Train how you play. Perform under pressure.</div>
+      <div class="prog-tile reveal reveal-delay-3" data-prog="membership">
+        <div class="pa">Weekly Training</div>
+        <div class="pname">LAB <span class="g">MEMBERSHIP</span></div>
+        <div class="pslogan">Weekly coached session + unlimited drop-in open ice.</div>
         <div class="ppr">
           <div class="ppl">Monthly</div>
-          <div class="pp">$399 <em>/ mo</em></div>
+          <div class="pp">$299 <em>/ mo</em></div>
         </div>
-        <a class='plnk' href='programs.html#performance' style='text-decoration:none;'>Learn More &rarr;</a>
+        <a class='plnk' href='train.html#membership' style='text-decoration:none;'>Learn More &rarr;</a>
       </div>
     </div>
 
-    <!-- ELITE -->
-    <div class="prog-row" data-prog-row="elite">
-      <div class="prog-row-node" data-step="3" data-prog="elite">
+    <!-- HYBRID INTEGRATION -->
+    <div class="prog-row" data-prog-row="hybrid">
+      <div class="prog-row-node" data-step="3" data-prog="hybrid">
         <div class="ps-dot"><span>4</span></div>
         <div class="prog-row-line"></div>
       </div>
-      <div class="prog-tile reveal reveal-delay-4" data-prog="elite">
-        <div class="pa">Ages 16+</div>
-        <div class="pname" style="color:var(--gold);font-size:36px;">ELITE</div>
-        <div class="pslogan">Separate yourself from the competition.</div>
+      <div class="prog-tile reveal reveal-delay-4" data-prog="hybrid">
+        <div class="pa">Full Integration</div>
+        <div class="pname" style="color:var(--gold);font-size:32px;">HYBRID</div>
+        <div class="pslogan">On-ice team practice integration + 2x/week coached sessions.</div>
         <div class="ppr">
-          <div class="ppl">Starting At</div>
-          <div class="pp">$899 <em>/ mo</em></div>
+          <div class="ppl">Monthly</div>
+          <div class="pp">$599 <em>/ mo</em></div>
         </div>
-        <a class='plnk' href='programs.html#elite' style='text-decoration:none;'>Learn More &rarr;</a>
+        <a class='plnk' href='train.html#hybrid' style='text-decoration:none;'>Learn More &rarr;</a>
       </div>
     </div>
 
@@ -514,7 +489,7 @@
     <a class='cta-card' href='get-started.html#offers'>
       <div class="cc-lbl">5-Pack or 10-Pack</div>
       <div class="cc-title">Lab Packs</div>
-      <div class="cc-desc">1-on-1 coached sessions with Coach Grant. $325 for 5 sessions &middot; $599 for 10. No monthly commitment required.</div>
+      <div class="cc-desc">1-on-1 coached sessions with Coach Grant. $349 for 5 sessions &middot; $649 for 10. No monthly commitment required.</div>
     </a>
     <a class='cta-card' href='get-started.html#membership'>
       <div class="cc-lbl">From $299/month</div>

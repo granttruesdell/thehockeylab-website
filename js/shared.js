@@ -80,15 +80,13 @@ const FOOTER_HTML = `
     <div class="footer-col">
       <div class="footer-col-title">Train With Us</div>
       <ul>
-        <li><a href="train.html#dropin-coached">Drop-In Coached ($75)</a></li>
-        <li><a href="train.html#single">Single Session ($89)</a></li>
-        <li><a href="train.html#packs">Lab Pack 5 ($349)</a></li>
-        <li><a href="train.html#packs">Lab Pack 10 ($649)</a></li>
-        <li><a href="train.html#membership">Lab Membership ($299/mo)</a></li>
-        <li><a href="train.html#plus">Membership Plus ($399/mo)</a></li>
-        <li><a href="train.html#hybrid">Hybrid Integration ($599/mo)</a></li>
-        <li><a href="train.html#dropin-ice">Drop-In Open Ice ($20)</a></li>
-        <li><a href="train.html#sharpening">Skate Sharpening ($5)</a></li>
+        <li><a href="train.html#trial">Free Trial Session</a></li>
+        <li><a href="train.html#dropin">Drop-In ($70)</a></li>
+        <li><a href="train.html#packs">Lab Pack 5 ($325)</a></li>
+        <li><a href="train.html#packs">Lab Pack 10 ($600)</a></li>
+        <li><a href="train.html#membership">Lab Membership ($280/mo)</a></li>
+        <li><a href="train.html#plus">Lab Membership Plus ($520/mo)</a></li>
+        <li><a href="mental-edge.html">Mental Edge ($199)</a></li>
       </ul>
     </div>
     <div class="footer-col">

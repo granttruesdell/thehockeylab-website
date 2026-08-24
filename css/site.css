@@ -1355,88 +1355,114 @@ em { font-style: italic; }
 ::-webkit-scrollbar-thumb { background: rgba(255,215,0,0.3); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(255,215,0,0.5); }
 
-/* ── Facility gallery ───────────────────────────────────────── */
-.facility-grid {
+/* ── Facility mosaic ────────────────────────────────────────────
+   Asymmetric editorial grid: one feature tile carries the section,
+   a wide tile breaks the rhythm, the rest are supporting detail.   */
+.facility-mosaic {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin-top: 44px;
+  grid-auto-rows: clamp(140px, 15.5vw, 215px);
+  gap: 12px;
+  margin-top: 48px;
 }
-.facility-item {
+.fm-item {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--white-08);
   background: var(--dark-2);
-  aspect-ratio: 4 / 3;
+  border: 1px solid var(--white-08);
 }
-.facility-item img {
+.fm-item::after {
+  /* keeps captions legible and unifies the set tonally */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.12) 42%, rgba(0,0,0,0) 68%);
+  opacity: 0.9;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.fm-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: saturate(0.92) contrast(1.04);
-  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: saturate(0.82) contrast(1.06) brightness(0.94);
+  transform: scale(1.01);
+  transition: transform 0.85s cubic-bezier(0.16,0.8,0.3,1), filter 0.6s ease;
 }
-.facility-item:hover img {
-  transform: scale(1.04);
-  filter: saturate(1) contrast(1.06);
+.fm-item:hover img {
+  transform: scale(1.06);
+  filter: saturate(1.02) contrast(1.08) brightness(1);
 }
-.facility-cap {
+.fm-item:hover::after { opacity: 0.72; }
+
+.fm-feature { grid-column: span 2; grid-row: span 2; }
+.fm-wide    { grid-column: span 2; }
+
+/* Caption */
+.fm-cap {
   position: absolute;
   left: 0; right: 0; bottom: 0;
-  padding: 26px 14px 11px;
+  padding: 0 14px 12px;
+  z-index: 2;
   font-family: 'Rajdhani', sans-serif;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.17em;
   text-transform: uppercase;
-  color: #fff;
-  background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0));
+  color: rgba(255,255,255,0.92);
   pointer-events: none;
 }
-.facility-cap span { color: var(--gold); }
-
-@media (max-width: 900px) {
-  .facility-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-}
-@media (max-width: 480px) {
-  .facility-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .facility-cap { font-size: 9px; letter-spacing: 0.1em; padding: 20px 8px 8px; }
-}
-
-/* ── Wide feature photo band ────────────────────────────────── */
-.photo-feature {
-  max-width: 980px;
-  margin: 0 auto;
-}
-.photo-feature figure {
-  margin: 0;
-  border: 1px solid var(--white-08);
-  background: var(--dark-2);
-  overflow: hidden;
-}
-.photo-feature img {
-  width: 100%;
-  height: auto;
+.fm-cap span { color: var(--gold); }
+.fm-cap::before {
+  content: '';
   display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  margin-bottom: 8px;
+  transform-origin: left;
+  transform: scaleX(0.55);
+  transition: transform 0.5s ease;
 }
-.photo-feature figcaption {
-  padding: 14px 18px;
-  border-top: 1px solid var(--white-08);
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--white-60);
-}
-.photo-feature figcaption span { color: var(--gold); }
+.fm-item:hover .fm-cap::before { transform: scaleX(1); }
 
-/* 3-across variant for the homepage facility gallery */
-.facility-grid--three { grid-template-columns: repeat(3, 1fr); }
-@media (max-width: 900px) {
-  .facility-grid--three { grid-template-columns: repeat(2, 1fr); }
+.fm-feature .fm-cap {
+  padding: 0 22px 20px;
+  font-size: 15px;
+  letter-spacing: 0.14em;
 }
-@media (max-width: 480px) {
-  .facility-grid--three { grid-template-columns: repeat(2, 1fr); }
+.fm-feature .fm-cap::before { width: 34px; height: 2px; margin-bottom: 11px; }
+
+/* Supporting captions sit back from the feature but stay legible everywhere.
+   Deliberately not hover-gated: on touch there is no hover, so a reveal-on-hover
+   caption would simply never appear. */
+.fm-item:not(.fm-feature) .fm-cap {
+  opacity: 0.78;
+  transition: opacity 0.4s ease;
+}
+.fm-item:not(.fm-feature):hover .fm-cap { opacity: 1; }
+
+/* Below 1024 the mosaic drops to two columns rather than three.
+   With a 2x2 feature and a 2x1 wide tile, a 3-column grid strands empty
+   cells (a 2-wide tile can never start in the last column); two columns
+   pack perfectly and give each photo more room. */
+@media (max-width: 1024px) {
+  .facility-mosaic {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: clamp(150px, 21vw, 225px);
+  }
+}
+@media (max-width: 700px) {
+  .facility-mosaic {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: clamp(112px, 26vw, 165px);
+    gap: 8px;
+    margin-top: 34px;
+  }
+  .fm-feature { grid-column: span 2; grid-row: span 2; }
+  .fm-wide    { grid-column: span 2; grid-row: span 1; }
+  .fm-cap { font-size: 9px; letter-spacing: 0.11em; padding: 0 10px 9px; }
+  .fm-cap::before { width: 14px; margin-bottom: 6px; }
+  .fm-feature .fm-cap { font-size: 12px; padding: 0 14px 13px; }
 }

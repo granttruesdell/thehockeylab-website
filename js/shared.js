@@ -63,7 +63,7 @@ const FOOTER_HTML = `
       <p class="footer-desc">The Hockey Lab is a goalie-first development program inside the Coquitlam Express Performance Centre. General Manager &amp; Lead Instructor: Grant Truesdell. Built for goalies. Skaters welcome. Now open.</p>
       <div class="footer-waitlist-box">
         <div class="footer-waitlist-label">Now Open &mdash; Booking Sessions</div>
-        <a href="https://calendly.com/thehockeylabofficial-info/free-trial-lesson-at-the-hockey-lab" target="_blank" rel="noopener">Book a free trial or grab a Lab Pack &rarr;</a>
+        <a href="get-started.html#free-trial-booking">Book a free trial or grab a Lab Pack &rarr;</a>
       </div>
       <div class="footer-social">
         <a href="https://instagram.com/thehockeylabofficial" class="footer-social-link footer-social-link--ig" target="_blank" rel="noopener" aria-label="Instagram">
@@ -80,7 +80,7 @@ const FOOTER_HTML = `
     <div class="footer-col">
       <div class="footer-col-title">Train With Us</div>
       <ul>
-        <li><a href="https://calendly.com/thehockeylabofficial-info/free-trial-lesson-at-the-hockey-lab" target="_blank" rel="noopener">Free Trial Session</a></li>
+        <li><a href="get-started.html#free-trial-booking">Free Trial Session</a></li>
         <li><a href="train.html#dropin">Drop-In ($75)</a></li>
         <li><a href="train.html#packs">Lab Pack 5 ($325)</a></li>
         <li><a href="train.html#packs">Lab Pack 10 ($600)</a></li>
@@ -146,7 +146,7 @@ const FOOTER_HTML = `
 // ── MOBILE CTA BAR ──
 const MOBILE_CTA_HTML = `
 <div class="mobile-cta-bar" id="mobile-cta-bar">
-  <a href="https://calendly.com/thehockeylabofficial-info/free-trial-lesson-at-the-hockey-lab" target="_blank" rel="noopener">Claim Your Free Trial Session &rarr;</a>
+  <a href="get-started.html#free-trial-booking">Claim Your Free Trial Session &rarr;</a>
 </div>`;
 
 // ── INIT ──

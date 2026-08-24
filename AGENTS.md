@@ -100,6 +100,17 @@ Square merchant of record: **Coquitlam Express Jr. A Hockey Club**.
 
 **Funnel rule:** the **free trial is the primary entry point** everywhere. The 15-min call is the *secondary* path for hesitant parents ("not sure yet?"). Do not swap their priority.
 
+> [!IMPORTANT]
+> **Booking stays on our own domain.** Do not link CTAs directly to calendly.com.
+> Both calendars are embedded on branded pages, and CTAs point at those anchors:
+> - Free trial → `get-started.html#free-trial-booking`
+> - 15-min call → `contact.html#book-a-call`
+>
+> These links open in the same tab (no `target="_blank"`) so the visitor never
+> leaves the site. The only places a raw calendly.com URL belongs are the two
+> widget `data-url` attributes and the "trouble with the calendar?" fallback
+> on `get-started.html`.
+
 ---
 
 ## 4. Confirmation Pages

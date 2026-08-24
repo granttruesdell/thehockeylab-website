@@ -87,6 +87,17 @@ Square merchant of record: **Coquitlam Express Jr. A Hockey Club**.
 | Lab Pack 5 first session (Acuity) | https://app.acuityscheduling.com/schedule.php?owner=39339711&appointmentType=93248882 |
 | Lab Pack 10 first session (Acuity) | https://app.acuityscheduling.com/schedule.php?owner=39339711&appointmentType=93248899 |
 
+> [!WARNING]
+> **Manus dependency — `development-consultation.html` and `mental-edge-consultation.html`.**
+> Both pages contain a hand-built booking calendar that POSTs to
+> `https://hockeywait-en2ftlab.manus.space/api/book` — a Manus-hosted backend, not
+> Netlify. It is not a Netlify Form and has no `form-name`, so nothing about it appears
+> in the Netlify dashboard. If that Manus workspace is shut down, the form fails at
+> submit time with a generic error and the booking is lost.
+> Both pages are now orphaned — no live page links to them. All "book a call" CTAs
+> point at the Calendly 15-minute link instead. Do not link back to these pages
+> unless the backend is migrated off Manus.
+
 **Funnel rule:** the **free trial is the primary entry point** everywhere. The 15-min call is the *secondary* path for hesitant parents ("not sure yet?"). Do not swap their priority.
 
 ---

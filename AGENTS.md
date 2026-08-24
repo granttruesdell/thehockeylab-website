@@ -24,7 +24,7 @@ This table is the source of truth. It supersedes any older pricing found in the 
 
 **Retired — never reintroduce:** Young Cup, Charter Athlete, Development / Performance / Elite tiers, Hybrid Integration, Early Bird.
 
-**Homepage tagline is "Where Goalies Are Built."** The global footer tagline in `js/shared.js` still reads "Where Athletes Are Built" — intentionally unresolved, pending Grant's call.
+**The brand tagline is "Where Goalies Are Built"** — used in the homepage hero, the page title, the OG title, and the global footer in `js/shared.js`. Goalies are the primary niche and the target roster for the facility. Do not revert this to "Where Athletes Are Built". Skaters are still welcome and that stays in the body copy, but it is never the headline.
 
 **Framing rule:** the core product is **semi-private** (max 2 athletes on ice). While the roster builds, many sessions will naturally run 1-on-1 — copy must still say semi-private so pairing never reads as a downgrade.
 

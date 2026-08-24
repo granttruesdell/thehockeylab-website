@@ -34,24 +34,32 @@ This table is the source of truth. It supersedes any older pricing found in the 
 
 | Item | Price | Square Link | Wired into site? |
 |---|---|---|---|
-| **Single Coached Session** | $75 | https://square.link/u/PMTMJz5x | NOT YET USED |
+| **Lab Membership** | $280/mo | https://square.link/u/PMTMJz5x | Yes — train, services, get-started |
+| **Lab Membership Plus** | $520/mo | https://square.link/u/n9L5Hmez | Yes — train, services, get-started |
 | **Lab Pack 5** | $325 | https://square.link/u/fxlJ6lSJ | Yes — train, services, get-started |
 | **Lab Pack 10** | $600 | https://square.link/u/qqbxCCRe | Yes — train, services, get-started |
 | **Mental Edge** | $199 | https://square.link/u/MG1hBCpz | Yes — mental-edge.html |
 | **Goalie Camp** | $449 | https://square.link/u/3PkwKqfX | Launch pages only |
-| **Lab Membership** | $280/mo | **DOES NOT EXIST** | BLOCKED |
-| **Lab Membership Plus** | $520/mo | **DOES NOT EXIST** | BLOCKED |
+| **Single Coached Session** | $75 | none | Not sold online |
 
-> [!ACTION]
-> Two Square **subscription** links must be created by Grant before memberships can be sold self-serve:
-> `lab-membership` ($280/mo) and `lab-plus-membership` ($520/mo).
-> Until then, membership CTAs point at `get-started.html` and are marked in the HTML with
-> `<!-- TODO: swap href for Square subscription link when available -->`.
-> Grep for that comment to find every spot that needs updating.
+All prices above verified live against the Square checkout pages on 2026-08-24.
+Square merchant of record: **Coquitlam Express Jr. A Hockey Club**.
 
 > [!WARNING]
-> Square link `qqbxCCRe` was originally configured at **$599**. The site now advertises **$600**.
-> Confirm the Square dashboard has been updated or the checkout total will not match the site.
+> `PMTMJz5x` was previously the $75 Single Coached Session link. It has been
+> repurposed as the $280 Lab Membership. Any older reference calling it a single
+> session is wrong. **There is currently no live Square link for the $75 single
+> session** — `book.html` still collects those as a form request.
+
+> [!WARNING]
+> Both membership checkout pages render as a **one-time CA$ charge** with no
+> recurring-billing line. If these are not true Square subscriptions, members
+> will be billed once and must be re-invoiced manually every month. Verify in
+> the Square dashboard before relying on them for recurring revenue.
+
+> [!NOTE]
+> Both membership descriptions in Square promise **"unlimited drop-in open ice"**.
+> That benefit is not yet stated in the website copy for either tier.
 
 **Retired Square links — do not reuse:** `zSpDjD6b` (Young Cup Charter), `ydo7DV3c` (Charter).
 

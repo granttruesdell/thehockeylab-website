@@ -27,7 +27,7 @@ const PRODUCT_MAP = {
   'Hockey Lab Young Cup Program (Charter Athlete)': { membershipType: 'Founding Athlete Pack', program: 'Founding Athlete' },
   'Hockey Lab Mental Edge Program':           { membershipType: 'Mental Edge',           program: 'Mental Edge' },
   'Charter Athlete Membership':               { membershipType: 'Founding Athlete Pack', program: 'Founding Athlete' },
-  'Goalie Development Camp — July 6–10':      { membershipType: 'Goalie Dev Camp July 6-10', program: 'Camp' },
+  'Hockey Lab - Goalie Development Camp — Aug 31 - Sept 4': { membershipType: 'Goalie Dev Camp Aug 31 - Sep 4', program: 'Camp' },
 };
 
 // ── Verify Square webhook signature ───────────────────────────────────────────

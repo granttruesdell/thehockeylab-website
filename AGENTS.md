@@ -20,7 +20,7 @@ This table is the source of truth. It supersedes any older pricing found in the 
 | **Lab Membership** | $280/mo | 1 session/week | Month-to-month. Cancel anytime. |
 | **Lab Membership Plus** | $520/mo | 2 sessions/week | Month-to-month. Cancel anytime. |
 | **Mental Edge** | $199 | 6-week cohort | Standalone. Remote or in-person. |
-| **Goalie Development Camp** | $449 | Aug 31 - Sep 4, 2026 | Registration via `camp-registration.html`. |
+| **Goalie Development Camp** | $449 | Aug 31 - Sep 4, 2026 | Pay via Square, then complete `camp-registration.html`. Ages 8-13, 9am-1pm daily, 10 spots. |
 
 **Retired — never reintroduce:** Young Cup, Charter Athlete, Development / Performance / Elite tiers, Hybrid Integration, Early Bird.
 
@@ -41,7 +41,7 @@ This table is the source of truth. It supersedes any older pricing found in the 
 | **Lab Pack 5** | $325 | https://square.link/u/fxlJ6lSJ | Yes — train, services, get-started |
 | **Lab Pack 10** | $600 | https://square.link/u/qqbxCCRe | Yes — train, services, get-started |
 | **Mental Edge** | $199 | https://square.link/u/MG1hBCpz | Yes — mental-edge.html |
-| **Goalie Camp** | $449 | https://square.link/u/3PkwKqfX | Launch pages only |
+| **Goalie Camp** | $449 | https://square.link/u/3PkwKqfX | Yes — get-started.html |
 | **Single Coached Session** | $75 | none | Not sold online |
 
 All prices above verified live against the Square checkout pages on 2026-08-24.
@@ -62,6 +62,14 @@ Square merchant of record: **Coquitlam Express Jr. A Hockey Club**.
 > [!NOTE]
 > Both membership descriptions in Square promise **"unlimited drop-in open ice"**.
 > That benefit is not yet stated in the website copy for either tier.
+
+> [!IMPORTANT]
+> Camp flow: Square checkout (`3PkwKqfX`) → `camp-registration.html` (intake form).
+> The registration page's copy assumes payment already happened, so the Square link
+> must be configured to redirect there after a successful payment. The exact Square
+> product name is `Hockey Lab - Goalie Development Camp — Aug 31 - Sept 4`, and
+> `netlify/functions/square-webhook.js` matches on that string — if the product is
+> renamed in Square, update the webhook map too.
 
 **Retired Square links — do not reuse:** `zSpDjD6b` (Young Cup Charter), `ydo7DV3c` (Charter).
 

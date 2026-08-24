@@ -9,7 +9,32 @@
 
 [[redirects]]
   from = "/programs"
-  to = "/programs.html"
+  to = "/train.html"
+  status = 301
+
+[[redirects]]
+  from = "/train"
+  to = "/train.html"
+  status = 200
+
+[[redirects]]
+  from = "/get-started"
+  to = "/get-started.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/book"
+  to = "/book.html"
   status = 200
 
 [[redirects]]

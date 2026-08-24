@@ -60,9 +60,9 @@ const FOOTER_HTML = `
     <div class="footer-brand">
       <div class="footer-logo-text">THE HOCKEY <span>LAB</span></div>
       <div class="footer-tagline">Where Athletes Are Built</div>
-      <p class="footer-desc">The Hockey Lab is a goalie-first development program inside the Coquitlam Express Performance Centre. General Manager &amp; Lead Instructor: Grant Truesdell. Built for goalies. Skaters welcome. Opening Summer 2026.</p>
+      <p class="footer-desc">The Hockey Lab is a goalie-first development program inside the Coquitlam Express Performance Centre. General Manager &amp; Lead Instructor: Grant Truesdell. Built for goalies. Skaters welcome. Now open.</p>
       <div class="footer-waitlist-box">
-        <div class="footer-waitlist-label">Opening Summer 2026 &mdash; Memberships Available Now</div>
+        <div class="footer-waitlist-label">Now Open &mdash; Booking Sessions</div>
         <a href="https://calendly.com/thehockeylabofficial-info/free-trial-lesson-at-the-hockey-lab" target="_blank" rel="noopener">Book a free trial or grab a Lab Pack &rarr;</a>
       </div>
       <div class="footer-social">
@@ -109,8 +109,8 @@ const FOOTER_HTML = `
         <div class="footer-contact-value"><a href="https://maps.google.com/?q=1020+Austin+Avenue+Coquitlam+BC" target="_blank" rel="noopener">Unit 211, 1020 Austin Ave<br>Coquitlam, BC</a></div>
       </div>
       <div class="footer-contact-item">
-        <div class="footer-contact-label">Opening</div>
-        <div class="footer-contact-value">Summer 2026 &mdash; Coming Soon</div>
+        <div class="footer-contact-label">Status</div>
+        <div class="footer-contact-value">Open &mdash; Booking Now</div>
       </div>
       <div class="footer-contact-item">
         <div class="footer-contact-label">Email</div>

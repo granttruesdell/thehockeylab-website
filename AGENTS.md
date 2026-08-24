@@ -1,60 +1,162 @@
 # The Hockey Lab — Agent Operations Guide
 
-This file contains critical operational data, payment links, scheduling links, and workflows for The Hockey Lab website. Any agent working on this project MUST read this file before making changes to payment flows, booking systems, or confirmation pages.
+Operational data, payment links, scheduling links, and workflows for The Hockey Lab website. Any agent working on this project MUST read this file before touching payment flows, booking systems, offer copy, or confirmation pages.
 
-## 1. Payment Links (Square)
+**Status: The Hockey Lab is OPEN.** Do not reintroduce "Opening Summer 2026", "Coming Soon", "Opening August 2026", or waitlist framing anywhere on the site.
 
-All payments are processed through Square. When adding new CTAs or updating pricing, use these exact links:
+---
 
-| Item | Price | Square Link |
-|---|---|---|
-| **Single Coached Session** | $75 | [https://square.link/u/PMTMJz5x](https://square.link/u/PMTMJz5x) |
-| **Lab Pack — 5 Sessions** | $325 | [https://square.link/u/fxlJ6lSJ](https://square.link/u/fxlJ6lSJ) |
-| **Lab Pack — 10 Sessions** | $599 | [https://square.link/u/qqbxCCRe](https://square.link/u/qqbxCCRe) |
-| **Young Cup Charter** | $179/mo | [https://square.link/u/zSpDjD6b](https://square.link/u/zSpDjD6b) |
-| **Goalie Development Camp** | $449 | [https://square.link/u/3PkwKqfX](https://square.link/u/3PkwKqfX) |
+## 1. Current Offer Menu (effective August 2026)
 
-*Note: Square payment links must be configured in the Square Dashboard to redirect to the corresponding confirmation page (see Section 3) upon successful payment.*
+This table is the source of truth. It supersedes any older pricing found in the repo.
 
-## 2. Scheduling Links (Acuity & Calendly)
+| Offer | Price | Format | Terms |
+|---|---|---|---|
+| **Free Trial** | Free | 45 min | One per athlete. Booked online via Calendly. |
+| **Drop-In** | $70 | 45 min, coached | Walk-in, subject to availability. |
+| **Single Coached Session** | $75 | 45 min | Pre-booked via Square. |
+| **Lab Pack 5** | $325 | 5 x 45 min | Pre-paid. 6-month expiry. Non-transferable. |
+| **Lab Pack 10** | $600 | 10 x 45 min | Pre-paid. 6-month expiry. Non-transferable. |
+| **Lab Membership** | $280/mo | 1 session/week | Month-to-month. Cancel anytime. |
+| **Lab Membership Plus** | $520/mo | 2 sessions/week | Month-to-month. Cancel anytime. |
+| **Mental Edge** | $199 | 6-week cohort | Standalone. Remote or in-person. |
+| **Goalie Development Camp** | $449 | Aug 31 - Sep 4, 2026 | Registration via `camp-registration.html`. |
 
-Booking is handled via Acuity Scheduling (for paid sessions) and Calendly (for free discovery calls).
+**Retired — never reintroduce:** Young Cup, Charter Athlete, Development / Performance / Elite tiers, Hybrid Integration, Early Bird.
 
-**Acuity Account:** `info@thehockeylabofficial.com`
-**Acuity Trial Expiry:** May 23, 2026 (Must subscribe to Starter plan to keep links active)
-**Booking Start Date:** July 1, 2026 (Pre-July 1 dates are manually blocked via messaging on the site)
+**Framing rule:** the core product is **semi-private** (max 2 athletes on ice). While the roster builds, many sessions will naturally run 1-on-1 — copy must still say semi-private so pairing never reads as a downgrade.
 
-| Appointment Type | Direct Booking Link |
+**Never use the term "lead magnet" in public-facing copy.**
+
+---
+
+## 2. Payment Links (Square)
+
+| Item | Price | Square Link | Wired into site? |
+|---|---|---|---|
+| **Single Coached Session** | $75 | https://square.link/u/PMTMJz5x | NOT YET USED |
+| **Lab Pack 5** | $325 | https://square.link/u/fxlJ6lSJ | Yes — train, services, get-started |
+| **Lab Pack 10** | $600 | https://square.link/u/qqbxCCRe | Yes — train, services, get-started |
+| **Mental Edge** | $199 | https://square.link/u/MG1hBCpz | Yes — mental-edge.html |
+| **Goalie Camp** | $449 | https://square.link/u/3PkwKqfX | Launch pages only |
+| **Lab Membership** | $280/mo | **DOES NOT EXIST** | BLOCKED |
+| **Lab Membership Plus** | $520/mo | **DOES NOT EXIST** | BLOCKED |
+
+> [!ACTION]
+> Two Square **subscription** links must be created by Grant before memberships can be sold self-serve:
+> `lab-membership` ($280/mo) and `lab-plus-membership` ($520/mo).
+> Until then, membership CTAs point at `get-started.html` and are marked in the HTML with
+> `<!-- TODO: swap href for Square subscription link when available -->`.
+> Grep for that comment to find every spot that needs updating.
+
+> [!WARNING]
+> Square link `qqbxCCRe` was originally configured at **$599**. The site now advertises **$600**.
+> Confirm the Square dashboard has been updated or the checkout total will not match the site.
+
+**Retired Square links — do not reuse:** `zSpDjD6b` (Young Cup Charter), `ydo7DV3c` (Charter).
+
+---
+
+## 3. Scheduling Links
+
+**Acuity account:** `info@thehockeylabofficial.com`
+
+| Purpose | Link |
 |---|---|
-| **Free Trial Session** (45 min, free) | [https://app.acuityscheduling.com/schedule.php?owner=39339711&appointmentType=93248717](https://app.acuityscheduling.com/schedule.php?owner=39339711&appointmentType=93248717) |
-| **Single Coached Session** (45 min, $75) | [https://app.acuityscheduling.com/schedule.php?owner=39339711&appointmentType=93248872](https://app.acuityscheduling.com/schedule.php?owner=39339711&appointmentType=93248872) |
-| **Lab Pack 5** (First Session) | [https://app.acuityscheduling.com/schedule.php?owner=39339711&appointmentType=93248882](https://app.acuityscheduling.com/schedule.php?owner=39339711&appointmentType=93248882) |
-| **Lab Pack 10** (First Session) | [https://app.acuityscheduling.com/schedule.php?owner=39339711&appointmentType=93248899](https://app.acuityscheduling.com/schedule.php?owner=39339711&appointmentType=93248899) |
-| **15-Min Discovery Call** (Calendly) | [https://calendly.com/thehockeylabofficial-info/free-15-min-call-with-coach-grant](https://calendly.com/thehockeylabofficial-info/free-15-min-call-with-coach-grant) |
+| **Free Trial** (primary CTA site-wide) | https://calendly.com/thehockeylabofficial-info/free-trial-lesson-at-the-hockey-lab |
+| **15-Min Discovery Call** (secondary CTA) | https://calendly.com/thehockeylabofficial-info/free-15-min-call-with-coach-grant |
+| Single Coached Session (Acuity) | https://app.acuityscheduling.com/schedule.php?owner=39339711&appointmentType=93248872 |
+| Lab Pack 5 first session (Acuity) | https://app.acuityscheduling.com/schedule.php?owner=39339711&appointmentType=93248882 |
+| Lab Pack 10 first session (Acuity) | https://app.acuityscheduling.com/schedule.php?owner=39339711&appointmentType=93248899 |
 
-## 3. Confirmation Pages
+**Funnel rule:** the **free trial is the primary entry point** everywhere. The 15-min call is the *secondary* path for hesitant parents ("not sure yet?"). Do not swap their priority.
 
-These pages are the post-payment or post-signup destinations. They contain embedded Acuity calendars or specific next-step instructions.
+---
 
-| Flow | Confirmation Page URL | Notes |
-|---|---|---|
-| **Free Trial** | `/free-trial-confirmation.html` | Waitlist only. No live booking calendar. Grant reaches out manually. |
-| **Single Session** | `/single-session-confirmation.html` | Acuity iframe embedded. July 1+ booking only. |
-| **Lab Pack 5** | `/lab-pack-5-confirmation.html` | Acuity iframe embedded. July 1+ booking only. |
-| **Lab Pack 10** | `/lab-pack-10-confirmation.html` | Acuity iframe embedded. July 1+ booking only. |
-| **Charter Athlete** | `/charter-confirmation.html` | Next steps + waiver link. No booking calendar. |
-| **Young Cup Charter** | `/young-cup-charter-confirmation.html` | Next steps + waiver link. Specific to ages 5-7. |
-| **Goalie Camp** | `/camp-confirmation.html` | Next steps + waiver link. |
+## 4. Confirmation Pages
 
-## 4. Current Workflows & Rules
+| Flow | Page |
+|---|---|
+| Free Trial | `/free-trial-confirmation.html` |
+| Single Session | `/single-session-confirmation.html` |
+| Lab Pack 5 | `/lab-pack-5-confirmation.html` |
+| Lab Pack 10 | `/lab-pack-10-confirmation.html` |
+| Mental Edge | `/mental-edge-confirmation.html` |
+| Goalie Camp | `/camp-confirmation.html` |
 
-1. **Free Trials:** Currently operating as a waitlist. Users fill out the Netlify form on `get-started.html`, land on `free-trial-confirmation.html`, and Grant contacts them manually. Do not expose the Acuity Free Trial link until Grant gives the green light.
-2. **Pre-July 1 Bookings:** The Acuity iframes on the confirmation pages are currently wrapped in a "Booking Opens July 1" message. When July 1 approaches, the HTML needs to be updated to expose the live iframe.
-3. **Drop-Ins:** Drop-in sessions have been removed from the public site. They are available for members only. Do not add Drop-In CTAs to public pages.
-4. **Forms:** All forms (Waitlist, Camp Registration, Native Booking Request) use Netlify Forms. Submissions go to the Netlify dashboard and trigger email notifications to Grant.
+Square payment links must be configured in the Square Dashboard to redirect to the matching confirmation page after successful payment.
 
-## 5. Deployment
+**Retired confirmation pages** (still in repo, pending Grant's review — do not delete without approval): `charter-confirmation.html`, `young-cup-charter-confirmation.html`, `launch.html`, `launch-v2.html`, `early-bird.html`.
 
-The site is hosted on Netlify, connected to the `main` branch of the GitHub repository.
-- **To deploy:** Commit and push to `main`. Netlify auto-deploys within 60 seconds.
-- **Live URL:** [https://thehockeylabofficial.com](https://thehockeylabofficial.com)
+---
+
+## 5. Netlify Forms
+
+Do not remove the `data-netlify` attribute or the hidden `form-name` input from any form.
+
+| Form name | Page |
+|---|---|
+| `free-trial-waitlist` | `get-started.html` |
+| `session-booking` | `book.html` |
+| `goalie-camp-registration` | `camp-registration.html` |
+| `contact` | `contact.html` |
+| `waitlist` | `waitlist.html` |
+
+> [!NOTE]
+> `book.html` and `get-started.html` still collect requests via form rather than taking payment.
+> Both represent manual work for Grant. The goal is fully self-serve booking and purchase.
+
+---
+
+## 6. Key Files
+
+- `index.html` — homepage: hero, value props, final CTA block
+- `train.html` — primary sales page: full offer menu + value ladder table
+- `get-started.html` — funnel page: trial form + Square checkout links
+- `faq.html` — master pricing list under "Programs & Pricing"
+- `services.html` — offer cards with checkout CTAs
+- `js/shared.js` — injects global nav, mobile menu, footer. **All global nav/footer changes go here, never in individual HTML files.**
+- `css/site.css` — all CSS custom properties (`--gold: #FFD700`, `--dark-1: #080808`)
+- `netlify.toml` — clean-URL redirects, security headers
+- `netlify/functions/` — `form-submission.js`, `square-webhook.js`
+
+---
+
+## 7. Update Protocols
+
+1. **Audit before replacing.** Always `grep` the whole repo for a price or term before changing it.
+2. **Pricing changes are synchronous** across `train.html`, `services.html`, `get-started.html`, `faq.html`, `index.html`.
+3. **Maintain the value ladder:** Drop-in > Pack 5 > Pack 10 = Membership Plus on a per-session basis.
+4. **Nav/footer changes go in `js/shared.js` only.**
+5. **Commit format:** conventional commits (`feat:`, `fix:`, `refactor:`, `chore:`).
+
+---
+
+## 8. Voice & Tone
+
+- Direct, professional, performance-oriented. Grounded and evidence-based.
+- No fluffy marketing language, no hype, no "hockey bro" slang.
+- Focus on structure, consistency, and the 4-pillar system: **Movement, Tracking, Execution, Mindset**.
+- Refer to Grant as "Coach Grant" or "Grant".
+
+---
+
+## 9. Deployment
+
+Netlify, continuous deployment from the `main` branch of `granttruesdell/thehockeylab-website`.
+
+- **To deploy:** commit and push to `main`. Netlify builds within ~60 seconds.
+- **Live URL:** https://thehockeylabofficial.com
+- `origin/dev` is 30 commits behind `main` and is not in use.
+
+---
+
+## 10. Related Context
+
+Grant's personal wiki holds brand, strategy, and offer background:
+
+1. `C:\Users\shred\Desktop\Grants Ai Brain\wiki\hot.md` — read first
+2. `wiki\ip\hockey-lab-brand-kit.md` — fonts, logos, colors
+3. `wiki\ip\hockey-lab-offer-structure.md` — offer/pricing detail
+
+Read only from `wiki\` — never touch `raw\`.

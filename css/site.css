@@ -1354,3 +1354,51 @@ em { font-style: italic; }
 ::-webkit-scrollbar-track { background: var(--dark); }
 ::-webkit-scrollbar-thumb { background: rgba(255,215,0,0.3); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(255,215,0,0.5); }
+
+/* ── Facility gallery ───────────────────────────────────────── */
+.facility-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 44px;
+}
+.facility-item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--white-08);
+  background: var(--dark-2);
+  aspect-ratio: 4 / 3;
+}
+.facility-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.92) contrast(1.04);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+.facility-item:hover img {
+  transform: scale(1.04);
+  filter: saturate(1) contrast(1.06);
+}
+.facility-cap {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 26px 14px 11px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0));
+  pointer-events: none;
+}
+.facility-cap span { color: var(--gold); }
+
+@media (max-width: 900px) {
+  .facility-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+}
+@media (max-width: 480px) {
+  .facility-grid { grid-template-columns: 1fr; }
+}

@@ -467,47 +467,21 @@
     <p class="label">Best Place to Start</p>
     <h2>Try It Free.<br>No Commitment.</h2>
     <p>One free 45-minute session on the synthetic ice at the Express Performance Centre. No gear required for your first visit. Just show up and see what the Lab is about.</p>
-    <a href="get-started.html#free-trial-waitlist" class="btn-dark">Claim Your Free Trial →</a>
-    <p class="fine-print">Limited spots per week. Join the waitlist and Grant will reach out to schedule.</p>
+    <a href="#free-trial-booking" class="btn-dark">Claim Your Free Trial →</a>
+    <p class="fine-print">Limited spots per week. Pick a time below — instant confirmation.</p>
   </section>
 
-  <!-- ── FREE TRIAL WAITLIST FORM ── -->
-  <section style="padding: 60px 40px; background: #0d0d0d; border-bottom: 1px solid #1e1e1e;" id="free-trial-waitlist">
-    <div style="max-width: 560px; margin: 0 auto; text-align: center;">
-      <p style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px;">Free Trial Waitlist</p>
-      <h2 style="font-family: 'Exo 2', sans-serif; font-size: 1.8rem; font-weight: 900; text-transform: uppercase; color: #fff; margin: 0 0 12px;">Join the Waitlist</h2>
-      <p style="color: #888; font-size: 0.95rem; line-height: 1.6; margin-bottom: 32px;">Drop your info below. Grant will reach out within 24 hours to schedule your free 45-minute trial session.</p>
-      <form action='https://thehockeylabofficial.com/free-trial-confirmation' method='POST' name='free-trial-waitlist' style='text-align: left;'>
-        <input type="hidden" name="form-name" value="free-trial-waitlist">
-        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <div>
-            <label style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; display: block; margin-bottom: 6px;">First Name *</label>
-            <input type="text" name="first_name" required style="width: 100%; background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 12px 14px; font-size: 0.95rem; box-sizing: border-box;">
-          </div>
-          <div>
-            <label style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; display: block; margin-bottom: 6px;">Last Name *</label>
-            <input type="text" name="last_name" required style="width: 100%; background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 12px 14px; font-size: 0.95rem; box-sizing: border-box;">
-          </div>
-        </div>
-        <div style="margin-bottom: 16px;">
-          <label style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; display: block; margin-bottom: 6px;">Email Address *</label>
-          <input type="email" name="email" required style="width: 100%; background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 12px 14px; font-size: 0.95rem; box-sizing: border-box;">
-        </div>
-        <div style="margin-bottom: 16px;">
-          <label style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; display: block; margin-bottom: 6px;">Phone Number</label>
-          <input type="tel" name="phone" style="width: 100%; background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 12px 14px; font-size: 0.95rem; box-sizing: border-box;">
-        </div>
-        <div style="margin-bottom: 16px;">
-          <label style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; display: block; margin-bottom: 6px;">Athlete Age / Division</label>
-          <input type="text" name="athlete_age" placeholder="e.g. 12 / U13" style="width: 100%; background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 12px 14px; font-size: 0.95rem; box-sizing: border-box;">
-        </div>
-        <div style="margin-bottom: 28px;">
-          <label style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; display: block; margin-bottom: 6px;">Anything else we should know? (Optional)</label>
-          <textarea name="notes" rows="3" style="width: 100%; background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 12px 14px; font-size: 0.95rem; box-sizing: border-box; resize: vertical;"></textarea>
-        </div>
-        <button type="submit" style="width: 100%; background: var(--gold); color: #000; border: none; padding: 16px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;">Join the Free Trial Waitlist →</button>
-      </form>
+  <!-- ── FREE TRIAL BOOKING (Calendly) ── -->
+  <section style="padding: 60px 40px; background: #0d0d0d; border-bottom: 1px solid #1e1e1e;" id="free-trial-booking">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <p style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; text-align: center;">Book Your Free Trial</p>
+      <h2 style="font-family: 'Exo 2', sans-serif; font-size: 1.8rem; font-weight: 900; text-transform: uppercase; color: #fff; margin: 0 0 12px; text-align: center;">Pick Your Time</h2>
+      <p style="color: #888; font-size: 0.95rem; line-height: 1.6; margin-bottom: 32px; text-align: center;">Choose an open slot below and you are booked — instant confirmation, no waiting on a callback.</p>
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/thehockeylabofficial-info/free-trial-lesson-at-the-hockey-lab?hide_gdpr_banner=1&background_color=0a0a0a&text_color=ffffff&primary_color=ffd700"
+           style="min-width:320px;height:760px;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <p style="color:#666;font-size:0.85rem;text-align:center;margin-top:20px;">Trouble with the calendar? <a href="https://calendly.com/thehockeylabofficial-info/free-trial-lesson-at-the-hockey-lab" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Open it in a new tab &rarr;</a></p>
     </div>
   </section>
 

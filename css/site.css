@@ -1402,3 +1402,40 @@ em { font-style: italic; }
 @media (max-width: 480px) {
   .facility-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Wide feature photo band ────────────────────────────────── */
+.photo-feature {
+  max-width: 980px;
+  margin: 0 auto;
+}
+.photo-feature figure {
+  margin: 0;
+  border: 1px solid var(--white-08);
+  background: var(--dark-2);
+  overflow: hidden;
+}
+.photo-feature img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.photo-feature figcaption {
+  padding: 14px 18px;
+  border-top: 1px solid var(--white-08);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--white-60);
+}
+.photo-feature figcaption span { color: var(--gold); }
+
+/* 3-across variant for the homepage facility gallery */
+.facility-grid--three { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) {
+  .facility-grid--three { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .facility-grid--three { grid-template-columns: 1fr; }
+}

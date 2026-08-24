@@ -81,7 +81,7 @@ const FOOTER_HTML = `
       <div class="footer-col-title">Train With Us</div>
       <ul>
         <li><a href="https://calendly.com/thehockeylabofficial-info/free-trial-lesson-at-the-hockey-lab" target="_blank" rel="noopener">Free Trial Session</a></li>
-        <li><a href="train.html#dropin">Drop-In ($70)</a></li>
+        <li><a href="train.html#dropin">Drop-In ($75)</a></li>
         <li><a href="train.html#packs">Lab Pack 5 ($325)</a></li>
         <li><a href="train.html#packs">Lab Pack 10 ($600)</a></li>
         <li><a href="train.html#membership">Lab Membership ($280/mo)</a></li>

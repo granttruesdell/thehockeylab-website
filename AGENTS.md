@@ -13,7 +13,7 @@ This table is the source of truth. It supersedes any older pricing found in the 
 | Offer | Price | Format | Terms |
 |---|---|---|---|
 | **Free Trial** | Free | 45 min | One per athlete. Booked online via Calendly. |
-| **Drop-In** | $70 | 45 min, coached | Walk-in, subject to availability. |
+| **Drop-In** | $75 | 45 min, coached | Walk-in, subject to availability. Same rate as a single coached session. |
 | **Single Coached Session** | $75 | 45 min | Pre-booked via Square. |
 | **Lab Pack 5** | $325 | 5 x 45 min | Pre-paid. 6-month expiry. Non-transferable. |
 | **Lab Pack 10** | $600 | 10 x 45 min | Pre-paid. 6-month expiry. Non-transferable. |
@@ -23,6 +23,8 @@ This table is the source of truth. It supersedes any older pricing found in the 
 | **Goalie Development Camp** | $449 | Aug 31 - Sep 4, 2026 | Registration via `camp-registration.html`. |
 
 **Retired — never reintroduce:** Young Cup, Charter Athlete, Development / Performance / Elite tiers, Hybrid Integration, Early Bird.
+
+**Homepage tagline is "Where Goalies Are Built."** The global footer tagline in `js/shared.js` still reads "Where Athletes Are Built" — intentionally unresolved, pending Grant's call.
 
 **Framing rule:** the core product is **semi-private** (max 2 athletes on ice). While the roster builds, many sessions will naturally run 1-on-1 — copy must still say semi-private so pairing never reads as a downgrade.
 
@@ -104,15 +106,20 @@ Do not remove the `data-netlify` attribute or the hidden `form-name` input from 
 
 | Form name | Page |
 |---|---|
-| `free-trial-waitlist` | `get-started.html` |
 | `session-booking` | `book.html` |
 | `goalie-camp-registration` | `camp-registration.html` |
 | `contact` | `contact.html` |
 | `waitlist` | `waitlist.html` |
 
+> [!IMPORTANT]
+> **Free trials are booked through Calendly only.** The `free-trial-waitlist` Netlify form was
+> removed from `get-started.html` and replaced with an inline Calendly embed. Do not reintroduce
+> a form for free trials anywhere on the site — every "book a free trial" CTA must point at
+> the Calendly free-trial link.
+
 > [!NOTE]
-> `book.html` and `get-started.html` still collect requests via form rather than taking payment.
-> Both represent manual work for Grant. The goal is fully self-serve booking and purchase.
+> `book.html` still collects paid-session requests via form rather than taking payment.
+> That remains manual work for Grant. The goal is fully self-serve booking and purchase.
 
 ---
 
@@ -124,7 +131,10 @@ Do not remove the `data-netlify` attribute or the hidden `form-name` input from 
 - `faq.html` — master pricing list under "Programs & Pricing"
 - `services.html` — offer cards with checkout CTAs
 - `js/shared.js` — injects global nav, mobile menu, footer. **All global nav/footer changes go here, never in individual HTML files.**
-- `css/site.css` — all CSS custom properties (`--gold: #FFD700`, `--dark-1: #080808`)
+- `css/site.css` — all CSS custom properties (`--gold: #FFD700`, `--dark-1: #080808`),
+  plus `.facility-grid` / `.facility-item` (photo galleries) and `.photo-feature` (wide photo band)
+- `images/lab-*.{webp,jpg}` — real facility photography (Aug 2026). `grant-hockey-canada.*` is
+  the Hockey Canada coaching seminar photo used on `about.html`.
 - `netlify.toml` — clean-URL redirects, security headers
 - `netlify/functions/` — `form-submission.js`, `square-webhook.js`
 

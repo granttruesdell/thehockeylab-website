@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Booking Preview (internal) | The Hockey Lab</title>
+  <meta name="description" content="Internal preview of TicketSnap booking integration options.">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    .bp-note{border:1px solid var(--gold-border);background:var(--gold-dim);padding:16px 18px;margin-bottom:34px;}
+    .bp-note strong{color:var(--gold);}
+    .bp-note p{margin:6px 0 0;color:var(--white-60);font-size:.92rem;line-height:1.55;}
+
+    /* Option A: official iframe */
+    .ts-frame-wrap{border:1px solid var(--white-08);background:#fff;}
+    .ts-frame-wrap iframe{width:100%;height:720px;border:0;display:block;}
+
+    /* Option B: on-brand picker */
+    .bk{border:1px solid var(--white-08);background:var(--dark-2);padding:26px;}
+    .bk-types{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:26px;}
+    .bk-type{position:relative;text-align:left;padding:18px 18px 16px;background:#0a0a0a;border:1px solid var(--white-15);
+             color:#fff;cursor:pointer;transition:border-color .25s ease,background .25s ease;font-family:inherit;}
+    .bk-type:hover{border-color:var(--gold-border);}
+    .bk-type[aria-pressed="true"]{border-color:var(--gold);background:var(--gold-dim);}
+    .bk-type .n{font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:var(--gold);}
+    .bk-type .p{font-family:'Exo 2',sans-serif;font-weight:900;font-size:28px;margin:6px 0 2px;}
+    .bk-type .d{font-size:.82rem;color:var(--white-60);}
+
+    .bk-datebar{display:flex;align-items:center;gap:14px;margin-bottom:20px;flex-wrap:wrap;}
+    .bk-nav{background:#0a0a0a;border:1px solid var(--white-15);color:#fff;width:38px;height:38px;cursor:pointer;font-size:16px;}
+    .bk-nav:disabled{opacity:.3;cursor:not-allowed;}
+    .bk-nav:not(:disabled):hover{border-color:var(--gold);color:var(--gold);}
+    .bk-date{font-family:'Exo 2',sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;letter-spacing:.04em;min-width:250px;}
+    .bk-date span{color:var(--gold);}
+
+    .bk-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:9px;min-height:96px;}
+    .bk-slot{padding:13px 8px;background:#0a0a0a;border:1px solid var(--white-15);color:#fff;cursor:pointer;
+             font-family:'Rajdhani',sans-serif;font-weight:600;font-size:14px;letter-spacing:.06em;
+             transition:border-color .2s ease,background .2s ease,color .2s ease;}
+    .bk-slot:hover{border-color:var(--gold);background:var(--gold-dim);color:var(--gold);}
+    .bk-msg{color:var(--white-35);font-size:.9rem;padding:26px 0;grid-column:1/-1;}
+    .bk-foot{margin-top:22px;padding-top:18px;border-top:1px solid var(--white-08);color:var(--white-35);font-size:.83rem;line-height:1.6;}
+    .bk-foot b{color:var(--white-60);font-weight:600;}
+  </style>
+</head>
+<body class="page-top">
+<div id="nav-placeholder"></div>
+
+<section class="section" style="padding-top:120px;">
+  <div class="t-eyebrow">Internal Preview</div>
+  <h2 class="t-h2" style="margin-bottom:14px;">TICKETSNAP <span class="gold">INTEGRATION</span></h2>
+  <div class="bp-note">
+    <strong>Not linked from the site, and set to noindex.</strong>
+    <p>Two ways to put TicketSnap booking on thehockeylabofficial.com. Both are live and functional &mdash; picking a time in either hands off to TicketSnap to finish payment.</p>
+  </div>
+
+  <h3 class="t-h2" style="font-size:24px;margin:0 0 6px;">Option A &mdash; <span class="gold">Official Embed</span></h3>
+  <p class="t-body" style="max-width:640px;margin-bottom:20px;">TicketSnap's own embed in an iframe. Zero maintenance, but it renders in their light theme with their cookie banner inside the frame.</p>
+  <div class="ts-frame-wrap">
+    <iframe src="https://express.ticketsnap.ca/embed/booking/338"
+            title="TicketSnap booking embed" loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+</section>
+
+<section class="section border-top">
+  <h3 class="t-h2" style="font-size:24px;margin:0 0 6px;">Option B &mdash; <span class="gold">On-Brand Picker</span></h3>
+  <p class="t-body" style="max-width:640px;margin-bottom:20px;">The same live TicketSnap availability, rendered in our own design system. Reads their public availability API and hands off with identical parameters.</p>
+
+  <div class="bk">
+    <div class="bk-types" id="bkTypes"></div>
+    <div class="bk-datebar">
+      <button class="bk-nav" id="bkPrev" aria-label="Previous day">&larr;</button>
+      <button class="bk-nav" id="bkNext" aria-label="Next day">&rarr;</button>
+      <div class="bk-date" id="bkDate"></div>
+    </div>
+    <div class="bk-slots" id="bkSlots"></div>
+    <div class="bk-foot" id="bkFoot"></div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<div id="mobile-cta-placeholder"></div>
+<script src="js/shared.js"></script>
+<script>
+(function(){
+  var CFG = null;
+  var state = { type: null, date: new Date() };
+  var elT = document.getElementById('bkTypes');
+  var elD = document.getElementById('bkDate');
+  var elS = document.getElementById('bkSlots');
+  var elF = document.getElementById('bkFoot');
+  var bPrev = document.getElementById('bkPrev');
+  var bNext = document.getElementById('bkNext');
+  var TZ = 'America/Vancouver';
+  // Routed through our own Netlify function: TicketSnap's availability API
+  // sends no Access-Control-Allow-Origin, so a direct browser fetch is blocked.
+  var API = '/.netlify/functions/ticketsnap';
+
+  function pad(n){ return String(n).padStart(2, '0'); }
+  function ymd(d){ return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function today(){ var t = new Date(); t.setHours(0,0,0,0); return t; }
+
+  function renderTypes(){
+    elT.innerHTML = '';
+    CFG.types.forEach(function(t){
+      var b = document.createElement('button');
+      b.className = 'bk-type';
+      b.type = 'button';
+      b.setAttribute('aria-pressed', state.type && state.type.id === t.id ? 'true' : 'false');
+      var plural = t.max_per_booking > 1 ? 's' : '';
+      b.innerHTML = '<div class="n">' + t.title.replace(/-/g, ' ') + '</div>' +
+                    '<div class="p">$' + t.price + '</div>' +
+                    '<div class="d">' + t.duration_minutes + ' min &middot; up to ' +
+                    t.max_per_booking + ' athlete' + plural + ' on ice</div>';
+      b.onclick = function(){ state.type = t; renderTypes(); load(); };
+      elT.appendChild(b);
+    });
+  }
+
+  function renderDate(){
+    var s = state.date.toLocaleDateString(undefined, { weekday:'long', month:'short', day:'numeric', timeZone: TZ });
+    elD.innerHTML = s.replace(/^(\w+)/, '<span>$1</span>');
+    bPrev.disabled = ymd(state.date) <= ymd(today());
+  }
+
+  function handoff(slot){
+    var u = new URL(CFG.handoff);
+    u.searchParams.set('ticket_price_option_id', String(state.type.id));
+    u.searchParams.set('slot_start', slot.start);
+    window.open(u.toString(), '_blank', 'noopener,noreferrer');
+  }
+
+  function load(){
+    renderDate();
+    if (!state.type) {
+      elS.innerHTML = '<p class="bk-msg">Choose a session type to see available times.</p>';
+      return;
+    }
+    elS.innerHTML = '<p class="bk-msg">Loading availability&hellip;</p>';
+    var url = API + '?resource=availability&date=' + ymd(state.date) +
+              '&type=' + state.type.id + '&_=' + Date.now();
+    fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' })
+      .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(j){
+        var open = (j.slots || []).filter(function(s){ return s.available; });
+        if (!open.length) {
+          elS.innerHTML = '<p class="bk-msg">No times available on this day. Try another date.</p>';
+          return;
+        }
+        elS.innerHTML = '';
+        open.forEach(function(s){
+          var b = document.createElement('button');
+          b.className = 'bk-slot';
+          b.type = 'button';
+          b.textContent = new Date(s.start).toLocaleTimeString(undefined, { hour:'numeric', minute:'2-digit', timeZone: TZ });
+          b.onclick = function(){ handoff(s); };
+          elS.appendChild(b);
+        });
+      })
+      .catch(function(e){
+        elS.innerHTML = '<p class="bk-msg">Could not load availability (' + e.message + ').</p>';
+      });
+  }
+
+  function step(n){
+    var d = new Date(state.date);
+    d.setDate(d.getDate() + n);
+    state.date = d;
+    load();
+  }
+  bPrev.onclick = function(){ step(-1); };
+  bNext.onclick = function(){ step(1); };
+
+  fetch(API + '?resource=config', { cache: 'no-store' })
+    .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function(cfg){
+      if (cfg.error) throw new Error(cfg.error);
+      CFG = cfg;
+      TZ = CFG.timeZone || TZ;
+      elF.innerHTML = 'Live from TicketSnap &mdash; <b>' + CFG.eventName + '</b> (event ' + CFG.eventId +
+                      '), ' + CFG.types.length + ' session types, ' + CFG.horizonDays +
+                      '-day booking window. Selecting a time opens TicketSnap in a new tab to complete payment.';
+      renderTypes();
+      load();
+    })
+    .catch(function(e){
+      elS.innerHTML = '<p class="bk-msg">Could not reach the booking proxy (' + e.message + ').</p>';
+      elF.textContent = 'Config load failed: ' + e.message;
+    });
+})();
+</script>
+</body>
+</html>

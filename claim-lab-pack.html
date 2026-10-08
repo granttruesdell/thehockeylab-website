@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Claim Your Lab Pack 5 | The Hockey Lab</title>
+  <meta name="description" content="Claim your raffle prize from The Hockey Lab — a five-session Lab Pack.">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <style>
+    .rd-hero{padding:104px var(--pad-x) 56px;background:linear-gradient(165deg,#141414 0%,#080808 100%);
+             position:relative;overflow:hidden;border-bottom:1px solid var(--white-08);text-align:center;}
+    .rd-hero::before{content:'WINNER';position:absolute;right:-30px;top:50%;transform:translateY(-50%);
+             font-family:'Exo 2',sans-serif;font-weight:900;font-size:190px;color:rgba(255,215,0,.035);
+             line-height:1;pointer-events:none;white-space:nowrap;}
+    .rd-hero-in{position:relative;z-index:1;max-width:720px;margin:0 auto;}
+    .rd-eyebrow{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:600;letter-spacing:.24em;
+             text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+    .rd-h1{font-family:'Exo 2',sans-serif;font-weight:900;text-transform:uppercase;line-height:.92;
+             font-size:clamp(2.6rem,8vw,4.6rem);margin:0 0 18px;color:#fff;letter-spacing:-.01em;}
+    .rd-h1 span{color:var(--gold);}
+    .rd-sub{color:var(--white-60);font-size:1.02rem;line-height:1.65;max-width:540px;margin:0 auto;}
+
+    .rd-prize{max-width:640px;margin:0 auto;border:1px solid var(--white-08);background:var(--dark-2);
+             padding:32px 30px;position:relative;}
+    .rd-prize::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold);}
+    .rd-prize .tag{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:600;letter-spacing:.2em;
+             text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+    .rd-prize h3{font-family:'Exo 2',sans-serif;font-weight:900;text-transform:uppercase;font-size:1.75rem;
+             margin:0 0 6px;color:#fff;}
+    .rd-prize .val{font-family:'Exo 2',sans-serif;font-weight:900;font-size:2.1rem;color:var(--gold);margin-bottom:16px;}
+    .rd-prize ul{list-style:none;padding:0;margin:0;}
+    .rd-prize li{color:var(--white-60);font-size:.95rem;line-height:1.55;padding-left:18px;position:relative;margin-bottom:8px;}
+    .rd-prize li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--gold);}
+
+    .rd-form-wrap{max-width:620px;margin:0 auto;border:1px solid var(--white-08);background:var(--dark-2);padding:36px 32px;}
+    .rd-form-wrap h2{font-family:'Exo 2',sans-serif;font-weight:900;text-transform:uppercase;font-size:1.6rem;
+             margin:0 0 8px;color:#fff;text-align:center;}
+    .rd-form-wrap .lead{color:var(--white-60);font-size:.94rem;line-height:1.6;text-align:center;margin:0 0 28px;}
+    .rd-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .rd-field{margin-bottom:16px;}
+    .rd-field label{display:block;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:600;
+             letter-spacing:.14em;text-transform:uppercase;color:var(--white-60);margin-bottom:7px;}
+    .rd-field label .req{color:var(--gold);}
+    .rd-field input,.rd-field select,.rd-field textarea{width:100%;background:#0a0a0a;border:1px solid var(--white-15);
+             color:#fff;padding:13px 14px;font-size:.95rem;font-family:inherit;box-sizing:border-box;}
+    .rd-field input:focus,.rd-field select:focus,.rd-field textarea:focus{outline:none;border-color:var(--gold);}
+    .rd-field textarea{resize:vertical;min-height:84px;}
+    .rd-submit{width:100%;background:var(--gold);color:#000;border:none;padding:17px;cursor:pointer;
+             font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:.16em;
+             text-transform:uppercase;transition:opacity .2s ease;}
+    .rd-submit:hover{opacity:.88;}
+    .rd-fine{color:var(--white-35);font-size:.8rem;line-height:1.6;margin-top:20px;text-align:center;}
+
+    .rd-success{display:none;max-width:620px;margin:0 auto;border:1px solid var(--gold-border);
+             background:var(--gold-dim);padding:44px 34px;text-align:center;}
+    .rd-success.visible{display:block;}
+    .rd-success h2{font-family:'Exo 2',sans-serif;font-weight:900;text-transform:uppercase;font-size:1.9rem;
+             margin:0 0 14px;color:#fff;}
+    .rd-success h2 span{color:var(--gold);}
+    .rd-success p{color:var(--white-60);font-size:1rem;line-height:1.7;margin:0 auto;max-width:440px;}
+    .rd-success a{color:var(--gold);text-decoration:none;}
+
+    @media (max-width:560px){
+      .rd-row{grid-template-columns:1fr;gap:0;}
+      .rd-form-wrap{padding:28px 20px;}
+      .rd-hero::before{font-size:110px;}
+    }
+  </style>
+</head>
+<body class="page-top">
+<div id="nav-placeholder"></div>
+
+<section class="rd-hero">
+  <div class="rd-hero-in">
+    <div class="rd-eyebrow">Coquitlam Minor Hockey Raffle</div>
+    <h1 class="rd-h1">You <span>Won.</span></h1>
+    <p class="rd-sub">Congratulations. Fill in your details below and Coach Grant will send your gift code and get your athlete on the schedule.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="rd-prize">
+    <div class="tag">The Prize &middot; The Hockey Lab</div>
+    <h3>Lab Pack 5</h3>
+    <div class="val">$325 value</div>
+    <ul>
+      <li>Five 45-minute coached sessions on synthetic ice</li>
+      <li>Semi-private &mdash; never more than two athletes on ice</li>
+      <li>Built on the four pillars: Movement, Tracking, Execution, Mindset</li>
+      <li>Goalies and skaters, ages 5&ndash;16</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section border-top">
+  <div class="rd-success" id="rdSuccess">
+    <h2>Claim <span>Received.</span></h2>
+    <p>Thanks &mdash; Grant has your details and will be in touch within 24 hours with your gift code and next steps. Anything urgent, text <a href="tel:7783029245">778-302-9245</a>.</p>
+  </div>
+
+  <div class="rd-form-wrap" id="rdFormWrap">
+    <h2>Claim Your Prize</h2>
+    <p class="lead">Takes about a minute. Grant sends your code by email or text &mdash; whichever you prefer.</p>
+
+    <form name="raffle-claim" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+          action="/pack?success=true" id="rdForm">
+      <input type="hidden" name="form-name" value="raffle-claim">
+      <input type="hidden" name="prize" value="Lab Pack 5">
+      <input type="hidden" name="raffle_event" id="raffleEvent" value="Coquitlam Minor Hockey Raffle">
+      <p style="display:none;"><label>Leave this blank: <input name="bot-field"></label></p>
+
+      <div class="rd-row">
+        <div class="rd-field">
+          <label for="winner_name">Your Name <span class="req">*</span></label>
+          <input type="text" id="winner_name" name="winner_name" required autocomplete="name">
+        </div>
+        <div class="rd-field">
+          <label for="phone">Phone <span class="req">*</span></label>
+          <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="778-xxx-xxxx">
+        </div>
+      </div>
+
+      <div class="rd-row">
+        <div class="rd-field">
+          <label for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="rd-field">
+          <label for="email_confirm">Confirm Email <span class="req">*</span></label>
+          <input type="email" id="email_confirm" name="email_confirm" required>
+        </div>
+      </div>
+
+      <div class="rd-row">
+        <div class="rd-field">
+          <label for="athlete_name">Athlete's Name <span class="req">*</span></label>
+          <input type="text" id="athlete_name" name="athlete_name" required>
+        </div>
+        <div class="rd-field">
+          <label for="athlete_age">Age / Division <span class="req">*</span></label>
+          <input type="text" id="athlete_age" name="athlete_age" required placeholder="e.g. 11 / U13">
+        </div>
+      </div>
+
+      <div class="rd-row">
+        <div class="rd-field">
+          <label for="position">Position</label>
+          <select id="position" name="position">
+            <option value="">Select&hellip;</option>
+            <option>Goalie</option>
+            <option>Skater</option>
+            <option>Both</option>
+          </select>
+        </div>
+        <div class="rd-field">
+          <label for="contact_pref">Best Way to Reach You</label>
+          <select id="contact_pref" name="contact_pref">
+            <option>Email</option>
+            <option>Text</option>
+            <option>Phone call</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="rd-field">
+        <label for="notes">Anything Grant should know? <span style="color:var(--white-35);text-transform:none;letter-spacing:0;">(optional)</span></label>
+        <textarea id="notes" name="notes" rows="3" placeholder="Goals, availability, gear questions&hellip;"></textarea>
+      </div>
+
+      <button type="submit" class="rd-submit">Claim My Prize &rarr;</button>
+      <p class="rd-fine">Lab Pack sessions are valid for six months from activation and are non-transferable.</p>
+    </form>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<div id="mobile-cta-placeholder"></div>
+<script src="js/shared.js"></script>
+<script>
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('success') === 'true') {
+    document.getElementById('rdSuccess').classList.add('visible');
+    var wrap = document.getElementById('rdFormWrap');
+    if (wrap) wrap.style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Reuse this page for a future raffle: ?event=Burnaby+Minor+Hockey
+  var ev = params.get('event');
+  if (ev) {
+    var field = document.getElementById('raffleEvent');
+    if (field) field.value = ev.slice(0, 120);
+    var eyebrow = document.querySelector('.rd-eyebrow');
+    if (eyebrow) eyebrow.textContent = ev.slice(0, 120);
+  }
+
+  var form = document.getElementById('rdForm');
+  if (form) {
+    form.addEventListener('submit', function(e){
+      var a = document.getElementById('email').value.trim().toLowerCase();
+      var b = document.getElementById('email_confirm').value.trim().toLowerCase();
+      if (a !== b) {
+        e.preventDefault();
+        alert('Those email addresses do not match. Please check and try again.');
+        document.getElementById('email_confirm').focus();
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

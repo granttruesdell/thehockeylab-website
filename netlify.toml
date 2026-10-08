@@ -3,14 +3,26 @@
   functions = "netlify/functions"
 
 [[redirects]]
-  from = "/redeem"
-  to = "/redeem.html"
+  from = "/pack"
+  to = "/claim-lab-pack.html"
   status = 200
 
 [[redirects]]
-  from = "/win"
-  to = "/redeem.html"
+  from = "/tickets"
+  to = "/claim-express-tickets.html"
   status = 200
+
+# The combined two-prize page was replaced when the prizes were split across
+# two baskets. Kept as a redirect in case the old link was shared anywhere.
+[[redirects]]
+  from = "/redeem"
+  to = "/pack"
+  status = 302
+
+[[redirects]]
+  from = "/win"
+  to = "/pack"
+  status = 302
 
 [[redirects]]
   from = "/waitlist"

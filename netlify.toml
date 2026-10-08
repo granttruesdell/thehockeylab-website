@@ -3,6 +3,16 @@
   functions = "netlify/functions"
 
 [[redirects]]
+  from = "/redeem"
+  to = "/redeem.html"
+  status = 200
+
+[[redirects]]
+  from = "/win"
+  to = "/redeem.html"
+  status = 200
+
+[[redirects]]
   from = "/waitlist"
   to = "/waitlist.html"
   status = 200

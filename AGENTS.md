@@ -20,7 +20,14 @@ This table is the source of truth. It supersedes any older pricing found in the 
 | **Lab Membership** | $280/mo | 1 session/week | Month-to-month. Cancel anytime. |
 | **Lab Membership Plus** | $520/mo | 2 sessions/week | Month-to-month. Cancel anytime. |
 | **Mental Edge** | $199 | 6-week cohort | Standalone. Remote or in-person. |
-| **Goalie Development Camp** | $449 | Aug 31 - Sep 4, 2026 | Pay via Square, then complete `camp-registration.html`. Ages 8-13, 9am-1pm daily, 10 spots. |
+
+> [!NOTE]
+> **The Goalie Development Camp ran Aug 31 - Sep 4, 2026 and is no longer sold.**
+> Its promotion was removed from `get-started.html`, `faq.html` and the contact
+> form in Oct 2026. `camp-registration.html` and `camp-confirmation.html` remain
+> in the repo, unlinked, so a future camp can reuse them — update the dates and
+> re-link rather than rebuilding. The Square link and the webhook product mapping
+> were left in place for the same reason.
 
 **Retired — never reintroduce:** Young Cup, Charter Athlete, Development / Performance / Elite tiers, Hybrid Integration, Early Bird.
 
@@ -41,7 +48,7 @@ This table is the source of truth. It supersedes any older pricing found in the 
 | **Lab Pack 5** | $325 | https://express.ticketsnap.ca/store/items/46 | Yes — train, services, get-started |
 | **Lab Pack 10** | $600 | https://express.ticketsnap.ca/store/items/47 | Yes — train, services, get-started |
 | **Mental Edge** | $199 | https://square.link/u/MG1hBCpz | Yes — mental-edge.html |
-| **Goalie Camp** | $449 | https://square.link/u/3PkwKqfX | Yes — get-started.html |
+| **Goalie Camp** | $449 | https://square.link/u/3PkwKqfX | Removed from the site Oct 2026 |
 | **Single Coached Session** | $75 | none | Not sold online |
 
 All prices above verified live against the Square checkout pages on 2026-08-24.

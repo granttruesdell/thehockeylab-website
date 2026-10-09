@@ -38,14 +38,30 @@ This table is the source of truth. It supersedes any older pricing found in the 
 |---|---|---|---|
 | **Lab Membership** | $280/mo | https://square.link/u/PMTMJz5x | Yes — train, services, get-started |
 | **Lab Membership Plus** | $520/mo | https://square.link/u/n9L5Hmez | Yes — train, services, get-started |
-| **Lab Pack 5** | $325 | https://square.link/u/fxlJ6lSJ | Yes — train, services, get-started |
-| **Lab Pack 10** | $600 | https://square.link/u/qqbxCCRe | Yes — train, services, get-started |
+| **Lab Pack 5** | $325 | https://express.ticketsnap.ca/store/items/46 | Yes — train, services, get-started |
+| **Lab Pack 10** | $600 | https://express.ticketsnap.ca/store/items/47 | Yes — train, services, get-started |
 | **Mental Edge** | $199 | https://square.link/u/MG1hBCpz | Yes — mental-edge.html |
 | **Goalie Camp** | $449 | https://square.link/u/3PkwKqfX | Yes — get-started.html |
 | **Single Coached Session** | $75 | none | Not sold online |
 
 All prices above verified live against the Square checkout pages on 2026-08-24.
 Square merchant of record: **Coquitlam Express Jr. A Hockey Club**.
+
+> [!IMPORTANT]
+> **Checkout is migrating from Square to TicketSnap.** Lab Pack 5 and Lab Pack 10
+> have moved; everything else is still on Square until Grant supplies the links.
+> TicketSnap store items are public (no sign-in wall) and share a cart, so a
+> visitor can buy more than one product in a single order.
+> Retired pages (`launch.html`, `launch-v2.html`, `early-bird.html`) still carry
+> the old Square links and were deliberately left alone.
+
+> [!WARNING]
+> **The TicketSnap product copy contradicts the website on two points.**
+> TicketSnap describes both Lab Packs as **"1-on-1"** sessions, while the site
+> and the framing rule above sell **semi-private, max 2 athletes on ice**.
+> TicketSnap also tells Lab Pack 5 buyers there is **"no expiry pressure"**,
+> while the site states a **6-month expiry**. Whichever is true, the two must be
+> reconciled — a buyer who reads one and is held to the other has a fair complaint.
 
 > [!WARNING]
 > `PMTMJz5x` was previously the $75 Single Coached Session link. It has been

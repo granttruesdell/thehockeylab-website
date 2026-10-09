@@ -1466,3 +1466,60 @@ em { font-style: italic; }
   .fm-cap::before { width: 14px; margin-bottom: 6px; }
   .fm-feature .fm-cap { font-size: 12px; padding: 0 14px 13px; }
 }
+
+/* ── "The Lab Right Now" strip ───────────────────────────────── */
+.now-head { display:flex; align-items:baseline; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+.now-stamp {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--white-35); display:flex; align-items:center; gap:9px; white-space:nowrap;
+}
+.now-stamp::before {
+  content:''; width:7px; height:7px; border-radius:50%; background:var(--gold);
+  box-shadow:0 0 0 0 rgba(255,215,0,.6); animation: nowPulse 2.6s ease-out infinite;
+}
+@keyframes nowPulse {
+  0%   { box-shadow:0 0 0 0 rgba(255,215,0,.55); }
+  70%  { box-shadow:0 0 0 9px rgba(255,215,0,0); }
+  100% { box-shadow:0 0 0 0 rgba(255,215,0,0); }
+}
+@media (prefers-reduced-motion: reduce) { .now-stamp::before { animation: none; } }
+
+.now-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:38px; }
+.now-card {
+  position:relative; background:var(--dark-2); border:1px solid var(--white-08);
+  padding:26px 24px 24px; display:flex; flex-direction:column;
+}
+.now-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--gold); }
+.now-card .lbl {
+  font-family:'Rajdhani',sans-serif; font-size:10.5px; font-weight:600;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:12px;
+}
+.now-card .big {
+  font-family:'Exo 2',sans-serif; font-weight:900; text-transform:uppercase;
+  font-size:1.5rem; line-height:1.1; color:#fff; margin:0 0 10px;
+}
+.now-card p { color:var(--white-60); font-size:.93rem; line-height:1.6; margin:0; }
+.now-card .foot {
+  margin-top:auto; padding-top:16px; font-family:'Rajdhani',sans-serif; font-size:11px;
+  font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--white-35);
+}
+.now-card a.foot-link { color:var(--gold); text-decoration:none; }
+
+/* quote card */
+.now-card.quote blockquote {
+  margin:0 0 14px; color:#fff; font-size:1.02rem; line-height:1.6; font-style:italic;
+}
+.now-card.quote blockquote::before { content:'\201C'; color:var(--gold); font-size:2.2rem; line-height:0; vertical-align:-.35em; margin-right:3px; }
+.now-card.quote cite { font-style:normal; color:var(--white-35); font-size:.85rem; }
+
+/* unmistakable placeholder — must not ship */
+.needs-copy { outline:2px dashed #ff5c5c; outline-offset:4px; }
+.needs-copy::after {
+  content:'REPLACE BEFORE PUBLISHING'; position:absolute; top:-11px; right:10px;
+  background:#ff5c5c; color:#1a0000; font-family:'Rajdhani',sans-serif; font-size:9px;
+  font-weight:700; letter-spacing:.14em; padding:2px 8px;
+}
+
+@media (max-width:980px){ .now-grid { grid-template-columns:1fr 1fr; } .now-card.quote { grid-column:1/-1; } }
+@media (max-width:620px){ .now-grid { grid-template-columns:1fr; } }

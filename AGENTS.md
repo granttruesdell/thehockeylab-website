@@ -77,10 +77,18 @@ Square merchant of record: **Coquitlam Express Jr. A Hockey Club**.
 > session** — `book.html` still collects those as a form request.
 
 > [!WARNING]
-> Both membership checkout pages render as a **one-time CA$ charge** with no
-> recurring-billing line. If these are not true Square subscriptions, members
-> will be billed once and must be re-invoiced manually every month. Verify in
-> the Square dashboard before relying on them for recurring revenue.
+> **Memberships do not bill automatically.** Both Square membership links were
+> re-tested in Oct 2026 and still render as a one-time charge with no recurring
+> line, and TicketSnap's store cannot sell recurring products yet. Until one of
+> those changes, every membership payment covers a single month and Grant
+> arranges the next one personally.
+>
+> Site copy was corrected to match in Oct 2026: CTAs read **"Start Your First
+> Month"**, "cancel anytime" was removed everywhere (there is no subscription to
+> cancel), and "month-to-month" became "one month at a time". Do not reinstate
+> "cancel anytime", "/mo" buy buttons, or any wording implying auto-renewal
+> until recurring billing genuinely works. "Month-to-month" as a description of
+> *commitment* is still accurate and may stay.
 
 > [!NOTE]
 > Both membership descriptions in Square promise **"unlimited drop-in open ice"**.

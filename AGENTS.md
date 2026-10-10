@@ -12,7 +12,7 @@ This table is the source of truth. It supersedes any older pricing found in the 
 
 | Offer | Price | Format | Terms |
 |---|---|---|---|
-| **Free Trial** | Free | 45 min | One per athlete. Booked online via Calendly. |
+| **Free Trial** | Free | 45 min | One per athlete. Booked online via Calendly. **Gear is required** &mdash; goalies full gear, skaters stick/gloves/helmet/skates. Loaners may be available for U9 and under. |
 | **Drop-In (coached)** | $75 | 45 min with Grant | Booked online from the live picker on `train.html`. |
 | **Drop-In (uncoached)** | $20 | 30 min open ice | Booked online. Shooters and solo reps, no coaching. |
 | **Single Coached Session** | $75 | 45 min | Pre-booked via Square. |
@@ -35,6 +35,13 @@ This table is the source of truth. It supersedes any older pricing found in the 
 **The brand tagline is "Where Goalies Are Built"** — used in the homepage hero, the page title, the OG title, and the global footer in `js/shared.js`. Goalies are the primary niche and the target roster for the facility. Do not revert this to "Where Athletes Are Built". Skaters are still welcome and that stays in the body copy, but it is never the headline.
 
 **Framing rule:** the core product is **semi-private** (max 2 athletes on ice). While the roster builds, many sessions will naturally run 1-on-1 — copy must still say semi-private so pairing never reads as a downgrade.
+
+> [!WARNING]
+> **Gear is required for the free trial.** The site claimed "no gear required"
+> in sixteen places until Oct 2026, contradicting the Calendly confirmation the
+> same booking sends out ("Goalies: full gear"). Do not reintroduce it. The
+> accurate line is: goalies bring full gear, skaters bring stick, gloves, helmet
+> and skates, and loaner equipment may be available for U9 and under on request.
 
 **Never use the term "lead magnet" in public-facing copy.**
 

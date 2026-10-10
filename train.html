@@ -424,33 +424,57 @@
 <div class="prog-section">
   <div class="prog-layout">
     <div class="prog-left reveal-left">
-      <div class="prog-level-tag"><div class="plt-text">Walk-In</div></div>
+      <div class="prog-level-tag"><div class="plt-text">Book Online</div></div>
       <div class="prog-big-name">DROP-<span>IN</span></div>
-      <div class="prog-tagline">Show Up. Get Coached. No Booking Required.</div>
-      <p class="prog-desc">A coached session with Grant — no pre-booking, no package. Walk in during drop-in hours and get on the ice. Subject to availability.</p>
-      <p class="prog-desc">Drop-in is the baseline rate. Lab Packs and memberships exist because they offer better value — but if you just want to show up and train, the door is open.</p>
+      <div class="prog-tagline">Coached Or On Your Own. Booked Online.</div>
+      <p class="prog-desc">Two ways to get on the synthetic ice without a pack or a membership. Book a coached session with Grant, or take an uncoached slot and put in your own work. Pick a time below &mdash; the calendar is live.</p>
+      <p class="prog-desc">Drop-in is the baseline rate. Lab Packs and memberships exist because they offer better value &mdash; but if you just want ice time, the door is open.</p>
       <div class="price-block">
-        <div class="price-lbl">Per Session</div>
+        <div class="price-lbl">Coached</div>
         <div class="price-num">$75 <em>/ 45 min</em></div>
-        <div class="price-sub">Walk-in rate &mdash; subject to availability</div>
+        <div class="price-sub">On the ice with Coach Grant</div>
+      </div>
+      <div class="price-block" style="margin-top:14px;">
+        <div class="price-lbl">Uncoached</div>
+        <div class="price-num">$20 <em>/ 30 min</em></div>
+        <div class="price-sub">Open ice, on your own &mdash; shooters welcome</div>
       </div>
       <div class="prog-cta-row">
-        <a href="contact.html" class="btn btn-gold">Check Drop-In Hours &rarr;</a>
-        <span class="prog-note">No booking required</span>
+        <a href="#book-dropin" class="btn btn-gold">See Open Times &rarr;</a>
+        <span class="prog-note">Live calendar &mdash; book in under a minute</span>
       </div>
     </div>
     <div class="prog-right reveal-right">
       <div class="inc-label">What's Included</div>
       <div class="inc-list">
-        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>45-Minute Coached Session with Grant</strong>Same coaching, same synthetic ice, same four-pillar system — just without the pre-booking. Walk in, get to work.</div></div>
-        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>All Positions Welcome</strong>Goalies, skaters, shooters — everyone is welcome. Grant will tailor the session to what you need on the day.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Coached &mdash; 45 Minutes with Grant</strong>Same coaching, same synthetic ice, same four-pillar system, without a pack or a membership behind it.</div></div>
+        <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Uncoached &mdash; 30 Minutes of Open Ice</strong>$20 for the surface on your own. Shooters, stickhandling, or anyone who just wants reps without coaching.</div></div>
         <div class="inc-item"><div class="inc-dot"><div class="inc-dot-inner"></div></div><div class="inc-text"><strong>Post-Session Feedback</strong>You'll leave knowing what you worked on and what to focus on next.</div></div>
       </div>
       <div class="session-cards">
         <div class="sc"><div class="sc-title">Value Comparison</div><div class="sc-text">Drop-in: $75/session. Lab Pack 5: $65/session. Lab Pack 10 or Lab+: $60/session. The more you commit, the better the rate.</div></div>
-        <div class="sc"><div class="sc-title">Availability</div><div class="sc-text">Walk-in during drop-in hours. Subject to availability — pre-booked members and pack holders have priority scheduling.</div></div>
+        <div class="sc"><div class="sc-title">Availability</div><div class="sc-text">Booked online from the live calendar, up to 60 days out. Members and pack holders have priority scheduling.</div></div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ── LIVE DROP-IN BOOKING ── -->
+<div id="book-dropin" class="prog-anchor"></div>
+<div class="prog-section">
+  <div class="t-eyebrow reveal">Live Availability</div>
+  <h2 class="t-h2 reveal" style="margin-bottom:14px;">BOOK A <span class="gold">DROP-IN</span></h2>
+  <p class="t-body reveal" style="max-width:560px;margin-bottom:30px;">Real availability, straight from the booking system. Pick a session type and a time &mdash; you will finish checkout on our booking partner, Coquitlam Express.</p>
+
+  <div class="bk reveal">
+    <div class="bk-types" id="bkTypes"></div>
+    <div class="bk-datebar">
+      <button class="bk-nav" id="bkPrev" type="button" aria-label="Previous day">&larr;</button>
+      <button class="bk-nav" id="bkNext" type="button" aria-label="Next day">&rarr;</button>
+      <div class="bk-date" id="bkDate"></div>
+    </div>
+    <div class="bk-slots" id="bkSlots" role="listbox" aria-label="Available times"></div>
+    <div class="bk-foot" id="bkFoot">Loading live availability&hellip;</div>
   </div>
 </div>
 
@@ -557,5 +581,116 @@
 <div id="footer-placeholder"></div>
 <div id="mobile-cta-placeholder"></div>
 <script src="js/shared.js"></script>
+<script>
+/* Live drop-in picker.
+   Availability comes from TicketSnap via our own Netlify function: their API
+   sends no Access-Control-Allow-Origin, so the browser cannot call it directly.
+   Session types and prices are read from their config rather than hard-coded
+   here, so they can never drift out of sync with what actually gets charged. */
+(function () {
+  var types = document.getElementById('bkTypes');
+  if (!types) return;
+
+  var API = '/.netlify/functions/ticketsnap';
+  var elDate = document.getElementById('bkDate');
+  var elSlots = document.getElementById('bkSlots');
+  var elFoot = document.getElementById('bkFoot');
+  var bPrev = document.getElementById('bkPrev');
+  var bNext = document.getElementById('bkNext');
+  var CFG = null, TZ = 'America/Vancouver';
+  var state = { type: null, date: new Date() };
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function ymd(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function today() { var t = new Date(); t.setHours(0, 0, 0, 0); return t; }
+
+  function renderTypes() {
+    types.innerHTML = '';
+    CFG.types.forEach(function (t) {
+      var b = document.createElement('button');
+      b.className = 'bk-type';
+      b.type = 'button';
+      b.setAttribute('aria-pressed', state.type && state.type.id === t.id ? 'true' : 'false');
+      b.innerHTML = '<div class="n">' + t.title.replace(/-/g, ' ') + '</div>' +
+                    '<div class="p">$' + t.price + '</div>' +
+                    '<div class="d">' + t.duration_minutes + ' min on the synthetic ice</div>';
+      b.onclick = function () { state.type = t; renderTypes(); load(); };
+      types.appendChild(b);
+    });
+  }
+
+  function renderDate() {
+    var txt = state.date.toLocaleDateString(undefined,
+      { weekday: 'long', month: 'short', day: 'numeric', timeZone: TZ });
+    elDate.innerHTML = txt.replace(/^(\w+)/, '<span>$1</span>');
+    bPrev.disabled = ymd(state.date) <= ymd(today());
+  }
+
+  function handoff(slot) {
+    var u = new URL(CFG.handoff);
+    u.searchParams.set('ticket_price_option_id', String(state.type.id));
+    u.searchParams.set('slot_start', slot.start);
+    window.open(u.toString(), '_blank', 'noopener,noreferrer');
+  }
+
+  function load() {
+    renderDate();
+    if (!state.type) {
+      elSlots.innerHTML = '<p class="bk-msg">Choose a session type to see available times.</p>';
+      return;
+    }
+    elSlots.innerHTML = '<p class="bk-msg">Loading availability&hellip;</p>';
+    fetch(API + '?resource=availability&date=' + ymd(state.date) +
+          '&type=' + state.type.id + '&_=' + Date.now(),
+          { headers: { Accept: 'application/json' }, cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (j) {
+        var open = (j.slots || []).filter(function (x) { return x.available; });
+        if (!open.length) {
+          elSlots.innerHTML = '<p class="bk-msg">No times available on this day. Try another date.</p>';
+          return;
+        }
+        elSlots.innerHTML = '';
+        open.forEach(function (x) {
+          var b = document.createElement('button');
+          b.className = 'bk-slot';
+          b.type = 'button';
+          b.setAttribute('role', 'option');
+          b.textContent = new Date(x.start).toLocaleTimeString(undefined,
+            { hour: 'numeric', minute: '2-digit', timeZone: TZ });
+          b.onclick = function () { handoff(x); };
+          elSlots.appendChild(b);
+        });
+      })
+      .catch(function (e) {
+        elSlots.innerHTML = '<p class="bk-msg">Could not load availability right now. ' +
+          'Text Grant at <a href="tel:7783029245" style="color:var(--gold);">778-302-9245</a> ' +
+          'and he will get you booked.</p>';
+      });
+  }
+
+  function step(n) { var d = new Date(state.date); d.setDate(d.getDate() + n); state.date = d; load(); }
+  bPrev.onclick = function () { step(-1); };
+  bNext.onclick = function () { step(1); };
+
+  fetch(API + '?resource=config', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function (cfg) {
+      if (cfg.error) throw new Error(cfg.error);
+      CFG = cfg;
+      TZ = cfg.timeZone || TZ;
+      elFoot.innerHTML = 'Times shown in Pacific. Choosing a slot opens checkout in a new tab. ' +
+                         'Booking opens ' + cfg.horizonDays + ' days ahead.';
+      renderTypes();
+      load();
+    })
+    .catch(function () {
+      elFoot.innerHTML = 'Live booking is temporarily unavailable. ' +
+        'Text Grant at <a href="tel:7783029245" style="color:var(--gold);">778-302-9245</a>.';
+      elSlots.innerHTML = '';
+    });
+})();
+</script>
+
 </body>
 </html>

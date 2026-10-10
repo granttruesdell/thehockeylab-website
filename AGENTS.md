@@ -13,7 +13,8 @@ This table is the source of truth. It supersedes any older pricing found in the 
 | Offer | Price | Format | Terms |
 |---|---|---|---|
 | **Free Trial** | Free | 45 min | One per athlete. Booked online via Calendly. |
-| **Drop-In** | $75 | 45 min, coached | Walk-in, subject to availability. Same rate as a single coached session. |
+| **Drop-In (coached)** | $75 | 45 min with Grant | Booked online from the live picker on `train.html`. |
+| **Drop-In (uncoached)** | $20 | 30 min open ice | Booked online. Shooters and solo reps, no coaching. |
 | **Single Coached Session** | $75 | 45 min | Pre-booked via Square. |
 | **Lab Pack 5** | $325 | 5 x 45 min | Pre-paid. 6-month expiry. Non-transferable. |
 | **Lab Pack 10** | $600 | 10 x 45 min | Pre-paid. 6-month expiry. Non-transferable. |
@@ -141,6 +142,15 @@ Square merchant of record: **Coquitlam Express Jr. A Hockey Club**.
 > leaves the site. The only places a raw calendly.com URL belongs are the two
 > widget `data-url` attributes and the "trouble with the calendar?" fallback
 > on `get-started.html`.
+
+> [!NOTE]
+> **Drop-in booking is live on `train.html`** under `#book-dropin`. The picker is
+> ours; the availability is TicketSnap's, fetched through
+> `netlify/functions/ticketsnap.js` because their API sends no CORS header.
+> Session types and prices are read from TicketSnap's own config at runtime, so
+> they cannot drift from what is actually charged — do not hard-code them.
+> Choosing a slot opens `booking-event/338` in a new tab to finish checkout,
+> and that page still requires a TicketSnap sign-in.
 
 ---
 

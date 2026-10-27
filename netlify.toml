@@ -2,6 +2,19 @@
   publish = "."
   functions = "netlify/functions"
 
+# Google review link. Kept here so it can be updated in one place if Google
+# ever changes the URL: every email, QR code and printed card points at /review.
+[[redirects]]
+  from = "/review"
+  to = "https://www.google.com/maps/place//data=!4m3!3m2!1s0x24c20bb29c6a93d9:0x6afe3bf137553f51!12e1?source=g.page.m._&laa=merchant-review-solicitation"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/reviews"
+  to = "/review"
+  status = 302
+
 [[redirects]]
   from = "/pack"
   to = "/claim-lab-pack.html"

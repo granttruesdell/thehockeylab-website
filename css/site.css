@@ -1555,3 +1555,16 @@ em { font-style: italic; }
 .bk-foot { margin-top:22px; padding-top:18px; border-top:1px solid var(--white-08);
            color:var(--white-35); font-size:.83rem; line-height:1.6; }
 @media (max-width:560px){ .bk { padding:20px; } .bk-date { min-width:0; font-size:15px; } }
+
+/* Nav squeeze: a seventh link (Mental Edge) pushes the Get Started button off
+   screen between the mobile breakpoint and roughly 1050px. Drop the social
+   icons first — they are decorative here and repeated in the footer — then
+   tighten the gap before anything is lost. */
+@media (max-width: 1050px) {
+  .nav-links { gap: 22px; }
+  .nav-links .nav-social { display: none; }
+}
+@media (max-width: 880px) {
+  .nav-links { gap: 15px; }
+  .nav-links a { letter-spacing: 1.6px; }
+}

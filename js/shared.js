@@ -8,6 +8,7 @@ const NAV_HTML = `
   <a href="index.html" class="nav-logo" onclick="if(window.location.pathname.endsWith('index.html')||window.location.pathname==='/'){window.scrollTo({top:0,behavior:'smooth'});return false;}">THE HOCKEY <span>LAB</span></a>
   <ul class="nav-links">
     <li><a href="train.html">Train With Us</a></li>
+    <li><a href="mental-edge.html">Mental Edge</a></li>
     <li><a href="method.html">The Method</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="faq.html">FAQ</a></li>
@@ -33,6 +34,7 @@ const NAV_HTML = `
   <ul class="nav-mobile-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="train.html">Train With Us</a></li>
+    <li><a href="mental-edge.html">Mental Edge</a></li>
     <li><a href="method.html">The Method</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="faq.html">FAQ</a></li>

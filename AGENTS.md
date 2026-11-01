@@ -137,7 +137,12 @@ Square merchant of record: **Coquitlam Express Jr. A Hockey Club**.
 > point at the Calendly 15-minute link instead. Do not link back to these pages
 > unless the backend is migrated off Manus.
 
-**Funnel rule:** the **free trial is the primary entry point** everywhere. The 15-min call is the *secondary* path for hesitant parents ("not sure yet?"). Do not swap their priority.
+**Funnel rule:** the homepage hero offers two distinct paths, and they must lead to
+different places. **Become a Member** (primary, gold) goes to `get-started.html#membership`;
+**Book a Free Trial** (secondary, outline) goes to `get-started.html#free-trial-booking`.
+Before Nov 2026 both buttons landed on the same page, which made the choice meaningless.
+Everywhere else the free trial remains the primary entry point, and the 15-min call stays
+the secondary path for hesitant parents.
 
 > [!IMPORTANT]
 > **Booking stays on our own domain.** Do not link CTAs directly to calendly.com.

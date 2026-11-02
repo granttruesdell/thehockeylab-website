@@ -18,8 +18,8 @@ This table is the source of truth. It supersedes any older pricing found in the 
 | **Single Coached Session** | $75 | 45 min | Pre-booked via Square. |
 | **Lab Pack 5** | $325 | 5 x 45 min | Pre-paid. 6-month expiry. Non-transferable. |
 | **Lab Pack 10** | $600 | 10 x 45 min | Pre-paid. 6-month expiry. Non-transferable. |
-| **Lab Membership** | $280/mo | 1 session/week | Month-to-month. Cancel anytime. |
-| **Lab Membership Plus** | $520/mo | 2 sessions/week | Month-to-month. Cancel anytime. |
+| **Lab Membership** | $249/mo | 1 session/week | Month-to-month. Cancel anytime. |
+| **Lab Membership Plus** | $499/mo | 2 sessions/week | Month-to-month. Cancel anytime. |
 | **Mental Edge** | $199 | 6-week cohort | Standalone. Remote or in-person. |
 
 > [!NOTE]
@@ -49,18 +49,21 @@ This table is the source of truth. It supersedes any older pricing found in the 
 
 ## 2. Payment Links (Square)
 
-| Item | Price | Square Link | Wired into site? |
+| Item | Price | Checkout link | Wired into site? |
 |---|---|---|---|
-| **Lab Membership** | $280/mo | https://square.link/u/PMTMJz5x | Yes — train, services, get-started |
-| **Lab Membership Plus** | $520/mo | https://square.link/u/n9L5Hmez | Yes — train, services, get-started |
+| **Lab Membership** | $249/mo | https://express.ticketsnap.ca/store/items/48 | Yes — train, services, get-started |
+| **Lab Membership Plus** | $499/mo | https://express.ticketsnap.ca/store/items/49 | Yes — train, services, get-started |
+| **Lab Membership Lite** | $99/mo | https://express.ticketsnap.ca/store/items/125 | **NOT ON THE SITE YET** |
 | **Lab Pack 5** | $325 | https://express.ticketsnap.ca/store/items/46 | Yes — train, services, get-started |
 | **Lab Pack 10** | $600 | https://express.ticketsnap.ca/store/items/47 | Yes — train, services, get-started |
-| **Mental Edge** | $199 | https://square.link/u/MG1hBCpz | Yes — mental-edge.html |
+| **Mental Edge** | $199 | https://express.ticketsnap.ca/store/items/135 | Yes — mental-edge.html |
+| **Drop-In coached / uncoached** | $75 / $20 | booking picker on `train.html#book-dropin` | Yes |
 | **Goalie Camp** | $449 | https://square.link/u/3PkwKqfX | Removed from the site Oct 2026 |
-| **Single Coached Session** | $75 | none | Not sold online |
 
-All prices above verified live against the Square checkout pages on 2026-08-24.
-Square merchant of record: **Coquitlam Express Jr. A Hockey Club**.
+All prices verified live against the TicketSnap store pages on 2026-11-02.
+Checkout has moved from Square to TicketSnap; merchant of record remains
+**Coquitlam Express Jr. A Hockey Club**. Only the retired `launch.html`,
+`launch-v2.html` and `early-bird.html` still carry Square links, deliberately.
 
 > [!IMPORTANT]
 > **Checkout is migrating from Square to TicketSnap.** Lab Pack 5 and Lab Pack 10
@@ -80,35 +83,16 @@ Square merchant of record: **Coquitlam Express Jr. A Hockey Club**.
 
 > [!WARNING]
 > `PMTMJz5x` was previously the $75 Single Coached Session link. It has been
-> repurposed as the $280 Lab Membership. Any older reference calling it a single
+> repurposed as the Lab Membership. Any older reference calling it a single
 > session is wrong. **There is currently no live Square link for the $75 single
 > session** — `book.html` still collects those as a form request.
 
-> [!WARNING]
-> **Memberships do not bill automatically.** Both Square membership links were
-> re-tested in Oct 2026 and still render as a one-time charge with no recurring
-> line, and TicketSnap's store cannot sell recurring products yet. Until one of
-> those changes, every membership payment covers a single month and Grant
-> arranges the next one personally.
->
-> Site copy was corrected to match in Oct 2026: CTAs read **"Start Your First
-> Month"**, "cancel anytime" was removed everywhere (there is no subscription to
-> cancel), and "month-to-month" became "one month at a time". Do not reinstate
-> "cancel anytime", "/mo" buy buttons, or any wording implying auto-renewal
-> until recurring billing genuinely works. "Month-to-month" as a description of
-> *commitment* is still accurate and may stay.
-
 > [!NOTE]
-> Both membership descriptions in Square promise **"unlimited drop-in open ice"**.
-> That benefit is not yet stated in the website copy for either tier.
-
-> [!IMPORTANT]
-> Camp flow: Square checkout (`3PkwKqfX`) → `camp-registration.html` (intake form).
-> The registration page's copy assumes payment already happened, so the Square link
-> must be configured to redirect there after a successful payment. The exact Square
-> product name is `Hockey Lab - Goalie Development Camp — Aug 31 - Sept 4`, and
-> `netlify/functions/square-webhook.js` matches on that string — if the product is
-> renamed in Square, update the webhook map too.
+> **Memberships are real subscriptions as of Nov 2026.** They moved from Square
+> one-time links to TicketSnap store items that bill monthly (`/ month` on the
+> product page, subscription checkout flow). The earlier stopgap wording
+> ("Start Your First Month", "no automatic billing", "one month at a time") was
+> reversed at the same time. "Month-to-month, cancel anytime" is accurate again.
 
 **Retired Square links — do not reuse:** `zSpDjD6b` (Young Cup Charter), `ydo7DV3c` (Charter).
 
@@ -227,7 +211,7 @@ Do not remove the `data-netlify` attribute or the hidden `form-name` input from 
 
 1. **Audit before replacing.** Always `grep` the whole repo for a price or term before changing it.
 2. **Pricing changes are synchronous** across `train.html`, `services.html`, `get-started.html`, `faq.html`, `index.html`.
-3. **Maintain the value ladder:** Drop-in > Pack 5 > Pack 10 = Membership Plus on a per-session basis.
+3. **Maintain the value ladder** on a per-session basis: Drop-in $75 > Pack 5 $65 > Pack 10 $60 > Memberships ~$58. Since the Nov 2026 repricing the memberships are the *best* per-session rate, which is deliberate — commitment should earn the lowest price.
 4. **Nav/footer changes go in `js/shared.js` only.**
 5. **Commit format:** conventional commits (`feat:`, `fix:`, `refactor:`, `chore:`).
 

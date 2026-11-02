@@ -86,8 +86,8 @@ const FOOTER_HTML = `
         <li><a href="train.html#dropin">Drop-In ($75)</a></li>
         <li><a href="train.html#packs">Lab Pack 5 ($325)</a></li>
         <li><a href="train.html#packs">Lab Pack 10 ($600)</a></li>
-        <li><a href="train.html#membership">Lab Membership ($280/mo)</a></li>
-        <li><a href="train.html#plus">Lab Membership Plus ($520/mo)</a></li>
+        <li><a href="train.html#membership">Lab Membership ($249/mo)</a></li>
+        <li><a href="train.html#plus">Lab Membership Plus ($499/mo)</a></li>
         <li><a href="mental-edge.html">Mental Edge ($199)</a></li>
       </ul>
     </div>

@@ -63,7 +63,7 @@ only when sessions genuinely pair up by default.
 |---|---|---|---|
 | **Lab Membership** | $249/mo | https://express.ticketsnap.ca/store/items/48 | Yes — train, services, get-started |
 | **Lab Membership Plus** | $499/mo | https://express.ticketsnap.ca/store/items/49 | Yes — train, services, get-started |
-| **Lab Membership Lite** | $99/mo | https://express.ticketsnap.ca/store/items/125 | **NOT ON THE SITE YET** |
+| **Lab Membership Lite** | $99/mo | https://express.ticketsnap.ca/store/items/125 | Yes &mdash; train (`#lite`), get-started |
 | **Lab Pack 5** | $325 | https://express.ticketsnap.ca/store/items/46 | Yes — train, services, get-started |
 | **Lab Pack 10** | $600 | https://express.ticketsnap.ca/store/items/47 | Yes — train, services, get-started |
 | **Mental Edge** | $199 | https://express.ticketsnap.ca/store/items/135 | Yes — mental-edge.html |
@@ -202,14 +202,14 @@ Do not remove the `data-netlify` attribute or the hidden `form-name` input from 
 
 ## 6. Key Files
 
-- `index.html` — homepage: hero, credential line, **Your Coach** band, value props, final CTA block
+- `index.html` — homepage: hero, facility mosaic, **Your Coach** band, value props, final CTA block
 
   > [!NOTE]
-  > **Grant's credentials stay in the first screen.** The AAA roles answer the
-  > only question a searching parent has, so they appear under the hero CTAs
-  > (`.hero-creds`) and again in the `#coach` band, which sits *above* the
-  > facility mosaic. On a phone the mosaic put eight photos of a room ahead of
-  > any proof of who runs it. Do not reorder these below the photos.
+  > **Homepage order is Grant's call, made Nov 2026 after reviewing it live.**
+  > The `#coach` band sits *after* the facility mosaic, and there is no
+  > credential line in the hero. An earlier version had credentials under the
+  > hero CTAs and the coach band above the photos; Grant removed the first and
+  > moved the second. Do not reinstate either without asking him.
   >
   > Never imply that training at the Lab improves a goalie's odds of AAA
   > selection. The roles are credentials, not a pathway, and implying otherwise

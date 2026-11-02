@@ -34,14 +34,16 @@ This table is the source of truth. It supersedes any older pricing found in the 
 
 **The brand tagline is "Where Goalies Are Built"** — used in the homepage hero, the page title, the OG title, and the global footer in `js/shared.js`. Goalies are the primary niche and the target roster for the facility. Do not revert this to "Where Athletes Are Built". Skaters are still welcome and that stays in the body copy, but it is never the headline.
 
-**Framing rule:** the core product is **semi-private** (max 2 athletes on ice). While the roster builds, many sessions will naturally run 1-on-1 — copy must still say semi-private so pairing never reads as a downgrade.
+**Framing rule (updated Nov 2026):** sessions run **1-on-1 with Coach Grant**, and
+there are **never more than two athletes on the ice**. Lead with 1-on-1, because that
+is what actually happens and it is what TicketSnap sells ("1-on-1 coached sessions").
+Keep the "never more than two" clause so pairing stays available as the roster grows
+without the copy becoming untrue.
 
-> [!WARNING]
-> **Gear is required for the free trial.** The site claimed "no gear required"
-> in sixteen places until Oct 2026, contradicting the Calendly confirmation the
-> same booking sends out ("Goalies: full gear"). Do not reintroduce it. The
-> accurate line is: goalies bring full gear, skaters bring stick, gloves, helmet
-> and skates, and loaner equipment may be available for U9 and under on request.
+Until Nov 2026 the site led with "semi-private" and carried a paragraph arguing that
+"semi-private isn't a downgrade". That undersold a 1-on-1 product and defended an
+objection no one had raised. Do not reinstate it. Semi-private becomes the headline
+only when sessions genuinely pair up by default.
 
 **Never use the term "lead magnet" in public-facing copy.**
 

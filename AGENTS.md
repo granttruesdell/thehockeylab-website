@@ -18,9 +18,17 @@ This table is the source of truth. It supersedes any older pricing found in the 
 | **Single Coached Session** | $75 | 45 min | Pre-booked via Square. |
 | **Lab Pack 5** | $325 | 5 x 45 min | Pre-paid. 6-month expiry. Non-transferable. |
 | **Lab Pack 10** | $600 | 10 x 45 min | Pre-paid. 6-month expiry. Non-transferable. |
-| **Lab Membership** | $249/mo | 1 session/week | Month-to-month. Cancel anytime. |
-| **Lab Membership Plus** | $499/mo | 2 sessions/week | Month-to-month. Cancel anytime. |
-| **Mental Edge** | $199 | 6-week cohort | Standalone. Remote or in-person. |
+| **Lab Membership** | $249/mo | 1 coached session/week | Month-to-month. Cancel anytime. **Includes unlimited uncoached open ice + the full Mental Edge program.** |
+| **Lab Membership Plus** | $499/mo | 2 coached sessions/week | Month-to-month. Cancel anytime. **Includes unlimited uncoached open ice + the full Mental Edge program.** |
+| **Lab Membership Lite** | $99/mo | Unlimited uncoached open ice | No coached sessions. **No Mental Edge.** Not on the site yet. |
+| **Mental Edge** | $199 | 6-week cohort | Standalone, for non-members. Remote or in-person. |
+
+> [!WARNING]
+> **Mental Edge is scoped to Lab Membership and Lab Plus only — never Lite.**
+> Confirmed by Grant Nov 2026. Any copy saying "every Lab Membership" or
+> "every membership" is wrong, because Lite is a membership and does not
+> include it. Always name the two tiers explicitly. Giving a $199 program
+> away with a $99/mo tier is the failure mode this guards against.
 
 > [!NOTE]
 > **The Goalie Development Camp ran Aug 31 - Sep 4, 2026 and is no longer sold.**
@@ -213,7 +221,23 @@ Do not remove the `data-netlify` attribute or the hidden `form-name` input from 
 
 1. **Audit before replacing.** Always `grep` the whole repo for a price or term before changing it.
 2. **Pricing changes are synchronous** across `train.html`, `services.html`, `get-started.html`, `faq.html`, `index.html`.
-3. **Maintain the value ladder** on a per-session basis: Drop-in $75 > Pack 5 $65 > Pack 10 $60 > Memberships ~$58. Since the Nov 2026 repricing the memberships are the *best* per-session rate, which is deliberate — commitment should earn the lowest price.
+3. **Maintain the value ladder**, and compute savings against the *current* drop-in price.
+   Drop-in $75 > Pack 5 $65 (13% off) > Pack 10 $60 (20% off) > Memberships $50&ndash;$62/session.
+
+   > [!WARNING]
+   > **Do not quote a single per-session figure for memberships.** A flat
+   > "~$58" was published for weeks. It came from annualizing (52 weeks / 12
+   > = 4.33 sessions a month), but in a real 4-session billing month $249
+   > works out to $62.25 and $499 to $62.38 — both *more* than Pack 10's $60.
+   > Memberships are sold on the guaranteed slot, continuous programming,
+   > unlimited open ice and Mental Edge, not on beating the pack rate.
+
+   > [!WARNING]
+   > **Recalculate every savings percentage whenever the drop-in price moves.**
+   > When drop-in went $70 &rarr; $75 the pack prices were updated but the
+   > percentages were not, so the site advertised 7%/14% when the real
+   > discounts were 13%/20% — under-selling the packs for weeks. The
+   > percentages live in `train.html` and `get-started.html`.
 4. **Nav/footer changes go in `js/shared.js` only.**
 5. **Commit format:** conventional commits (`feat:`, `fix:`, `refactor:`, `chore:`).
 
